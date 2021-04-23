@@ -1,0 +1,36 @@
+#+title: Archive
+#+options: author:nil date:nil
+#+html_head: <style> a { background-image: none !important; } </style>
+
+* Post processing :noexport:
+First we need to get all the posts
+
+#+name: collect-posts
+#+begin_src emacs-lisp
+(setq posts (nreverse (directory-files default-directory nil "[0-9]\\{4\\}-[0-9][0-9]-[0-9][0-9]-.+\\.org")))
+#+end_src
+
+Then we want to format the content for inclusion.
+
+#+name: post-formatting
+#+begin_src emacs-lisp
+(defun post-item (file)
+  (with-temp-buffer
+    (insert-file-contents file)
+    (setq keywords (org-collect-keywords '("TITLE" "DATE")))
+    (format "+ @@html:<a href='%s.html'>@@ *%s* %s@@html:</a>@@"
+            (file-name-base file)
+            (cadr (assoc "DATE" keywords))
+            (cadr (assoc "TITLE" keywords)))))
+#+end_src
+
+* Output :ignore:
+
+#+begin_src emacs-lisp :noweb yes :results raw :exports results
+<<collect-posts>>
+<<post-formatting>>
+(mapconcat
+ (lambda (p) (post-item p))
+ posts
+ "\n")
+#+end_src

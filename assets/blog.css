@@ -1,0 +1,54 @@
+header {
+    position: relative;
+    margin: 0 auto -2rem;
+}
+header > h4 > img {
+    height: 1.5em;
+    top: 0.25em;
+    opacity: 0.85;
+    position: relative;
+}
+@media (min-width: 1000px) {
+    header > h4 > img {
+        position: absolute;
+        top: -0.3em;
+        transform: translateX(-100%) translateX(-0.8rem);
+    }
+}
+header > h4 > a {
+    text-decoration: none;
+    color: inherit;
+}
+header > h4 > a + a {
+    float: right;
+}
+header > h4 > a > img {
+    position: relative;
+    top: -0.2em;
+    filter: invert(0.6);
+}
+header > h4 > a > img:hover {
+    opacity: 1;
+    filter: invert(38%) sepia(98%) saturate(1640%) hue-rotate(11deg) contrast(98%);
+}
+#postamble {
+    display: block;
+}
+footer {
+    display: block;
+    text-align: center;
+    font-size: 0.8rem;
+    padding: 1rem 0;
+    font-family: sans;
+    color: #666;
+}
+footer a {
+    color: #777;
+    font-weight: bold;
+    background-image: none !important;
+    opacity: 0.65;
+}
+#content {
+    min-height: calc(100vh - 10rem - 48px); /* because of the header */
+    margin: auto;
+}

@@ -1,0 +1,9 @@
+#+title: This Month in Org
+#+author: TEC
+#+date: 2021-04-24
+
+Source for a blog on Org developments. This is built with the following
+components:
++ Org, and Org's export backends for the file generation
++ My (Doom) Emacs config, for configuring the export to make it prettier
++ Org publish for orchestrating the process
