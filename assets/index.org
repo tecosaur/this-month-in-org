@@ -67,7 +67,7 @@ modified for inclusion.
 <<collect-posts>>
 <<post-formatting>>
 (concat
- (format-post (car posts))
+ (when posts (format-post (car posts)))
  "\n\n"
  (mapconcat (lambda (pf)
               (format-post pf 500))
