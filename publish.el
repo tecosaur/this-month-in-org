@@ -26,7 +26,7 @@
 
 (setq site-root "https://blog.tecosaur.com/tmio/")
 
-(let ((css-src (expand-file-name "misc/org-css/main.min.css" doom-private-dir))
+(let ((css-src (expand-file-name "misc/org-css/main.css" doom-private-dir))
       (css-dest (expand-file-name "assets/org-style.css" (file-name-directory load-file-name)))
       (js-src (expand-file-name "misc/org-css/main.js" doom-private-dir))
       (js-dest (expand-file-name "assets/org-style.js" (file-name-directory load-file-name))))
