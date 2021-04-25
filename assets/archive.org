@@ -7,7 +7,9 @@ First we need to get all the posts
 
 #+name: collect-posts
 #+begin_src emacs-lisp
-(setq posts (nreverse (directory-files default-directory nil "[0-9]\\{4\\}-[0-9][0-9]-[0-9][0-9]-.+\\.org")))
+(setq posts (nreverse
+             (directory-files (expand-file-name "../content" default-directory)
+                              t "[0-9]\\{4\\}-[0-9][0-9]-[0-9][0-9]-.+\\.org")))
 #+end_src
 
 Then we want to format the content for inclusion.

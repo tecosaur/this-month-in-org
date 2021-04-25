@@ -176,7 +176,7 @@ PROJECT is the current project."
 ;;; Putting it all together
 
 (let ((index-cache-file (expand-file-name "This Month in Org - Index.cache" org-publish-timestamp-directory))
-      (archive-cache-file (expand-file-name "This Month in Org - Archive.cache" org-publish-timestamp-directory))
+      (archive-cache-file (expand-file-name "This Month in Org - Archive,404.cache" org-publish-timestamp-directory))
       (rss-cache-file (expand-file-name "This Month in Org - RSS.cache" org-publish-timestamp-directory)))
   (when (file-exists-p index-cache-file)
     (warn! "Removing Index cache file to force regeneration")
@@ -192,14 +192,14 @@ PROJECT is the current project."
       `(("This Month in Org"
          :components ("This Month in Org - Pages"
                       "This Month in Org - Index"
-                      "This Month in Org - Archive"
+                      "This Month in Org - Archive,404"
                       "This Month in Org - Assets"
                       "This Month in Org - RSS"))
         ("This Month in Org - Pages"
          :base-directory "./content"
          :base-extension "org"
          :publishing-directory "./html"
-         :exclude ,(rx (or "rss.org" "index.org" "archive.org"))
+         :exclude "rss\\.org"
          :recursive t
          :publishing-function
          (org-html-publish-to-html
@@ -214,7 +214,7 @@ PROJECT is the current project."
          :html-postamble t
          :html-postamble-format (("en" ,html-postamble)))
         ("This Month in Org - Index"
-         :base-directory "./content"
+         :base-directory "./assets"
          :base-extension "org"
          :publishing-directory "./html"
          :exclude ".*"
@@ -228,12 +228,12 @@ PROJECT is the current project."
          :html-preamble nil
          :html-postamble t
          :html-postamble-format (("en" ,html-postamble)))
-        ("This Month in Org - Archive"
-         :base-directory "./content"
+        ("This Month in Org - Archive,404"
+         :base-directory "./assets"
          :base-extension "org"
          :publishing-directory "./html"
          :exclude ".*"
-         :include ("archive.org")
+         :include ("archive.org" "404.org")
          :recursive nil
          :publishing-function org-html-publish-to-html
          :headline-levels 4
