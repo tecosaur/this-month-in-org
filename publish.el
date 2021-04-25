@@ -279,6 +279,9 @@ PROJECT is the current project."
 (when force
   (warn! "Force flag set"))
 
+(when force
+  (delete-directory "./html" t))
+
 (org-publish "This Month in Org" force)
 
 (section! "Uploading")
