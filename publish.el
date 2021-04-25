@@ -16,13 +16,11 @@
   (require 'core-cli)
   (doom-initialize))
 
-(defadvice! undo-tree-no-err (orig-fn &rest args)
-  :around #'undo-tree-load-history
-  (ignore-errors (apply orig-fn args)))
-
-(section! "Initialising")
+(advice-add 'undo-tree-mode :override #'ignore) ; Undo tree is a pain
 
 ;;; General publishing setup
+
+(section! "Initialising")
 
 (require 'ox-publish)
 
