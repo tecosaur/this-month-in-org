@@ -48,6 +48,17 @@
         :alt "Org unicorn logo")
       org-id-locations-file (expand-file-name ".orgids"))
 
+;;; Remove generated .tex/.pdf files from the base directory
+
+(defadvice! org-latex-publish-to-pdf-rm-a (_plist filename _pub-dir)
+  :after #'org-latex-publish-to-pdf
+  (let ((tex-file (concat (file-name-sans-extension filename) ".tex"))
+        (pdf-file (concat (file-name-sans-extension filename) ".pdf")))
+    (when (file-exists-p tex-file)
+      (delete-file tex-file))
+    (when (file-exists-p pdf-file)
+      (delete-file pdf-file))))
+
 ;;; RSS
 
 (defun org-rss-publish-to-rss-only (plist filename pub-dir)
