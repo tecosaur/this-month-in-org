@@ -2,8 +2,14 @@
 #+author: TEC
 #+date: 2021-04-24
 
-Source for a blog on Org developments. This is built with the following
-components:
+A monthly blog on Org developments.
+
+* Components
+This is built with the following components:
 + Org, and Org's export backends for the file generation
 + My (Doom) Emacs config, for configuring the export to make it prettier
 + Org publish for orchestrating the process
+
+* Licensing
++ The content for the blog ([[file:content/][content/]] and [[file:assets/figures/][assets/figures/]]) is under the [[https://creativecommons.org/publicdomain/zero/1.0/][CC0]] license
++ The framework for the blog itself ([[file:publish.el][publish.el]] and [[file:assets/][assets/]]) is under the [[https://opensource.org/licenses/MIT][MIT]] license
