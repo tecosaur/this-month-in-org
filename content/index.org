@@ -3,7 +3,7 @@
 
 #+begin_export html
 <div class="page-header">
-  <h1 class="title"><i>This Month in Org</i>&ensp;<img src="org-icon.svg" style="height:1.2em;position:relative;top:0.25em"></h1>
+  <h1 class="title"><i>This Month in Org</i>&ensp;<a href="https://orgmode.org"><img src="org-icon.svg" style="height:1.2em;position:relative;top:0.25em"></h1></a>
   <a href="rss.xml" title="RSS Feed" type="application/rss+xml">
     <img src="rss.svg" alt="RSS icon">
   </a>

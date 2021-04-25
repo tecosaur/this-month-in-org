@@ -2,14 +2,14 @@ header {
     position: relative;
     margin: 0 auto -2rem;
 }
-header > h4 > img {
+header > h4 > a.orgicorn img {
     height: 1.5em;
     top: 0.25em;
     opacity: 0.85;
     position: relative;
 }
 @media (min-width: 1000px) {
-    header > h4 > img {
+    header > h4 > a.orgicorn img {
         position: absolute;
         top: -0.3em;
         transform: translateX(-100%) translateX(-0.8rem);
@@ -19,15 +19,15 @@ header > h4 > a {
     text-decoration: none;
     color: inherit;
 }
-header > h4 > a + a {
+header > h4 > a.rss {
     float: right;
 }
-header > h4 > a > img {
+header > h4 > a.rss img {
     position: relative;
     top: -0.2em;
     filter: invert(0.6);
 }
-header > h4 > a > img:hover {
+header > h4 > a.rss img:hover {
     opacity: 1;
     filter: invert(38%) sepia(98%) saturate(1640%) hue-rotate(11deg) contrast(98%);
 }
