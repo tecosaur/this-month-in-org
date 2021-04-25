@@ -90,6 +90,36 @@ Return output file name."
        (t (copy-file filename outfile t))))
     outfile))
 
+;;; Use ascii colours to make output more informative
+
+(defadvice! org-publish-needed-p-cleaner
+  (filename &optional pub-dir pub-func _true-pub-dir base-dir)
+  :override #'org-publish-needed-p
+  (let ((rtn (if (not org-publish-use-timestamps-flag) t
+               (org-publish-cache-file-needs-publishing
+                filename pub-dir pub-func base-dir))))
+    (if rtn (message "Publishing file \033[0;34m%s\033[0m using \033[0;36m%s\033[0m" (file-name-nondirectory filename) pub-func)
+      (when org-publish-list-skipped-files
+        (message "\033[0;90mSkipping unmodified file %s\033[0m" filename)))
+    rtn))
+
+(defadvice! org-publish-initialize-cache-message-a (project-name)
+  :before #'org-publish-initialize-cache
+  (message "\033[0;35m%s\033[0m" project-name))
+
+;;; Silence uninformative noise
+
+(advice-add 'org-toggle-pretty-entities :around #'doom-shut-up-a)
+(advice-add 'indent-region :around #'doom-shut-up-a)
+(advice-add 'rng-what-schema :around #'doom-shut-up-a)
+(advice-add 'ispell-init-process :around #'doom-shut-up-a)
+
+;;; No recentf please
+
+(recentf-mode -1)
+(advice-add 'recentf-mode :override #'ignore)
+(advice-add 'recentf-cleanup :override #'ignore)
+
 ;;; RSS
 
 (defun org-rss-publish-to-rss-only (plist filename pub-dir)
@@ -252,7 +282,7 @@ PROJECT is the current project."
          (cons (call-process "rsync" nil t nil "-avzL" "--delete"
                              (expand-file-name "html/" (file-name-directory load-file-name))
                              "imh:/home/thedia18/public_html/tecosaur.com/blog/tmio/")
-               (message (buffer-string))))))
+               (message "\033[0;33m%s\033[0m" (buffer-string))))))
   (if (= (car rsync-status) 0)
       (success! "Content uploaded")
     (error! "Content failed to upload, rsync exited with code %d" rsync-code)))
