@@ -1,6 +1,6 @@
 #+title: Archive
 #+options: author:nil date:nil
-#+html_head: <style> a { background-image: none !important; } </style>
+#+html_head: <style> a { background-size: 0 !important; } </style>
 
 * Post processing :noexport:
 First we need to get all the posts

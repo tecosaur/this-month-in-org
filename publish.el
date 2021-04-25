@@ -48,7 +48,8 @@
         :width "464"
         :height "512"
         :alt "Org unicorn logo")
-      org-id-locations-file (expand-file-name ".orgids"))
+      org-id-locations-file (expand-file-name ".orgids")
+      org-babel-default-inline-header-args '((:eval . "no") (:exports . "code")))
 
 ;;; Remove generated .tex/.pdf files from the base directory
 

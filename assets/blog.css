@@ -9,6 +9,9 @@ header > h4 > a.orgicorn img {
     position: relative;
 }
 @media (min-width: 1000px) {
+    #content {
+        margin: auto;
+    }
     header > h4 > a.orgicorn img {
         position: absolute;
         top: -0.3em;
@@ -50,5 +53,4 @@ footer a {
 }
 #content {
     min-height: calc(100vh - 10rem - 48px); /* because of the header */
-    margin: auto;
 }
