@@ -127,7 +127,7 @@ PROJECT is the current project."
          :base-directory "./content"
          :base-extension "org"
          :publishing-directory "./html"
-         :exclude ,(regexp-opt '("rss.org" "index.org" "archive.org" "404.org"))
+         :exclude ,(rx (or "rss.org" "index.org" "archive.org" "404.org"))
          :recursive t
          :publishing-function
          (org-html-publish-to-html
@@ -182,7 +182,7 @@ PROJECT is the current project."
          :base-directory "./content"
          :base-extension "org"
          :recursive nil
-         :exclude ,(regexp-opt '("rss.org" "index.org" "archive.org" "404.org"))
+         :exclude ,(rx (or "rss.org" "index.org" "archive.org" "404.org" (regexp "DRAFT.*\\.org")))
          :publishing-function org-rss-publish-to-rss-only
          :publishing-directory "./html"
          :rss-extension "xml"
