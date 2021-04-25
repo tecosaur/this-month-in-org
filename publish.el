@@ -26,10 +26,14 @@
 
 (setq site-root "https://blog.tecosaur.com/tmio/")
 
-(copy-file (expand-file-name "misc/org-css/main.min.css" doom-private-dir)
-           (expand-file-name "assets/org-style.css" (file-name-directory load-file-name)) t)
-(copy-file (expand-file-name "misc/org-css/main.js" doom-private-dir)
-           (expand-file-name "assets/org-style.js" (file-name-directory load-file-name)) t)
+(let ((css-src (expand-file-name "misc/org-css/main.min.css" doom-private-dir))
+      (css-dest (expand-file-name "assets/org-style.css" (file-name-directory load-file-name)))
+      (js-src (expand-file-name "misc/org-css/main.js" doom-private-dir))
+      (js-dest (expand-file-name "assets/org-style.js" (file-name-directory load-file-name))))
+  (when (file-newer-than-file-p css-src css-dest)
+    (copy-file css-src css-dest t))
+  (when (file-newer-than-file-p js-src js-dest)
+    (copy-file js-src js-dest t)))
 
 (defun file-contents (file)
   (with-temp-buffer
