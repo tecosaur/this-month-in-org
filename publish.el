@@ -59,6 +59,39 @@
     (when (file-exists-p pdf-file)
       (delete-file pdf-file))))
 
+;;; Compress certain files
+
+(defun org-publish-attachment-optimised (_plist filename pub-dir)
+  "Publish a file with no change other than maybe optimisation.
+
+FILENAME is the filename of the Org file to be published.  PLIST
+is the property list for the given project.  PUB-DIR is the
+publishing directory.
+
+Return output file name."
+  (unless (file-directory-p pub-dir)
+    (make-directory pub-dir t))
+  (let ((ext (file-name-extension filename))
+        (outfile (expand-file-name (file-name-nondirectory filename) pub-dir))
+        (figure? (string= "figure" (file-name-nondirectory (directory-file-name (file-name-directory filename))))))
+    (unless (file-equal-p (expand-file-name (file-name-directory filename))
+                          (file-name-as-directory (expand-file-name pub-dir)))
+      (cond
+       ((and figure? (string= "png" ext)
+             (executable-find "pngquant"))
+        (message "optimising %s with pngquant" (file-name-nondirectory filename))
+        (call-process "pngquant" nil nil nil "--output" outfile filename))
+       ((and figure? (string= "svg" ext)
+             (executable-find "svgo"))
+        (message "optimising %s with svgo" (file-name-nondirectory filename))
+        (call-process "svgo" nil nil nil "-o" outfile filename))
+       ((and (string= "css" ext)
+             (executable-find "csso"))
+        (message "optimising %s with csso" (file-name-nondirectory filename))
+        (call-process "csso" nil nil nil "-i" filename "-o" outfile))
+       (t (copy-file filename outfile t))))
+    outfile))
+
 ;;; RSS
 
 (defun org-rss-publish-to-rss-only (plist filename pub-dir)
@@ -188,7 +221,7 @@ PROJECT is the current project."
          :exclude "\\.html$" ; template files
          :publishing-directory "./html"
          :recursive t
-         :publishing-function org-publish-attachment)
+         :publishing-function org-publish-attachment-optimised)
         ("This Month in Org - RSS"
          :base-directory "./content"
          :base-extension "org"
