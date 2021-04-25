@@ -1,1 +1,5 @@
 *.org linguist-detectable=true
+assets/figures/*.png filter=lfs diff=lfs merge=lfs -text
+assets/figures/*.jpg filter=lfs diff=lfs merge=lfs -text
+assets/figures/*.gif filter=lfs diff=lfs merge=lfs -text
+assets/figures/*.svg filter=lfs diff=lfs merge=lfs -text
