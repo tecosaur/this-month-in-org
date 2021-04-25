@@ -199,7 +199,7 @@ PROJECT is the current project."
          :base-directory "./content"
          :base-extension "org"
          :publishing-directory "./html"
-         :exclude ,(rx (or "rss.org" "index.org" "archive.org" "404.org"))
+         :exclude ,(rx (or "rss.org" "index.org" "archive.org"))
          :recursive t
          :publishing-function
          (org-html-publish-to-html
