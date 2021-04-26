@@ -135,7 +135,8 @@ Return output file name."
   "Publish RSS with PLIST, only when FILENAME is 'rss.org'.
 PUB-DIR is when the output will be placed."
   (when (equal "rss.org" (file-name-nondirectory filename))
-    (org-rss-publish-to-rss plist filename pub-dir)
+    (let ((org-fancy-html-export-mode nil))
+      (org-rss-publish-to-rss plist filename pub-dir))
     (org-fix-rss (concat pub-dir (file-name-base filename) ".xml"))))
 
 (defun format-rss-feed (title list)
@@ -161,6 +162,12 @@ PROJECT is the current project."
              (org-set-property "RSS_PERMALINK" link)
              (org-set-property "PUBDATE" date)
              (insert-file-contents file)
+             (goto-char (point-min))
+             (while (re-search-forward "\\[fn:\\([^]]+\\)\\]" nil t)
+               (replace-match "[fn\\1]")) ; footnotes are problematic
+             (goto-char (point-min))
+             (while (re-search-forward "\\[\\[file:\\(figures/.+?\\)\\]\\]" nil t)
+               (replace-match (concat "[[" site-root "\\1]]")))
              (buffer-string))))
         ((eq style 'tree)
          ;; Return only last subdir.
@@ -265,7 +272,7 @@ PROJECT is the current project."
          :base-directory "./content"
          :base-extension "org"
          :recursive nil
-         :exclude ,(rx (or "rss.org" "index.org" "archive.org" "404.org" (regexp "DRAFT.*\\.org")))
+         :exclude ,(rx (or "rss.org" (regexp "DRAFT.*\\.org")))
          :publishing-function org-rss-publish-to-rss-only
          :publishing-directory "./html"
          :rss-extension "xml"
