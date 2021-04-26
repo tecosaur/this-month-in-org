@@ -17,7 +17,7 @@ digest developments, and each month regurgitate what I consider the highlights,
 along with anything else Org-related I consider nifty.
 
 #+begin_quote
-Posts are published in =.html=, =.org=, =.txt=, and =.pdf= forms --- because why not 😛
+Posts are published in =.html=, =.org=, =.org.html=, =.txt=, and =.pdf= forms --- because why not 😛
 #+end_quote
 
 * Post processing :noexport:

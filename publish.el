@@ -129,6 +129,22 @@ Return output file name."
 (advice-add 'recentf-mode :override #'ignore)
 (advice-add 'recentf-cleanup :override #'ignore)
 
+;;; Htmlized file publishing
+
+(autoload #'highlight-numbers--turn-on "highlight-numbers")
+
+(defun org-publish-to-htmlized (_plist filename pub-dir)
+  "Publish a file with no change other than maybe optimisation.
+
+FILENAME is the filename of the Org file to be published.  PLIST
+is the property list for the given project.  PUB-DIR is the
+publishing directory.
+
+Return output file name."
+  (unless (file-directory-p pub-dir)
+    (make-directory pub-dir t))
+  (htmlize-file filename (expand-file-name (concat (file-name-base filename) ".org.html") pub-dir)))
+
 ;;; RSS
 
 (defun org-rss-publish-to-rss-only (plist filename pub-dir)
@@ -222,6 +238,7 @@ PROJECT is the current project."
          :publishing-function
          (org-html-publish-to-html
           org-org-publish-to-org
+          org-publish-to-htmlized
           org-ascii-publish-to-utf8
           org-latex-publish-to-pdf)
          :headline-levels 4
