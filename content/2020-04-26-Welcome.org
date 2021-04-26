@@ -1,0 +1,151 @@
+#+title: Welcome
+#+author: TEC
+#+date: 2021-04-26
+
+* Introduction
+
+Org is an absolutely marvellous project. However, a quick glance at
+https://orgmode.org can lead one to think "so... it's an Emacs version of
+Markdown? What's the big deal?". While it's easy to understand how someone might
+think that at first, that impression misses two crucial points:
++ While for simple constructs (*bold*, /italic/, headlines, etc.) the syntax is very
+  much analogous[fn:1], Org scales to much more powerful forms that are a
+  headache to replicate in Markdown
++ Org mode was developed in Emacs, for Emacs. The integrations for Org put /every
+  other plaintext markup editing experience to shame/. *This is a bold statement*,
+  and I stand by it.
+
+This blog exists because of the second point. The world does not stand still,
+while new Markdown editors et al. are [[https://github.com/marktext/marktext][popping]] [[https://github.com/ApostropheEditor/Apostrophe][up]] [[https://remarkableapp.github.io/linux.html][left]], [[https://github.com/brrd/Abricotine][right]], [[https://github.com/DaveJarvis/keenwrite][and]] [[https://znote.io/][centre]] --- Org
+has not languished. The [[https://orgmode.org/list/][mailing list]] is active, as is development, and the
+number of things you can do with Org is only increasing.
+
+However, if one doesn't want to receive tens to hundreds of emails a week, it
+can be all too easy to miss out on exciting developments[fn:3] 😢. So, to help keep
+you abreast of the latest in Org, I'm starting a blog ✨. Like all good things,
+it is [[https://github.com/tecosaur/this-month-in-org/][written entirely in Org]].
+
+Inspired by [[https://pointieststick.com/category/this-week-in-kde/][This Week in KDE]] I'm thrilled to announce /This Month in Org/ (we have
+slightly less going on than a Desktop Environment[fn:2]). Each month I shall
+endeavour to present the highlights of Org development.
+
+Who knows, perhaps you might see something you'd like to help out with or
+suggest improvements too. We'd love you to [[https://orgmode.org/community.html][get in touch]].
+
+* Catching up on lost time --- a year in review
+
+I joined the Org mailing list in May last year, it's almost been a year since
+then and we've seen the release of Org 9.4, and its inclusion in Emacs 27.
+
+I'm not going to do 12 months of work for just this one post, but I'd like to
+give you a sample of what's changed over the last year.
+
+** A new discussion tracker --- [[https://updates.orgmode.org/][updates.orgmode.org]]
+
+Mid last year Bastien rolled out tracker for
++ Upcoming changes
++ Help requests
++ Bugs
++ Patches
+
+This should help ensure nothing slips through the cracks of the ML.
+
+#+caption: A screenshot of [[https://updates.orgmode.org/][updates.orgmode.org]]
+#+attr_html: :class invertible
+[[file:figures/screenshot-of-updates-orgmode-org.png]]
+
+It's very slick, and Bastien built a [[https://github.com/bzg/woof][mailbox monitor]] just for it --- so be sure
+to check it out. This should make it easier to see what needs doing. If you feel
+inclined to help out with Org check out the /Help requests/ section in particular.
+
+You can also get RSS feeds for individual sections, or get the information as
+JSON to work into your own projects, for example [[https://tecosaur.github.io/emacs-config/config.html#development][an elisp function to fetch and
+apply patches]].
+
+** Inline display of remote images
+
+Ever gazed forlornly at a link like
+=[[https://github.com/larsmagne/meme/raw/master/images/Grandma-Finds-The-Internet.jpg]]=
+wishing you could see the image?
+
+Wish no more! Thanks to Jack Kamm you can now look upon remote images in all
+their glory!
+
+#+caption: Org mode discovers the internet
+#+attr_html: :style height:16em
+#+attr_latex: :width 0.4\linewidth
+[[https://github.com/larsmagne/meme/raw/master/images/Grandma-Finds-The-Internet.jpg]]
+
+To get this working, simply set src_elisp{org-display-remote-inline-images} to
+src_elisp{'download} or src_elisp{'cache}.
+
+** Use ~org-edit-special~ (=C-c '=) with LaTeX fragments
+
+It's great how in Org you can jump into a LaTeX-mode minibuffer for LaTeX
+environments, but why leave inline LaTeX fragments out? We'll, they're now in.
+
+#+caption: Running ~org-edit-special~ on an inline LaTeX fragment
+#+attr_html: :class invertible
+[[file:figures/org-edit-special-latex-fragment.png]]
+
+** Control heading display on startup
+
+=org-num-mode= is great for when you're keeping an eye on section numbers, but
+it's not fun to find yourself enabling it every time you open a file where you
+want it. With the new option =#+startup: num= by Bastien, you can set and forget
+at last.
+
+#+caption: Opening a buffer with the new =num= and =show2levels= startup options
+#+attr_html: :class invertible
+[[file:figures/org-startup-num-and-levels.png]]
+
+Should you want to set the number of levels you see on opening a file, there's
+now an option for that too. Gustav Wikström has added /another/ new option
+=#+startup: show<n>levels= (where =<n>= is between 2 and 5, inclusive).
+/NB: This is part of the upcoming 9.5 release/
+
+** Set permissions of tangled files
+
+Are you particular about your file permissions? If so you'll likely like John
+Herrlin's new source block header argument =:file-mode= pertinent. The easiest way
+to set a permission is with an [[https://docs.nersc.gov/filesystems/unix-file-permissions/][octal value]], like so:
+#+begin_src org
+,#+begin_src shell :results file :file script.sh :file-mode (identity #o755)
+echo "#!/bin/bash"
+echo "echo Hello World"
+,#+end_src
+#+end_src
+
+** A collection of improvements to source block header arguments
+
+These's been a whole set of these, so I'll just list them off.
++ python, improved =:return=  :: Now works with sessions and the =:epilogue=
+  argument (Jack Kamm)
++ Java, new argument =:cmdargs= :: Add some command line arguments to be passed to
+  ~java~ (Jarmo Hurri)
++ C/C++, non-system headers with =:includes= :: values that don't start with =<=
+  will now be formatted as double-quoted src_C{#include} statements (Brandon
+  Guttersohn)
++ Screen, new argument =:screenrc= :: For those of you who still haven't moved to
+  =tmux= (Kenneth D. Mankoff)
+
+** A seven year old bug was fixed
+
+In 2013 [[https://lists.gnu.org/archive/html/emacs-orgmode/2013-08/msg00072.html][it was reported]] that an infinite loop could be triggered in
+~org-agenda-show-new-time~. At long last, this has been fixed by Bastien.
+
+* Footnotes
+
+[fn:1] Aside from somewhat more [[https://orgmode.org/quickstart.html][intuitive syntax]] for emphasis and simple
+structures, Org also has the advantage of not having [[https://github.com/commonmark/commonmark-spec/wiki/markdown-flavors][40 functionally distinct
+specifications]]. There is only one Org. \\
+NB: If you attempt to be pendantic you may say that there are multiple Orgs
+because, for example, GitHub uses [[https://github.com/wallyqs/org-ruby][org-ruby]]. However, that's just an incomplete
+implementation --- not a [[https://orgmode.org/worg/dev/org-syntax.html][specification]].
+
+[fn:2] That said, with /interesting/ projects like the [[https://github.com/manateelazycat/emacs-application-framework][Emacs Application
+Framework]] and the [[https://github.com/ch11ng/exwm][Emacs X Window Manager]], one could argue that Org is
+(sometimes) a major component of a desktop environment...
+
+[fn:3] There is [[https://code.orgmode.org/bzg/org-mode/src/master/etc/ORG-NEWS][ORG-NEWS]], but do you /really/ check that? Besides, it doesn't even
+have pictures.
