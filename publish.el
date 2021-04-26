@@ -141,7 +141,7 @@ publishing directory.
 Return output file name."
   (unless (file-directory-p pub-dir)
     (make-directory pub-dir t))
-  (htmlize-file filename (expand-file-name (concat (file-name-base filename) ".org.html") pub-dir)))
+  (call-process (expand-file-name "./htmlize-file.el") nil nil nil filename (expand-file-name (concat (file-name-base filename) ".org.html") pub-dir)))
 
 ;;; RSS
 
