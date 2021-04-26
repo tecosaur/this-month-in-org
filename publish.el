@@ -51,6 +51,10 @@
       org-id-locations-file (expand-file-name ".orgids")
       org-babel-default-inline-header-args '((:eval . "no") (:exports . "code")))
 
+;;; For some reason emoji detection doesn't seem to work, so let's just turn it on
+
+(setcar (rassoc 'emoji org-latex-conditional-features) t)
+
 ;;; Remove generated .tex/.pdf files from the base directory
 
 (defadvice! org-latex-publish-to-pdf-rm-a (_plist filename _pub-dir)
@@ -178,7 +182,7 @@ PROJECT is the current project."
 (setq html-preamble (file-contents "assets/header.html")
       html-postamble (file-contents "assets/footer.html"))
 
-;;; Putting it all together
+;;; Some cache files are unwanted
 
 (let ((index-cache-file (expand-file-name "This Month in Org - Index.cache" org-publish-timestamp-directory))
       (archive-cache-file (expand-file-name "This Month in Org - Archive,404.cache" org-publish-timestamp-directory))
@@ -192,6 +196,8 @@ PROJECT is the current project."
   (when (file-exists-p rss-cache-file)
     (warn! "Removing problematic RSS cache file")
     (delete-file rss-cache-file)))
+
+;;; Putting it all together
 
 (setq org-publish-project-alist
       `(("This Month in Org"
