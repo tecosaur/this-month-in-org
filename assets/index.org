@@ -1,4 +1,5 @@
 #+title: This Month in Org
+#+subtitle: Highlights from the last month of Org development
 #+options: title:nil
 
 #+begin_export html
