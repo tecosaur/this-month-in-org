@@ -131,8 +131,6 @@ Return output file name."
 
 ;;; Htmlized file publishing
 
-(autoload #'highlight-numbers--turn-on "highlight-numbers")
-
 (defun org-publish-to-htmlized (_plist filename pub-dir)
   "Publish a file with no change other than maybe optimisation.
 
