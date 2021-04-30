@@ -1,0 +1,38 @@
+div.image-slider {
+    position:relative;
+    display: inline-block;
+    line-height: 0;
+    margin: 16px 0;
+    filter: invert(1%) sepia(4%);
+}
+#theme-switch:checked ~ #page div.image-slider.invertible {
+    filter: invert(90%) hue-rotate(180deg) sepia(1%)
+}
+div.image-slider > div {
+    position: absolute;
+    top: 0; bottom: 0; left: 0;
+    width:50%;
+    max-width: 100%;
+    overflow: hidden;
+    resize: horizontal;
+    border-right: 1px solid #9993;
+}
+div.image-slider > div:active {
+    width:25px;
+}
+div.image-slider > div:before {
+    content: '';
+    position: absolute;
+    right: 0; bottom: 0;
+    width: 13px; height: 13px;
+    background: linear-gradient(-45deg, #aaaa 50%, transparent 0);
+    background-clip: content-box;
+    cursor: ew-resize;
+    -webkit-filter: drop-shadow(0 0 2px black);
+    filter: drop-shadow(0 0 2px black);
+}
+div.image-slider img {
+    user-select: none;
+    max-width: min(640px, 75vw);
+    filter: none;
+}
