@@ -60,3 +60,16 @@ footer a {
 #theme-switch:checked ~ #page .doom-one {
     filter: invert(91.5%) hue-rotate(180deg) sepia(1%)
 }
+.underline { /* repurpose to show off contributors */
+    color: var(--text-medium);
+    border-radius: .8em;
+    padding: .1em .4em .2em;
+    font-size: .9em;
+    font-family: "Open Sans",sans;
+}
+.underline:last-child {
+    float: right;
+    white-space: break-spaces;
+    line-height: 1;
+}
+}
