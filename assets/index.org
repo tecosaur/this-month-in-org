@@ -59,6 +59,10 @@ modified for inclusion.
       (org-backward-element)
       (delete-region (point) (point-max))
       (insert (format "[[file:%s.html][Read more...]]" (file-name-base file))))
+    ;; Remove undefined footnotes
+    (goto-char (point-min))
+    (while (re-search-forward "\\[fn:\\(.+?\\)\\]" nil t)
+      (replace-match "^{[\\1]}"))
     (buffer-string)))
 #+end_src
 
