@@ -54,3 +54,9 @@ footer a {
 #content {
     min-height: calc(100vh - 10rem - 48px); /* because of the header */
 }
+.doom-one { /* make doom-one screenshots match the blog */
+    filter: invert(5%) sepia(3%);
+}
+#theme-switch:checked ~ #page .doom-one {
+    filter: invert(91.5%) hue-rotate(180deg) sepia(1%)
+}
