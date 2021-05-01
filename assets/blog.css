@@ -63,7 +63,8 @@ footer a {
 .underline { /* repurpose to show off contributors */
     color: var(--text-medium);
     border-radius: .8em;
-    padding: .1em .4em .2em;
+    padding: .5em .4em .2em;
+    height: 0;
     font-size: .9em;
     font-family: "Open Sans",sans;
 }
