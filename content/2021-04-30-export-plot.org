@@ -32,10 +32,10 @@ Test patches, improve documentation, translate pages, confirm bugs, feedback on 
 
 [[https://www.doi.org/][Digital Document Identifiers]] (DOIs) are an ISO-standardised way of robustly
 linking to a particular online resource. You'll see these a lot with academic
-papers for example.
+papers, for example.
 
 Thanks to Nicolas Goaziou, when exporting to HTML, LaTeX, Ascii, and texinfo
-they're turned into links, for example [[doi:10.18637/jss.v046.i03]] becomes:
+DOIs are turned into links, for example [[doi:10.18637/jss.v046.i03]] becomes:
 
 #+begin_src html
 <a href="https://doi.org/10.18637/jss.v046.i03">doi:10.18637/jss.v046.i03</a>
@@ -77,15 +77,15 @@ Other than a few minor tweaks and bug fixes, that's it for April. However, over
 the last year there have been some rather nice improvements that I didn't
 mention in the initial blog post, so let's go over them now.
 
-+ The inbuilt plot types have been abstracted out into a new structure: ~org-plot/preset-plot-types~
++ The inbuilt plot types have been abstracted out into a new structure: ~org-plot/preset-plot-types~.
   This means if you have a gnuplot template you find yourself using a lot, you
   can now turn it into a custom plot type 😀 _TEC_
 + A new plot type has been added: a radar / spider plot _TEC_
 + Some new plot keywords have arrived too _TEC_
   - =transpose:= (=trans:=) --- The plot internally does something very similar to =M-x
-    org-table-transpose-table-at-point= before using the table data
+    org-table-transpose-table-at-point= before using the table data.
   - =ymin:= (=min:=), =ymax:= (=max:=), =xmin:=, =xmax:= ---  Four new keywords (and two
-    aliases) to set the bounds of a plot. Partially supported by the default types
+    aliases) to set the bounds of a plot. Partially supported by the default types.
   - =ticks:= --- The number of axis ticks to use along the axis. A good value is
     guessed based on a prime factorisation based heuristic (welcome to
     improvements).
@@ -94,6 +94,28 @@ mention in the initial blog post, so let's go over them now.
     ~org-plot/gnuplot-script-preamble~ open up new ways to tweak plots to your
     liking. For example, [[https://tecosaur.github.io/emacs-config/config.html#org-plot][I use this]] to set line and background colours based on
     my current Emacs theme.
+
+If you haven't used Org plot before, I think it's a great way to quickly
+visualise data in a table. To get started, all you need is a =#+plot= line above
+the table, with a certain =type:= specified (e.g. =type:2d= for a 2d line plot).
+Then, if you can specify a certain columns as the independent variable
+(x-values) with =ind:=, and list dependant variables (y-values) with =deps:=.
+
+You can see these parameters set in the figure above,
+#+begin_src org
+,#+plot: type:2d ind:1 deps:(2 3 4)
+| Xval | Red | Blue | Green |
+|------+-----+------+-------|
+|    0 |   1 |    2 |     3 |
+|    1 |   2 |    3 |     4 |
+#+end_src
+
+This will call gnuplot and a window showing the plot will appear. If you want to
+save the plot to a file, just use the =file:= parameter, e.g.
+=file:"demoplot.svg"= (note the quotes).
+
+That should get you started, you can see [[https://orgmode.org/manual/Org-Plot.html][the manual]] for the full list of
+available keywords and find more examples of usage [[https://orgmode.org/worg/org-tutorials/org-plot.html][on worg]].
 
 * Tweaked ~ox-html~ style
 
@@ -115,8 +137,8 @@ centred in the page --- much better 🙂. _TEC_
 </figure>
 #+end_export
 
-Also, the HTML export now has,
-+ a slightly nicer source block style
+Also, the HTML export now:
++ has a slightly nicer source block style
 + labels =authinfo= blocks
 
 * A collection of export improvements
@@ -136,7 +158,7 @@ Also, the HTML export now has,
 * Miscellaneous changes
 
 + ~org-link-descriptive~ is now buffer-local, to avoid interfering with other buffers _Kyle Meyer_
-+ Org-colview no longer chokes when a special property is updated _Nicolas Goaziou_
++ =org-colview= no longer chokes when a special property is updated _Nicolas Goaziou_
 + Now coderefs have their whitespace cleaned up during tangling _Tom Gillespie_
 + Allow for multiple =%(expressions)= in ~org-agenda-prefix-format~ _Ihor Radchenko_
 + Code cleanup and refactoring _Nicolas Savage, Aaron L. Zeng, Nicolas Goaziou,
