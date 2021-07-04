@@ -19,11 +19,12 @@ Then we want to format the content for inclusion.
 (defun post-item (file)
   (with-temp-buffer
     (insert-file-contents file)
-    (setq keywords (org-collect-keywords '("TITLE" "DATE")))
+    (setq keywords (org-collect-keywords '("TITLE" "SUBTITLE" "DATE")))
     (format "+ @@html:<a href='%s.html'>@@ *%s* %s@@html:</a>@@"
             (file-name-base file)
             (cadr (assoc "DATE" keywords))
-            (cadr (assoc "TITLE" keywords)))))
+            (or (cadr (assoc "SUBTITLE" keywords))
+                (cadr (assoc "TITLE" keywords))))))
 #+end_src
 
 * Output :ignore:
