@@ -1,5 +1,5 @@
 #+title: April 2021
-#+subtitle: Export & plot in style
+#+subtitle: Export /&/ plot in style
 #+author: TEC
 #+date: 2021-04-30
 #+html_head: <link rel="stylesheet" href="img-slider.css">
