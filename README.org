@@ -2,6 +2,9 @@
 #+author: TEC
 #+date: 2021-04-24
 
+#+html: <a href="https://orgmode.org"><img src="https://img.shields.io/badge/Made_with_Org-77aa99?style=flat-square&logo=org&logoColor=587e72"/></a>
+#+html: <a href="https://www.buymeacoffee.com/tecosaur"><img src="https://img.shields.io/badge/Buy_me_a_coffee-FFDD00?style=flat-square&logo=buy-me-a-coffee&logoColor=black"></a>
+
 A monthly blog on Org developments.
 
 * Components
