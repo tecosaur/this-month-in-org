@@ -73,4 +73,17 @@ footer a {
     white-space: break-spaces;
     line-height: 1;
 }
+
+/* click on a figure to enlarge it */
+figure:active {
+  position: relative;
+  left: min(0px, 720px - 60vw);
+  width: 80vw;
+  transition-duration: 150ms;
+}
+figure {
+  transition-property: left width;
+  left: 0;
+  width: 90%;
+  transition-duration: 0ms;
 }
