@@ -1,6 +1,7 @@
 #+title: June 2021
-#+date: 2021-06-34
 #+subtitle: A relaxed month
+#+author: TEC
+#+date: 2021-06-34
 
 The previous two months have been pretty good for Org development --- with many
 bug fixes and feature improvements. This month has been substantially slower
@@ -162,7 +163,7 @@ each =minted= environment.
 ** Custom environments
 
 Org has a number of [[https://orgmode.org/manual/Blocks.html][blocks]] which are treated specially, like =#+begin_src= for
-source code, and =#+begin_centre= for centered text. When exporting this same
+source code, and =#+begin_centre= for centred text. When exporting this same
 syntax allows you to wrap Org content in any LaTeX environments (as long as it
 doesn't match one of Org's recognised environments).
 

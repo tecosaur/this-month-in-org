@@ -17,7 +17,7 @@ property, i.e.
 ,#+property: header-args:lang :session foo
 #+end_src
 
-Along with the asyncronous process communication in =ob.comint.el=, we have an
+Along with the asynchronous process communication in =ob.comint.el=, we have an
 implementation for *Python*, and we should see support for *R* and *Ruby* in the
 not-too-distant future 😍.
 
@@ -68,7 +68,7 @@ isn't that neat!
 Now you'll find the =@@= parts using the comment face and the =format:= bit using the
 Org tag's face. It's a small change, but it makes it easier to see what's going on.
 
-No mode-specific syntax hightlighting yet, but that may come in the future 😉.
+No mode-specific syntax highlighting yet, but that may come in the future 😉.
 
 * =#+plot= your =#+results=
 
