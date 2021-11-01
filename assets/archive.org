@@ -12,6 +12,43 @@ First we need to get all the posts
                               t "^[0-9]\\{4\\}-[0-9][0-9]-[0-9][0-9]-.+\\.org")))
 #+end_src
 
+Word counting would be helpful, but ~count-words~ includes parts of the document
+we don't want to count, like code blocks. To help us count words accurately, we
+can just create a derived export backend which discards elements we don't care
+about.
+#+name: count-words-org
+#+begin_src emacs-lisp
+(defun org-org-content (_blob content _info) (or content ""))
+
+(org-export-define-derived-backend 'org-for-word-counting 'org
+  :translate-alist
+  `((babel-call . ignore)
+    (bold . org-org-content)
+    (code . org-org-content)
+    (export-block . ignore)
+    (headline . org-org-content)
+    (horizontal-rule . ignore)
+    (italic . org-org-content)
+    (keyword . ignore)
+    (latex-environment . ignore)
+    (latex-fragment . ignore)
+    (line-break . ignore)
+    (link . org-org-content)
+    (src-block . ignore)
+    (underline . org-org-content)
+    (verbatim . org-org-content))
+  :options-alist
+  '((:time-stamp-file nil "timestamp" nil)))
+
+(defun count-words-org ()
+  (let (content words)
+    (setq content (org-export-as 'org-for-word-counting))
+    (with-temp-buffer
+      (insert content)
+      (setq words (count-words (point-min) (point-max))))
+    words))
+#+end_src
+
 Then we want to format the content for inclusion.
 
 #+name: post-formatting
@@ -20,17 +57,19 @@ Then we want to format the content for inclusion.
   (with-temp-buffer
     (insert-file-contents file)
     (setq keywords (org-collect-keywords '("TITLE" "SUBTITLE" "DATE")))
-    (format "+ @@html:<a href='%s.html'>@@ *%s* %s@@html:</a>@@"
+    (format "+ @@html:<a href='%s.html'>@@ *%s* %s _%d0 words_ @@html:</a>@@"
             (file-name-base file)
             (cadr (assoc "DATE" keywords))
             (or (cadr (assoc "SUBTITLE" keywords))
-                (cadr (assoc "TITLE" keywords))))))
+                (cadr (assoc "TITLE" keywords)))
+            (round (/ (count-words-org) 10.0)))))
 #+end_src
 
 * Output :ignore:
 
 #+begin_src emacs-lisp :noweb yes :results raw :exports results
 <<collect-posts>>
+<<count-words-org>>
 <<post-formatting>>
 (mapconcat
  (lambda (p) (post-item p))
