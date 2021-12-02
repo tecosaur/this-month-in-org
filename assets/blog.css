@@ -77,7 +77,7 @@ footer a {
 /* click on a figure to enlarge it */
 figure:active {
   position: relative;
-  left: min(0px, 720px - 60vw);
+  left: #{"min(0px, 720px - 60vw)"};
   width: 80vw;
   transition-duration: 150ms;
 }
