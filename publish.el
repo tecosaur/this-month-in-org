@@ -96,8 +96,13 @@ Return output file name."
              (executable-find "csso"))
         (message "optimising %s with csso" (file-name-nondirectory filename))
         (call-process "csso" nil nil nil "-i" filename "-o" outfile))
-       (t (copy-file filename outfile t))))
-    outfile))
+       ((and (string= "scss" ext)
+             (executable-find "sassc"))
+        (message "converting %s to css with sassc" (file-name-nondirectory filename))
+        (setq outfile (replace-regexp-in-string "\\.scss$" ".css" outfile))
+        (call-process "sassc" nil nil nil "--style" "compressed" filename outfile))
+       (t (copy-file filename outfile t)))
+      outfile)))
 
 ;;; Use ascii colours to make output more informative
 
