@@ -56,7 +56,7 @@ This is a minor change, but I think DOIs are great, so I'm highlighting it.
 
 Over the past month =org-plot.el= has received some attention, my two favourite
 changes are:
-+ You can now call ~org-plot/gnuplot~ with =C-c C-c= on a =#+plot:= line _TEC_
++ You can now call ~org-plot/gnuplot~ with =C-c C-c= on a =#+plot= line _TEC_
 + When an image is regenerated, all instances of the image in the buffer are
   refreshed _TEC_
 
@@ -82,11 +82,11 @@ mention in the initial blog post, so let's go over them now.
   can now turn it into a custom plot type 😀 _TEC_
 + A new plot type has been added: a radar / spider plot _TEC_
 + Some new plot keywords have arrived too _TEC_
-  - =transpose:= (=trans:=) --- The plot internally does something very similar to =M-x
+  - =transpose= (=trans=) --- The plot internally does something very similar to =M-x
     org-table-transpose-table-at-point= before using the table data.
-  - =ymin:= (=min:=), =ymax:= (=max:=), =xmin:=, =xmax:= ---  Four new keywords (and two
+  - =ymin= (=min=), =ymax= (=max=), =xmin=, =xmax= ---  Four new keywords (and two
     aliases) to set the bounds of a plot. Partially supported by the default types.
-  - =ticks:= --- The number of axis ticks to use along the axis. A good value is
+  - =ticks= --- The number of axis ticks to use along the axis. A good value is
     guessed based on a prime factorisation based heuristic (welcome to
     improvements).
   - Some new customisation functions --- The new variables
@@ -97,9 +97,9 @@ mention in the initial blog post, so let's go over them now.
 
 If you haven't used Org plot before, I think it's a great way to quickly
 visualise data in a table. To get started, all you need is a =#+plot= line above
-the table, with a certain =type:= specified (e.g. =type:2d= for a 2d line plot).
+the table, with a certain =type= specified (e.g. =type:2d= for a 2d line plot).
 Then, if you can specify a certain columns as the independent variable
-(x-values) with =ind:=, and list dependant variables (y-values) with =deps:=.
+(x-values) with =ind=, and list dependant variables (y-values) with =deps=.
 
 You can see these parameters set in the figure above,
 #+begin_src org
@@ -111,7 +111,7 @@ You can see these parameters set in the figure above,
 #+end_src
 
 This will call gnuplot and a window showing the plot will appear. If you want to
-save the plot to a file, just use the =file:= parameter, e.g.
+save the plot to a file, just use the =file= parameter, e.g.
 =file:"demoplot.svg"= (note the quotes).
 
 That should get you started, you can see [[https://orgmode.org/manual/Org-Plot.html][the manual]] for the full list of

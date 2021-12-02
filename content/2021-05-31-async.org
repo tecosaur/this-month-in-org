@@ -17,7 +17,7 @@ property, i.e.
 ,#+property: header-args:lang :session foo
 #+end_src
 
-Along with the asynchronous process communication in =ob.comint.el=, we have an
+Along with the asynchronous process communication in =ob-comint.el=, we have an
 implementation for *Python*, and we should see support for *R* and *Ruby* in the
 not-too-distant future 😍.
 
