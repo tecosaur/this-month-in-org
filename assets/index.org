@@ -75,7 +75,7 @@ modified for inclusion.
  (when posts (format-post (car posts)))
  "\n\n"
  (mapconcat (lambda (pf)
-              (format-post pf 500))
+              (format-post pf 800))
             (cdr posts)
             "\n\n"))
 #+end_src
