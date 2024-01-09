@@ -1,0 +1,103 @@
+# Created 2022-03-03 Thu 01:40
+#+title: October 2021
+#+date: 2021-10-31
+#+author: TEC
+#+subtitle: Release 9.5
+#+begin_quote
+Turns out that life became busy enough that instead of delaying, last month's
+post had to be cancelled. We're now back to business as usual though 🙂.
+#+end_quote
+
+There have been some cool recent developments in Org over the past two months,
+but you'll have to learn about those is next month's edition as /Org 9.5 has been
+released/ 🎉. So, let's go over some of the changes I'm most excited about, in no
+particular order. To get a more complete picture of the latest changes, see
+[[https://git.savannah.gnu.org/cgit/emacs/org-mode.git/tree/etc/ORG-NEWS?h=release_9.5#n14][ORG-NEWS]].
+
+* The new citation engine
+
+As tempted as I am to wax lyrical about the lovely new citation engine, I've
+already dedicated [[file:2021-07-31-citations.org][July's post]] to it, and so will simply highlight how versatile
+the syntax is. Combined with the ability to swap out the default backends
+(basic, CSL, natbib, and bib(la)tex) for a 3rd party backend (for example,
+provided by a package) it is capable of meeting your citation and technical
+document publishing needs, whatever they may be.
+
+#+caption: The full citation syntax
+[[file:figures/citation-structure-full.svg]]
+
+Since the announcement of org-cite, the ecosystem has continued to expand with a
+number of promising packages like Bruce D'Arcus' [[https://github.com/bdarcus/citar][citar]] (previously
+/bibtex-actions/), which currently provides what is arguably the best citation
+insertion experience.
+
+#+caption: Inserting a citation with the /citar/ package
+[[file:figures/org-citar-insertion.png]]
+
+* Asynchronous session evaluation
+
+Since being featured in [[file:2021-05-31-async.org][May's post]], we've had the initial python support
+expanded with support for R too. I have good reason to believe that more
+backends will join this list in the future.
+
+To get started, just add =:async= to the header arguments of Python or R source
+blocks with a =:session=.
+
+* LaTeX environment =#+results= are now removed
+
+LaTeX environments (i.e. src_LaTeX{\begin{} ... \end{}} blocks) have been added
+to the list of =#+results= types that will be removed. This is bigger news than
+one might think, as it means that raw LaTeX environments are now a viable output
+for org-babel backends. This possesses a distinct advantage over =:results latex=
+as LaTeX environments can be rendered inline with ~org-latex-preview~ and are
+exported to more formats --- for example HTML with MathJax.
+
+This is likely going to be first seen in the new =ob-julia= backend (unreleased,
+currently in early development), but could well be utilised by other backends
+such as =ob-octave=, =ob-mathematica= (in contrib), =ob-python= (using ~SymPy~), =ob-calc=
+and more.
+
+#+caption: Rendered LaTeX representations of some Julia values
+[[file:figures/ob-julia-latexify-rendered.png]]
+
+* More fontification
+
+A number of new faces have been introduced to allow for improved theming
+capability, and better contextual hints in the agenda, namely:
+~org-agenda-date-weekend-today~, ~org-imminent-deadline~,
+~org-agenda-structure-secondary~, and ~org-agenda-structure-filter~.
+
+Inline export snippets are now also fontified using the ~org-tag~ and
+~font-lock-comment-face~ faces, to better stand out from surrounding text.
+
+* More link formatting options with org-capture
+
+A new formatting directive, ~%L~ has been introduced which provides the bare link
+target. This allows for links with automatically generated descriptions 🙂.
+
+* Export improvements
+
+The HTML and LaTeX backends have both been given some love in this release of
+Org.
+
+The HTML backend now supports customisation of the =<meta>= tags included with
+~org-html-meta-tags~, which should be particularly useful to anybody using
+=org-publish= for blogs or websites (in fact, this blog has been making use of it
+for some time now). A new variable has been introduced to help with styling,
+~org-html-content-class~ (="content"= by default) which is used as the CSS class for
+the top-level content wrapper. To further improve styling capabilities,
+~org-html-style-default~ and ~org-html-scripts~ have been changed from constants to
+customisable variables.
+
+The LaTeX backend (=ox-latex=) no longer has obsolete LaTeX packages in
+~org-latex-default-packages-alist~ (=grffile= and =texcomp= have been removed).
+It also now supports arbitrary =:float= argument values, and accepts a six new
+arguments (in total) for verse (=:lines=, =:center=, =:versewidth=, and =:latexcode=)
+and quote blocks (=:environment= and =:options=).
+
+* Project changes
+
+To reduce the maintainer burden, the =contrib/= folder and a collection of
+rarely-used or barely-maintained =ob-*= backends have been moved to a new repo,
+[[https://git.sr.ht/~bzg/org-contrib][org-contrib]]. Support for Emacs 24 (2012--2014) has also been dropped, and Org
+will now aim to support the three most recent major versions of Emacs.

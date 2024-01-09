@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2022-03-03 Thu 01:40 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>April 2021</title>
+<meta name="author" content="TEC" />
+<meta name="generator" content="org mode" />
+<meta name="theme-color" content="#77aa99" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="April 2021" />
+<meta property="og:description" content="Export &lt;i&gt;&amp;amp;&lt;/i&gt; plot in style" />
+<meta property="og:image" content="https://blog.tecosaur.com/tmio/org-icon.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="464" />
+<meta property="og:image:height" content="512" />
+<meta property="og:image:alt" content="Org unicorn logo" />
+<meta property="og:article:author:first_name" content="TEC" />
+<meta property="og:article:published_time" content="2021-04-30T00:00:00+0800" />
+<meta property="og:article:modified_time" content="2021-09-27T03:45:11+0800" />
+<link rel="alternate" type="application/atom+xml" title="This Month in Org" href="rss.xml" />
+<link rel="icon" type="image/ico" href="favicon.ico?v=3">
+<link rel="stylesheet" type="text/css" href="org-style.css">
+<link rel="stylesheet" type="text/css" href="blog.css">
+<script src="org-style.js"></script>
+<link rel="stylesheet" href="img-slider.css">
+</head>
+<body>
+<input type='checkbox' id='theme-switch'><div id='page'><label id='switch-label' for='theme-switch'></label><div id="preamble" class="status">
+<header>
+    <h4><a href="https://orgmode.org" class="orgicorn"><img src="org-icon-monochrome.svg" class="invertible"></a>
+        <a href="https://blog.tecosaur.com/tmio/" class="title">
+            This Month in Org</a>
+        <a href="rss.xml" title="RSS Feed" type="application/rss+xml" class="rss">
+            <img src="rss.svg" alt="RSS icon" />
+        </a></h4>
+</header>
+</div>
+<div id="content">
+<header class="page-header"><div class="page-meta">2021-04-30, <span class='acr'>TEC</span></div>
+
+<h1 class="title">April 2021</h1>
+<p class="subtitle" role="doc-subtitle">Export <i>&amp;</i> plot in style</p>
+</header>
+<div id="outline-container-discussion-contributor-support" class="outline-2">
+<h2 id="discussion-contributor-support">A discussion on contributor support<a aria-hidden="true" href="#discussion-contributor-support">#</a> </h2>
+<div class="outline-text-2" id="text-discussion-contributor-support">
+<p>
+Concerns <a href="https://lists.gnu.org/archive/html/emacs-orgmode/2021-04/msg00291.html">were raised</a><sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup> about some contributors&rsquo; patches languishing, and it not
+being made clear how long it might take to get a response from someone.
+</p>
+
+<p>
+In <a href="https://lists.gnu.org/archive/html/emacs-orgmode/2021-04/msg00549.html">response to this</a>, a the new role of <i>Contributor Steward</i> has been created to:
+help ensure contributors get a timely response, help out with preliminary patch
+feedback, and keep <a href="https://updates.orgmode.org/">updates.orgmode.org</a> up to date.
+</p>
+
+<p>
+Org now has three Contributor Stewards to ease the process for patch submitters
+and core maintainers:
+</p>
+<ul class="org-ul">
+<li>Timothy / <span class='acr'>TEC</span></li>
+<li>Tim Cross</li>
+<li>John Corless</li>
+</ul>
+
+<p>
+If you&rsquo;ve been thinking about <a href="https://orgmode.org/contribute.html">getting involved with Org</a>, now is a great time to
+give it a shot!
+</p>
+
+<div class="info" id="org0e61384">
+<p>
+<b>Ways you can contribute to the project</b>
+</p>
+
+<p>
+Test patches, improve documentation, translate pages, confirm bugs, feedback on a proposed feature, and more&#x2026;
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-doi-link-exporting" class="outline-2">
+<h2 id="doi-link-exporting"><span class='acr'><span class='acr'>DOI</span></span> link exporting<a aria-hidden="true" href="#doi-link-exporting">#</a> </h2>
+<div class="outline-text-2" id="text-doi-link-exporting">
+<p>
+<a href="https://www.doi.org/">Digital Document Identifiers</a> (<span class='acr'>DOI</span><small>s</small>) are an <span class='acr'>ISO</span>-standardised way of robustly
+linking to a particular online resource. You&rsquo;ll see these a lot with academic
+papers, for example.
+</p>
+
+<p>
+Thanks to Nicolas Goaziou, when exporting to <span class='acr'>HTML</span>, LaTeX, Ascii, and texinfo
+<span class='acr'>DOI</span><small>s</small> are turned into links, for example becomes:
+</p>
+
+<details id='doi-link-exporting,code--1' class='code' open><summary><span class="lang">HTML</span></summary>
+    <div class='gutter'>
+    <a href='#doi-link-exporting,code--1'>#</a>
+    <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>    </div>
+    <div class="org-src-container">
+<pre class="src src-html">&lt;<span class="org-function-name">a</span> <span class="org-variable-name">href</span>=<span class="org-string">"https://doi.org/10.18637/jss.v046.i03"</span>&gt;doi:10.18637/jss.v046.i03&lt;/<span class="org-function-name">a</span>&gt;
+</pre>
+</div>
+    </details>
+<details id='doi-link-exporting,code--2' class='code' open><summary><span class="lang">LaTeX</span></summary>
+    <div class='gutter'>
+    <a href='#doi-link-exporting,code--2'>#</a>
+    <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>    </div>
+    <div class="org-src-container">
+<pre class="src src-LaTeX"><span class="org-font-latex-sedate">\href</span>{https://doi.org/10.18637/jss.v046.i03}{doi:10.18637/jss.v046.i03}
+</pre>
+</div>
+    </details>
+<details id='doi-link-exporting,code--3' class='code' open><summary><span class="lang">text</span></summary>
+    <div class='gutter'>
+    <a href='#doi-link-exporting,code--3'>#</a>
+    <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>    </div>
+    <div class="org-src-container">
+<pre class="src src-text"><a href="https://doi.org/10.18637/jss.v046.i03">&lt;https://doi.org/10.18637/jss.v046.i03&gt;</a>
+</pre>
+</div>
+    </details>
+<details id='doi-link-exporting,code--4' class='code' open><summary><span class="lang">texinfo</span></summary>
+    <div class='gutter'>
+    <a href='#doi-link-exporting,code--4'>#</a>
+    <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>    </div>
+    <div class="org-src-container">
+<pre class="src src-texinfo">@<span class="org-keyword">uref</span>{<span class="org-string">https://doi.org/10.18637/jss.v046.i03</span>}
+</pre>
+</div>
+    </details>
+
+<p>
+This is a minor change, but I think <span class='acr'>DOI</span><small>s</small> are great, so I&rsquo;m highlighting it.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org-plot-improvements" class="outline-2">
+<h2 id="org-plot-improvements">Org plot improvements<a aria-hidden="true" href="#org-plot-improvements">#</a> </h2>
+<div class="outline-text-2" id="text-org-plot-improvements">
+<p>
+Over the past month <kbd>org-plot.el</kbd> has received some attention, my two favourite
+changes are:
+</p>
+<ul class="org-ul">
+<li>You can now call <code>org-plot/gnuplot</code> with <kbd>C-c C-c</kbd> on a <kbd>#+plot</kbd> line <span class="underline"><span class='acr'>TEC</span></span></li>
+<li>When an image is regenerated, all instances of the image in the buffer are
+refreshed <span class="underline"><span class='acr'>TEC</span></span></li>
+</ul>
+
+<figure>
+  <video width="100%" height="auto" autoplay loop muted class="doom-one">
+    <source src="figures/org-plot-refreshing.mp4" type="video/mp4" />
+  </video>
+  <figcaption>
+    <span class="figure-number">Figure 1:</span>
+    Regenerating an org-plot graphic, showing off: the ease of re-plotting,
+    the new radar type, and a style set by a new variable.
+  </figcaption>
+</figure>
+
+<p>
+Other than a few minor tweaks and bug fixes, that&rsquo;s it for April. However, over
+the last year there have been some rather nice improvements that I didn&rsquo;t
+mention in the initial blog post, so let&rsquo;s go over them now.
+</p>
+
+<ul class="org-ul">
+<li>The inbuilt plot types have been abstracted out into a new structure: <code>org-plot/preset-plot-types</code>.
+This means if you have a gnuplot template you find yourself using a lot, you
+can now turn it into a custom plot type 😀 <span class="underline"><span class='acr'>TEC</span></span></li>
+<li>A new plot type has been added: a radar / spider plot <span class="underline"><span class='acr'>TEC</span></span></li>
+<li>Some new plot keywords have arrived too <span class="underline"><span class='acr'>TEC</span></span>
+<ul class="org-ul">
+<li><kbd>transpose</kbd> (<kbd>trans</kbd>) &#x2014; The plot internally does something very similar to <kbd>M-x
+    org-table-transpose-table-at-point</kbd> before using the table data.</li>
+<li><kbd>ymin</kbd> (<kbd>min</kbd>), <kbd>ymax</kbd> (<kbd>max</kbd>), <kbd>xmin</kbd>, <kbd>xmax</kbd> &#x2014;  Four new keywords (and two
+aliases) to set the bounds of a plot. Partially supported by the default types.</li>
+<li><kbd>ticks</kbd> &#x2014; The number of axis ticks to use along the axis. A good value is
+guessed based on a prime factorisation based heuristic (welcome to
+improvements).</li>
+<li>Some new customisation functions &#x2014; The new variables
+<code>org-plot/gnuplot-script-preamble</code>, <code>org-plot/gnuplot-term-extra</code>, and
+<code>org-plot/gnuplot-script-preamble</code> open up new ways to tweak plots to your
+liking. For example, <a href="https://tecosaur.github.io/emacs-config/config.html#org-plot">I use this</a> to set line and background colours based on
+my current Emacs theme.</li>
+</ul></li>
+</ul>
+
+<p>
+If you haven&rsquo;t used Org plot before, I think it&rsquo;s a great way to quickly
+visualise data in a table. To get started, all you need is a <kbd>#+plot</kbd> line above
+the table, with a certain <kbd>type</kbd> specified (e.g. <kbd>type:2d</kbd> for a 2d line plot).
+Then, if you can specify a certain columns as the independent variable
+(x-values) with <kbd>ind</kbd>, and list dependant variables (y-values) with <kbd>deps</kbd>.
+</p>
+
+<p>
+You can see these parameters set in the figure above,
+</p>
+<details id='org-plot-improvements,code--1' class='code' open><summary><span class="lang">Org mode</span></summary>
+    <div class='gutter'>
+    <a href='#org-plot-improvements,code--1'>#</a>
+    <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>    </div>
+    <div class="org-src-container">
+<pre class="src src-org"><span class="org-org-meta-line">#+plot: type:2d ind:1 deps:(2 3 4)</span>
+<span class="org-org-table">| Xval | Red | Blue | Green |</span>
+<span class="org-org-table">|------+-----+------+-------|</span>
+<span class="org-org-table">|    0 |   1 |    2 |     3 |</span>
+<span class="org-org-table">|    1 |   2 |    3 |     4 |</span>
+</pre>
+</div>
+    </details>
+
+<p>
+This will call gnuplot and a window showing the plot will appear. If you want to
+save the plot to a file, just use the <kbd>file</kbd> parameter, e.g.
+<kbd>file:"demoplot.svg"</kbd> (note the quotes).
+</p>
+
+<p>
+That should get you started, you can see <a href="https://orgmode.org/manual/Org-Plot.html">the manual</a> for the full list of
+available keywords and find more examples of usage <a href="https://orgmode.org/worg/org-tutorials/org-plot.html">on worg</a>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-tweaked-ox-html" class="outline-2">
+<h2 id="tweaked-ox-html">Tweaked <code>ox-html</code> style<a aria-hidden="true" href="#tweaked-ox-html">#</a> </h2>
+<div class="outline-text-2" id="text-tweaked-ox-html">
+<p>
+As displays become more high-res, lines of text which span the whole screen
+become &#x2026; long. So long that it genuinely makes it harder to read the text. A
+small tweak to the default style and lines are now capped at <kbd>60em</kbd> wide and
+centred in the page &#x2014; much better 🙂. <span class="underline"><span class='acr'>TEC</span></span>
+</p>
+
+<figure>
+  <div class="image-slider invertible">
+    <div><img src="figures/org-html-style-tweak-new.png"/></div>
+    <img src="figures/org-html-style-tweak-old.png"/>
+  </div>
+  <figcaption>
+    <span class="figure-number">Figure 2:</span>
+    The new export style (left) compared to the old (right).
+  </figcaption>
+</figure>
+
+<p>
+Also, the <span class='acr'>HTML</span> export now:
+</p>
+<ul class="org-ul">
+<li>has a slightly nicer source block style</li>
+<li>labels <kbd>authinfo</kbd> blocks</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-collection-export-improvements" class="outline-2">
+<h2 id="collection-export-improvements">A collection of export improvements<a aria-hidden="true" href="#collection-export-improvements">#</a> </h2>
+<div class="outline-text-2" id="text-collection-export-improvements">
+<ul class="org-ul">
+<li><kbd>Verbatim</kbd> in headings no longer breaks LaTeX exports <span class="underline"><span class='acr'>TEC</span></span></li>
+<li>Make the top level class for exported <span class='acr'>HTML</span> customisable via
+<code>org-html-content-class</code> / <kbd>#+HTML_CONTENT_CLASS</kbd> <span class="underline">Sameer Rahmani</span></li>
+<li>Use <kbd>&lt;img&gt;</kbd> tags for <span class='acr'>SVG</span><small>s</small> with <kbd>ox-html</kbd>, for better behaviour and W3C compliance <span class="underline"><span class='acr'>TEC</span></span></li>
+<li>Remove redundant <code>type="text/javascript"</code> from <code>&lt;script&gt;</code> elements <span class="underline">Bastien Guerry</span></li>
+<li><kbd>ox-texinfo</kbd> now generates better headlines, menus, and footnotes <span class="underline">Nicolas Goaziou</span></li>
+<li>Parsing during exporting no longer aborts as soon as an <kbd>#+option</kbd> key without
+a value is encountered, instead that key is skipped over <span class="underline">Nicolas Goaziou</span></li>
+<li><code>org-html-scripts</code> and <code>org-html-style-default</code> have been changed from constants
+to configurable values <span class="underline"><span class='acr'>TEC</span></span></li>
+<li>eval macros <kbd>#+macro: ? (eval ...)</kbd> are now a little bit faster <span class="underline">Stefan Monnier</span></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-miscellaneous-changes" class="outline-2">
+<h2 id="miscellaneous-changes">Miscellaneous changes<a aria-hidden="true" href="#miscellaneous-changes">#</a> </h2>
+<div class="outline-text-2" id="text-miscellaneous-changes">
+<ul class="org-ul">
+<li><code>org-link-descriptive</code> is now buffer-local, to avoid interfering with other buffers <span class="underline">Kyle Meyer</span></li>
+<li><kbd>org-colview</kbd> no longer chokes when a special property is updated <span class="underline">Nicolas Goaziou</span></li>
+<li>Now coderefs have their whitespace cleaned up during tangling <span class="underline">Tom Gillespie</span></li>
+<li>Allow for multiple <kbd>%(expressions)</kbd> in <code>org-agenda-prefix-format</code> <span class="underline">Ihor Radchenko</span></li>
+<li>Code cleanup and refactoring <span class="underline">Nicolas Savage, Aaron L. Zeng, Nicolas Goaziou,
+Bastien Guerry, Stefa Monnier, Arne Babenhauserheid</span></li>
+<li>Documentation improvements <span class="underline">Jorge Neto, Erik Hetzner, Cheong Yiu Fung, Kyle Meyer</span></li>
+<li>New <kbd>ob-sqlite</kbd> maintainer &#x2014; Nick Savage</li>
+<li>Make lilypond header arguments user-configurable <span class="underline">Jamie Bayne</span></li>
+<li>Fix <kbd>ob-C</kbd> regression which mixed up <code>int</code>, <code>double</code>, and <code>char*</code>. Fix another
+regression with table parameters  <span class="underline">tbanel</span></li>
+<li>Fix indentation of list items and new logbook drawer notes <span class="underline">Bastien Guerry</span></li>
+<li>Notice when theme changes with LaTeX previews <span class="underline">Yuri Lensky</span></li>
+<li>Iron out a few edge cases in <kbd>ol.el</kbd> (Org links) <span class="underline">Nicolas Goaziou</span></li>
+<li>Some new tests for <kbd>org-protocol</kbd> <span class="underline">Maxim Nikulin</span></li>
+</ul>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+Disclosure: this is me.
+</p></div></div>
+
+
+</div>
+</div></div>
+<div id="postamble" class="status">
+<footer>
+    <p xmlns:dct="http://purl.org/dc/terms/" xmlns:vcard="http://www.w3.org/2001/vcard-rdf/3.0#">
+        <a rel="license" class="external" rel="nofollow" href="http://creativecommons.org/publicdomain/zero/1.0/">
+            <img src="cc0.svg" alt="CC0" class="invertible" style="position:relative;bottom:-0.2em"/>
+        </a>
+        To the extent possible under law,
+        <a rel="dct:publisher"
+           href="https://blog.tecosaur.com/">
+            <span property="dct:title">TEC</span></a>
+        has waived all copyright and related or neighboring rights to
+        <span property="dct:title" style="font-style:italic">This Month in Org</span>.
+    </p>
+</footer>
+
+<script src="theme-switcher.js"></script>
+</div>
+</div>
+</body>
+</html>

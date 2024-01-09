@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>2021-10-31-release.org.html</title>
+    <style>
+      body { background: #fafafa; color: #2a2a2a; }
+      pre {
+        font-size: 1rem;
+        max-width: min(100rem, 100%);
+        width: max-content;
+        white-space: pre-wrap;
+        margin: auto; }
+      .ef-D {
+        color: #2a2a2a;
+        background-color: #fafafa;
+        font-weight: 400; }
+      .ef-k {
+        color: #3b6ea8; }
+      .ef-d {
+        color: #b6b6b6; }
+      .ef-t {
+        color: #9a7500; }
+      .ef-s {
+        color: #4f894c; }
+      .ef-w {
+        color: #9a7500; }
+      .ef-b {
+        color: #29838d; }
+      .ef-ct {
+        color: #b1b1b1; }
+      .ef-c {
+        color: #97365b; }
+      .ef-pp {
+        color: #3b6ea8;
+        font-weight: 700; }
+      .ef-nc {
+        color: #3b6ea8;
+        font-weight: 700; }
+      .ef-v {
+        color: #cb9aad; }
+      .ef-f {
+        color: #29838d; }
+      .ef-cd {
+        color: #b1b1b1; }
+      .ef-rc {
+        color: #3b6ea8;
+        font-weight: 700; }
+      .ef-rb {
+        color: #3b6ea8;
+        font-weight: 700; }
+      .ef-ob {
+         }
+      .ef-hn {
+        color: #97365b;
+        font-weight: 700; }
+      .ef-hq {
+        color: #3b6ea8; }
+      .ef-hs {
+        color: #9a7500; }
+      .ef-rdi {
+        color: #3b6ea8; }
+      .ef-rdii {
+        color: #97365b; }
+      .ef-rdiii {
+        color: #4f894c; }
+      .ef-rdiv {
+        color: #842879; }
+      .ef-rdv {
+        color: #29838d; }
+      .ef-rdvi {
+        color: #3b6ea8; }
+      .ef-rdvii {
+        color: #97365b; }
+      .ef-rdiix {
+        color: #4f894c; }
+      .ef-rdix {
+        color: #842879; }
+    </style>
+  </head>
+  <body>
+<pre>
+<span style="color: #9e9e9e;">#+title:</span> <span style="color: #29838d; font-weight: 700;">October 2021
+</span><span style="color: #9e9e9e;">#+subtitle:</span> <span style="color: #29838d;">Release 9.5
+</span><span style="color: #9e9e9e;">#+author:</span> <span style="color: #29838d;">TEC
+</span><span style="color: #9e9e9e;">#+date:</span> <span style="color: #29838d;">2021-10-31
+</span>
+<span style="color: #b1b1b1;">#+begin_quote
+</span>Turns out that life became busy enough that instead of delaying, last month's
+post had to be cancelled. We're now back to business as usual though 🙂.
+<span style="color: #b1b1b1;">#+end_quote
+</span>
+There have been some cool recent developments in Org over the past two months,
+but you'll have to learn about those is next month's edition as <span style="text-decoration: italic;">/Org 9.5 has been
+released/</span> 🎉. So, let's go over some of the changes I'm most excited about, in no
+particular order. To get a more complete picture of the latest changes, see
+<span style="color: #3b6ea8; font-weight: 700;">[[https://git.savannah.gnu.org/cgit/emacs/org-mode.git/tree/etc/ORG-NEWS?h=release_9.5#n14][ORG-NEWS]]</span>.
+
+<span style="color: #3b6ea8; font-weight: 700;">* The new citation engine</span>
+
+As tempted as I am to wax lyrical about the lovely new citation engine, I've
+already dedicated <span style="color: #3b6ea8; font-weight: 700;">[[file:2021-07-31-citations.org][July's post]]</span> to it, and so will simply highlight how versatile
+the syntax is. Combined with the ability to swap out the default backends
+(basic, CSL, natbib, and bib(la)tex) for a 3rd party backend (for example,
+provided by a package) it is capable of meeting your citation and technical
+document publishing needs, whatever they may be.
+
+<span style="color: #b6b6b6;">#+caption:</span> <span class="ef-ob">The full citation syntax</span>
+<span style="color: #3b6ea8; font-weight: 700;">[[file:figures/citation-structure-full.svg]]</span>
+
+Since the announcement of org-cite, the ecosystem has continued to expand with a
+number of promising packages like Bruce D'Arcus' <span style="color: #3b6ea8; font-weight: 700;">[[https://github.com/bdarcus/citar][citar]]</span> (previously
+<span style="text-decoration: italic;">/bibtex-actions/</span>), which currently provides what is arguably the best citation
+insertion experience.
+
+<span style="color: #b6b6b6;">#+caption:</span> <span class="ef-ob">Inserting a citation with the /citar/ package</span>
+<span style="color: #b6b6b6;">#+attr_html: :class doom-one</span>
+<span style="color: #3b6ea8; font-weight: 700;">[[file:figures/org-citar-insertion.png]]</span>
+
+<span style="color: #3b6ea8; font-weight: 700;">* Asynchronous session evaluation</span>
+
+Since being featured in <span style="color: #3b6ea8; font-weight: 700;">[[file:2021-05-31-async.org][May's post]]</span>, we've had the initial python support
+expanded with support for R too. I have good reason to believe that more
+backends will join this list in the future.
+
+To get started, just add <span style="color: #4f894c;">=:async=</span> to the header arguments of Python or R source
+blocks with a <span style="color: #4f894c;">=:session=</span>.
+
+<span style="color: #3b6ea8; font-weight: 700;">* LaTeX environment </span><span style="color: #4f894c; font-weight: 700;">=#+results=</span><span style="color: #3b6ea8; font-weight: 700;"> are now removed</span>
+
+LaTeX environments (i.e. <span style="color: #9e9e9e;">src_</span><span style="color: #b6b6b6;">LaTeX</span><span style="color: #9e9e9e;">{</span><span style="color: #3b6ea8;">\begin</span><span class="ef-ob">{} ... </span><span style="color: #3b6ea8;">\end</span><span class="ef-ob">{}</span><span style="color: #9e9e9e;">}</span> blocks) have been added
+to the list of <span style="color: #4f894c;">=#+results=</span> types that will be removed. This is bigger news than
+one might think, as it means that raw LaTeX environments are now a viable output
+for org-babel backends. This possesses a distinct advantage over <span style="color: #4f894c;">=:results latex=</span>
+as LaTeX environments can be rendered inline with <span style="color: #ac4426;">~org-latex-preview~</span> and are
+exported to more formats --- for example HTML with MathJax.
+
+This is likely going to be first seen in the new <span style="color: #4f894c;">=ob-julia=</span> backend (unreleased,
+currently in early development), but could well be utilised by other backends
+such as <span style="color: #4f894c;">=ob-octave=</span>, <span style="color: #4f894c;">=ob-mathematica=</span> (in contrib), <span style="color: #4f894c;">=ob-python=</span> (using <span style="color: #ac4426;">~SymPy~</span>), <span style="color: #4f894c;">=ob-calc=</span>
+and more.
+
+<span style="color: #b6b6b6;">#+caption:</span> <span class="ef-ob">Rendered LaTeX representations of some Julia values</span>
+<span style="color: #b6b6b6;">#+attr_html: :class doom-one</span>
+<span style="color: #b6b6b6;">#+attr_latex: :width 0.5\linewidth</span>
+<span style="color: #3b6ea8; font-weight: 700;">[[file:figures/ob-julia-latexify-rendered.png]]</span>
+
+<span style="color: #3b6ea8; font-weight: 700;">* More fontification</span>
+
+A number of new faces have been introduced to allow for improved theming
+capability, and better contextual hints in the agenda, namely:
+<span style="color: #ac4426;">~org-agenda-date-weekend-today~</span>, <span style="color: #ac4426;">~org-imminent-deadline~</span>,
+<span style="color: #ac4426;">~org-agenda-structure-secondary~</span>, and <span style="color: #ac4426;">~org-agenda-structure-filter~</span>.
+
+Inline export snippets are now also fontified using the <span style="color: #ac4426;">~org-tag~</span> and
+<span style="color: #ac4426;">~font-lock-comment-face~</span> faces, to better stand out from surrounding text.
+
+<span style="color: #3b6ea8; font-weight: 700;">* More link formatting options with org-capture</span>
+
+A new formatting directive, <span style="color: #ac4426;">~%L~</span> has been introduced which provides the bare link
+target. This allows for links with automatically generated descriptions 🙂.
+
+<span style="color: #3b6ea8; font-weight: 700;">* Export improvements</span>
+
+The HTML and LaTeX backends have both been given some love in this release of
+Org.
+
+The HTML backend now supports customisation of the <span style="color: #4f894c;">=&lt;meta&gt;=</span> tags included with
+<span style="color: #ac4426;">~org-html-meta-tags~</span>, which should be particularly useful to anybody using
+<span style="color: #4f894c;">=org-publish=</span> for blogs or websites (in fact, this blog has been making use of it
+for some time now). A new variable has been introduced to help with styling,
+<span style="color: #ac4426;">~org-html-content-class~</span> (<span style="color: #4f894c;">="content"=</span> by default) which is used as the CSS class for
+the top-level content wrapper. To further improve styling capabilities,
+<span style="color: #ac4426;">~org-html-style-default~</span> and <span style="color: #ac4426;">~org-html-scripts~</span> have been changed from constants to
+customisable variables.
+
+The LaTeX backend (<span style="color: #4f894c;">=ox-latex=</span>) no longer has obsolete LaTeX packages in
+<span style="color: #ac4426;">~org-latex-default-packages-alist~</span> (<span style="color: #4f894c;">=grffile=</span> and <span style="color: #4f894c;">=texcomp=</span> have been removed).
+It also now supports arbitrary <span style="color: #4f894c;">=:float=</span> argument values, and accepts a six new
+arguments (in total) for verse (<span style="color: #4f894c;">=:lines=</span>, <span style="color: #4f894c;">=:center=</span>, <span style="color: #4f894c;">=:versewidth=</span>, and <span style="color: #4f894c;">=:latexcode=</span>)
+and quote blocks (<span style="color: #4f894c;">=:environment=</span> and <span style="color: #4f894c;">=:options=</span>).
+
+<span style="color: #3b6ea8; font-weight: 700;">* Project changes</span>
+
+To reduce the maintainer burden, the <span style="color: #4f894c;">=contrib/=</span> folder and a collection of
+rarely-used or barely-maintained <span style="color: #4f894c;">=ob-*=</span> backends have been moved to a new repo,
+<span style="color: #3b6ea8; font-weight: 700;">[[https://git.sr.ht/~bzg/org-contrib][org-contrib]]</span>. Support for Emacs 24 (2012--2014) has also been dropped, and Org
+will now aim to support the three most recent major versions of Emacs.
+
+</pre>
+  <body>
+</html>

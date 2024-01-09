@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>2021-04-30-export-plot.org.html</title>
+    <style>
+      body { background: #fafafa; color: #2a2a2a; }
+      pre {
+        font-size: 1rem;
+        max-width: min(100rem, 100%);
+        width: max-content;
+        white-space: pre-wrap;
+        margin: auto; }
+      .ef-D {
+        color: #2a2a2a;
+        background-color: #fafafa;
+        font-weight: 400; }
+      .ef-k {
+        color: #3b6ea8; }
+      .ef-d {
+        color: #b6b6b6; }
+      .ef-t {
+        color: #9a7500; }
+      .ef-s {
+        color: #4f894c; }
+      .ef-w {
+        color: #9a7500; }
+      .ef-b {
+        color: #29838d; }
+      .ef-ct {
+        color: #b1b1b1; }
+      .ef-c {
+        color: #97365b; }
+      .ef-pp {
+        color: #3b6ea8;
+        font-weight: 700; }
+      .ef-nc {
+        color: #3b6ea8;
+        font-weight: 700; }
+      .ef-v {
+        color: #cb9aad; }
+      .ef-f {
+        color: #29838d; }
+      .ef-cd {
+        color: #b1b1b1; }
+      .ef-rc {
+        color: #3b6ea8;
+        font-weight: 700; }
+      .ef-rb {
+        color: #3b6ea8;
+        font-weight: 700; }
+      .ef-ob {
+         }
+      .ef-hn {
+        color: #97365b;
+        font-weight: 700; }
+      .ef-hq {
+        color: #3b6ea8; }
+      .ef-hs {
+        color: #9a7500; }
+      .ef-rdi {
+        color: #3b6ea8; }
+      .ef-rdii {
+        color: #97365b; }
+      .ef-rdiii {
+        color: #4f894c; }
+      .ef-rdiv {
+        color: #842879; }
+      .ef-rdv {
+        color: #29838d; }
+      .ef-rdvi {
+        color: #3b6ea8; }
+      .ef-rdvii {
+        color: #97365b; }
+      .ef-rdiix {
+        color: #4f894c; }
+      .ef-rdix {
+        color: #842879; }
+    </style>
+  </head>
+  <body>
+<pre>
+<span style="color: #9e9e9e;">#+title:</span> <span style="color: #29838d; font-weight: 700;">April 2021
+</span><span style="color: #9e9e9e;">#+subtitle:</span> <span style="color: #29838d;">Export /&amp;/ plot in style
+</span><span style="color: #9e9e9e;">#+author:</span> <span style="color: #29838d;">TEC
+</span><span style="color: #9e9e9e;">#+date:</span> <span style="color: #29838d;">2021-04-30
+</span><span style="color: #b6b6b6;">#+html_head: &lt;link rel="stylesheet" href="img-slider.css"&gt;</span>
+
+<span style="color: #3b6ea8; font-weight: 700;">* A discussion on contributor support</span>
+
+Concerns <span style="color: #3b6ea8; font-weight: 700;">[[https://lists.gnu.org/archive/html/emacs-orgmode/2021-04/msg00291.html][were raised]]</span><span style="color: #ac4426;">[fn:1]</span> about some contributors' patches languishing, and it not
+being made clear how long it might take to get a response from someone.
+
+In <span style="color: #3b6ea8; font-weight: 700;">[[https://lists.gnu.org/archive/html/emacs-orgmode/2021-04/msg00549.html][response to this]]</span>, a the new role of <span style="text-decoration: italic;">/Contributor Steward/</span> has been created to:
+help ensure contributors get a timely response, help out with preliminary patch
+feedback, and keep <span style="color: #3b6ea8; font-weight: 700;">[[https://updates.orgmode.org/][updates.orgmode.org]]</span> up to date.
+
+Org now has three Contributor Stewards to ease the process for patch submitters
+and core maintainers:
++ Timothy / TEC
++ Tim Cross
++ John Corless
+
+If you've been thinking about <span style="color: #3b6ea8; font-weight: 700;">[[https://orgmode.org/contribute.html][getting involved with Org]]</span>, now is a great time to
+give it a shot!
+
+<span style="color: #b1b1b1;">#+begin_info
+</span><span style="font-weight: 700;">*Ways you can contribute to the project*</span>
+
+Test patches, improve documentation, translate pages, confirm bugs, feedback on a proposed feature, and more...
+<span style="color: #b1b1b1;">#+end_info
+</span>
+<span style="color: #3b6ea8; font-weight: 700;">* DOI link exporting</span>
+
+<span style="color: #3b6ea8; font-weight: 700;">[[https://www.doi.org/][Digital Document Identifiers]]</span> (DOIs) are an ISO-standardised way of robustly
+linking to a particular online resource. You'll see these a lot with academic
+papers, for example.
+
+Thanks to Nicolas Goaziou, when exporting to HTML, LaTeX, Ascii, and texinfo
+DOIs are turned into links, for example <span style="color: #3b6ea8; font-weight: 700;">[[doi:10.18637/jss.v046.i03]]</span> becomes:
+
+<span style="color: #b1b1b1;">#+begin_src html
+</span><span class="ef-ob">&lt;</span><span style="color: #29838d;">a</span> <span style="color: #cb9aad;">href</span><span class="ef-ob">=</span><span style="color: #4f894c;">"https://doi.org/10.18637/jss.v046.i03"</span><span class="ef-ob">&gt;doi:10.18637/jss.v046.i03&lt;/</span><span style="color: #29838d;">a</span><span class="ef-ob">&gt;
+</span><span style="color: #b1b1b1;">#+end_src
+</span><span style="color: #b1b1b1;">#+begin_src LaTeX
+</span><span style="color: DimGray;">\href</span><span class="ef-ob">{https://doi.org/10.18637/jss.v046.i03}{doi:10.18637/jss.v046.i03}
+</span><span style="color: #b1b1b1;">#+end_src
+</span><span style="color: #b1b1b1;">#+begin_src text
+</span><span class="ef-ob">&lt;https://doi.org/10.18637/jss.v046.i03&gt;
+</span><span style="color: #b1b1b1;">#+end_src
+</span><span style="color: #b1b1b1;">#+begin_src texinfo
+</span><span class="ef-ob">@</span><span style="color: #3b6ea8;">uref</span><span class="ef-ob">{</span><span style="color: #4f894c;">https://doi.org/10.18637/jss.v046.i03</span><span class="ef-ob">}
+</span><span style="color: #b1b1b1;">#+end_src
+</span>
+This is a minor change, but I think DOIs are great, so I'm highlighting it.
+
+<span style="color: #3b6ea8; font-weight: 700;">* Org plot improvements</span>
+
+Over the past month <span style="color: #4f894c;">=org-plot.el=</span> has received some attention, my two favourite
+changes are:
++ You can now call <span style="color: #ac4426;">~org-plot/gnuplot~</span> with <span style="color: #4f894c;">=C-c C-c=</span> on a <span style="color: #4f894c;">=#+plot=</span> line _TEC_
++ When an image is regenerated, all instances of the image in the buffer are
+  refreshed _TEC_
+
+<span style="color: #b1b1b1;">#+begin_export html
+</span><span class="ef-ob">&lt;</span><span style="color: #29838d;">figure</span><span class="ef-ob">&gt;
+  &lt;</span><span style="color: #29838d;">video</span> <span style="color: #cb9aad;">width</span><span class="ef-ob">=</span><span style="color: #4f894c;">"100%"</span> <span style="color: #cb9aad;">height</span><span class="ef-ob">=</span><span style="color: #4f894c;">"auto"</span><span class="ef-ob"> autoplay loop muted </span><span style="color: #cb9aad;">class</span><span class="ef-ob">=</span><span style="color: #4f894c;">"doom-one"</span><span class="ef-ob">&gt;
+    &lt;</span><span style="color: #29838d;">source</span> <span style="color: #cb9aad;">src</span><span class="ef-ob">=</span><span style="color: #4f894c;">"figures/org-plot-refreshing.mp4"</span> <span style="color: #cb9aad;">type</span><span class="ef-ob">=</span><span style="color: #4f894c;">"video/mp4"</span><span class="ef-ob"> /&gt;
+  &lt;/</span><span style="color: #29838d;">video</span><span class="ef-ob">&gt;
+  &lt;</span><span style="color: #29838d;">figcaption</span><span class="ef-ob">&gt;
+    &lt;</span><span style="color: #29838d;">span</span> <span style="color: #cb9aad;">class</span><span class="ef-ob">=</span><span style="color: #4f894c;">"figure-number"</span><span class="ef-ob">&gt;Figure 1:&lt;/</span><span style="color: #29838d;">span</span><span class="ef-ob">&gt;
+    Regenerating an org-plot graphic, showing off: the ease of re-plotting,
+    the new radar type, and a style set by a new variable.
+  &lt;/</span><span style="color: #29838d;">figcaption</span><span class="ef-ob">&gt;
+&lt;/</span><span style="color: #29838d;">figure</span><span class="ef-ob">&gt;
+</span><span style="color: #b1b1b1;">#+end_export
+</span>
+Other than a few minor tweaks and bug fixes, that's it for April. However, over
+the last year there have been some rather nice improvements that I didn't
+mention in the initial blog post, so let's go over them now.
+
++ The inbuilt plot types have been abstracted out into a new structure: <span style="color: #ac4426;">~org-plot/preset-plot-types~</span>.
+  This means if you have a gnuplot template you find yourself using a lot, you
+  can now turn it into a custom plot type 😀 _TEC_
++ A new plot type has been added: a radar / spider plot _TEC_
++ Some new plot keywords have arrived too _TEC_
+  - <span style="color: #4f894c;">=transpose=</span> (<span style="color: #4f894c;">=trans=</span>) --- The plot internally does something very similar to <span style="color: #4f894c;">=M-x
+    org-table-transpose-table-at-point=</span> before using the table data.
+  - <span style="color: #4f894c;">=ymin=</span> (<span style="color: #4f894c;">=min=</span>), <span style="color: #4f894c;">=ymax=</span> (<span style="color: #4f894c;">=max=</span>), <span style="color: #4f894c;">=xmin=</span>, <span style="color: #4f894c;">=xmax=</span> ---  Four new keywords (and two
+    aliases) to set the bounds of a plot. Partially supported by the default types.
+  - <span style="color: #4f894c;">=ticks=</span> --- The number of axis ticks to use along the axis. A good value is
+    guessed based on a prime factorisation based heuristic (welcome to
+    improvements).
+  - Some new customisation functions --- The new variables
+    <span style="color: #ac4426;">~org-plot/gnuplot-script-preamble~</span>, <span style="color: #ac4426;">~org-plot/gnuplot-term-extra~</span>, and
+    <span style="color: #ac4426;">~org-plot/gnuplot-script-preamble~</span> open up new ways to tweak plots to your
+    liking. For example, <span style="color: #3b6ea8; font-weight: 700;">[[https://tecosaur.github.io/emacs-config/config.html#org-plot][I use this]]</span> to set line and background colours based on
+    my current Emacs theme.
+
+If you haven't used Org plot before, I think it's a great way to quickly
+visualise data in a table. To get started, all you need is a <span style="color: #4f894c;">=#+plot=</span> line above
+the table, with a certain <span style="color: #4f894c;">=type=</span> specified (e.g. <span style="color: #4f894c;">=type:2d=</span> for a 2d line plot).
+Then, if you can specify a certain columns as the independent variable
+(x-values) with <span style="color: #4f894c;">=ind=</span>, and list dependant variables (y-values) with <span style="color: #4f894c;">=deps=</span>.
+
+You can see these parameters set in the figure above,
+<span style="color: #b1b1b1;">#+begin_src org
+</span><span class="ef-ob">,#+plot: type:2d ind:1 deps:(2 3 4)
+</span><span style="color: #842879;">| Xval | Red | Blue | Green |</span>
+<span style="color: #842879;">|------+-----+------+-------|</span>
+<span style="color: #842879;">|    0 |   1 |    2 |     3 |</span>
+<span style="color: #842879;">|    1 |   2 |    3 |     4 |</span>
+<span style="color: #b1b1b1;">#+end_src
+</span>
+This will call gnuplot and a window showing the plot will appear. If you want to
+save the plot to a file, just use the <span style="color: #4f894c;">=file=</span> parameter, e.g.
+<span style="color: #4f894c;">=</span><span style="color: #4f894c; font-weight: 700;">file:"demoplot.svg</span><span style="color: #4f894c;">"=</span> (note the quotes).
+
+That should get you started, you can see <span style="color: #3b6ea8; font-weight: 700;">[[https://orgmode.org/manual/Org-Plot.html][the manual]]</span> for the full list of
+available keywords and find more examples of usage <span style="color: #3b6ea8; font-weight: 700;">[[https://orgmode.org/worg/org-tutorials/org-plot.html][on worg]]</span>.
+
+<span style="color: #3b6ea8; font-weight: 700;">* Tweaked </span><span style="color: #ac4426; font-weight: 700;">~ox-html~</span><span style="color: #3b6ea8; font-weight: 700;"> style</span>
+
+As displays become more high-res, lines of text which span the whole screen
+become ... long. So long that it genuinely makes it harder to read the text. A
+small tweak to the default style and lines are now capped at <span style="color: #4f894c;">=60em=</span> wide and
+centred in the page --- much better 🙂. _TEC_
+
+<span style="color: #b1b1b1;">#+begin_export html
+</span><span class="ef-ob">&lt;</span><span style="color: #29838d;">figure</span><span class="ef-ob">&gt;
+  &lt;</span><span style="color: #29838d;">div</span> <span style="color: #cb9aad;">class</span><span class="ef-ob">=</span><span style="color: #4f894c;">"image-slider invertible"</span><span class="ef-ob">&gt;
+    &lt;</span><span style="color: #29838d;">div</span><span class="ef-ob">&gt;&lt;</span><span style="color: #29838d;">img</span> <span style="color: #cb9aad;">src</span><span class="ef-ob">=</span><span style="color: #4f894c;">"figures/org-html-style-tweak-new.png"</span><span class="ef-ob">/&gt;&lt;/</span><span style="color: #29838d;">div</span><span class="ef-ob">&gt;
+    &lt;</span><span style="color: #29838d;">img</span> <span style="color: #cb9aad;">src</span><span class="ef-ob">=</span><span style="color: #4f894c;">"figures/org-html-style-tweak-old.png"</span><span class="ef-ob">/&gt;
+  &lt;/</span><span style="color: #29838d;">div</span><span class="ef-ob">&gt;
+  &lt;</span><span style="color: #29838d;">figcaption</span><span class="ef-ob">&gt;
+    &lt;</span><span style="color: #29838d;">span</span> <span style="color: #cb9aad;">class</span><span class="ef-ob">=</span><span style="color: #4f894c;">"figure-number"</span><span class="ef-ob">&gt;Figure 2:&lt;/</span><span style="color: #29838d;">span</span><span class="ef-ob">&gt;
+    The new export style (left) compared to the old (right).
+  &lt;/</span><span style="color: #29838d;">figcaption</span><span class="ef-ob">&gt;
+&lt;/</span><span style="color: #29838d;">figure</span><span class="ef-ob">&gt;
+</span><span style="color: #b1b1b1;">#+end_export
+</span>
+Also, the HTML export now:
++ has a slightly nicer source block style
++ labels <span style="color: #4f894c;">=authinfo=</span> blocks
+
+<span style="color: #3b6ea8; font-weight: 700;">* A collection of export improvements</span>
+
++ <span style="color: #4f894c;">=Verbatim=</span> in headings no longer breaks LaTeX exports _TEC_
++ Make the top level class for exported HTML customisable via
+  <span style="color: #ac4426;">~org-html-content-class~</span> / <span style="color: #4f894c;">=#+HTML_CONTENT_CLASS=</span> _Sameer Rahmani_
++ Use <span style="color: #4f894c;">=&lt;img&gt;=</span> tags for SVGs with <span style="color: #4f894c;">=ox-html=</span>, for better behaviour and W3C compliance _TEC_
++ Remove redundant <span style="color: #ac4426;">~type="text/javascript"~</span> from <span style="color: #ac4426;">~&lt;script&gt;~</span> elements _Bastien Guerry_
++ <span style="color: #4f894c;">=ox-texinfo=</span> now generates better headlines, menus, and footnotes _Nicolas Goaziou_
++ Parsing during exporting no longer aborts as soon as an <span style="color: #4f894c;">=#+option=</span> key without
+  a value is encountered, instead that key is skipped over _Nicolas Goaziou_
++ <span style="color: #ac4426;">~org-html-scripts~</span> and <span style="color: #ac4426;">~org-html-style-default~</span> have been changed from constants
+  to configurable values _TEC_
++ eval macros <span style="color: #4f894c;">=#+macro: ? (eval ...)=</span> are now a little bit faster _Stefan Monnier_
+
+<span style="color: #3b6ea8; font-weight: 700;">* Miscellaneous changes</span>
+
++ <span style="color: #ac4426;">~org-link-descriptive~</span> is now buffer-local, to avoid interfering with other buffers _Kyle Meyer_
++ <span style="color: #4f894c;">=org-colview=</span> no longer chokes when a special property is updated _Nicolas Goaziou_
++ Now coderefs have their whitespace cleaned up during tangling _Tom Gillespie_
++ Allow for multiple <span style="color: #4f894c;">=%(expressions)=</span> in <span style="color: #ac4426;">~org-agenda-prefix-format~</span> _Ihor Radchenko_
++ Code cleanup and refactoring _Nicolas Savage, Aaron L. Zeng, Nicolas Goaziou,
+  Bastien Guerry, Stefa Monnier, Arne Babenhauserheid_
++ Documentation improvements _Jorge Neto, Erik Hetzner, Cheong Yiu Fung, Kyle Meyer_
++ New <span style="color: #4f894c;">=ob-sqlite=</span> maintainer --- Nick Savage
++ Make lilypond header arguments user-configurable _Jamie Bayne_
++ Fix <span style="color: #4f894c;">=ob-C=</span> regression which mixed up <span style="color: #ac4426;">~int~</span>, <span style="color: #ac4426;">~double~</span>, and <span style="color: #ac4426;">~char*~</span>. Fix another
+  regression with table parameters  _tbanel_
++ Fix indentation of list items and new logbook drawer notes _Bastien Guerry_
++ Notice when theme changes with LaTeX previews _Yuri Lensky_
++ Iron out a few edge cases in <span style="color: #4f894c;">=ol.el=</span> (Org links) _Nicolas Goaziou_
++ Some new tests for <span style="color: #4f894c;">=org-protocol=</span> _Maxim Nikulin_
+
+<span style="color: #3b6ea8; font-weight: 700;">* Footnotes</span>
+
+<span style="color: #ac4426;">[fn:1]</span> Disclosure: this is me.
+
+</pre>
+  <body>
+</html>

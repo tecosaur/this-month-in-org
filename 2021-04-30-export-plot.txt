@@ -1,0 +1,215 @@
+                       ━━━━━━━━━━━━━━━━━━━━━━━━━━
+                               APRIL 2021
+                        Export /&/ plot in style
+
+                                  TEC
+                       ━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+                               2021-04-30
+
+
+
+
+
+A discussion on contributor support
+═══════════════════════════════════
+
+  Concerns [were raised][1] about some contributors’ patches
+  languishing, and it not being made clear how long it might take to get
+  a response from someone.
+
+  In [response to this], a the new role of /Contributor Steward/ has
+  been created to: help ensure contributors get a timely response, help
+  out with preliminary patch feedback, and keep [updates.orgmode.org] up
+  to date.
+
+  Org now has three Contributor Stewards to ease the process for patch
+  submitters and core maintainers:
+  ⁃ Timothy / TEC
+  ⁃ Tim Cross
+  ⁃ John Corless
+
+  If you’ve been thinking about [getting involved with Org], now is a
+  great time to give it a shot!
+
+  *Ways you can contribute to the project*
+
+  Test patches, improve documentation, translate pages, confirm bugs,
+  feedback on a proposed feature, and more…
+
+
+[were raised]
+<https://lists.gnu.org/archive/html/emacs-orgmode/2021-04/msg00291.html>
+
+[response to this]
+<https://lists.gnu.org/archive/html/emacs-orgmode/2021-04/msg00549.html>
+
+[updates.orgmode.org] <https://updates.orgmode.org/>
+
+[getting involved with Org] <https://orgmode.org/contribute.html>
+
+
+DOI link exporting
+══════════════════
+
+  [Digital Document Identifiers] (DOIs) are an ISO-standardised way of
+  robustly linking to a particular online resource. You’ll see these a
+  lot with academic papers, for example.
+
+  Thanks to Nicolas Goaziou, when exporting to HTML, LaTeX, Ascii, and
+  texinfo DOIs are turned into links, for example becomes:
+
+  ┌────
+  │ <a href="https://doi.org/10.18637/jss.v046.i03">doi:10.18637/jss.v046.i03</a>
+  └────
+  ┌────
+  │ \href{https://doi.org/10.18637/jss.v046.i03}{doi:10.18637/jss.v046.i03}
+  └────
+  ┌────
+  │ <https://doi.org/10.18637/jss.v046.i03>
+  └────
+  ┌────
+  │ @uref{https://doi.org/10.18637/jss.v046.i03}
+  └────
+
+  This is a minor change, but I think DOIs are great, so I’m
+  highlighting it.
+
+
+[Digital Document Identifiers] <https://www.doi.org/>
+
+
+Org plot improvements
+═════════════════════
+
+  Over the past month `org-plot.el' has received some attention, my two
+  favourite changes are:
+  ⁃ You can now call `org-plot/gnuplot' with `C-c C-c' on a `#+plot'
+    line _TEC_
+  ⁃ When an image is regenerated, all instances of the image in the
+    buffer are refreshed _TEC_
+
+  Other than a few minor tweaks and bug fixes, that’s it for April.
+  However, over the last year there have been some rather nice
+  improvements that I didn’t mention in the initial blog post, so let’s
+  go over them now.
+
+  ⁃ The inbuilt plot types have been abstracted out into a new
+    structure: `org-plot/preset-plot-types'. This means if you have a
+    gnuplot template you find yourself using a lot, you can now turn it
+    into a custom plot type 😀 _TEC_
+  ⁃ A new plot type has been added: a radar / spider plot _TEC_
+  ⁃ Some new plot keywords have arrived too _TEC_
+    • `transpose' (`trans') — The plot internally does something very
+          similar to `M-x org-table-transpose-table-at-point' before
+          using the table data.
+    • `ymin' (`min'), `ymax' (`max'), `xmin', `xmax' — Four new keywords
+      (and two aliases) to set the bounds of a plot. Partially supported
+      by the default types.
+    • `ticks' — The number of axis ticks to use along the axis. A good
+      value is guessed based on a prime factorisation based heuristic
+      (welcome to improvements).
+    • Some new customisation functions — The new variables
+      `org-plot/gnuplot-script-preamble', `org-plot/gnuplot-term-extra',
+      and `org-plot/gnuplot-script-preamble' open up new ways to tweak
+      plots to your liking. For example, [I use this] to set line and
+      background colours based on my current Emacs theme.
+
+  If you haven’t used Org plot before, I think it’s a great way to
+  quickly visualise data in a table. To get started, all you need is a
+  `#+plot' line above the table, with a certain `type' specified (e.g.
+  `type:2d' for a 2d line plot). Then, if you can specify a certain
+  columns as the independent variable (x-values) with `ind', and list
+  dependant variables (y-values) with `deps'.
+
+  You can see these parameters set in the figure above,
+  ┌────
+  │ #+plot: type:2d ind:1 deps:(2 3 4)
+  │ | Xval | Red | Blue | Green |
+  │ |------+-----+------+-------|
+  │ |    0 |   1 |    2 |     3 |
+  │ |    1 |   2 |    3 |     4 |
+  └────
+
+  This will call gnuplot and a window showing the plot will appear. If
+  you want to save the plot to a file, just use the `file' parameter,
+  e.g. `file:"demoplot.svg"' (note the quotes).
+
+  That should get you started, you can see [the manual] for the full
+  list of available keywords and find more examples of usage [on worg].
+
+
+[I use this]
+<https://tecosaur.github.io/emacs-config/config.html#org-plot>
+
+[the manual] <https://orgmode.org/manual/Org-Plot.html>
+
+[on worg] <https://orgmode.org/worg/org-tutorials/org-plot.html>
+
+
+Tweaked `ox-html' style
+═══════════════════════
+
+  As displays become more high-res, lines of text which span the whole
+  screen become … long. So long that it genuinely makes it harder to
+  read the text. A small tweak to the default style and lines are now
+  capped at `60em' wide and centred in the page — much better 🙂. _TEC_
+
+  Also, the HTML export now:
+  ⁃ has a slightly nicer source block style
+  ⁃ labels `authinfo' blocks
+
+
+A collection of export improvements
+═══════════════════════════════════
+
+  ⁃ `Verbatim' in headings no longer breaks LaTeX exports _TEC_
+  ⁃ Make the top level class for exported HTML customisable via
+    `org-html-content-class' / `#+HTML_CONTENT_CLASS' _Sameer Rahmani_
+  ⁃ Use `<img>' tags for SVGs with `ox-html', for better behaviour and
+    W3C compliance _TEC_
+  ⁃ Remove redundant `type="text/javascript"' from `<script>' elements
+    _Bastien Guerry_
+  ⁃ `ox-texinfo' now generates better headlines, menus, and footnotes
+    _Nicolas Goaziou_
+  ⁃ Parsing during exporting no longer aborts as soon as an `#+option'
+    key without a value is encountered, instead that key is skipped over
+    _Nicolas Goaziou_
+  ⁃ `org-html-scripts' and `org-html-style-default' have been changed
+    from constants to configurable values _TEC_
+  ⁃ eval macros `#+macro: ? (eval ...)' are now a little bit faster
+    _Stefan Monnier_
+
+
+Miscellaneous changes
+═════════════════════
+
+  ⁃ `org-link-descriptive' is now buffer-local, to avoid interfering
+    with other buffers _Kyle Meyer_
+  ⁃ `org-colview' no longer chokes when a special property is updated
+    _Nicolas Goaziou_
+  ⁃ Now coderefs have their whitespace cleaned up during tangling _Tom
+    Gillespie_
+  ⁃ Allow for multiple `%(expressions)' in `org-agenda-prefix-format'
+    _Ihor Radchenko_
+  ⁃ Code cleanup and refactoring _Nicolas Savage, Aaron L. Zeng, Nicolas
+    Goaziou, Bastien Guerry, Stefa Monnier, Arne Babenhauserheid_
+  ⁃ Documentation improvements _Jorge Neto, Erik Hetzner, Cheong Yiu
+    Fung, Kyle Meyer_
+  ⁃ New `ob-sqlite' maintainer — Nick Savage
+  ⁃ Make lilypond header arguments user-configurable _Jamie Bayne_
+  ⁃ Fix `ob-C' regression which mixed up `int', `double', and `char*'.
+    Fix another regression with table parameters _tbanel_
+  ⁃ Fix indentation of list items and new logbook drawer notes _Bastien
+    Guerry_
+  ⁃ Notice when theme changes with LaTeX previews _Yuri Lensky_
+  ⁃ Iron out a few edge cases in `ol.el' (Org links) _Nicolas Goaziou_
+  ⁃ Some new tests for `org-protocol' _Maxim Nikulin_
+
+
+
+Footnotes
+─────────
+
+[1] Disclosure: this is me.

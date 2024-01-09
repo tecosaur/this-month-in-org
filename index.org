@@ -1,0 +1,81 @@
+#+title: This Month in Org
+#+subtitle: Highlights from the last month of Org development
+#+options: title:nil
+
+#+begin_export html
+<div class="page-header">
+  <h1 class="title"><i>This Month in Org</i>&ensp;<a href="https://orgmode.org"><img src="org-icon.svg" style="height:1.2em;position:relative;top:0.25em"></h1></a>
+  <a href="rss.xml" title="RSS Feed" type="application/rss+xml">
+    <img src="rss.svg" alt="RSS icon">
+  </a>
+  <a href="archive.html">Archive</a>
+</div>
+#+end_export
+
+Interested in *[[https://orgmode.org][Org]]* but not enough to monitor the [[https://orgmode.org/list/][mailing list]]? In this blog I
+digest developments, and each month regurgitate what I consider the highlights,
+along with anything else Org-related I consider nifty.
+
+#+begin_quote
+Posts are published in =.html=, =.org=, =.org.html=, =.txt=, and =.pdf= forms --- because why not 😛
+#+end_quote
+
+* Post processing :noexport:
+
+First we need to get all the posts. To get a recent-first ordering we just need
+to reverse the sorted directory listing.
+
+#+name: collect-posts
+#+begin_src emacs-lisp
+(setq posts (nreverse
+             (directory-files (expand-file-name "../content" default-directory)
+                              t "^[0-9]\\{4\\}-[0-9][0-9]-[0-9][0-9]-.+\\.org")))
+#+end_src
+
+Then we want to format the content for inclusion. Each file can be visited and
+modified for inclusion.
+
+#+name: post-formatting
+#+begin_src emacs-lisp
+(defun format-post (file &optional truncate-length)
+  (with-temp-buffer
+    (insert-file-contents file)
+    ;; increace heading levels
+    (goto-char (point-min))
+    (while (re-search-forward "^\\(\\*+\\)" nil t)
+      (replace-match "*\\1"))
+    ;; convert keyword info to L1 heading
+    (setq keywords (org-collect-keywords '("TITLE" "DATE")))
+    (goto-char (point-min))
+    ;; delete up to first double newline
+    (delete-region (point-min) (search-forward "\n\n"))
+    (insert (format "* @@html:<a href='%s.html' style='text-decoration:none;color:inherit'>@@ %s @@html:<span class='tag'><span>%s</span></span></a>@@"
+                    (file-name-base file)
+                    (cadr (assoc "TITLE" keywords))
+                    (cadr (assoc "DATE" keywords)))
+            "\n")
+    (when (and truncate-length (> (point-max) (+ truncate-length (point))))
+      (goto-char (+ truncate-length (point)))
+      (org-backward-element)
+      (delete-region (point) (point-max))
+      (insert (format "[[file:%s.html][Read more...]]" (file-name-base file))))
+    ;; Remove undefined footnotes
+    (goto-char (point-min))
+    (while (re-search-forward "\\[fn:\\(.+?\\)\\]" nil t)
+      (replace-match "^{[\\1]}"))
+    (buffer-string)))
+#+end_src
+
+* Output :ignore:
+
+#+begin_src emacs-lisp :noweb yes :results raw :exports results
+<<collect-posts>>
+<<post-formatting>>
+(concat
+ (when posts (format-post (car posts)))
+ "\n\n"
+ (mapconcat (lambda (pf)
+              (format-post pf 800))
+            (cdr posts)
+            "\n\n"))
+#+end_src

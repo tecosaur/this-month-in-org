@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2022-03-03 Thu 01:40 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>August 2021</title>
+<meta name="author" content="TEC" />
+<meta name="generator" content="org mode" />
+<meta name="theme-color" content="#77aa99" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="August 2021" />
+<meta property="og:description" content="Roaming around" />
+<meta property="og:image" content="https://blog.tecosaur.com/tmio/org-icon.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="464" />
+<meta property="og:image:height" content="512" />
+<meta property="og:image:alt" content="Org unicorn logo" />
+<meta property="og:article:author:first_name" content="TEC" />
+<meta property="og:article:published_time" content="2021-09-07T00:00:00+0800" />
+<meta property="og:article:modified_time" content="2021-09-08T15:31:20+0800" />
+<link rel="alternate" type="application/atom+xml" title="This Month in Org" href="rss.xml" />
+<link rel="icon" type="image/ico" href="favicon.ico?v=3">
+<link rel="stylesheet" type="text/css" href="org-style.css">
+<link rel="stylesheet" type="text/css" href="blog.css">
+<script src="org-style.js"></script>
+<script>
+    MathJax = {
+      chtml: {
+        scale: 1
+      },
+      svg: {
+        scale: 1,
+        fontCache: "global"
+      },
+      tex: {
+        tags: "ams",
+        multlineWidth: "85%",
+        tagSide: "right",
+        tagIndent: ".8em"
+      }
+    };
+    </script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body>
+<input type='checkbox' id='theme-switch'><div id='page'><label id='switch-label' for='theme-switch'></label><div id="preamble" class="status">
+<header>
+    <h4><a href="https://orgmode.org" class="orgicorn"><img src="org-icon-monochrome.svg" class="invertible"></a>
+        <a href="https://blog.tecosaur.com/tmio/" class="title">
+            This Month in Org</a>
+        <a href="rss.xml" title="RSS Feed" type="application/rss+xml" class="rss">
+            <img src="rss.svg" alt="RSS icon" />
+        </a></h4>
+</header>
+</div>
+<div id="content">
+<header class="page-header"><div class="page-meta">2021-08-38, <span class='acr'>TEC</span></div>
+
+<h1 class="title">August 2021</h1>
+<p class="subtitle" role="doc-subtitle">Roaming around</p>
+</header><blockquote>
+<p>
+Dear readers, unfortunately I&rsquo;ve been unusually busy as of late, and will
+continue to be for a bit over a month. As such, it&rsquo;s entirely likely that the
+next post or two may <del>be late</del> make use of creative dates too.
+</p>
+</blockquote>
+
+<p>
+In terms of Org development, we&rsquo;ve had a fairly slow month &#x2014; mostly tweaks and
+fixes, concentrated on the new org-cite functionality. However, there have been
+big developments with Roam as of late.
+</p>
+
+<div id="outline-container-org-roam-v2" class="outline-2">
+<h2 id="org-roam-v2"><a href="https://github.com/org-roam/org-roam">Org-roam v2</a><a aria-hidden="true" href="#org-roam-v2">#</a> </h2>
+<div class="outline-text-2" id="text-org-roam-v2">
+<p>
+Pushed to the sidelines by last month&rsquo;s hugely significant citations
+announcement was the release of Org-roam v2 🎉. The project&rsquo;s author Jethro
+wrote a nice <a href="https://blog.jethro.dev/posts/org_roam_v2/">blog post</a> outlining the major changes and motivations, and so I&rsquo;ll
+leave him to speak on that. Suffice to say, the idea of org-roam has been
+refined into a form that should better server tinkerers looking to build off Org
+roam, and make maintenance easier &#x2014; thus improving the user experience in the
+long term 🙂. Should you be worried that the v1 &#8594; v2 upgrade will be painful,
+read <a href="https://macowners.club/posts/org-roam-v2-doesnt-hurt/">Org-roam v2 doesn&rsquo;t hurt</a>, relax, and try the upgrade wizard.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org-roam-ui" class="outline-2">
+<h2 id="org-roam-ui"><a href="https://github.com/org-roam/org-roam-ui/">Org-roam-ui</a><a aria-hidden="true" href="#org-roam-ui">#</a> </h2>
+<div class="outline-text-2" id="text-org-roam-ui">
+<p>
+Within a month of Roam v2&rsquo;s announcement, we were pleasantly surprised by the
+release of <a href="https://github.com/org-roam/org-roam-server">org-roam-server</a> usurper &#x2014; org-roam-ui.
+</p>
+
+
+<figure id="org4251ca7">
+<img src="figures/org-roam-graph-2d-overview.png" alt="org-roam-graph-2d-overview.png" class="doom-one" width="50%">
+
+<figcaption><span class="figure-number">Figure 1: </span>org-roam-ui&rsquo;s 2D overview.</figcaption>
+</figure>
+
+<p>
+While org-roam-server remains incompatible with Roam v2, org-roam-ui is built
+around v2 from the ground up. With this shift comes a much more ambitious set
+of features. The graph view itself is now based on <a href="https://github.com/vasturiano/react-force-graph">react-force-graph</a>, which
+allows for both 2D and 3D views of the graph, with WebGL acceleration.
+</p>
+
+<figure>
+  <video width="60%" height="auto" autoplay loop muted class="doom-one">
+    <source src="figures/org-roam-ui-3d-rotation.mp4" type="video/mp4" />
+  </video>
+  <figcaption>
+    <span class="figure-number">Figure 1.1:</span>
+    org-roam-ui's 3D graph view.
+  </figcaption>
+</figure>
+
+<p>
+Using <a href="https://github.com/ahyatt/emacs-websocket">emacs-websocket</a>, org-roam-ui establishes a two-way connection between
+Emacs and the Web visualisation. This allows for nifty features like syncing the
+graph view and the currently open roam file in Emacs. Furthermore, with
+<kbd>xwidget-webkit</kbd> you can even embed org-roam-ui <i>inside</i> Emacs!<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>
+</p>
+
+
+<figure id="org1125144">
+<img src="figures/org-roam-ui-in-emacs.png" alt="org-roam-ui-in-emacs.png" class="invertible">
+
+<figcaption><span class="figure-number">Figure 2: </span>Embed org-roam-ui in Emacs using xwidget-webkit.</figcaption>
+</figure>
+
+<p>
+Beyond this, org-roam-ui also provides a number of other nice features, such as
+filtering and theme syncing, with more in the works. To see more, check out the
+<kbd>README</kbd> published on GitHub.
+</p>
+
+<p>
+<div class="link-preview"><a href="https://github.com/org-roam/org-roam-ui/"><img src="https://repository-images.githubusercontent.com/386398327/72086426-51c8-4b7b-86f1-950195373de7"/><small>github.com</small><p><b>GitHub - org-roam/org-roam-ui: A graphical frontend for exploring your org-roam Zettelkasten</b></br>A graphical frontend for exploring your org-roam Zettelkasten - GitHub - org-roam/org-roam-ui: A graphical frontend for exploring your org-roam Zettelkasten</p></a></div>
+</p>
+</div>
+</div>
+
+<div id="outline-container-new-context-exporter" class="outline-2">
+<h2 id="new-context-exporter">New ConTeXt exporter<a aria-hidden="true" href="#new-context-exporter">#</a> </h2>
+<div class="outline-text-2" id="text-new-context-exporter">
+<p>
+We&rsquo;ve long been able to export to LaTeX files with <kbd>ox-latex</kbd>, but now you can
+export to ConTeXt too with <a href="https://github.com/Jason-S-Ross/ox-context">ox-context</a>! While only just released, a lot of work
+has already gone into this &#x2014; with development starting almost a year ago by the
+commit history.
+</p>
+
+<p>
+<div class="link-preview"><a href="https://github.com/Jason-S-Ross/ox-context"><img src="https://opengraph.githubassets.com/783cdd0431894c3760fc5685e60ee7a5e27d4152e2dfad9095bef476a66edac5/Jason-S-Ross/ox-context"/><small>github.com</small><p><b>GitHub - Jason-S-Ross/ox-context: An Org Mode export backend for ConTeXt</b></br>An Org Mode export backend for ConTeXt. Contribute to Jason-S-Ross/ox-context development by creating an account on GitHub.</p></a></div>
+</p>
+
+<p>
+It&rsquo;s always nice to see more export options for Org, and I wish Jason all the
+best in developing <kbd>ox-context</kbd>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-other-improvements" class="outline-2">
+<h2 id="other-improvements">Other improvements<a aria-hidden="true" href="#other-improvements">#</a> </h2>
+<div class="outline-text-2" id="text-other-improvements">
+<ul class="org-ul">
+<li>Refactor <kbd>oc-natbib.el</kbd>, <kbd>oc-biblatex</kbd>, <kbd>oc-basic.el</kbd>, <kbd>org-compat.el</kbd> to improve byte
+compilation <span class="underline">Maxim Nikulin</span> <span class="underline">Nicolas Goaziou</span> <span class="underline">Marco Wahl</span></li>
+<li>Allow for selecting cite style with a citation argument <span class="underline">Nicolas Goaziou</span></li>
+<li>Add support for Italian &ldquo;smart quotes&rdquo; <span class="underline">DPDmancul</span></li>
+<li>Fix Spanish mistranslation in footnote Documentation <span class="underline">Juan Manuel Macias</span></li>
+<li>Define <kbd>\citeprocitem</kbd> in <kbd>oc-csl.el</kbd> for use by <kbd>citeproc-el</kbd> <span class="underline"><span class='acr'>TEC</span></span></li>
+<li>Fix error in <kbd>org-export-define-backend</kbd> docstring <span class="underline">Zachary Kanfer</span> <span class="underline">Nicolas Goaziou</span></li>
+<li>Document the <kbd>:results none</kbd> option <span class="underline">Yasushi Shoji</span></li>
+<li>Other documentation improvements: <span class="underline">Jorge Neto</span> <span class="underline">Marco Wahl</span></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-bugfixes" class="outline-2">
+<h2 id="bugfixes">Bugfixes<a aria-hidden="true" href="#bugfixes">#</a> </h2>
+<div class="outline-text-2" id="text-bugfixes">
+<ul class="org-ul">
+<li>When tangling a certain language, be more careful about which blocks are
+matched <span class="underline"><span class='acr'>DMG</span>, Nicolas Goaziou</span></li>
+<li>Make <kbd>q</kbd> in <kbd>org-agenda</kbd> work even when <code>debug-on-error</code> is set <span class="underline">Lars Ingebrigtsen</span></li>
+<li>Make <kbd>org-attach</kbd> work again for Emacs \(< 28\) <span class="underline">Kyle Meyer, Marco Wahl</span></li>
+<li>Make <code>rx</code> usage in <kbd>org-cite</kbd> files compatible with Emacs \(< 27.1\) <span class="underline">Max Nikulin</span></li>
+<li>Prevent <kbd>'</kbd> from becoming a LaTeX active char in exports using <kbd>oc-csl</kbd> <span class="underline"><span class='acr'>TEC</span></span></li>
+<li>Have <kbd>org-colview</kbd> dynblock <kbd>match</kbd> and <kbd>mixlevel</kbd> interact sensibly <span class="underline">Nick Dokos</span></li>
+<li>Behave appropriately when <code>ffap-url-regexp</code> is <code>nil</code>, instead of throwing an error
+<span class="underline">Peder Stray</span> <span class="underline"><span class='acr'>TEC</span></span></li>
+</ul>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+I have found the <kbd>xwidget-webkit</kbd> experience quite unstable until I
+started using Emacs 28 with the pure-<span class='acr'>GTK</span> branch. So, if you&rsquo;re not getting a
+good experience now, there&rsquo;s a good chance you&rsquo;ll have a better experience in
+the future.
+</p></div></div>
+
+
+</div>
+</div></div>
+<div id="postamble" class="status">
+<footer>
+    <p xmlns:dct="http://purl.org/dc/terms/" xmlns:vcard="http://www.w3.org/2001/vcard-rdf/3.0#">
+        <a rel="license" class="external" rel="nofollow" href="http://creativecommons.org/publicdomain/zero/1.0/">
+            <img src="cc0.svg" alt="CC0" class="invertible" style="position:relative;bottom:-0.2em"/>
+        </a>
+        To the extent possible under law,
+        <a rel="dct:publisher"
+           href="https://blog.tecosaur.com/">
+            <span property="dct:title">TEC</span></a>
+        has waived all copyright and related or neighboring rights to
+        <span property="dct:title" style="font-style:italic">This Month in Org</span>.
+    </p>
+</footer>
+
+<script src="theme-switcher.js"></script>
+</div>
+</div>
+</body>
+</html>

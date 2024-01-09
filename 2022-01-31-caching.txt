@@ -1,0 +1,138 @@
+                             ━━━━━━━━━━━━━━
+                              JANUARY 2022
+                                Caching
+
+                                  TEC
+                             ━━━━━━━━━━━━━━
+
+
+                               2022-01-31
+
+
+There are less “obvious user-facing changes” this month, but a lot of
+good work has been happening 🙂.
+
+
+The cache continues to make strides
+═══════════════════════════════════
+
+  Nine months ago, Ihor started working on the org-element cache. The
+  cache has existed for a while now, but it used to be too buggy to be
+  useful.
+
+  This is no longer the case! We’re finally confident enough to flip
+  `org-element-use-cache'’s default from `nil' to `t'. I mentioned some
+  of the improvements in [November], however Ihor has continued to make
+  strides with the cache.
+
+  Getting the cache right is tough though, and so while the situation is
+  much improved there are still lingering bugs which need to be chased
+  down. If you only take one thing away from the post, I’d like it to be
+  this:
+
+  The cache is actively being developed now, for the first time in
+  years, so:
+  1. Ignore old advice (like [this]) which suggests disabling the cache
+     • Note that the cache will /not/ stuff anything up, at worst it
+       will emit a warning
+  2. If you see an org-cache warning /please/ report it to the Org
+     mailing list — `emacs-orgmode@gnu.org'.
+
+  Cache warnings look something like this:
+  ┌────
+  │ Warning (org-element-cache): org-element--cache: Unregistered buffer modifications detected. Resetting.
+  │ If this warning appears regularly, please report the warning text to Org mode mailing list (M-x org-submit-bug-report).
+  │ The buffer is: config.org
+  │  Current command: (some-buggy-command)
+  │  Chars modified: 483
+  │  Buffer modified: 330957
+  │  Backtrace:
+  │ ...some possibly long backtrace...
+  └────
+
+  A good way to start is by copying this to your clipboard and then
+  trying `M-x org-submit-bug-report'. Regardless of whether you’re using
+  an Emacs mail client, this will collect all the important information
+  (org-mode version, etc.) and populate a buffer with it. Add the
+  warning text, and that will be a great help! After all, it’s quite
+  hard to fix bugs we don’t know about 😆.
+
+  As of October 2021, “bulk” heading promotion/demotion operations are
+  now faster thanks to the cache, and there have now been further
+  improvements relating to headings. It used to be the case that every
+  time heading properties changed the entire heading (and contents) were
+  re-parsed. Now, cache heuristics prevent the content from being
+  entirely re-parsed (see
+  `org-element--cache-avoid-synchronous-headline-re-parsing' for a bit
+  more information). This improvement is particularly noticeable when
+  refiling and archiving headings.
+
+
+[November] <file:2021-11-30-element.org::Org element parser cache>
+
+[this]
+<https://emacs.stackexchange.com/questions/42006/trouble-with-org-mode>
+
+
+Persisting data
+═══════════════
+
+  In October, Ihor started work on `org-persist.el' — a way to /persist/
+  data across Emacs sessions. You may wonder what sort of data is being
+  persisted. Well, initially org-persist was written to record variable
+  values associated with particular files or buffers — such as the
+  org-element cache. This allows org-mode to load the cache for an Org
+  file and avoid re-parsing much of the content.
+
+  Over the past month, Ihor has /doubled/ the total number of commits
+  applied to `org-persist.el' and now more kinds of data can be
+  persisted, such as remote files (via. tramp) and online resources.
+  This opens up a lot of new possibilities, and we can begin to see what
+  this will allow for in the next highlight.
+
+
+Exporting documents with remote resources
+═════════════════════════════════════════
+
+  Ever linked to an online image like
+  `https://orgmode.org/resources/img/org-mode-unicorn.svg' in an Org
+  document, seen it look nice in the HTML export and then be
+  disappointed to just see a link in LaTeX? Well I have. Thankfully this
+  is no longer the case though, thanks to a helper function
+  `org-export-link-localise' that’s just been added to `ox.el'.
+
+  Using `org-persist.el' this acquires a local copy of the remote
+  resource and substitutes it in for the remote link. This is currently
+  utilised in `ox-latex.el' to provide support for not just HTTPS links
+  but also tramp files!
+
+  <file:figures/ox-latex-image-link-localisation-demo.png>
+
+  While this is currently only implemented for `ox-latex', this can be
+  applied generally, and so there’s a good chance you’ll hear more about
+  this in the future.
+
+  There are also thoughts of moving this to the links file (`ol.el')
+  which would make this functionality more broadly accessible (e.g.
+  using cached/local versions of a resource in other places, and
+  defining custom downloaders for custom link types).
+
+
+Other improvements
+══════════════════
+
+  ⁃ Produce less native-comp warnings _Ihor Radchenko_
+  ⁃ Add a header to the clock report table _Samim Pezeshki_
+  ⁃ More verbose test failure summary _Max Nikulin_
+  ⁃ Parallelise `make'ing the docs _Marco Wahl_
+  ⁃ More org-element tests _Ihor Radchenko_
+
+
+Bugfixes
+════════
+
+  ⁃ Fix formatting in elisp-link prompt _TEC_
+  ⁃ Correct some checkdoc and compiler warnings _Ihor Radchenko_
+  ⁃ Correct signature for `org-element-at-point' _Mark A. Hershberger_
+  ⁃ Fix the LaTeX macron accent in org-entities _TEC_
+  ⁃ Ignore narrowing when tangling a file _Nicolas Goaziou_

@@ -1,0 +1,142 @@
+                            ━━━━━━━━━━━━━━━━
+                              AUGUST 2021
+                             Roaming around
+
+                                  TEC
+                            ━━━━━━━━━━━━━━━━
+
+
+                               2021-08-38
+
+
+      Dear readers, unfortunately I’ve been unusually busy as of
+      late, and will continue to be for a bit over a month. As
+      such, it’s entirely likely that the next post or two may +be
+      late+ make use of creative dates too.
+
+In terms of Org development, we’ve had a fairly slow month — mostly
+tweaks and fixes, concentrated on the new org-cite functionality.
+However, there have been big developments with Roam as of late.
+
+
+[Org-roam v2]
+═════════════
+
+  Pushed to the sidelines by last month’s hugely significant citations
+  announcement was the release of Org-roam v2 🎉. The project’s author
+  Jethro wrote a nice [blog post] outlining the major changes and
+  motivations, and so I’ll leave him to speak on that. Suffice to say,
+  the idea of org-roam has been refined into a form that should better
+  server tinkerers looking to build off Org roam, and make maintenance
+  easier — thus improving the user experience in the long term 🙂.
+  Should you be worried that the v1 -> v2 upgrade will be painful, read
+  [Org-roam v2 doesn’t hurt], relax, and try the upgrade wizard.
+
+
+[Org-roam v2] <https://github.com/org-roam/org-roam>
+
+[blog post] <https://blog.jethro.dev/posts/org_roam_v2/>
+
+[Org-roam v2 doesn’t hurt]
+<https://macowners.club/posts/org-roam-v2-doesnt-hurt/>
+
+
+[Org-roam-ui]
+═════════════
+
+  Within a month of Roam v2’s announcement, we were pleasantly surprised
+  by the release of [org-roam-server] usurper — org-roam-ui.
+
+  <file:figures/org-roam-graph-2d-overview.png>
+
+  While org-roam-server remains incompatible with Roam v2, org-roam-ui
+  is built around v2 from the ground up. With this shift comes a much
+  more ambitious set of features. The graph view itself is now based on
+  [react-force-graph], which allows for both 2D and 3D views of the
+  graph, with WebGL acceleration.
+
+  Using [emacs-websocket], org-roam-ui establishes a two-way connection
+  between Emacs and the Web visualisation. This allows for nifty
+  features like syncing the graph view and the currently open roam file
+  in Emacs. Furthermore, with `xwidget-webkit' you can even embed
+  org-roam-ui /inside/ Emacs![1]
+
+  <file:figures/org-roam-ui-in-emacs.png>
+
+  Beyond this, org-roam-ui also provides a number of other nice
+  features, such as filtering and theme syncing, with more in the works.
+  To see more, check out the `README' published on GitHub.
+
+  //github.com/org-roam/org-roam-ui/
+
+
+[Org-roam-ui] <https://github.com/org-roam/org-roam-ui/>
+
+[org-roam-server] <https://github.com/org-roam/org-roam-server>
+
+[react-force-graph] <https://github.com/vasturiano/react-force-graph>
+
+[emacs-websocket] <https://github.com/ahyatt/emacs-websocket>
+
+
+New ConTeXt exporter
+════════════════════
+
+  We’ve long been able to export to LaTeX files with `ox-latex', but now
+  you can export to ConTeXt too with [ox-context]! While only just
+  released, a lot of work has already gone into this — with development
+  starting almost a year ago by the commit history.
+
+  //github.com/Jason-S-Ross/ox-context
+
+  It’s always nice to see more export options for Org, and I wish Jason
+  all the best in developing `ox-context'.
+
+
+[ox-context] <https://github.com/Jason-S-Ross/ox-context>
+
+
+Other improvements
+══════════════════
+
+  ⁃ Refactor `oc-natbib.el', `oc-biblatex', `oc-basic.el',
+    `org-compat.el' to improve byte compilation _Maxim Nikulin_ _Nicolas
+    Goaziou_ _Marco Wahl_
+  ⁃ Allow for selecting cite style with a citation argument _Nicolas
+    Goaziou_
+  ⁃ Add support for Italian “smart quotes” _DPDmancul_
+  ⁃ Fix Spanish mistranslation in footnote Documentation _Juan Manuel
+    Macias_
+  ⁃ Define `\citeprocitem' in `oc-csl.el' for use by `citeproc-el' _TEC_
+  ⁃ Fix error in `org-export-define-backend' docstring _Zachary Kanfer_
+    _Nicolas Goaziou_
+  ⁃ Document the `:results none' option _Yasushi Shoji_
+  ⁃ Other documentation improvements: _Jorge Neto_ _Marco Wahl_
+
+
+Bugfixes
+════════
+
+  ⁃ When tangling a certain language, be more careful about which blocks
+    are matched _DMG, Nicolas Goaziou_
+  ⁃ Make `q' in `org-agenda' work even when `debug-on-error' is set
+    _Lars Ingebrigtsen_
+  ⁃ Make `org-attach' work again for Emacs < 28 _Kyle Meyer, Marco Wahl_
+  ⁃ Make `rx' usage in `org-cite' files compatible with Emacs < 27.1
+    _Max Nikulin_
+  ⁃ Prevent `'' from becoming a LaTeX active char in exports using
+    `oc-csl' _TEC_
+  ⁃ Have `org-colview' dynblock `match' and `mixlevel' interact sensibly
+    _Nick Dokos_
+  ⁃ Behave appropriately when `ffap-url-regexp' is `nil', instead of
+    throwing an error _Peder Stray_ _TEC_
+
+
+
+Footnotes
+─────────
+
+[1] I have found the `xwidget-webkit' experience quite unstable until
+I started using Emacs 28 with the pure-GTK branch. So, if you’re not
+getting a good experience now, there’s a good chance you’ll have a
+better experience in the future.

@@ -1,0 +1,249 @@
+                  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                                MAY 2022
+                   Folding more improvement into Org
+
+                                  TEC
+                  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+                               2022-05-31
+
+
+Finding time as of late has been more difficult than I anticipated, and
+on top of that, just as I was thinking of writing last month’s post, I
+got distracted by an exciting patchset that has been in the works for
+over a year finally getting sorted out and landing. So, I hope that some
+of the fun developments in this post will make up the absense of the
+last one 🙂.
+
+Since it’s been longer than I thought since the last standard post,
+we’ve got a fair few commits to catch up on — about 200. Most of these
+are miscellaneous minor improvements and bugfixes, but a few notable
+changes have arrived too.
+
+
+Folding
+═══════
+
+  The fabulous new folding engine (`org-fold-core') should noticeably
+  improve Org’s performance with large files. It contains a number of
+  key optimisations to improve speed, namely:
+  ⁃ Deferring fontification of folded regions
+  ⁃ Using text properties (𝒪(n log n)) instead of overlays (𝒪(n^2)) for
+    folded regions
+  ⁃ A collection of aggressive optimisations available under
+    `org-fold-core--optimise-for-huge-buffers'
+  ⁃ Convert text properties to overlays for `isearch' (which currently
+    only supports overlays)
+
+  How noticeable is the overall performance impact? Well, I poked Ihor
+  and he was kind enough to whip up some benchmarks.
+
+  <file:figures/org-fold-perf-shifttab-contents.svg>
+
+  <file:figures/org-fold-perf-shifttab-showall.svg>
+
+  Well this looks very promising[1]! Let’s see how much of an
+  improvement this is overall.
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   File size (Mb)  Headings (thousands)  Bugfix (no org-fold)  Main (with org-fold)  Improvement 
+  ───────────────────────────────────────────────────────────────────────────────────────────────
+               18                    36                115.31                  0.89          99% 
+              8.8                    24                 19.03                  0.48          97% 
+              4.4                     5                  3.79                  0.13          97% 
+              2.2                     2                  1.29                  0.08          94% 
+              1.1                     1                  0.50                 0.045          91% 
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Table 1: Time to run `org-shifttab' twice, cycling through all three
+  display modes (in seconds).
+
+  To be clear, even the smallest file in this data — a 1.1 Mb Org file
+  with around a thousand headings, is fairly large. So, it’s unlikely
+  you’ll notice much of a difference with small–medium files, but if you
+  a few large+ files this should be a /fantastic/ improvement. Once
+  again, thanks Ihor!
+
+  The change to text properties instead of overlays breaks a number of
+  third party packages like `evil-search' and `consult'’s
+  `consult-line'. If you are involved in any packages affected by this,
+  you’ll either want to consider supporting invisible text, or look at
+  `isearch-filter-predicate' and `isearch-mode-end-hook', which
+  `org-fold' now uses. If you’re an end-user, perhaps politely make an
+  issue on the repo for a project /if no issue currently exists/, and
+  either:
+  ⁃ Stay off Org’s bleeding edge till the package ecosystem has adapted
+    to this change
+  ⁃ Help the packages you use adapt to this change
+  ⁃ Set `org-fold-core-style' to `overlays' to restore the old behaviour
+
+
+/Engraved/ source code blocks in LaTeX
+══════════════════════════════════════
+
+  All too often exporting code to LaTeX has been a disappointment, with
+  lovely syntax highlighting from Emacs major modes replaced with a
+  markedly inferior attempt by pygments (setting `org-latex-listings' to
+  `minted') in a colour scheme I don’t really like.
+
+  A bit over a year ago, a project called [engrave-faces] started with
+  the aim of making Emacs’ font-lock more exportable, like a generalised
+  `htmlize.el'. This has recently been used to provide a new option for
+  inline and block source code exports in LaTeX.
+
+  <file:figures/engraved-faces-sample.png>
+
+  To use this, simply install the package and set
+  `org-latex-src-block-backend' (a rename of `org-latex-listings' to
+  better reflect its usage) to `engraved'.
+
+  While this is sufficient to get started, this new backend also allows
+  for some new options. The theme used for /engraving/ a source block
+  can be set globally with the new variable `org-latex-engraved-theme',
+  or per-file with the `#+latex_engraved_theme' keyword. It takes either
+  the name of a theme, or the symbol `t' as a stand-in for the current
+  theme.
+
+  The theme can also be set on a per-block level using the LaTeX
+  attribute `:engraved-theme'.
+
+  <file:figures/engraved-faces-multitheme.png>
+
+  Here’s what using these new capabilities looks like in practice.
+
+  ┌────
+  │ #+title: Engraving source blocks
+  │ #+latex_engraved_theme: modus-operandi
+  │ 
+  │ #+begin_src emacs-lisp
+  │ (message "look ma, some %s" 'code)
+  │ #+end_src
+  │ 
+  │ #+attr_latex: :engraved-theme modus-viviandi
+  │ #+begin_src shell
+  │ echo "This is shell code"
+  │ #+end_src
+  └────
+
+  This may well be the best syntax-highlighting solution available for
+  PDFs/LaTeX currently available, but I am a tad biased 😛.
+
+
+[engrave-faces] <https://github.com/tecosaur/engrave-faces>
+
+
+TexInfo export improvements
+═══════════════════════════
+
+  Jonas Bernoulli has been using a custom TexInfo backend for Magit’s
+  documentation for a while now, and over the past few months he’s
+  worked the features he was missing into Org’s built-in TexInfo
+  exporter.
+
+  Upstreaming like this always takes a fair bit of effort, so thank you
+  Jonas for going through with this!
+
+
+Toggle noweb prefix handling
+════════════════════════════
+
+  Previously, whenever a noweb reference appeared on a non-empty line, a
+  multi-line replacement would duplicate the content before the noweb
+  reference.
+
+  Clearly, this is not always desirable, and this behaviour can now be
+  turned of by setting the new header argument `:noweb-prefix no'.
+
+  ┌────
+  │ #+begin_src emacs-lisp :noweb yes :noweb-prefix no
+  │ (setq example-data "<<example>>")
+  │ #+end_src
+  │ 
+  │ Will now expand to
+  │ 
+  │ #+begin_src emacs-lisp
+  │ (setq example-data "some
+  │ multi-line
+  │ content")
+  │ #+end_src
+  │ 
+  │ Instead of
+  │ 
+  │ #+begin_src emacs-lisp
+  │ (setq example-data "some
+  │ (setq example-data "multiline
+  │ (setq example-data "content")
+  │ #+end_src
+  └────
+
+
+Package highlight: org-modern
+═════════════════════════════
+
+  I think we’ve all [seen] [plenty] of `org-mode' [prettification]
+  [packages] [before], so what makes Minad’s [org-modern] special? It’s
+  actually doing something similar to Ihor’s org-fold improvements,
+  switching out slower overlay-based approaches for text properties. I
+  can confirm that switching out `org-superstar-mode' for `org-modern'
+  has made a substantial improvement in my experience, halving the
+  first-load time of my `config.org' to around 20 seconds. If you’re a
+  fan of Org prettification and haven’t taken a look at this package, I
+  highly recommend giving it a shot.
+
+  <file:figures/org-modern-readme-demo.gif>
+
+
+[seen] <https://github.com/integral-dw/org-superstar-mode>
+
+[plenty] <https://github.com/sabof/org-bullets>
+
+[prettification] <https://github.com/Fuco1/org-pretty-table>
+
+[packages] <https://github.com/harrybournis/org-fancy-priorities>
+
+[before] <https://gitlab.com/marcowahl/org-pretty-tags>
+
+[org-modern] <https://github.com/minad/org-modern>
+
+
+Other improvements
+══════════════════
+
+  ⁃ Clean up some magic numbers in `org-attach' _Marco Wahl_
+  ⁃ Allow /any/ command form in `org-attach-commands' (including
+    keyboard macros) _Marco Wahl_
+  ⁃ Allow `dest' in `org-list-send-item' to be a buffer position _Sacha
+    Chua_
+  ⁃ Improve CSL-JSON date handling in `oc-basic' _David Lukes_
+  ⁃ Add `TOML' and `desktop' language aliases _TEC_
+  ⁃ Speed up cached bibliography retrieval in `oc-basic' _Ihor
+    Radchenko_
+  ⁃ Allow setting PlantUML jar arguments _Ihor Radchenko_
+  ⁃ Allow for customisation of property separators with
+    `org-property-separators' _Tyler Grinn_
+  ⁃ New `ox-latex' maintainer, Daniel Fleischer
+  ⁃ More unit tests _Kyle Keyer, Nick Dokos_
+  ⁃ Documentation improvements _Kyle Meyer, Juan Manuel Macias, Bastien,
+    Karl Fogel, Cody Harris_
+
+
+Bugfixes
+════════
+
+  ⁃ An Emacs <28 bug in `org-persist' _Ihor Radchenko_
+  ⁃ Author extraction in `oc-basic' _Nicolas Goaziou_
+  ⁃ Fix behaviour of `org-copy-visible' with adjacent tex and
+    `buffer-invisibility-spec' _Kyle Meyer_
+  ⁃ Parsing of inline footnotes with parentheses _Nicolas Goaziou_
+  ⁃ Honor `default-directory' in `ob-gnuplot' _Ihor Radchenko_
+  ⁃ Heading fontification bug _Anders Johansson_
+  ⁃ Template expansion where one key is a substring of another _Andrew
+    Arensburger_
+
+
+
+Footnotes
+─────────
+
+[1] Note the difference in scale, org-fold makes the most difference in
+the graph where the times are an order of magnitude more.

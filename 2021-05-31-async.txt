@@ -1,0 +1,293 @@
+                     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                                MAY 2021
+                      Asynchronous code execution
+
+                                  TEC
+                     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+                               2021-05-31
+
+
+
+
+
+Async Babel sessions have landed
+════════════════════════════════
+
+  Jack Kamm has made a fantastic contribution to Org: `ob-comint.el' now
+  supports asynchronous output from source blocks /with full support for
+  sessions/ 🎉.
+
+  If you haven’t used sessions before, you’re in for a treat! By simply
+  assigning a named session to a source code block, e.g. `:session foo',
+  the same process will be reused for any other code blocks that specify
+  the `foo' session. To do this for a certain language across the entire
+  document, you can set the header argument property, i.e.
+  ┌────
+  │ #+property: header-args:lang :session foo
+  └────
+
+  Along with the asynchronous process communication in `ob-comint.el',
+  we have an implementation for *Python*, and we should see support for
+  *R* and *Ruby* in the not-too-distant future 😍.
+
+  To use this, just add the `:async' parameter to a python block.
+  Instead of Emacs freezing until it completes execution, you’ll see a
+  placeholder inserted which is replaced by the result when it is ready.
+
+  [emacs-jupyter] allowed for asynchronous code execution (with
+  sessions), but it’s great to have a solution that doesn’t require
+  Jupyter kernels, and is part of Org.
+
+
+[emacs-jupyter] <https://github.com/nnicandro/emacs-jupyter>
+
+
+Font lock for inline export snippets
+════════════════════════════════════
+
+  Now, this isn’t necessarily a significant change, but I don’t think
+  many people know about this feature so I’ll take the opportunity to go
+  over it 🙂.
+
+  If you want to include a snippet of HTML/LaTeX etc. when exporting to
+  that format, you can use a `#+begin_export html' block which simply
+  includes the enclosed content verbatim. This doesn’t really work for
+  small inline snippets though — but never fear, Org has /inline/ export
+  snippets which simply follow the form `@@format:content@@'. For
+  example:
+
+  ┌────
+  │ I love using Org to export to @@html:<abbr title="Hyper Text Markup Language">HTML</abbr>@@ @@latex:\LaTeX{}@@ documents.
+  └────
+  which will export to HTML as,
+  ┌────
+  │ I love using Org to export to <abbr title="Hyper Text Markup Language">HTML</abbr> documents.
+  └────
+  and then in LaTeX will be,
+  ┌────
+  │ I love using Org to export to \LaTeX{} documents.
+  └────
+  isn’t that neat!
+
+  Now you’ll find the `@@' parts using the comment face and the
+  `format:' bit using the Org tag’s face. It’s a small change, but it
+  makes it easier to see what’s going on.
+
+  No mode-specific syntax highlighting yet, but that may come in the
+  future 😉.
+
+
+`#+plot' your `#+results'
+═════════════════════════
+
+  Org-plot has been getting some more love as of late (see [last month’s
+  post]), and that hasn’t stopped yet. This month there’s been a fairly
+  minor change that I’m quite a fan of. If you have a source block that
+  produces a table of `#+results', you can now put a `#+plot' statement
+  immediately above to get a visualisation of those results!
+
+  ┌────
+  │ #+begin_src python
+  │ # pretend this is some profound source of information
+  │ return [[i, i^3 - 4*i^2 - 2*i] for i in range(5)]
+  │ #+end_src
+  │ 
+  │ #+plot: ind:1
+  │ #+RESULTS:
+  │ | 0 |  1 |
+  │ | 1 | -2 |
+  │ | 2 |  7 |
+  │ | 3 |  8 |
+  │ | 4 | 13 |
+  └────
+
+  As usual, this relies on `gnuplot' being present. You can read more
+  about it in the [manual].
+
+
+[last month’s post] <file:2021-04-30-export-plot.org>
+
+[manual] <https://orgmode.org/manual/Org-Plot.html>
+
+
+Fancier LaTeX verses
+════════════════════
+
+  With the use of `verse.sty' you can now export fancier verses from
+  Org, as verse blocks now support four new attributes:
+  ⁃ `:lines' for the numbering interval.
+  ⁃ `:center' which can be set to `t' and works as long as,
+    • `:versewidth', the longest line in the verse as a text string is
+      set.
+  ⁃ You can also easily add arbitrary LaTeX code to be included with
+    `:latexcode'.
+
+  ┌────
+  │ #+latex_header: \usepackage{verse}
+  │ 
+  │ #+latex: \poemtitle{A Dream Within a Dream}
+  │ #+attr_latex: :lines 3 :center t
+  │ #+attr_latex: :versewidth Through my fingers to the deep,
+  │ #+begin_verse
+  │ Take this kiss upon the brow!
+  │ And, in parting from you now,
+  │ Thus much let me avow —
+  │ You are not wrong, who deem
+  │ That my days have been a dream;
+  │ Yet if hope has flown away
+  │ In a night, or in a day,
+  │ In a vision, or in none,
+  │ Is it therefore the less /gone?/
+  │ /All/ that we see or seem
+  │ Is but a dream within a dream.
+  │ 
+  │ I stand amid the roar
+  │ Of a surf-tormented shore,
+  │ And I hold within my hand
+  │ Grains of the golden sand —
+  │ How few! yet how they creep
+  │ Through my fingers to the deep,
+  │ While I weep — while I weep!
+  │ O God! Can I not grasp
+  │ Them with a tighter clasp?
+  │ O God! can I not save
+  │ /One/ from the pitiless wave?
+  │ Is /all/ that we see or seem
+  │ But a dream within a dream?
+  │ #+end_verse
+  └────
+
+  <file:figures/org-verses-example-poem-dream-within-dream.png>
+
+
+Easy zero-width spaces with Org
+═══════════════════════════════
+
+  Occasionally you may run into annoyances when you wish to have two
+  different Org elements right next to each other (no space) — for
+  example, *emph*asising part of a word or putting a currency symbol
+  immediately before an inline source block.
+
+  The best solution to this in Org is zero-width spaces. As such, I’ve
+  found it rather nice adding insertion of a zero-width space to the
+  `org-mode-map' in my config. Perhaps some of you might find this
+  solution useful too 🙂.
+
+  ┌────
+  │ (define-key org-mode-map (kbd "M-SPC M-SPC")
+  │   (lambda () (interactive) (insert "\u200b")))
+  └────
+
+  Should you want to keep zero-width spaces out of exports, that’s easy
+  enough to accomplish with an [export filter].
+
+  ┌────
+  │ (defun +org-export-remove-zero-width-space (text _backend _info)
+  │   "Remove zero width spaces from TEXT."
+  │   (unless (org-export-derived-backend-p 'org)
+  │     (replace-regexp-in-string "\u200b" "" text)))
+  │ 
+  │ (add-to-list 'org-export-filter-final-output-functions #'+org-export-remove-zero-width-space t)
+  └────
+
+
+[export filter]
+<https://orgmode.org/manual/Advanced-Export-Configuration.html>
+
+
+Org’s repos have moved
+══════════════════════
+
+  ⁃ `contrib/' is now at <https://git.sr.ht/~bzg/org-contrib> for Org
+    9.5, and it will be available on Non-GNU ELPA.
+  ⁃ Worg is now at <https://git.sr.ht/~bzg/worg>
+  ⁃ Org itself is moving to Savannah
+
+
+Other improvements
+══════════════════
+
+  ⁃ Add support for `HHhMM' date formats (e.g. `13h20') _Gustavo Barros_
+  ⁃ Make tangling faster /and/ more robust _Sébastien Miquel_
+  ⁃ Allow importing tables from files that /don’t/ end in `.txt',
+    `.tsv', or `.csv' _Utkarsh Singh_
+  ⁃ Add an SVG-specific post-export `ob-plantuml' step:
+    `org-babel-plantuml-svg-text-to-path' for running Inkscape
+    text-to-path replacement _Nick Daly_
+  ⁃ Refactor JavaScript in `ox-html' _Anthony Carrico_
+  ⁃ Set `org-html-head-include-scripts' to `nil' by default (was `t')
+    _Bastien Guerry_
+  ⁃ Remove LaTeX-environment type `#+results' _TEC_
+  ⁃ New capture templates parameter, `:refile-targets' _Richard Garner_
+  ⁃ Merge `org-speed-commands-default' and `org-speed-commands-user'
+    into a new variable, `org-speed-commands' _Bastien Guerry_
+  ⁃ URL recognition regex now handles up to two levels of nested
+    brackets, and is tested _Ihor Radchenko_
+  ⁃ Cache parent heading positions for faster movement up buffers.
+    Significantly improves Org queries involving inheritance (~15-50x
+    improvement) _Ihor Radchenko_
+  ⁃ New command `org-refile-reverse' bound to `C-c C-M-w' _Adam Spiers_
+  ⁃ Allow inline tasks to be dragged up/down _Bastien Guerry_
+  ⁃ LaTeX export, allow arbitrary `:float' values _Thomas S. Dye_
+  ⁃ Org attach git, new option `org-attach-git-dir' to use the
+    attachment dir as a git repository _Juan Manuel Macías_
+  ⁃ Use a write-back buffer in Org src _Sébastien Miquel_
+  ⁃ Add the `:environment' and `:options' LaTeX attributes to Quote
+    blocks _Juan Manuel Macias_
+  ⁃ Surround LaTeX `:options' attribute with curly braces when it
+    contains square braces _Markus Huber_
+  ⁃ Recognise the specific contributions of Kyle Meyer, Ihor Radchenko,
+    and TEC in the manual _Bastien Guerry_
+  ⁃ Improve test coverage _Ihor Radchenko, Kévin Le Gouguec_
+  ⁃ A bikeshed of new maintainers
+    • New maintainer for `ox-html' — TEC
+    • New `ob-ledger' maintainer — Eric S Fraga
+    • New `ob-awk' maintainer — Tyler Smith
+    • New `ob-calc' maintainer — Tom Gillespie
+    • New `ob-asymptote' and `ob-coq' maintainer — Luc Pellissier
+  ⁃ General code cleanup _Bastien Guerry_
+  ⁃ Documentation improvements _Bastien Guerry, Eric S Fraga, Samim
+    Pezeshki, Nicolar Goaziou_
+
+
+Bugfixes
+════════
+
+  ⁃ Make `ob-gnuplot' work on remote systems _Ihor Radchenko_
+  ⁃ Stop `M-x org-toggle-link-display' from affecting emphasis markers
+    _Bastien Guerry_
+  ⁃ Inserting a heading before a headline _Bastien Guerry_
+  ⁃ Perform `org-entry-put' in a read-only buffer _Ihor Radchenko_
+  ⁃ Emacs 24 compatibility for `ob-C' and `org-agenda-show-new-time'
+    _Kyle Meyer_
+  ⁃ Maintain Org’s keybindings when `visual-line-mode' active _Bastien
+    Guerry_
+  ⁃ Keep track of start of region beginning in `org-table-wrap-region'
+    _Bastien Guerry_
+  ⁃ Ensure correct visibility when unfolding subtree _Bastien Guerry_
+  ⁃ Corner case in `org--backwards-paragaph-once' _Bastien Guerry_
+  ⁃ Some byte compiler silencing _Kyle Meyer_
+  ⁃ Make tags filtering case-sensitive _Bastien Guerry_
+  ⁃ `C-c C-c' on a `#+plot' line can no longer cause an error _Bastien
+    Guerry_
+  ⁃ Ensure consistent position-translation in `org-src' by using point
+    for position instead of column _TEC_
+  ⁃ Prevent `ob-sql' from getting stuck on an error _Ivan Sokolov_
+  ⁃ Make `org-columns' respect `global-visual-line-mode', and simplify
+    tag scanning _Nick Savage_
+  ⁃ Don’t fontify `::' in headlines as description item _Ihor Radchenko_
+  ⁃ Handle a few corner-cases in `ob-R' _Jeremie Juste_
+  ⁃ Many fixes to `org-indent-line' _Bastien Guerry_
+  ⁃ Make headline numbering consistent with TOC _Mingkai Dong_
+  ⁃ Allow read-only tangling again, and ensure the correct filename is
+    used _Sébastien Miquel_
+  ⁃ Fix edge case when converting durations to minutes _Nicolas Goaziou_
+  ⁃ Make org-refile work in non-file-visiting buffers _Bastien Guerry_
+  ⁃ Be more rigorous in `org-sort-remove-invisible' _Nicolas Goaziou_
+  ⁃ Don’t update checkbox stats when heading has `todo' `COOKIE_DATA'
+    _Bastien Guerry_
+  ⁃ Don’t recognise a lone `:END:' to be forming a drawer _Nicolas
+    Goaziou_
+  ⁃ Allow new footnotes in empty table cells _Nicolas Goaziou_

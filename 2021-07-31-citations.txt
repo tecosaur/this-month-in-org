@@ -1,0 +1,403 @@
+                        ━━━━━━━━━━━━━━━━━━━━━━━━
+                               JULY 2021
+                         Introducing citations!
+
+                                  TEC
+                        ━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+                               2021-07-31
+
+
+Last month I not-at-all-subtly hinted that a certain long-awaited
+feature was arriving imminently. At this point, I think it’s a good idea
+to set the tone for the rest of this post.
+
+<file:figures/celebrate-citations.svg>
+
+
+Citations
+═════════
+
+  After /years/ of (on and off) discussion[1], I am elated to be able to
+  present Org’s new native citation syntax. Org has grown a thoroughly
+  designed, modular, capable citation system. At last you can refer to
+  Org for all your attribution needs. Special thanks must go to Nicolas
+  Goaziou for leading the charge, John Kitchin for paving the way with
+  the `org-ref' package, Bruce D’Arcus for driving a lot of careful
+  consideration of design decisions and starting to document some of the
+  details — and the many other denizens of the mailing list who have
+  contributed to the discussion over the years.
+
+  András Simonyi’s also deserves a special mention for his work creating
+  the Elisp CSL library `Citeproc.el', which while not directly included
+  in Org is crucial to providing robust CSL support, and integrates with
+  `oc-csl.el'.
+
+
+Outline
+───────
+
+  Citations have been carefully designed in such a way that users and
+  Elisp tinkerers will be able to easily adapt and extend it to fit
+  their needs. To that end, Org Cite (or OC for short) has been split
+  into two halves:
+  ⁃ `oc.el' which defines the syntax and provides some machinery to
+    interact with citations
+  ⁃ Citation processors which interface with `oc.el' to produce
+    nicely-formatted citations to be inserted in your bibliography,
+    within the text, and even rendered in the buffer[2]
+
+  There are four capabilities that Org Cite uses the processors for
+  1. Inserting and editing citations
+  2. Following citations to their definition
+  3. Fontifying the citations in the buffer
+  4. Exporting the citations
+
+  Each capability can have a particular citation processor assigned,
+  independently of the others. Out of the box, Org uses the `basic'
+  processor for all of these tasks.
+
+  The `basic' citation processor is one of four currently bundled with
+  Org:
+  ⁃ `basic', which has no dependencies and provides all four
+    capabilities. It export to all formats, but only provides very
+    simple citations.
+  ⁃ `biblatex' and `natbib', which provide the export capability to
+    create citations via [Biber] and (to a lesser extent) [natbib], but
+    only for LaTeX.
+  ⁃ `csl', which provides the export capability using the [Citation
+    Style Language], and exports to HTML, LaTeX, Org, and plain text
+    (with an [open issue] for ODT) — but depends on [citeproc.el].
+
+  This provides a solid foundation for other packages to build off, and
+  despite Org Cite being yet to be released or documented in the manual
+  we are already seeing the development of packages like [org-ref-cite]
+  (by John Kitchin).
+
+
+[Biber] <http://biblatex-biber.sourceforge.net/>
+
+[natbib] <https://ctan.org/pkg/natbib>
+
+[Citation Style Language] <https://citationstyles.org/>
+
+[open issue] <https://github.com/andras-simonyi/citeproc-el/issues/23>
+
+[citeproc.el] <https://github.com/andras-simonyi/citeproc-el>
+
+[org-ref-cite] <https://github.com/jkitchin/org-ref-cite>
+
+
+Basic usage
+───────────
+
+  To get started with Org Cite, we must have some form of bibliography.
+  This can either be a BibTeX file or a CSL-JSON file.
+
+  As an example, say we have a file `orgcite.bib' containing the
+  following
+  ┌────
+  │ @article{OrgCitations,
+  │          author={org, mode and Syntax, Citation and List, Mailing and Effort, Time},
+  │          journal={Journal of Plain Text Formats},
+  │          title={Elegant Citations with Org-Mode},
+  │          year={2021},
+  │          month={7},
+  │          volume={42},
+  │          number={1},
+  │          pages={2-3}}
+  └────
+
+  First we need to let Org know about this bibliography file (which must
+  have a `.bib', `.bibtex', or `.json' extension), which we do either
+  via the `#+bibliography' keyword, or the variable
+  `org-cite-global-bibliography'.
+  ┌────
+  │ #+bibliography: orgcite.bib
+  └────
+
+  Once you have a bibliography source, you can start referencing to your
+  heart’s content! The basic citation syntax is as follows:
+
+  <file:figures/citation-structure-basic.svg>
+
+  Using the default style `[cite:@OrgCitations]' produces (org et al.
+  2021). For more information on the styles currently available, see 1.
+
+  Finally, to insert a bibliography somewhere, we just need to insert
+  the `#+print_bibliography' keyword, like so:
+
+  ┌────
+  │ #+print_bibliography:
+  └────
+
+  org, mode, Citation Syntax, Mailing List, and Time Effort. 2021.
+  “Elegant Citations with Org-Mode.” /Journal of Plain Text Formats/ 42
+  (1): 2–3.
+
+  So, to summarise, all one needs to get started is:
+  ┌────
+  │ #+bibliography: references.bib
+  │ [cite:@key]
+  │ #+print_bibliography:
+  └────
+  That’s it! 🎉
+
+
+The cite syntax
+───────────────
+
+  Don’t let the simplicity in the examples above fool you, the new
+  syntax is quite capable of expressing more complex forms. Here’s the
+  /full/ version of the new cite syntax:
+
+  <file:figures/citation-structure-full.svg>
+
+  ⁃ The *style* and *variant* determine what form the exported citation
+    takes
+  ⁃ The *common prefix* and *suffix* and put at the start and end of the
+    generated citation, respectively
+  ⁃ The citation *key* refers to a Bib(La)TeX or CSL-JSON key
+    • The citation *prefix* and *suffix* are put before and after the
+      reference to the key
+    • Some citation processors recognise locators, which refer to a
+      particular part of the work, for example: `p. 7' to refer to page
+      7.
+
+  Using the default CSL citation style (Chicago author-name)
+  `[cite/l/b:see @OrgCitations pp. 7 for fun]' becomes see org et al.
+  2021, 7 for fun.
+
+  The citation styles and variants, and recognised locators are handled
+  by the citation processors. Org cite’s bundled processors currently
+  supports the following citation styles.
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Style          Variant               Sample                                Bib(La)TeX   NatBib      
+  ─────────────────────────────────────────────────────────────────────────────────────────────────────
+   `a' author     `cf' caps-full        (Org, Syntax, List, and Effort)       Citeauthor               
+   `a' author     `f' full              (org, Syntax, List, and Effort)       citeauthor   citeauthor* 
+   `a' author     `c' caps              (Org et al.)                          Citeauthor*  Citeauthor  
+   `a' author                           (org et al.)                          citeauthor*  citeauthor  
+  ─────────────────────────────────────────────────────────────────────────────────────────────────────
+   `na' noauthor  `b' bare              2021                                               citeyear    
+   `na' noauthor                        (2021)                                autocite*    citeyearpar 
+  ─────────────────────────────────────────────────────────────────────────────────────────────────────
+   `l' locators   `bc' bare-caps        Org et al. 2021, 2                    Notecite                 
+   `l' locators   `b' bare              org et al. 2021, 2                    notecite                 
+   `l' locators   `bc' caps             , Org et al. 2021, 2                  Pnotecite                
+   `l' locators                         (, org et al. 2021, 2)                pnotecite                
+  ─────────────────────────────────────────────────────────────────────────────────────────────────────
+   `n' nocite                           (org et al. 2021)                     nocite       nocite      
+  ─────────────────────────────────────────────────────────────────────────────────────────────────────
+   `t' text       `b' bare              org et al. (2021)                                  citealp     
+   `t' text       `c' caps              Org et al. (2021)                     Textcite     Citep       
+   `t' text       `f' full              org, Syntax, List, and Effort (2021)               citep*      
+   `t' text       `bc' bare-caps        org et al. (2021)                                  Citealp     
+   `t' text       `bf' bare-full        org et al. (2021)                                  citealp*    
+   `t' text       `cf' caps-full        Org, Syntax, List, and Effort (2021)               Citep*      
+   `t' text       `bcf' bare-caps-full  org et al. (2021)                                  Citealp*    
+   `t' text                             org et al. (2021)                     textcite                 
+  ─────────────────────────────────────────────────────────────────────────────────────────────────────
+   (default)      `b' bare              org et al. 2021                       cite         citealp     
+   (default)      `bc' bare-caps        Org et al. 2021                       Cite         Citealp     
+   (default)      `f' full              (org et al. 2021)                                  citep*      
+   (default)      `bf' bare-full        (org et al. 2021)                                  citealp     
+   (default)      `cf' caps-full        (org et al. 2021)                                  Citep*      
+   (default)      `bcf' bare-caps-full  (org et al. 2021)                                  Citealp*    
+   (default)                            (org et al. 2021)                     autocite     citep       
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Table 1: The current set of supported citation styles with variants,
+  with samples generated by `oc-csl.el' and `citeproc.el'.
+
+  The CSL processor supports the following locators:
+  ⁃ *`book'*, `bk.', `bks.'
+  ⁃ *`chapter'*, `chap.', `chaps.'
+  ⁃ *`column'*, `col.', `cols.'
+  ⁃ *`figure'*, `fig.', `figs.'
+  ⁃ *`folio'*, `fol.', `fols.'
+  ⁃ *`number'*, `no.', `Os.'
+  ⁃ *`line'*, `l.', `ll.'
+  ⁃ *`note'*, `n.', `nn.'
+  ⁃ *`opus'*, `op.', `opp.'
+  ⁃ *`page'*, `p', `p.', `pp.'
+  ⁃ *`paragraph'*, `para.', `paras.', `¶', `¶¶', `§', `§§'
+  ⁃ *`part'*, `pt.', `pts.'
+  ⁃ *`section'*, `sec.', `secs.'
+  ⁃ *`sub verbo'*, `s.v.', `s.vv.'
+  ⁃ *`verse'*, `v.', `vv.'
+  ⁃ *`volume'*, `vol.', `vols.'
+
+
+More on exporting
+─────────────────
+
+  The style of the citations and the bibliography depend on three
+  things:
+  1. The citation processor used
+  2. The citation style
+  3. The bibliography style
+
+  The citation processor is automatically selected based on
+  `org-cite-export-processors' based on the export format being used,
+  but can be set on a per-document basis via the `#+cite_export'
+  keyword. Here, I shall use the `csl' processor,
+  ┌────
+  │ #+cite_export: csl
+  └────
+
+  With `org-cite-export-processors', you can also set the bibliography
+  and citation style by giving a triplet of parameters `(PROCESSOR
+  BIBLIOGRAPHY-STYLE CITATION-STYLE)' instead of just the processor. You
+  can also use this triplet of values with the `#+cite_export' keyword
+  ┌────
+  │ #+cite_export: processor bibliography-style citation-style
+  └────
+
+  There are also some more options about how the bibliography is
+  produced. These options are handled by the active citation processor.
+  For example, while the CSL processor does not currently support any
+  options, the BibLaTeX processor passes options to a
+  `\printbibliography' command, allowing for the following:
+  ┌────
+  │ #+print_bibliography: :section 2 :heading subbibliography
+  │ #+print_bibliography: :keyword abc,xyz :title "Primary Sources"
+  └────
+
+
+Using CSL
+─────────
+
+  [Citeproc] is currently available on [MELPA], and so can be installed
+  via your package manager of choice so long as MELPA is included in
+  your `package-archives'. When available, it will be automatically
+  loaded by `oc-csl.el'.
+
+  It currently supports exporting to:
+  ⁃ HTML
+  ⁃ LaTeX
+  ⁃ Org
+  ⁃ Plain text
+
+  Should you be interested in other formats, know that Citeproc is
+  designed to easily support adding new formats (see
+  `citeproc-formatters.el' for examples).
+
+  Citeproc can currently retrieve bibliographic information from the
+  following formats:
+  ⁃ CSL-JSON
+  ⁃ Bib(La)TeX
+  ⁃ org-bibtex
+
+  Though support for Bib(La)TeX and [org-bibtex] is rudimentary compared
+  to CSL-JSON.
+
+  When exporting, you can set the style by providing a path to CSL style
+  files, either absolute or relative to `org-cite-csl-styles-dir'. For
+  example, if I download `apa.csl' I can use it like so:
+  ┌────
+  │ #+cite_export: csl ~/Downloads/apa.csl
+  └────
+
+  When no style is given `org-cite-csl--fallback-style-file' will be
+  used, which defaults to a bundled Chicago author-date style.
+
+
+[Citeproc] <https://github.com/andras-simonyi/citeproc-el>
+
+[MELPA] <https://melpa.org/#/citeproc>
+
+[org-bibtex] <https://gewhere.github.io/org-bibtex>
+
+
+Working with Zotero
+───────────────────
+
+  There are quite a few reference managers available, however, the list
+  rapidly shrinks if you restrict yourself to applications which are:
+  ⁃ somewhat feature-rich
+  ⁃ open source software
+  ⁃ not owned by a parasitic company[3]
+
+  [Zotero] is a good option, and if you’re using it it’s quite easy to
+  use it with Org Cite. Out of the box, you can tell it to export your
+  library, or parts of it, to a `.bib' file and automatically keep it in
+  sync. I’d recommend installing the [Better BibTeX] extension though.
+
+  <file:figures/zotero-export-library.png>
+
+  <file:figures/zotero-export-options-prompt.png>
+
+  Zotero also works well with CSL. In addition to supporting CSL-JSON
+  exports, Zotero also features an easy way to install CSL styles within
+  the preferences.
+
+  <file:figures/zotero-cite-styles-menu.png>
+
+  Since these files are put under `~/Zotero/styles', you can use them
+  with Org Cite and Citeproc simply by setting `org-cite-csl-styles-dir'
+  to the Zotero styles directory.
+  ┌────
+  │ (setq org-cite-csl-styles-dir "~/Zotero/styles")
+  └────
+
+  To then use the citation style defined by `~/Zotero/styles/apa.csl'
+  one can then simply refer to `apa.csl' when using the `#+cite_export'
+  keyword.
+  ┌────
+  │ #+cite_export: csl apa.csl
+  └────
+
+
+[Zotero] <https://www.zotero.org/>
+
+[Better BibTeX] <https://retorque.re/zotero-better-bibtex/>
+
+
+A bright future
+───────────────
+
+  Org Cite has only just been merged in the past month, and is yet to be
+  included in an Org release, but we’re seeing a tremendous degree of
+  community interest. There are /already/ promising developments with
+  third-party packages, such as [bibtex-actions] and [org-ref-cite]. I
+  can’t wait to see how the ecosystem continues to develop 😃.
+
+
+[bibtex-actions] <https://github.com/bdarcus/bibtex-actions>
+
+[org-ref-cite] <https://github.com/jkitchin/org-ref-cite>
+
+
+
+Footnotes
+─────────
+
+[1] Citations were first being mentioned on the mailing list back in
+2007, in [a thread about footnotes]
+(<https://lists.gnu.org/archive/html/emacs-orgmode/2007-05/msg00146.html>).
+
+[2] There is currently an [ongoing effort]
+(<https://github.com/andras-simonyi/org-cite-csl-activate>) to use
+`oc.el' and `citeproc.el' to produce citation overlays in the buffer.
+
+[3] I’m talking about a certain company [created by a British
+Fraudster]
+(<https://moneyweek.com/505757/great-frauds-in-history-robert-maxwell>)
+that has a [40% profit margin, engages in blackmail-like practices
+with universities]
+(<https://www.theguardian.com/science/2017/jun/27/profitable-business-scientific-publishing-bad-for-science>),
+prompted [19,000 researchers] (<http://thecostofknowledge.com/>) to
+boycott them, [published six fake journals]
+(<https://www.the-scientist.com/the-nutshell/elsevier-published-6-fake-journals-44160>),
+vigorously [lobbys against Open Access]
+(<https://web.archive.org/web/20200129202353/http://legacy.earlham.edu/~peters/fos/2007/08/publishers-launch-anti-oa-lobbying.html>),
+[charged for Open Acess articles]
+(<https://rossmounce.co.uk/2017/02/14/elsevier-selling-access-to-open-access-again/>)
+(repeatedly), made [financial contributions to politicians who then
+tried to prevent publicly accesible reaserch]
+(<https://www.michaeleisen.org/blog/?p=807>), and whose reference
+manager [encrypted reaserchers’ /own/ databases]
+(<https://www.zotero.org/support/kb/mendeley_import#mendeley_database_encryption>)
+“to comply with GDPR”.

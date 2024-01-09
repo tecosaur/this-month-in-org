@@ -1,0 +1,6 @@
+#+title: 404
+#+author: TEC
+#+date: 2021-04-25
+#+options: author:nil date:nil
+
+Ooops, looks like you took a wrong turn somewhere.

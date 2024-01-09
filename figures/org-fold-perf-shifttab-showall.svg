@@ -1,0 +1,850 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="800"
+   height="500"
+   viewBox="0 0 800 500"
+   version="1.1"
+   id="svg275"
+   sodipodi:docname="org-fold-perf-shifttab-showall.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs279" />
+  <sodipodi:namedview
+     id="namedview277"
+     pagecolor="#ffffff"
+     bordercolor="#999999"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="1.454"
+     inkscape:cx="399.93122"
+     inkscape:cy="250"
+     inkscape:window-width="2560"
+     inkscape:window-height="1414"
+     inkscape:window-x="2560"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="gnuplot_canvas" />
+  <title
+     id="title2">Gnuplot</title>
+  <desc
+     id="desc4">Produced by GNUPLOT 5.4 patchlevel 3 </desc>
+  <g
+     id="gnuplot_canvas">
+    <defs
+       id="defs34">
+      <circle
+         id="gpDot"
+         r="0.5"
+         stroke-width="0.5"
+         stroke="currentColor" />
+      <path
+         id="gpPt0"
+         stroke-width="0.167"
+         stroke="currentColor"
+         d="M-1,0 h2 M0,-1 v2" />
+      <path
+         id="gpPt1"
+         stroke-width="0.167"
+         stroke="currentColor"
+         d="M-1,-1 L1,1 M1,-1 L-1,1" />
+      <path
+         id="gpPt2"
+         stroke-width="0.167"
+         stroke="currentColor"
+         d="M-1,0 L1,0 M0,-1 L0,1 M-1,-1 L1,1 M-1,1 L1,-1" />
+      <rect
+         id="gpPt3"
+         stroke-width="0.167"
+         stroke="currentColor"
+         x="-1"
+         y="-1"
+         width="2"
+         height="2" />
+      <rect
+         id="gpPt4"
+         stroke-width="0.167"
+         stroke="currentColor"
+         fill="currentColor"
+         x="-1"
+         y="-1"
+         width="2"
+         height="2" />
+      <circle
+         id="gpPt5"
+         stroke-width="0.167"
+         stroke="currentColor"
+         cx="0"
+         cy="0"
+         r="1" />
+      <use
+         xlink:href="#gpPt5"
+         id="gpPt6"
+         fill="currentColor"
+         stroke="none" />
+      <path
+         id="gpPt7"
+         stroke-width="0.167"
+         stroke="currentColor"
+         d="M0,-1.33 L-1.33,0.67 L1.33,0.67 z" />
+      <use
+         xlink:href="#gpPt7"
+         id="gpPt8"
+         fill="currentColor"
+         stroke="none" />
+      <use
+         xlink:href="#gpPt7"
+         id="gpPt9"
+         stroke="currentColor"
+         transform="rotate(180)" />
+      <use
+         xlink:href="#gpPt9"
+         id="gpPt10"
+         fill="currentColor"
+         stroke="none" />
+      <use
+         xlink:href="#gpPt3"
+         id="gpPt11"
+         stroke="currentColor"
+         transform="rotate(45)" />
+      <use
+         xlink:href="#gpPt11"
+         id="gpPt12"
+         fill="currentColor"
+         stroke="none" />
+      <path
+         id="gpPt13"
+         stroke-width="0.167"
+         stroke="currentColor"
+         d="M0,1.330 L1.265,0.411 L0.782,-1.067 L-0.782,-1.076 L-1.265,0.411 z" />
+      <use
+         xlink:href="#gpPt13"
+         id="gpPt14"
+         fill="currentColor"
+         stroke="none" />
+      <filter
+         id="textbox"
+         filterUnits="objectBoundingBox"
+         x="0"
+         y="0"
+         height="1"
+         width="1">
+        <feFlood
+           flood-color="#FAFAFA"
+           flood-opacity="1"
+           result="bgnd"
+           id="feFlood24" />
+        <feComposite
+           in="SourceGraphic"
+           in2="bgnd"
+           operator="atop"
+           id="feComposite26" />
+      </filter>
+      <filter
+         id="greybox"
+         filterUnits="objectBoundingBox"
+         x="0"
+         y="0"
+         height="1"
+         width="1">
+        <feFlood
+           flood-color="lightgrey"
+           flood-opacity="1"
+           result="grey"
+           id="feFlood29" />
+        <feComposite
+           in="SourceGraphic"
+           in2="grey"
+           operator="atop"
+           id="feComposite31" />
+      </filter>
+    </defs>
+    <g
+       fill="none"
+       color="#FAFAFA"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g36" />
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g46">
+      <path
+         stroke="rgb( 56,  58,  66)"
+         d="M131.20,411.20 L119.20,411.20  "
+         id="path38" />
+      <g
+         transform="translate(108.00,416.40)"
+         stroke="none"
+         fill="rgb(56,58,66)"
+         font-family="Alegreya Sans"
+         font-size="16.00"
+         text-anchor="end"
+         id="g44">
+        <text
+           id="text42"><tspan
+             font-family="Alegreya Sans"
+             id="tspan40"> 0.001</tspan></text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g56">
+      <path
+         stroke="rgb( 56,  58,  66)"
+         d="M131.20,396.61 L125.20,396.61 M131.20,388.08 L125.20,388.08 M131.20,382.03 L125.20,382.03 M131.20,377.33 L125.20,377.33   M131.20,373.49 L125.20,373.49 M131.20,370.25 L125.20,370.25 M131.20,367.44 L125.20,367.44 M131.20,364.96 L125.20,364.96   M131.20,362.74 L119.20,362.74  "
+         id="path48" />
+      <g
+         transform="translate(108.00,367.94)"
+         stroke="none"
+         fill="rgb(56,58,66)"
+         font-family="Alegreya Sans"
+         font-size="16.00"
+         text-anchor="end"
+         id="g54">
+        <text
+           id="text52"><tspan
+             font-family="Alegreya Sans"
+             id="tspan50"> 0.01</tspan></text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g66">
+      <path
+         stroke="rgb( 56,  58,  66)"
+         d="M131.20,348.16 L125.20,348.16 M131.20,339.63 L125.20,339.63 M131.20,333.57 L125.20,333.57 M131.20,328.88 L125.20,328.88   M131.20,325.04 L125.20,325.04 M131.20,321.79 L125.20,321.79 M131.20,318.98 L125.20,318.98 M131.20,316.51 L125.20,316.51   M131.20,314.29 L119.20,314.29  "
+         id="path58" />
+      <g
+         transform="translate(108.00,319.49)"
+         stroke="none"
+         fill="rgb(56,58,66)"
+         font-family="Alegreya Sans"
+         font-size="16.00"
+         text-anchor="end"
+         id="g64">
+        <text
+           id="text62"><tspan
+             font-family="Alegreya Sans"
+             id="tspan60"> 0.1</tspan></text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g76">
+      <path
+         stroke="rgb( 56,  58,  66)"
+         d="M131.20,299.70 L125.20,299.70 M131.20,291.17 L125.20,291.17 M131.20,285.12 L125.20,285.12 M131.20,280.42 L125.20,280.42   M131.20,276.58 L125.20,276.58 M131.20,273.34 L125.20,273.34 M131.20,270.53 L125.20,270.53 M131.20,268.05 L125.20,268.05   M131.20,265.83 L119.20,265.83  "
+         id="path68" />
+      <g
+         transform="translate(108.00,271.03)"
+         stroke="none"
+         fill="rgb(56,58,66)"
+         font-family="Alegreya Sans"
+         font-size="16.00"
+         text-anchor="end"
+         id="g74">
+        <text
+           id="text72"><tspan
+             font-family="Alegreya Sans"
+             id="tspan70"> 1</tspan></text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g86">
+      <path
+         stroke="rgb( 56,  58,  66)"
+         d="M131.20,251.25 L125.20,251.25 M131.20,242.71 L125.20,242.71 M131.20,236.66 L125.20,236.66 M131.20,231.96 L125.20,231.96   M131.20,228.13 L125.20,228.13 M131.20,224.88 L125.20,224.88 M131.20,222.07 L125.20,222.07 M131.20,219.59 L125.20,219.59   M131.20,217.38 L119.20,217.38  "
+         id="path78" />
+      <g
+         transform="translate(108.00,222.58)"
+         stroke="none"
+         fill="rgb(56,58,66)"
+         font-family="Alegreya Sans"
+         font-size="16.00"
+         text-anchor="end"
+         id="g84">
+        <text
+           id="text82"><tspan
+             font-family="Alegreya Sans"
+             id="tspan80"> 10</tspan></text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g96">
+      <path
+         stroke="rgb( 56,  58,  66)"
+         d="M131.20,202.79 L125.20,202.79 M131.20,194.26 L125.20,194.26 M131.20,188.20 L125.20,188.20 M131.20,183.51 L125.20,183.51   M131.20,179.67 L125.20,179.67 M131.20,176.43 L125.20,176.43 M131.20,173.62 L125.20,173.62 M131.20,171.14 L125.20,171.14   M131.20,168.92 L119.20,168.92  "
+         id="path88" />
+      <g
+         transform="translate(108.00,174.12)"
+         stroke="none"
+         fill="rgb(56,58,66)"
+         font-family="Alegreya Sans"
+         font-size="16.00"
+         text-anchor="end"
+         id="g94">
+        <text
+           id="text92"><tspan
+             font-family="Alegreya Sans"
+             id="tspan90"> 100</tspan></text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g106">
+      <path
+         stroke="rgb( 56,  58,  66)"
+         d="M131.20,154.33 L125.20,154.33 M131.20,145.80 L125.20,145.80 M131.20,139.75 L125.20,139.75 M131.20,135.05 L125.20,135.05   M131.20,131.22 L125.20,131.22 M131.20,127.97 L125.20,127.97 M131.20,125.16 L125.20,125.16 M131.20,122.68 L125.20,122.68   M131.20,120.47 L119.20,120.47  "
+         id="path98" />
+      <g
+         transform="translate(108.00,125.67)"
+         stroke="none"
+         fill="rgb(56,58,66)"
+         font-family="Alegreya Sans"
+         font-size="16.00"
+         text-anchor="end"
+         id="g104">
+        <text
+           id="text102"><tspan
+             font-family="Alegreya Sans"
+             id="tspan100"> 1000</tspan></text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g116">
+      <path
+         stroke="rgb( 56,  58,  66)"
+         d="M131.20,105.88 L125.20,105.88 M131.20,97.35 L125.20,97.35 M131.20,91.29 L125.20,91.29 M131.20,86.60 L125.20,86.60   M131.20,82.76 L125.20,82.76 M131.20,79.52 L125.20,79.52 M131.20,76.71 L125.20,76.71 M131.20,74.23 L125.20,74.23   M131.20,72.01 L119.20,72.01  "
+         id="path108" />
+      <g
+         transform="translate(108.00,77.21)"
+         stroke="none"
+         fill="rgb(56,58,66)"
+         font-family="Alegreya Sans"
+         font-size="16.00"
+         text-anchor="end"
+         id="g114">
+        <text
+           id="text112"><tspan
+             font-family="Alegreya Sans"
+             id="tspan110"> 10000</tspan></text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g126">
+      <path
+         stroke="rgb( 56,  58,  66)"
+         d="M208.46,411.20 L208.46,417.20 M260.85,411.20 L260.85,417.20 M298.03,411.20 L298.03,417.20 M326.87,411.20 L326.87,417.20   M350.43,411.20 L350.43,417.20 M370.35,411.20 L370.35,417.20 M387.60,411.20 L387.60,417.20 M402.82,411.20 L402.82,417.20   M416.44,411.20 L416.44,423.20  "
+         id="path118" />
+      <g
+         transform="translate(416.44,452.40)"
+         stroke="none"
+         fill="rgb(56,58,66)"
+         font-family="Alegreya Sans"
+         font-size="16.00"
+         text-anchor="middle"
+         id="g124">
+        <text
+           id="text122"><tspan
+             font-family="Alegreya Sans"
+             id="tspan120"> 10</tspan></text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g136">
+      <path
+         stroke="rgb( 56,  58,  66)"
+         d="M506.01,411.20 L506.01,417.20 M558.41,411.20 L558.41,417.20 M595.58,411.20 L595.58,417.20 M624.42,411.20 L624.42,417.20   M647.98,411.20 L647.98,417.20 M667.90,411.20 L667.90,417.20 M685.16,411.20 L685.16,417.20 M700.38,411.20 L700.38,417.20   M713.99,411.20 L713.99,423.20  "
+         id="path128" />
+      <g
+         transform="translate(713.99,452.40)"
+         stroke="none"
+         fill="rgb(56,58,66)"
+         font-family="Alegreya Sans"
+         font-size="16.00"
+         text-anchor="middle"
+         id="g134">
+        <text
+           id="text132"><tspan
+             font-family="Alegreya Sans"
+             id="tspan130"> 100</tspan></text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g138" />
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g142">
+      <path
+         stroke="rgb( 56,  58,  66)"
+         d="M131.20,72.01 L131.20,411.20 L766.39,411.20 M766.39,72.01 M131.20,72.01  "
+         id="path140" />
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g152">
+      <g
+         transform="translate(25.60,241.61) rotate(270)"
+         stroke="none"
+         fill="rgb(56,58,66)"
+         font-family="Alegreya Sans"
+         font-size="16.00"
+         text-anchor="middle"
+         id="g150">
+        <text
+           id="text148"><tspan
+             font-family="Alegreya Sans"
+             font-size="19.2"
+             id="tspan144">Load time (seconds)</tspan><tspan
+             font-size="16.0"
+             dy="0.00"
+             id="tspan146" /></text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g162">
+      <g
+         transform="translate(448.79,488.40)"
+         stroke="none"
+         fill="rgb(56,58,66)"
+         font-family="Alegreya Sans"
+         font-size="16.00"
+         text-anchor="middle"
+         id="g160">
+        <text
+           id="text158"><tspan
+             font-family="Alegreya Sans"
+             font-size="19.2"
+             id="tspan154">File size (Mb)</tspan><tspan
+             font-size="16.0"
+             dy="0.00"
+             id="tspan156" /></text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g164" />
+    <g
+       id="gnuplot_plot_1">
+      <title
+         id="title166">Bugfix (no org-fold)</title>
+      <g
+         fill="none"
+         color="#FAFAFA"
+         stroke="currentColor"
+         stroke-width="2.00"
+         stroke-linecap="butt"
+         stroke-linejoin="miter"
+         id="g168" />
+      <g
+         fill="none"
+         color="black"
+         stroke="currentColor"
+         stroke-width="2.00"
+         stroke-linecap="butt"
+         stroke-linejoin="miter"
+         id="g176">
+        <g
+           transform="translate(675.99,101.21)"
+           stroke="none"
+           fill="rgb(56,58,66)"
+           font-family="Alegreya Sans"
+           font-size="16.00"
+           text-anchor="end"
+           id="g174">
+          <text
+             id="text172"><tspan
+               font-family="Alegreya Sans"
+               id="tspan170">Bugfix (no org-fold)</tspan></text>
+        </g>
+      </g>
+      <g
+         fill="none"
+         color="black"
+         stroke="currentColor"
+         stroke-width="2.00"
+         stroke-linecap="butt"
+         stroke-linejoin="miter"
+         id="g182">
+        <path
+           stroke="rgb(228,  86,  73)"
+           d="M687.19,96.01 L743.99,96.01 M766.39,74.41 L492.40,168.72 L399.92,205.78 L310.35,237.79 L220.77,262.00 L131.20,280.84    "
+           id="path178" />
+        <use
+           xlink:href="#gpPt6"
+           transform="translate(766.39,74.41) scale(6.00)"
+           color="#FAFAFA"
+           id="use180" />
+      </g>
+      <g
+         fill="none"
+         color="black"
+         stroke="currentColor"
+         stroke-width="2.00"
+         stroke-linecap="butt"
+         stroke-linejoin="miter"
+         id="g188">
+        <use
+           xlink:href="#gpPt4"
+           transform="translate(766.39,74.41) scale(6.00)"
+           color="rgb(228,  86,  73)"
+           id="use184" />
+        <use
+           xlink:href="#gpPt6"
+           transform="translate(492.40,168.72) scale(6.00)"
+           color="#FAFAFA"
+           id="use186" />
+      </g>
+      <g
+         fill="none"
+         color="black"
+         stroke="currentColor"
+         stroke-width="2.00"
+         stroke-linecap="butt"
+         stroke-linejoin="miter"
+         id="g194">
+        <use
+           xlink:href="#gpPt4"
+           transform="translate(492.40,168.72) scale(6.00)"
+           color="rgb(228,  86,  73)"
+           id="use190" />
+        <use
+           xlink:href="#gpPt6"
+           transform="translate(399.92,205.78) scale(6.00)"
+           color="#FAFAFA"
+           id="use192" />
+      </g>
+      <g
+         fill="none"
+         color="black"
+         stroke="currentColor"
+         stroke-width="2.00"
+         stroke-linecap="butt"
+         stroke-linejoin="miter"
+         id="g200">
+        <use
+           xlink:href="#gpPt4"
+           transform="translate(399.92,205.78) scale(6.00)"
+           color="rgb(228,  86,  73)"
+           id="use196" />
+        <use
+           xlink:href="#gpPt6"
+           transform="translate(310.35,237.79) scale(6.00)"
+           color="#FAFAFA"
+           id="use198" />
+      </g>
+      <g
+         fill="none"
+         color="black"
+         stroke="currentColor"
+         stroke-width="2.00"
+         stroke-linecap="butt"
+         stroke-linejoin="miter"
+         id="g206">
+        <use
+           xlink:href="#gpPt4"
+           transform="translate(310.35,237.79) scale(6.00)"
+           color="rgb(228,  86,  73)"
+           id="use202" />
+        <use
+           xlink:href="#gpPt6"
+           transform="translate(220.77,262.00) scale(6.00)"
+           color="#FAFAFA"
+           id="use204" />
+      </g>
+      <g
+         fill="none"
+         color="black"
+         stroke="currentColor"
+         stroke-width="2.00"
+         stroke-linecap="butt"
+         stroke-linejoin="miter"
+         id="g212">
+        <use
+           xlink:href="#gpPt4"
+           transform="translate(220.77,262.00) scale(6.00)"
+           color="rgb(228,  86,  73)"
+           id="use208" />
+        <use
+           xlink:href="#gpPt6"
+           transform="translate(131.20,280.84) scale(6.00)"
+           color="#FAFAFA"
+           id="use210" />
+      </g>
+      <g
+         fill="none"
+         color="black"
+         stroke="currentColor"
+         stroke-width="2.00"
+         stroke-linecap="butt"
+         stroke-linejoin="miter"
+         id="g218">
+        <use
+           xlink:href="#gpPt4"
+           transform="translate(131.20,280.84) scale(6.00)"
+           color="rgb(228,  86,  73)"
+           id="use214" />
+        <use
+           xlink:href="#gpPt6"
+           transform="translate(715.59,96.01) scale(6.00)"
+           color="#FAFAFA"
+           id="use216" />
+      </g>
+      <g
+         fill="none"
+         color="black"
+         stroke="currentColor"
+         stroke-width="2.00"
+         stroke-linecap="butt"
+         stroke-linejoin="miter"
+         id="g222">
+        <use
+           xlink:href="#gpPt4"
+           transform="translate(715.59,96.01) scale(6.00)"
+           color="rgb(228,  86,  73)"
+           id="use220" />
+      </g>
+    </g>
+    <g
+       id="gnuplot_plot_2">
+      <title
+         id="title225">Main (org-fold)</title>
+      <g
+         fill="none"
+         color="black"
+         stroke="currentColor"
+         stroke-width="2.00"
+         stroke-linecap="butt"
+         stroke-linejoin="miter"
+         id="g233">
+        <g
+           transform="translate(675.99,125.21)"
+           stroke="none"
+           fill="rgb(56,58,66)"
+           font-family="Alegreya Sans"
+           font-size="16.00"
+           text-anchor="end"
+           id="g231">
+          <text
+             id="text229"><tspan
+               font-family="Alegreya Sans"
+               id="tspan227">Main (org-fold)</tspan></text>
+        </g>
+      </g>
+      <g
+         fill="none"
+         color="black"
+         stroke="currentColor"
+         stroke-width="2.00"
+         stroke-linecap="butt"
+         stroke-linejoin="miter"
+         id="g251">
+        <path
+           stroke="rgb( 64, 120, 242)"
+           d="M687.19,120.01 L743.99,120.01 M766.39,316.51 L492.40,348.16 L399.92,362.74 L310.35,377.33 L220.77,388.08 L131.20,388.08    "
+           id="path235" />
+        <use
+           xlink:href="#gpPt6"
+           transform="translate(766.39,316.51) scale(6.00)"
+           color="rgb( 64, 120, 242)"
+           id="use237" />
+        <use
+           xlink:href="#gpPt6"
+           transform="translate(492.40,348.16) scale(6.00)"
+           color="rgb( 64, 120, 242)"
+           id="use239" />
+        <use
+           xlink:href="#gpPt6"
+           transform="translate(399.92,362.74) scale(6.00)"
+           color="rgb( 64, 120, 242)"
+           id="use241" />
+        <use
+           xlink:href="#gpPt6"
+           transform="translate(310.35,377.33) scale(6.00)"
+           color="rgb( 64, 120, 242)"
+           id="use243" />
+        <use
+           xlink:href="#gpPt6"
+           transform="translate(220.77,388.08) scale(6.00)"
+           color="rgb( 64, 120, 242)"
+           id="use245" />
+        <use
+           xlink:href="#gpPt6"
+           transform="translate(131.20,388.08) scale(6.00)"
+           color="rgb( 64, 120, 242)"
+           id="use247" />
+        <use
+           xlink:href="#gpPt6"
+           transform="translate(715.59,120.01) scale(6.00)"
+           color="rgb( 64, 120, 242)"
+           id="use249" />
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="2.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g254" />
+    <g
+       fill="none"
+       color="black"
+       stroke="black"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g256" />
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g260">
+      <path
+         stroke="rgb( 56,  58,  66)"
+         d="M131.20,72.01 L131.20,411.20 L766.39,411.20 M766.39,72.01 M131.20,72.01  "
+         id="path258" />
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g270">
+      <g
+         transform="translate(448.79,41.21)"
+         stroke="none"
+         fill="rgb(56,58,66)"
+         font-family="Alegreya Sans"
+         font-size="16.00"
+         text-anchor="middle"
+         id="g268">
+        <text
+           id="text266"><tspan
+             font-family="Alegreya Sans"
+             font-size="25.6"
+             id="tspan262">Running org-shifttab to SHOW-ALL</tspan><tspan
+             font-size="16.0"
+             dy="0.00"
+             id="tspan264" /></text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g272" />
+  </g>
+  <metadata
+     id="metadata1096">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>Gnuplot</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+</svg>

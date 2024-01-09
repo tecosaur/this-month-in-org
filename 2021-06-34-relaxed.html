@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2022-03-03 Thu 01:39 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>June 2021</title>
+<meta name="author" content="TEC" />
+<meta name="generator" content="org mode" />
+<meta name="theme-color" content="#77aa99" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="June 2021" />
+<meta property="og:description" content="A relaxed month" />
+<meta property="og:image" content="https://blog.tecosaur.com/tmio/org-icon.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="464" />
+<meta property="og:image:height" content="512" />
+<meta property="og:image:alt" content="Org unicorn logo" />
+<meta property="og:article:author:first_name" content="TEC" />
+<meta property="og:article:published_time" content="2021-07-04T00:00:00+0800" />
+<meta property="og:article:modified_time" content="2021-08-02T13:36:45+0800" />
+<link rel="alternate" type="application/atom+xml" title="This Month in Org" href="rss.xml" />
+<link rel="icon" type="image/ico" href="favicon.ico?v=3">
+<link rel="stylesheet" type="text/css" href="org-style.css">
+<link rel="stylesheet" type="text/css" href="blog.css">
+<script src="org-style.js"></script>
+</head>
+<body>
+<input type='checkbox' id='theme-switch'><div id='page'><label id='switch-label' for='theme-switch'></label><div id="preamble" class="status">
+<header>
+    <h4><a href="https://orgmode.org" class="orgicorn"><img src="org-icon-monochrome.svg" class="invertible"></a>
+        <a href="https://blog.tecosaur.com/tmio/" class="title">
+            This Month in Org</a>
+        <a href="rss.xml" title="RSS Feed" type="application/rss+xml" class="rss">
+            <img src="rss.svg" alt="RSS icon" />
+        </a></h4>
+</header>
+</div>
+<div id="content">
+<header class="page-header"><div class="page-meta">2021-06-34, <span class='acr'>TEC</span></div>
+
+<h1 class="title">June 2021</h1>
+<p class="subtitle" role="doc-subtitle">A relaxed month</p>
+</header><p>
+The previous two months have been pretty good for Org development &#x2014; with many
+bug fixes and feature improvements. This month has been substantially slower
+than the last<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>, but that&rsquo;s not to say not much is happening: in fact, there are
+some rather nifty contributions lined up for the not-too-distant future and a
+certain long-awaited feature branch<sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup> is getting very close to merging 😀.
+You&rsquo;ll just have to stick around to hear about those in a future edition of <span class='acr'>TMIO</span> 😉.
+</p>
+
+
+<figure id="org04c0557">
+<img src="figures/dilbert-zenos-paradox.jpg" alt="dilbert-zenos-paradox.jpg" class="invertible">
+
+<figcaption><span class="figure-number">Figure 1: </span>It&rsquo;s right around the corner, I swear!</figcaption>
+</figure>
+
+<div id="outline-container-customise-reference-command" class="outline-2">
+<h2 id="customise-reference-command">Customise the reference command used in LaTeX<a aria-hidden="true" href="#customise-reference-command">#</a> </h2>
+<div class="outline-text-2" id="text-customise-reference-command">
+<p>
+Previously, whenever you linked to another part of your document (with or
+without giving it a name) &#x2014; for example with <kbd>[[Profound section]]</kbd> or similar
+&#x2014; when exporting to LaTeX Org would <i>always</i> use the <kbd>\ref</kbd> command.
+</p>
+
+
+<figure id="org2622d19">
+<img src="figures/org-latex-default-reference-to-sec.png" alt="org-latex-default-reference-to-sec.png" class="invertible">
+
+<figcaption><span class="figure-number">Figure 2: </span>A LaTeX export of a simple document with a reference to both the first and second section. &ldquo;2&rdquo; what? Section 2, Table 2, Figure 2, &#x2026;</figcaption>
+</figure>
+
+<p>
+You can now set the format string <code>org-latex-reference-command</code> (<kbd>\\ref{%s}</kbd> by
+default) to anything you&rsquo;d like. For example, making use of the <a href="https://ctan.org/pkg/cleveref">cleveref</a> package
+I can set this to <kbd>\\cref{%s}</kbd> and then add <code class="src src-elisp"><span class="org-rainbow-delimiters-depth-1">(</span><span class="org-string">"capitalize"</span> <span class="org-string">"cleveref"</span> nil<span class="org-rainbow-delimiters-depth-1">)</span></code><sup><a id="fnr.3" class="footref" href="#fn.3" role="doc-backlink">3</a></sup> to <code>org-latex-packages-alist</code>.
+</p>
+
+
+<figure id="org44f0c03">
+<img src="figures/org-latex-cref-reference-to-sec.png" alt="org-latex-cref-reference-to-sec.png" class="invertible">
+
+<figcaption><span class="figure-number">Figure 3: </span>A LaTeX export of the same document, but now using <code>cleveref</code>. Note the change from &ldquo;1&rdquo; and &ldquo;2&rdquo; to &ldquo;Section 1&rdquo; and &ldquo;Section 2&rdquo;.</figcaption>
+</figure>
+</div>
+</div>
+
+<div id="outline-container-diversion-into-writing" class="outline-2">
+<h2 id="diversion-into-writing">A diversion into writing Org for LaTeX<a aria-hidden="true" href="#diversion-into-writing">#</a> </h2>
+<div class="outline-text-2" id="text-diversion-into-writing">
+<p>
+Speaking of LaTeX exports, a member of the Org mailing list recently told us
+about <a href="https://arxiv.org/abs/2106.05096">a paper</a> pushed to <a href="https://arxiv.org/">arXiv</a> which was written <i>entirely</i> in Org. Why don&rsquo;t we
+use that as a prompt to talk a bit about generating LaTeX documents from Org?
+</p>
+
+<p>
+For an experienced LaTeX-er, Org may initially appear best suited to simple
+documents, but in fact it&rsquo;s possible to reproduce any LaTeX structure in Org
+with no more difficulty (often less) than in LaTeX.
+</p>
+</div>
+
+<div id="outline-container-simple-elements" class="outline-3">
+<h3 id="simple-elements">Simple elements<a aria-hidden="true" href="#simple-elements">#</a> </h3>
+<div class="outline-text-3" id="text-simple-elements">
+<p>
+The &ldquo;basic&rdquo; Org elements are simply translated to their LaTeX counterparts.
+Markup like <b>bold</b>, <i>italic</i>, etc. are simply translated through
+<code>org-latex-text-markup-alist</code>.
+</p>
+
+<p>
+For those of us who dabble with equations, Org is <a href="https://orgmode.org/manual/LaTeX-fragments.html">very accomodating</a>. You can
+type (LaTeX-style) inline and display equations in exactly the same way (<kbd>\( \)</kbd>
+and <kbd>\[ \]</kbd>), and what&rsquo;s more, if you have a LaTeX environment statement
+<kbd>\begin{...}</kbd> on its own line, Org will recognise it and pass it into the
+generated LaTeX.
+</p>
+</div>
+</div>
+
+<div id="outline-container-figures-tables" class="outline-3">
+<h3 id="figures-tables">Figures and tables<a aria-hidden="true" href="#figures-tables">#</a> </h3>
+<div class="outline-text-3" id="text-figures-tables">
+<p>
+One area where the improvement when moving to Org is particularly apparent is
+with figures and tables. To simply include an image, an image link alone is
+sufficient.
+</p>
+<details id='figures-tables,code--1' class='code' open><summary><span class="lang">Org mode</span></summary>
+    <div class='gutter'>
+    <a href='#figures-tables,code--1'>#</a>
+    <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>    </div>
+    <div class="org-src-container">
+<pre class="src src-org"><span class="org-org-link"><a href="file:figures/salvador-dali-persistence-of-memory.jpg">file:figures/salvador-dali-persistence-of-memory.jpg</a></span>
+</pre>
+</div>
+    </details>
+<p>
+When exported to LaTeX this will be expanded to
+</p>
+<details id='figures-tables,code--2' class='code' open><summary><span class="lang">LaTeX</span></summary>
+    <div class='gutter'>
+    <a href='#figures-tables,code--2'>#</a>
+    <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>    </div>
+    <div class="org-src-container">
+<pre class="src src-LaTeX"><span class="org-font-latex-sedate">\includegraphics</span>[width=.9<span class="org-font-latex-sedate">\linewidth</span>]{figures/salvador-dali-persistence-of-memory.jpg}
+</pre>
+</div>
+    </details>
+
+<p>
+As soon as you add a <kbd>#+caption</kbd>, though, Org knows you mean business and
+generates a <i>proper</i> figure.
+</p>
+<details id='figures-tables,code--3' class='code' open><summary><span class="lang">Org mode</span></summary>
+    <div class='gutter'>
+    <a href='#figures-tables,code--3'>#</a>
+    <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>    </div>
+    <div class="org-src-container">
+<pre class="src src-org"><span class="org-org-meta-line">#+caption:</span> <span class="org-org-block">A famous surrealist painting</span>
+<span class="org-org-link"><a href="file:figures/salvador-dali-persistence-of-memory.jpg">file:figures/salvador-dali-persistence-of-memory.jpg</a></span>
+</pre>
+</div>
+    </details>
+<details id='figures-tables,code--4' class='code' open><summary><span class="lang">LaTeX</span></summary>
+    <div class='gutter'>
+    <a href='#figures-tables,code--4'>#</a>
+    <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>    </div>
+    <div class="org-src-container">
+<pre class="src src-LaTeX"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">figure</span>}[htbp]
+<span class="org-font-latex-sedate"><span class="org-keyword">\centering</span></span>
+<span class="org-font-latex-sedate">\includegraphics</span>[width=.9<span class="org-font-latex-sedate">\linewidth</span>]{figures/salvador-dali-persistence-of-memory.jpg}
+<span class="org-font-latex-sedate"><span class="org-keyword">\caption</span></span>{<span class="org-type">A famous surrealist painting</span>}
+<span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">figure</span>}
+</pre>
+</div>
+    </details>
+
+<p>
+As you may have guessed from the fact this works without a LaTeX-specific
+keyword, this works nicely in <span class='acr'>HTML</span> too 🙂.
+</p>
+
+<figure id="orgad60db6">
+<img src="figures/salvador-dali-persistence-of-memory.jpg" alt="salvador-dali-persistence-of-memory.jpg">
+
+<figcaption><span class="figure-number">Figure 4: </span>A famous surrealist painting</figcaption>
+</figure>
+
+<p>
+The LaTeX backend also accepts additional image attributes (<a href="https://orgmode.org/manual/Images-in-LaTeX-export.html">manual page</a>). For
+example, to set the image width I can simply add
+</p>
+<details id='figures-tables,code--5' class='code' open><summary><span class="lang">Org mode</span></summary>
+    <div class='gutter'>
+    <a href='#figures-tables,code--5'>#</a>
+    <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>    </div>
+    <div class="org-src-container">
+<pre class="src src-org"><span class="org-org-meta-line">#+attr_latex: :width 0.4\linewidth</span>
+</pre>
+</div>
+    </details>
+<p>
+above the image link.
+</p>
+
+<p>
+You can do the same with tables:
+</p>
+<details id='figures-tables,code--6' class='code' open><summary><span class="lang">Org mode</span></summary>
+    <div class='gutter'>
+    <a href='#figures-tables,code--6'>#</a>
+    <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>    </div>
+    <div class="org-src-container">
+<pre class="src src-org"><span class="org-org-meta-line">#+caption:</span> <span class="org-org-block">A selection of famous paintings by Salvador Dal&#237;</span>
+<span class="org-org-table">| Year | Painting                   |</span>
+<span class="org-org-table">|------+----------------------------|</span>
+<span class="org-org-table">| 1931 | The persistence of memory  |</span>
+<span class="org-org-table">| 1937 | Swans reflecting elephants |</span>
+<span class="org-org-table">| 1837 | Metamorphosis of narcissus |</span>
+<span class="org-org-table">| 1952 | Galatea of the spheres     |</span>
+<span class="org-org-table">| 1966 | Tuna fishing               |</span>
+</pre>
+</div>
+    </details>
+
+<p>
+I like to set <code class="src src-elisp"><span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">setq</span> <span class="org-variable-name">org-latex-tables-booktabs</span> t<span class="org-rainbow-delimiters-depth-1">)</span></code> to use the nice
+<kbd>booktabs</kbd> rules in the generated tables. Just remember to ensure the <kbd>booktabs</kbd>
+package is loaded.
+</p>
+
+<details id='figures-tables,code--7' class='code' open><summary><span class="lang">LaTeX</span></summary>
+    <div class='gutter'>
+    <a href='#figures-tables,code--7'>#</a>
+    <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>    </div>
+    <div class="org-src-container">
+<pre class="src src-LaTeX"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">table</span>}[htbp]
+<span class="org-font-latex-sedate"><span class="org-keyword">\caption</span></span>{<span class="org-type">A selection of famous paintings by Salvador Dal&#237;</span>}
+<span class="org-font-latex-sedate"><span class="org-keyword">\centering</span></span>
+<span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tabular</span>}{rl}
+<span class="org-font-latex-sedate">\toprule</span>
+Year <span class="org-font-latex-warning">&amp;</span> Painting<span class="org-font-latex-warning">\\</span>
+<span class="org-font-latex-sedate">\midrule</span>
+1931 <span class="org-font-latex-warning">&amp;</span> The persistence of memory<span class="org-font-latex-warning">\\</span>
+1937 <span class="org-font-latex-warning">&amp;</span> Swans reflecting elephants<span class="org-font-latex-warning">\\</span>
+1837 <span class="org-font-latex-warning">&amp;</span> Metamorphosis of narcissus<span class="org-font-latex-warning">\\</span>
+1952 <span class="org-font-latex-warning">&amp;</span> Galatea of the spheres<span class="org-font-latex-warning">\\</span>
+1966 <span class="org-font-latex-warning">&amp;</span> Tuna fishing<span class="org-font-latex-warning">\\</span>
+<span class="org-font-latex-sedate">\bottomrule</span>
+<span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">tabular</span>}
+<span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">table</span>}
+</pre>
+</div>
+    </details>
+
+<p>
+Org is nice and does the right thing<sup><span class='acr'>TM</span></sup> by including the caption at the top.
+</p>
+
+<figure id="org74d1223">
+<img src="figures/org-table-to-latex-example.png" alt="org-table-to-latex-example.png" class="invertible">
+
+<figcaption><span class="figure-number">Figure 5: </span>Look ma, I put the caption in the right place.</figcaption>
+</figure>
+
+<p>
+There are also some <a href="https://orgmode.org/manual/Images-in-LaTeX-export.html">more attributes</a> you can supply to tables. Should I want the
+table to spread out I could use <kbd>#+attr_latex: :environment tabularx</kbd> (as long as
+I&rsquo;ve loaded the <kbd>tabularx</kbd> package) and then set the columns with <kbd>:align lX</kbd>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-code-blocks" class="outline-3">
+<h3 id="code-blocks">Code blocks<a aria-hidden="true" href="#code-blocks">#</a> </h3>
+<div class="outline-text-3" id="text-code-blocks">
+<p>
+By default, source code blocks are translated verbatim. We can do better than
+that however. We can tell Org to use <a href="https://ctan.org/pkg/listings">listings</a>, but I&rsquo;d recommend going one step
+further and using <a href="https://ctan.org/pkg/minted">minted</a>. For this to work we need to perform three actions:
+</p>
+<ul class="org-ul">
+<li>Tell Org we want to use <kbd>minted</kbd> environments for source code</li>
+<li>Load the <kbd>minted</kbd> package by default</li>
+<li>Add <kbd>-shell-escape</kbd> to our LaTeX compiler flags, so <kbd>minted</kbd> may call <a href="https://pygments.org/">pygments</a>.</li>
+</ul>
+
+<p>
+This can easily be accomplished via the following snippet:
+</p>
+<details id='code-blocks,code--1' class='code' open><summary><span class="lang">Emacs Lisp</span></summary>
+    <div class='gutter'>
+    <a href='#code-blocks,code--1'>#</a>
+    <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>    </div>
+    <div class="org-src-container">
+<pre class="src src-emacs-lisp"><span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">setq</span> <span class="org-variable-name">org-latex-listings</span> <span class="org-highlight-quoted-quote">'</span><span class="org-highlight-quoted-symbol">minted</span>
+      <span class="org-comment-delimiter">;; </span><span class="org-comment">as long as you have latexmk installed</span>
+      <span class="org-variable-name">org-latex-pdf-process</span>
+      <span class="org-highlight-quoted-quote">'</span><span class="org-rainbow-delimiters-depth-2">(</span><span class="org-string">"latexmk -f -pdf -%latex -shell-escape -interaction=nonstopmode -output-directory=%o %f"</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-constant">add-to-list</span> <span class="org-highlight-quoted-quote">'</span><span class="org-variable-name">org-latex-packages-alist</span> <span class="org-highlight-quoted-quote">'</span><span class="org-rainbow-delimiters-depth-2">(</span><span class="org-string">""</span> <span class="org-string">"minted"</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+</pre>
+</div>
+    </details>
+
+<p>
+To customise <kbd>minted</kbd>, as well as inserting content into the <a href="#preamble-content">preamble</a>, one can
+also customise <code>org-latex-minted-options</code> to control what options are applied to
+each <kbd>minted</kbd> environment.
+</p>
+</div>
+</div>
+
+<div id="outline-container-custom-environments" class="outline-3">
+<h3 id="custom-environments">Custom environments<a aria-hidden="true" href="#custom-environments">#</a> </h3>
+<div class="outline-text-3" id="text-custom-environments">
+<p>
+Org has a number of <a href="https://orgmode.org/manual/Blocks.html">blocks</a> which are treated specially, like <kbd>#+begin_src</kbd> for
+source code, and <kbd>#+begin_centre</kbd> for centred text. When exporting this same
+syntax allows you to wrap Org content in any LaTeX environments (as long as it
+doesn&rsquo;t match one of Org&rsquo;s recognised environments).
+</p>
+
+<p>
+For example, if you wrote a <kbd>warning</kbd> environment in LaTeX to box and emphasise
+text, to wrap some Org content in it one simply needs to write:
+</p>
+<details id='custom-environments,code--1' class='code' open><summary><span class="lang">Org mode</span></summary>
+    <div class='gutter'>
+    <a href='#custom-environments,code--1'>#</a>
+    <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>    </div>
+    <div class="org-src-container">
+<pre class="src src-org"><span class="org-org-block-begin-line">#+begin_warning</span>
+Pay close attention! This is <span class="org-writegood-weasels">very</span> important.
+<span class="org-org-block-end-line">#+end_warning</span>
+</pre>
+</div>
+    </details>
+<p>
+and the content will be wrapped in <kbd>\begin{warning} ... \end{warning}</kbd>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-latex-escape-hatches" class="outline-3">
+<h3 id="latex-escape-hatches">The LaTeX escape hatches<a aria-hidden="true" href="#latex-escape-hatches">#</a> </h3>
+<div class="outline-text-3" id="text-latex-escape-hatches">
+<p>
+Should there be a particular LaTeX command you wish to insert somewhere, you
+simply need to put it on its own line with <kbd>#+latex:</kbd> in front and it will be
+transferred to the generated LaTeX (this works with other formats too).
+</p>
+<details id='latex-escape-hatches,code--1' class='code' open><summary><span class="lang">Org mode</span></summary>
+    <div class='gutter'>
+    <a href='#latex-escape-hatches,code--1'>#</a>
+    <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>    </div>
+    <div class="org-src-container">
+<pre class="src src-org"><span class="org-org-meta-line">#+latex: \newpage</span>
+</pre>
+</div>
+    </details>
+
+<p>
+For larger snippets of LaTeX, there&rsquo;s always the export block.
+</p>
+<details id='latex-escape-hatches,code--2' class='code' open><summary><span class="lang">Org mode</span></summary>
+    <div class='gutter'>
+    <a href='#latex-escape-hatches,code--2'>#</a>
+    <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>    </div>
+    <div class="org-src-container">
+<pre class="src src-org"><span class="org-org-block-begin-line">#+begin_export latex</span>
+<span class="org-org-block"><span class="custom"><span class="org-font-latex-sedate"><span class="org-font-latex-warning">\cleardoublepage</span></span></span></span>
+<span class="org-org-block"><span class="custom"><span class="org-font-latex-sedate">\vfil</span></span></span>
+<span class="org-org-block"><span class="custom"><span class="org-font-latex-sedate">\hfil</span></span></span><span class="org-org-block"><span class="custom"> This page is intentionally left blank </span></span><span class="org-org-block"><span class="custom"><span class="org-font-latex-sedate">\hfil</span></span></span>
+<span class="org-org-block"><span class="custom"><span class="org-font-latex-sedate">\vfil</span></span></span>
+<span class="org-org-block"><span class="custom"><span class="org-font-latex-sedate"><span class="org-font-latex-warning">\newpage</span></span></span></span>
+<span class="org-org-block-end-line">#+end_export</span>
+</pre>
+</div>
+    </details>
+</div>
+</div>
+
+<div id="outline-container-preamble-content" class="outline-3">
+<h3 id="preamble-content">Preamble content<a aria-hidden="true" href="#preamble-content">#</a> </h3>
+<div class="outline-text-3" id="text-preamble-content">
+<p>
+Should you wish to include the line in the preamble (before <kbd>\begin{document}</kbd>),
+then all you need to do is use <kbd>#+latex_header:</kbd>.
+</p>
+<details id='preamble-content,code--1' class='code' open><summary><span class="lang">Org mode</span></summary>
+    <div class='gutter'>
+    <a href='#preamble-content,code--1'>#</a>
+    <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>    </div>
+    <div class="org-src-container">
+<pre class="src src-org"><span class="org-org-meta-line">#+latex_header: \newcommand{\RR}{\mathbb{R}}</span>
+<span class="org-org-meta-line">#+latex_header: \usepackage{svg} % so that <a href="file:*.svg">[[file:*.svg]]</a> works nicely</span>
+</pre>
+</div>
+    </details>
+<p>
+This is great for adding one-off <kbd>\usepackage</kbd> commands, but what if you find
+yourself wanting a package (like <a href="https://ctan.org/pkg/svg">svg</a>) to be always included? Well the we have
+the aforementioned <code>org-latex-packages-alist</code> which will include the packages
+set when exporting; you can even set some packages to only be included when
+using a certain LaTeX compiler.
+</p>
+
+<p>
+Should you want to use a certain preset preamble, you can make use of the
+<kbd>#+latex_class</kbd> keyword. This is used to set the base preamble template used when
+generating the LaTeX. See <code>org-latex-classes</code> for what&rsquo;s available by default. You
+should see entries for:
+</p>
+<ul class="org-ul">
+<li>article</li>
+<li>report</li>
+<li>book</li>
+<li>beamer</li>
+</ul>
+
+<p>
+One of these is always used when generating LaTeX; when no <kbd>#+latex_class</kbd> is set
+in the document, the template named by <code>org-latex-default-class</code> will be used.
+</p>
+
+<p>
+What&rsquo;s great about this is that is makes it really easy to add your own
+templates. Each template simply takes three components:
+</p>
+<ol class="org-ol">
+<li>A name</li>
+<li>A preamble template</li>
+<li>A series of format strings to translate headings to LaTeX, with and without numbering</li>
+</ol>
+
+<p>
+For example, I&rsquo;m quite a fan of the <a href="https://ctan.org/pkg/koma-script"><span class='acr'>KOMA</span>-script</a> family. Should I want to add a
+<kbd>kart</kbd> class (for: <b>k</b>oma <b>art</b>icle), I simply need to do something like the
+following:
+</p>
+<details id='preamble-content,code--2' class='code' open><summary><span class="lang">Emacs Lisp</span></summary>
+    <div class='gutter'>
+    <a href='#preamble-content,code--2'>#</a>
+    <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>    </div>
+    <div class="org-src-container">
+<pre class="src src-emacs-lisp"><span class="org-rainbow-delimiters-depth-1">(</span><span class="org-constant">add-to-list</span> <span class="org-highlight-quoted-quote">'</span><span class="org-variable-name">org-latex-classes</span>
+             <span class="org-highlight-quoted-quote">'</span><span class="org-rainbow-delimiters-depth-2">(</span><span class="org-string">"kart"</span> <span class="org-comment-delimiter">; </span><span class="org-comment">class name</span>
+               <span class="org-string">"\\documentclass{scrartcl}"</span> <span class="org-comment-delimiter">; </span><span class="org-comment">preamble template</span>
+               <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-string">"\\section{%s}"</span> . <span class="org-string">"\\section*{%s}"</span><span class="org-rainbow-delimiters-depth-3">)</span> <span class="org-comment-delimiter">; </span><span class="org-comment">H1 translation</span>
+               <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-string">"\\subsection{%s}"</span> . <span class="org-string">"\\subsection*{%s}"</span><span class="org-rainbow-delimiters-depth-3">)</span> <span class="org-comment-delimiter">; </span><span class="org-comment">H2 translation</span>
+               <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-string">"\\subsubsection{%s}"</span> . <span class="org-string">"\\subsubsection*{%s}"</span><span class="org-rainbow-delimiters-depth-3">)</span> <span class="org-comment-delimiter">; </span><span class="org-comment">H3...</span>
+               <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-string">"\\paragraph{%s}"</span> . <span class="org-string">"\\paragraph*{%s}"</span><span class="org-rainbow-delimiters-depth-3">)</span>
+               <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-string">"\\subparagraph{%s}"</span> . <span class="org-string">"\\subparagraph*{%s}"</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+</pre>
+</div>
+    </details>
+
+<p>
+See the documentation for <code>org-latex-classes</code> for more information on how the
+preamble template in handled.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-other-improvements" class="outline-2">
+<h2 id="other-improvements">Other improvements<a aria-hidden="true" href="#other-improvements">#</a> </h2>
+<div class="outline-text-2" id="text-other-improvements">
+<ul class="org-ul">
+<li><kbd>ox-koma-letter.el</kbd> has been brought into Org&rsquo;s main directory from the ) <kbd>contrib/</kbd> repo <span class="underline">Bastien Guerry</span></li>
+<li>Speed up publishing by using delayed hooks and temp buffers instead of finding
+files <span class="underline">Gustav Wikström</span></li>
+<li>Improve generated <span class='acr'>HTML</span> quality: prevent W3C warning and add some accessibility
+labels <span class="underline"><span class='acr'>TEC</span></span></li>
+<li>Make the behaviour of the &ldquo;goto variant&rdquo; of <code>org-refile</code> (<code>org-speed-commands</code>)
+less confusing <span class="underline">Marco Wahl</span></li>
+<li>Backport an update to the OpenDocument schema <span class="underline">Kyle Meyer</span></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-bugfixes" class="outline-2">
+<h2 id="bugfixes">Bugfixes<a aria-hidden="true" href="#bugfixes">#</a> </h2>
+<div class="outline-text-2" id="text-bugfixes">
+<ul class="org-ul">
+<li>Off by one error in texinfo menu generation <span class="underline">Nicolas Goaziou</span></li>
+<li>Error in entry/conversion of non-24h times in the agenda <span class="underline">Nicolas Goaziou</span></li>
+<li>Only use <code>replace-buffer-contents</code> with Emacs 27+ when saving src blocks, as the
+behaviour isn&rsquo;t consistent until then <span class="underline">Nicolas Goaziou</span></li>
+<li>Prevent &ldquo;before first headline&rdquo; error in <kbd>org-clock</kbd> when clocking out <span class="underline">Nicolas Goaziou</span></li>
+<li>Avoid setting the global agenda name when following a timestamp link <span class="underline">Ingo Lohmar</span></li>
+<li>Don&rsquo;t bind <kbd>&lt;tab&gt;</kbd> in <code>org-mode-map</code> <span class="underline">Nicolas Goaziou</span></li>
+<li>Erroneous tangling of source block with <kbd>:tangle no</kbd> to a file <kbd>no</kbd> when the
+tangle command is called with a single universal argument <span class="underline">Jacopo De Simoi</span></li>
+</ul>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+As has been the writing of this blog post 😜
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+First-class support for citations is coming to Org! With support for <a href="https://citationstyles.org/"><span class='acr'>CSL</span></a>
+and <a href="https://en.wikipedia.org/wiki/BibTeX">BibTeX</a>, with a number of citation processors 🙌. Soon<sup><span class='acr'>TM</span></sup>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3" role="doc-backlink">3</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+I&rsquo;m rather a fan of the <kbd>capitalize</kbd> option because (1) technically the
+reference to a named object is a proper noun, and (2) this means you don&rsquo;t have
+to worry about references not being capitalized when appearing at the start of a
+sentence.
+</p></div></div>
+
+
+</div>
+</div></div>
+<div id="postamble" class="status">
+<footer>
+    <p xmlns:dct="http://purl.org/dc/terms/" xmlns:vcard="http://www.w3.org/2001/vcard-rdf/3.0#">
+        <a rel="license" class="external" rel="nofollow" href="http://creativecommons.org/publicdomain/zero/1.0/">
+            <img src="cc0.svg" alt="CC0" class="invertible" style="position:relative;bottom:-0.2em"/>
+        </a>
+        To the extent possible under law,
+        <a rel="dct:publisher"
+           href="https://blog.tecosaur.com/">
+            <span property="dct:title">TEC</span></a>
+        has waived all copyright and related or neighboring rights to
+        <span property="dct:title" style="font-style:italic">This Month in Org</span>.
+    </p>
+</footer>
+
+<script src="theme-switcher.js"></script>
+</div>
+</div>
+</body>
+</html>

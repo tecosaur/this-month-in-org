@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2022-03-03 Thu 01:40 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>October 2021</title>
+<meta name="author" content="TEC" />
+<meta name="generator" content="org mode" />
+<meta name="theme-color" content="#77aa99" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="October 2021" />
+<meta property="og:description" content="Release 9.5" />
+<meta property="og:image" content="https://blog.tecosaur.com/tmio/org-icon.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="464" />
+<meta property="og:image:height" content="512" />
+<meta property="og:image:alt" content="Org unicorn logo" />
+<meta property="og:article:author:first_name" content="TEC" />
+<meta property="og:article:published_time" content="2021-10-31T00:00:00+0800" />
+<meta property="og:article:modified_time" content="2021-11-01T04:31:52+0800" />
+<link rel="alternate" type="application/atom+xml" title="This Month in Org" href="rss.xml" />
+<link rel="icon" type="image/ico" href="favicon.ico?v=3">
+<link rel="stylesheet" type="text/css" href="org-style.css">
+<link rel="stylesheet" type="text/css" href="blog.css">
+<script src="org-style.js"></script>
+</head>
+<body>
+<input type='checkbox' id='theme-switch'><div id='page'><label id='switch-label' for='theme-switch'></label><div id="preamble" class="status">
+<header>
+    <h4><a href="https://orgmode.org" class="orgicorn"><img src="org-icon-monochrome.svg" class="invertible"></a>
+        <a href="https://blog.tecosaur.com/tmio/" class="title">
+            This Month in Org</a>
+        <a href="rss.xml" title="RSS Feed" type="application/rss+xml" class="rss">
+            <img src="rss.svg" alt="RSS icon" />
+        </a></h4>
+</header>
+</div>
+<div id="content">
+<header class="page-header"><div class="page-meta">2021-10-31, <span class='acr'>TEC</span></div>
+
+<h1 class="title">October 2021</h1>
+<p class="subtitle" role="doc-subtitle">Release 9.5</p>
+</header><blockquote>
+<p>
+Turns out that life became busy enough that instead of delaying, last month&rsquo;s
+post had to be cancelled. We&rsquo;re now back to business as usual though 🙂.
+</p>
+</blockquote>
+
+<p>
+There have been some cool recent developments in Org over the past two months,
+but you&rsquo;ll have to learn about those is next month&rsquo;s edition as <i>Org 9.5 has been
+released</i> 🎉. So, let&rsquo;s go over some of the changes I&rsquo;m most excited about, in no
+particular order. To get a more complete picture of the latest changes, see
+<a href="https://git.savannah.gnu.org/cgit/emacs/org-mode.git/tree/etc/ORG-NEWS?h=release_9.5#n14"><span class='acr'>ORG</span>-<span class='acr'>NEWS</span></a>.
+</p>
+
+<div id="outline-container-new-citation-engine" class="outline-2">
+<h2 id="new-citation-engine">The new citation engine<a aria-hidden="true" href="#new-citation-engine">#</a> </h2>
+<div class="outline-text-2" id="text-new-citation-engine">
+<p>
+As tempted as I am to wax lyrical about the lovely new citation engine, I&rsquo;ve
+already dedicated <a href="2021-07-31-citations.html">July&rsquo;s post</a> to it, and so will simply highlight how versatile
+the syntax is. Combined with the ability to swap out the default backends
+(basic, <span class='acr'>CSL</span>, natbib, and bib(la)tex) for a 3rd party backend (for example,
+provided by a package) it is capable of meeting your citation and technical
+document publishing needs, whatever they may be.
+</p>
+
+
+<figure id="org10aca4d">
+<img src="figures/citation-structure-full.svg" alt="citation-structure-full.svg" class="org-svg">
+
+<figcaption><span class="figure-number">Figure 1: </span>The full citation syntax</figcaption>
+</figure>
+
+<p>
+Since the announcement of org-cite, the ecosystem has continued to expand with a
+number of promising packages like Bruce D&rsquo;Arcus&rsquo; <a href="https://github.com/bdarcus/citar">citar</a> (previously
+<i>bibtex-actions</i>), which currently provides what is arguably the best citation
+insertion experience.
+</p>
+
+
+<figure id="org3222cc0">
+<img src="figures/org-citar-insertion.png" alt="org-citar-insertion.png" class="doom-one">
+
+<figcaption><span class="figure-number">Figure 2: </span>Inserting a citation with the <i>citar</i> package</figcaption>
+</figure>
+</div>
+</div>
+
+<div id="outline-container-asynchronous-session-evaluation" class="outline-2">
+<h2 id="asynchronous-session-evaluation">Asynchronous session evaluation<a aria-hidden="true" href="#asynchronous-session-evaluation">#</a> </h2>
+<div class="outline-text-2" id="text-asynchronous-session-evaluation">
+<p>
+Since being featured in <a href="2021-05-31-async.html">May&rsquo;s post</a>, we&rsquo;ve had the initial python support
+expanded with support for R too. I have good reason to believe that more
+backends will join this list in the future.
+</p>
+
+<p>
+To get started, just add <kbd>:async</kbd> to the header arguments of Python or R source
+blocks with a <kbd>:session</kbd>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-latex-environment-results" class="outline-2">
+<h2 id="latex-environment-results">LaTeX environment <kbd>#+results</kbd> are now removed<a aria-hidden="true" href="#latex-environment-results">#</a> </h2>
+<div class="outline-text-2" id="text-latex-environment-results">
+<p>
+LaTeX environments (i.e. <code class="src src-LaTeX"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{} ... <span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{}</code> blocks) have been added
+to the list of <kbd>#+results</kbd> types that will be removed. This is bigger news than
+one might think, as it means that raw LaTeX environments are now a viable output
+for org-babel backends. This possesses a distinct advantage over <kbd>:results latex</kbd>
+as LaTeX environments can be rendered inline with <code>org-latex-preview</code> and are
+exported to more formats &#x2014; for example <span class='acr'>HTML</span> with MathJax.
+</p>
+
+<p>
+This is likely going to be first seen in the new <kbd>ob-julia</kbd> backend (unreleased,
+currently in early development), but could well be utilised by other backends
+such as <kbd>ob-octave</kbd>, <kbd>ob-mathematica</kbd> (in contrib), <kbd>ob-python</kbd> (using <code>SymPy</code>), <kbd>ob-calc</kbd>
+and more.
+</p>
+
+
+<figure id="org168b7cf">
+<img src="figures/ob-julia-latexify-rendered.png" alt="ob-julia-latexify-rendered.png" class="doom-one">
+
+<figcaption><span class="figure-number">Figure 3: </span>Rendered LaTeX representations of some Julia values</figcaption>
+</figure>
+</div>
+</div>
+
+<div id="outline-container-more-fontification" class="outline-2">
+<h2 id="more-fontification">More fontification<a aria-hidden="true" href="#more-fontification">#</a> </h2>
+<div class="outline-text-2" id="text-more-fontification">
+<p>
+A number of new faces have been introduced to allow for improved theming
+capability, and better contextual hints in the agenda, namely:
+<code>org-agenda-date-weekend-today</code>, <code>org-imminent-deadline</code>,
+<code>org-agenda-structure-secondary</code>, and <code>org-agenda-structure-filter</code>.
+</p>
+
+<p>
+Inline export snippets are now also fontified using the <code>org-tag</code> and
+<code>font-lock-comment-face</code> faces, to better stand out from surrounding text.
+</p>
+</div>
+</div>
+
+<div id="outline-container-more-link-formatting" class="outline-2">
+<h2 id="more-link-formatting">More link formatting options with org-capture<a aria-hidden="true" href="#more-link-formatting">#</a> </h2>
+<div class="outline-text-2" id="text-more-link-formatting">
+<p>
+A new formatting directive, <code>%L</code> has been introduced which provides the bare link
+target. This allows for links with automatically generated descriptions 🙂.
+</p>
+</div>
+</div>
+
+<div id="outline-container-export-improvements" class="outline-2">
+<h2 id="export-improvements">Export improvements<a aria-hidden="true" href="#export-improvements">#</a> </h2>
+<div class="outline-text-2" id="text-export-improvements">
+<p>
+The <span class='acr'>HTML</span> and LaTeX backends have both been given some love in this release of
+Org.
+</p>
+
+<p>
+The <span class='acr'>HTML</span> backend now supports customisation of the <kbd>&lt;meta&gt;</kbd> tags included with
+<code>org-html-meta-tags</code>, which should be particularly useful to anybody using
+<kbd>org-publish</kbd> for blogs or websites (in fact, this blog has been making use of it
+for some time now). A new variable has been introduced to help with styling,
+<code>org-html-content-class</code> (<kbd>"content"</kbd> by default) which is used as the <span class='acr'>CSS</span> class for
+the top-level content wrapper. To further improve styling capabilities,
+<code>org-html-style-default</code> and <code>org-html-scripts</code> have been changed from constants to
+customisable variables.
+</p>
+
+<p>
+The LaTeX backend (<kbd>ox-latex</kbd>) no longer has obsolete LaTeX packages in
+<code>org-latex-default-packages-alist</code> (<kbd>grffile</kbd> and <kbd>texcomp</kbd> have been removed).
+It also now supports arbitrary <kbd>:float</kbd> argument values, and accepts a six new
+arguments (in total) for verse (<kbd>:lines</kbd>, <kbd>:center</kbd>, <kbd>:versewidth</kbd>, and <kbd>:latexcode</kbd>)
+and quote blocks (<kbd>:environment</kbd> and <kbd>:options</kbd>).
+</p>
+</div>
+</div>
+
+<div id="outline-container-project-changes" class="outline-2">
+<h2 id="project-changes">Project changes<a aria-hidden="true" href="#project-changes">#</a> </h2>
+<div class="outline-text-2" id="text-project-changes">
+<p>
+To reduce the maintainer burden, the <kbd>contrib/</kbd> folder and a collection of
+rarely-used or barely-maintained <kbd>ob-*</kbd> backends have been moved to a new repo,
+<a href="https://git.sr.ht/~bzg/org-contrib">org-contrib</a>. Support for Emacs 24 (2012&#x2013;2014) has also been dropped, and Org
+will now aim to support the three most recent major versions of Emacs.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<footer>
+    <p xmlns:dct="http://purl.org/dc/terms/" xmlns:vcard="http://www.w3.org/2001/vcard-rdf/3.0#">
+        <a rel="license" class="external" rel="nofollow" href="http://creativecommons.org/publicdomain/zero/1.0/">
+            <img src="cc0.svg" alt="CC0" class="invertible" style="position:relative;bottom:-0.2em"/>
+        </a>
+        To the extent possible under law,
+        <a rel="dct:publisher"
+           href="https://blog.tecosaur.com/">
+            <span property="dct:title">TEC</span></a>
+        has waived all copyright and related or neighboring rights to
+        <span property="dct:title" style="font-style:italic">This Month in Org</span>.
+    </p>
+</footer>
+
+<script src="theme-switcher.js"></script>
+</div>
+</div>
+</body>
+</html>

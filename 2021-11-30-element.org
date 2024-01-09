@@ -1,0 +1,285 @@
+# Created 2022-03-03 Thu 01:40
+#+title: November 2021
+#+date: 2021-11-30
+#+author: TEC
+#+subtitle: Elementary improvements
+With a 9.5 release highlight post last month, and the month before skipped, it's
+now /three months/ since the last regular instalment of TMIO. Let's get back up
+to date on some of the latest happenings with Org.
+
+* Org as markup
+
+Looking at the wider ecosystem, it certainly appears that there is a growing
+appetite for Org markup outside org-mode. More projects like [[https://gohugo.io/][Hugo]] and [[https://logseq.com/][Logseq]]
+seem to be interested in supporting Org markup, and there has been a recent
+growth in editor extensions like Neovim's [[https://github.com/nvim-orgmode/orgmode/][orgmode.nvim]] (started in March this
+year) and Sublime Text's [[https://packagecontrol.io/packages/OrgExtended][OrgExtended]] (started in June this year).
+
+Interest in Org as a general-usage markup format can also be seen within the Org
+project. Primarily lead by Nicolas Goaziou, there is an ongoing attempt to
+codify the Org syntax in a formal specification in the Worg document [[https://orgmode.org/worg/dev/org-syntax.html][Org Syntax
+(draft)]]. Other members of the Org mailing list have directed their effort to
+creating non-elisp parsers for Org, both to help Org tools be created in other
+languages, and as put in the README for Tom Gillespie's [[https://github.com/tgbugs/laundry][laundry]] parser
+#+begin_quote
+The long term goal of this work is to provide a reference that can be used to
+standardize Org syntax and behavior and to specify various levels of compliance
+for an implementation of Org mode.
+#+end_quote
+
+Earlier this week Karl Voit, the author of the rather well-known document [[https://karl-voit.at/2017/09/23/orgmode-as-markup-only/][Org
+Mode Is One of the Most Reasonable Markup Languages to Use for Text]], surprised
+the mailing list by announcing his independent creation of a multi-leveled
+standard for Org syntax subsets called "Orgdown" (the name is a blend of
+"Org-mode" and "markdown", but the standard is only a subset of Org). Each level
+defines a compliance score given by a mix of parsing and editing support, with
+example compliance scores for the first (and currently only) level of the
+standard given for common tools.
+
+At this stage, it isn't clear exactly how the Org-outside-Emacs landscape will
+evolve, but the swelling interest is very encouraging.
+
+* An Org parser in Julia
+
+Speaking of parsers, I may be somewhat biased but I'm quite happy that a Org
+parser for [[https://julialang.org/][Julia]] now exists 🎉.
+
+//github.com/tecosaur/OrgMode.jl
+
+OrgMode.jl is a parser, but also intended as a general-purpose Org library for
+Julia. It's only been a week since development started, but it currently
+supports most of the [[https://orgmode.org/worg/dev/org-syntax.html][Org Syntax]] draft specification, along with the rendering of
+a parsed Org AST to a TTY or back to Org text. A few utility functions are also
+included, such as ~filtermap~ which operates similarly to ~org-element-map~.
+
+* Autoloading citation backends
+
+One small but impactful change is autoloading of citation backends. Until
+recently before say using the =csl= backend, one needed to
+src_elisp{(require 'oc-csl)} or face error messages.
+
+Now, if you have a line like:
+#+begin_example
+,#+cite_export: FORMAT ...
+#+end_example
+org-mode will try to load the file =oc-FORMAT= before trying to process citations.
+
+This should make getting started with citations in Org just a bit easier.
+
+* A nicer =:tangle-mode= syntax
+
+The standard way of setting a =:tangle-mode= has typically been by providing a
+closure that makes use of Elisp's octal syntax, such as =(identity #o755)=. This
+is unnecessarily verbose, and certainly doesn't feel natural.
+
+With the addition of a small mode-interpreting function
+(~org-babel-interpret-file-mode~) It is now possible to specify =:tangle-mode= using
+three different forms of shorthand
+- octal :: =o755= is equivalent to =(identity #o755)=
+- chmod :: ~chmod~-style inputs like =u+x= are now parsed to a file mode[fn:1] with the
+     the base/default mode set by ~org-babel-tangle-default-file-mode~.
+- ls -l :: strings of the form given by ~ls -l~ like =rwxr-xr-x= are also accepted
+
+This means the following forms are now all equivalent:
+#+begin_example
+:tangle-mode (identity #o755)
+:tangle-mode o755
+:tangle-mode a=rx,u+w
+:tangle-mode rwxr-xr-x
+#+end_example
+
+It has also been noted on the mailing list that the =:tangle-mode (identity
+#o755)= form works by being transformed to =:tangle-mode 493= during parsing.
+Similarly =:tangle-mode 755= is equivalent to =:tangle-mode (identity #o1363)=. For
+some values the decimal and octal interpretation are /both/ valid file modes. Due
+to the clear potential for confusion, and since file permissions are an
+important security consideration, it has been suggested on the mailing list that
+these forms should be depreciated with a warning in future. No decision has been
+made yet though.
+
+[fn:1] This is performed easily thanks to ~file-modes-symbolic-to-number~, which
+is used as the basis for both the ~chmod~ and ~ls -l~ shorthand interpretations.
+
+* Org element parser cache
+
+Ihor Radchenko has done some fantastic work over the past few months by
+overhauling parts of =org-element.el= to introduce extensive caching. =org-element=
+is /the/ Org markup parser inside org-mode. This allows for a huge jump in speed,
+and also provides a few functions which fetch information without updating the
+cache --- allowing for particularly speedy lookups with a small sacrifice to
+correctness guarantees on one or two properties in particular cases.
+
+Several org-mode APIs now make use of the cache to dramatically improve speed.
+Aside from improvements to typically slow operations, this is ideal for
+situations involving frequent buffer edits.
+It's no understatement to say that this work is transformative.
+
+One potential beneficiary from this work is actually fontification. It has
+become increasingly apparent that the current regex-based method for buffer
+fontification is imperfect, and can actually differ from the true structure of
+the document as parsed (authoritatively) by =org-element=. This has lead to the
+well-received suggestion on the mailing list to rewrite the fontification code
+to be built on =org-element= instead.
+
+* Inline source block fontification
+
+I think [[https://orgmode.org/manual/Structure-of-Code-Blocks.html][inline source code blocks]] are an underappreciated feature of Org. I
+don't think it's helped that they have not been visually treated at all
+differently from plain text. Now though, they have a new dedicated face
+(~org-inline-src-block~) /and/ in the same manner as source blocks, based on
+~org-src-fontify-natively~ can be fontified using the language's major mode.
+
+#+caption: Side-by-side comparison of a identical paragraphs using code (~~~) markup
+#+caption: and inline source blocks (~src_~).
+[[file:figures/inline-src-block-fontified-vs-code.png]]
+
+If you aren't familiar with inline source blocks, you're missing out. They are
+very much the inline cousin of source blocks, and so support all your favourite
+Babel features like code execution and header arguments. This provides a
+fantastic capacity to inline dynamically computed expressions, and optionally
+show the code that produces them.
+
+#+caption: A paragraph making use of /evaluated/ inline source blocks.
+#+caption: Note that the =⟨11⟩= is a prettified results macro (using a potential future
+#+caption: org-mode patch).
+[[file:figures/inline-src-block-julia-demo.png]]
+
+* Functions as default heading arguments
+
+Matt Huszagh has contributed a patch that allows functions to be used as values
+for default header arguments. This is great for arguments where a sensible
+default can be provided by evaluating a function on-the-fly.
+
+Consider for example the arguments required to produce a simple image using R
+with Babel:
+#+begin_src org
+,#+begin_src R :results graphics file :file myimage.svg
+library(ggplot2)
+ggplot(mpg, aes(displ, hwy, colour = class)) + geom_point()
+,#+end_src
+#+end_src
+
+In a Jupyter-style (=.ipynb=) or throwaway document, we likely don't care about
+the file name at all. With these new capabilities, we can provide a file name
+dynamically as a default argument!
+
+First we must write a function that when run at the source block will give us a
+suitable file name, like so
+
+#+begin_src emacs-lisp
+(defun my/org-src-sha-to-image ()
+  (concat "generated-"
+          (substring
+           (sha1 (org-element-property :value (org-element-at-point)))
+           0 8)
+          ".svg"))
+#+end_src
+
+Let's also write a function to guess whether the source block produces a plot by
+checking if there's a plot command on the last line.
+
+#+begin_src emacs-lisp
+(defun my/org-src-guess-results-type ()
+  (if (string-match-p "^ *\\(?:plot\\|ggplot\\)([^\n]+\n?\\'"
+                      (org-element-property :value (org-element-at-point)))
+      "graphics file" "replace"))
+#+end_src
+
+Then we can just use these function in place of a static value in the default
+header arguments variable --- that's all it takes.
+
+#+begin_src emacs-lisp
+(setq org-babel-default-header-args:R
+      '((:results . my/org-src-guess-results-type)
+        (:file . my/org-src-sha-to-image)))
+#+end_src
+
+This means for most cases we can now get away without any header arguments at all.
+
+#+begin_src org
+,#+begin_src R
+library(ggplot2)
+ggplot(mpg, aes(displ, hwy, colour = class)) + geom_point()
+,#+end_src
+#+end_src
+
+It's always lovely to see more ways of reducing boilerplate.
+
+* Proportional image widths
+
+Previously, as long as ~org-image-actual-width~ was ~nil~ or a list of the form
+~(default-value)~, =org-mode= would display images according to a =:width= attribute
+(e.g. =#+attr_html: :width 400px=) by simply looking for the first =#+attr_=
+affiliated keyword and reading the numeric component of the =:width= as the number
+of pixels wide the image should be.
+
+This has now become somewhat fancier. The image-width determining logic has been
+extracted to a new function (~org-display-inline-image--width~) which will now
+extract floating-point values like =0.7= and interpret them as that portion of the
+accessible text width in the buffer.
+
+#+caption: A containing with an image set to half of the accesible text width
+[[file:figures/proportional-image-width.png]]
+
+This means that a width parameter like =#+attr_latex: :width 0.7\linewidth= the
+image will displayed as 70% of the buffer text width.
+This also supports percentage value, like =#+attr_html: :width 80%= by dividing
+the number before the =%= by 100 as a floating-point value.
+As always, if you don't like the way display width is inferred here you can
+override it by putting a =#+attr_org: :width X= statement first.
+
+Support for proportional image widths extends to the ~(default-value)~ form of
+~org-image-actual-width~, as now if you set it to say ~(0.9)~ which will cause
+images /without/ any width specification to be displayed at 90% of the buffer text
+width.
+
+If you want to have some images displayed as their actual width you can use the
+new special width parameter =t= to set this on a per-image basis with =#+attr_org:
+:width t=. Now all you need to do is remember to put this first. Based on current
+discussions on the mailing list though, soon =#+attr_org= will be prioritised when
+determining display image width, no matter which order you put the attributes
+in. I do like having one less thing to remember 🙂.
+
+* Other improvements
+- Allow citations immediately following an item bullet _TEC_
+- Allow citations immediately following a footnote definition _Nicolas Goaziou_
+- Update some obsolete function references _Marco Wahl_
+- =ob-gnuplot= is now maintained by Ihor Radchenko
+- Improve makescript support for =ORGVERSION= in tag-less mirrors _Nicholas Vollmer_
+- New =ob-julia=, now maintained by Pedro Bruel
+- Allow for no indentation, but preserving current indentation by setting
+  ~org-indent-indentation-per-level~ to ~0~ _David Lukes_
+- Eliminate some byte-compile warnings _Nicholas Vollmer_ _Bastien_
+- Support Greek smart quotes _Juan Manuel Macías_
+- =org-mouse= support for intermediate-state checkboxes _Jim Porter_
+- Allow nested parenthesis in ~org-compile-prefix-format~ =%(sexp)= expressions _Ihor Radchenko_
+- =oc-csl= / citeproc improvements _András Simonyi_
+- Move more unmaintained/overly niche =ob-*= files to the contrib repo, reducing
+  the maintainer burden _Bastien_
+- Allow use of a function for ~org-agenda-overriding-header~ for dynamic headers
+  _Christopher League_
+- Improve =org-protocol= URI decoding _Max Nikulin_
+- Remove some obsolete LaTeX packages from the default packages list _TEC_
+- Add support for text and year citation styles to =oc-csl= _András Simonyi_
+- Produce lower-case keywords in =ox-org= _TEC_
+- Improve =ob-gnuplot= argument processing _Ihor Radchenko_
+- A collection of =oc-*= improvements _Nicholas Goaziou_
+- Support bare author citations in =oc-csl= _TEC_
+- Add =:options= LaTeX attribute to tables _Juan Manuel Macías_
+- Fix display error with =ob-plantuml= and html export _Su Lin_
+- More tests! _Ihor Radchenko_
+- Documentation improvements! _Marco Wahl_ _Stefan Kangas_ _Daniel Fleischer_ _Wiliam
+  Denton_ _Thomas Dye_ _Bastien_ _Bruce D'Arcus_ _Kyle Meyer_ _Nicolas Goaziou_
+
+* Bugfixes
+- Fix heading insertion in a case where point is before any heading _Marco Wahl_
+- Prevent stringp error when tangling Org from an org-src edit buffer _Mark Dawson_
+- Prevent ~indent-tabs-mode~ from messing with justification in ASCII exports
+  _Morgan Willcock_
+- Fix form of default Babel haskell header args _Ihor Radchenko_
+- No more duplicated logbook entries for repeated tasks _Ihor Radchenko_
+- A headline fontification edge case _Sébastien Miquel_
+- Refactor code that needed Emacs 28 _Kyle Meyer_
+- Make sure a terminating emphasis marker can't be used as a beginning emphasis
+  marker in fontification _Ihor Radchenko_
+- Allow footnotes at footnote definition start _Nicholas Goaziou_

@@ -1,0 +1,355 @@
+                           ━━━━━━━━━━━━━━━━━
+                               JUNE 2021
+                            A relaxed month
+
+                                  TEC
+                           ━━━━━━━━━━━━━━━━━
+
+
+                               2021-06-34
+
+
+The previous two months have been pretty good for Org development — with
+many bug fixes and feature improvements. This month has been
+substantially slower than the last[1], but that’s not to say not much is
+happening: in fact, there are some rather nifty contributions lined up
+for the not-too-distant future and a certain long-awaited feature
+branch[2] is getting very close to merging 😀. You’ll just have to stick
+around to hear about those in a future edition of TMIO 😉.
+
+<file:figures/dilbert-zenos-paradox.jpg>
+
+
+Customise the reference command used in LaTeX
+═════════════════════════════════════════════
+
+  Previously, whenever you linked to another part of your document (with
+  or without giving it a name) — for example with `[[Profound section]]'
+  or similar — when exporting to LaTeX Org would /always/ use the `\ref'
+  command.
+
+  <file:figures/org-latex-default-reference-to-sec.png>
+
+  You can now set the format string `org-latex-reference-command'
+  (`\\ref{%s}' by default) to anything you’d like. For example, making
+  use of the [cleveref] package I can set this to `\\cref{%s}' and then
+  add `("capitalize" "cleveref" nil)'[3] to `org-latex-packages-alist'.
+
+  <file:figures/org-latex-cref-reference-to-sec.png>
+
+
+[cleveref] <https://ctan.org/pkg/cleveref>
+
+
+A diversion into writing Org for LaTeX
+══════════════════════════════════════
+
+  Speaking of LaTeX exports, a member of the Org mailing list recently
+  told us about [a paper] pushed to [arXiv] which was written /entirely/
+  in Org. Why don’t we use that as a prompt to talk a bit about
+  generating LaTeX documents from Org?
+
+  For an experienced LaTeX-er, Org may initially appear best suited to
+  simple documents, but in fact it’s possible to reproduce any LaTeX
+  structure in Org with no more difficulty (often less) than in LaTeX.
+
+
+[a paper] <https://arxiv.org/abs/2106.05096>
+
+[arXiv] <https://arxiv.org/>
+
+Simple elements
+───────────────
+
+  The “basic” Org elements are simply translated to their LaTeX
+  counterparts. Markup like *bold*, /italic/, etc. are simply translated
+  through `org-latex-text-markup-alist'.
+
+  For those of us who dabble with equations, Org is [very accomodating].
+  You can type (LaTeX-style) inline and display equations in exactly the
+  same way (`\( \)' and `\[ \]'), and what’s more, if you have a LaTeX
+  environment statement `\begin{...}' on its own line, Org will
+  recognise it and pass it into the generated LaTeX.
+
+
+[very accomodating] <https://orgmode.org/manual/LaTeX-fragments.html>
+
+
+Figures and tables
+──────────────────
+
+  One area where the improvement when moving to Org is particularly
+  apparent is with figures and tables. To simply include an image, an
+  image link alone is sufficient.
+  ┌────
+  │ [[file:figures/salvador-dali-persistence-of-memory.jpg]]
+  └────
+  When exported to LaTeX this will be expanded to
+  ┌────
+  │ \includegraphics[width=.9\linewidth]{figures/salvador-dali-persistence-of-memory.jpg}
+  └────
+
+  As soon as you add a `#+caption', though, Org knows you mean business
+  and generates a /proper/ figure.
+  ┌────
+  │ #+caption: A famous surrealist painting
+  │ [[file:figures/salvador-dali-persistence-of-memory.jpg]]
+  └────
+  ┌────
+  │ \begin{figure}[htbp]
+  │ \centering
+  │ \includegraphics[width=.9\linewidth]{figures/salvador-dali-persistence-of-memory.jpg}
+  │ \caption{A famous surrealist painting}
+  │ \end{figure}
+  └────
+
+  As you may have guessed from the fact this works without a
+  LaTeX-specific keyword, this works nicely in HTML too 🙂.
+  <file:figures/salvador-dali-persistence-of-memory.jpg>
+
+  The LaTeX backend also accepts additional image attributes ([manual
+  page]). For example, to set the image width I can simply add
+  ┌────
+  │ #+attr_latex: :width 0.4\linewidth
+  └────
+  above the image link.
+
+  You can do the same with tables:
+  ┌────
+  │ #+caption: A selection of famous paintings by Salvador Dalí
+  │ | Year | Painting                   |
+  │ |------+----------------------------|
+  │ | 1931 | The persistence of memory  |
+  │ | 1937 | Swans reflecting elephants |
+  │ | 1837 | Metamorphosis of narcissus |
+  │ | 1952 | Galatea of the spheres     |
+  │ | 1966 | Tuna fishing               |
+  └────
+
+  I like to set `(setq org-latex-tables-booktabs t)' to use the nice
+  `booktabs' rules in the generated tables. Just remember to ensure the
+  `booktabs' package is loaded.
+
+  ┌────
+  │ \begin{table}[htbp]
+  │ \caption{A selection of famous paintings by Salvador Dalí}
+  │ \centering
+  │ \begin{tabular}{rl}
+  │ \toprule
+  │ Year & Painting\\
+  │ \midrule
+  │ 1931 & The persistence of memory\\
+  │ 1937 & Swans reflecting elephants\\
+  │ 1837 & Metamorphosis of narcissus\\
+  │ 1952 & Galatea of the spheres\\
+  │ 1966 & Tuna fishing\\
+  │ \bottomrule
+  │ \end{tabular}
+  │ \end{table}
+  └────
+
+  Org is nice and does the right thing^{TM} by including the caption at
+  the top.
+  <file:figures/org-table-to-latex-example.png>
+
+  There are also some [more attributes] you can supply to tables. Should
+  I want the table to spread out I could use `#+attr_latex: :environment
+  tabularx' (as long as I’ve loaded the `tabularx' package) and then set
+  the columns with `:align lX'.
+
+
+[manual page] <https://orgmode.org/manual/Images-in-LaTeX-export.html>
+
+[more attributes]
+<https://orgmode.org/manual/Images-in-LaTeX-export.html>
+
+
+Code blocks
+───────────
+
+  By default, source code blocks are translated verbatim. We can do
+  better than that however. We can tell Org to use [listings], but I’d
+  recommend going one step further and using [minted]. For this to work
+  we need to perform three actions:
+  ⁃ Tell Org we want to use `minted' environments for source code
+  ⁃ Load the `minted' package by default
+  ⁃ Add `-shell-escape' to our LaTeX compiler flags, so `minted' may
+    call [pygments].
+
+  This can easily be accomplished via the following snippet:
+  ┌────
+  │ (setq org-latex-listings 'minted
+  │       ;; as long as you have latexmk installed
+  │       org-latex-pdf-process
+  │       '("latexmk -f -pdf -%latex -shell-escape -interaction=nonstopmode -output-directory=%o %f"))
+  │ (add-to-list 'org-latex-packages-alist '("" "minted"))
+  └────
+
+  To customise `minted', as well as inserting content into the
+  [preamble], one can also customise `org-latex-minted-options' to
+  control what options are applied to each `minted' environment.
+
+
+[listings] <https://ctan.org/pkg/listings>
+
+[minted] <https://ctan.org/pkg/minted>
+
+[pygments] <https://pygments.org/>
+
+[preamble] See section Preamble content
+
+
+Custom environments
+───────────────────
+
+  Org has a number of [blocks] which are treated specially, like
+  `#+begin_src' for source code, and `#+begin_centre' for centred text.
+  When exporting this same syntax allows you to wrap Org content in any
+  LaTeX environments (as long as it doesn’t match one of Org’s
+  recognised environments).
+
+  For example, if you wrote a `warning' environment in LaTeX to box and
+  emphasise text, to wrap some Org content in it one simply needs to
+  write:
+  ┌────
+  │ #+begin_warning
+  │ Pay close attention! This is very important.
+  │ #+end_warning
+  └────
+  and the content will be wrapped in `\begin{warning} ...
+  \end{warning}'.
+
+
+[blocks] <https://orgmode.org/manual/Blocks.html>
+
+
+The LaTeX escape hatches
+────────────────────────
+
+  Should there be a particular LaTeX command you wish to insert
+  somewhere, you simply need to put it on its own line with `#+latex:'
+  in front and it will be transferred to the generated LaTeX (this works
+  with other formats too).
+  ┌────
+  │ #+latex: \newpage
+  └────
+
+  For larger snippets of LaTeX, there’s always the export block.
+  ┌────
+  │ #+begin_export latex
+  │ \cleardoublepage
+  │ \vfil
+  │ \hfil This page is intentionally left blank \hfil
+  │ \vfil
+  │ \newpage
+  │ #+end_export
+  └────
+
+
+Preamble content
+────────────────
+
+  Should you wish to include the line in the preamble (before
+  `\begin{document}'), then all you need to do is use `#+latex_header:'.
+  ┌────
+  │ #+latex_header: \newcommand{\RR}{\mathbb{R}}
+  │ #+latex_header: \usepackage{svg} % so that [[file:*.svg]] works nicely
+  └────
+  This is great for adding one-off `\usepackage' commands, but what if
+  you find yourself wanting a package (like [svg]) to be always
+  included? Well the we have the aforementioned
+  `org-latex-packages-alist' which will include the packages set when
+  exporting; you can even set some packages to only be included when
+  using a certain LaTeX compiler.
+
+  Should you want to use a certain preset preamble, you can make use of
+  the `#+latex_class' keyword. This is used to set the base preamble
+  template used when generating the LaTeX. See `org-latex-classes' for
+  what’s available by default. You should see entries for:
+  ⁃ article
+  ⁃ report
+  ⁃ book
+  ⁃ beamer
+
+  One of these is always used when generating LaTeX; when no
+  `#+latex_class' is set in the document, the template named by
+  `org-latex-default-class' will be used.
+
+  What’s great about this is that is makes it really easy to add your
+  own templates. Each template simply takes three components:
+  1. A name
+  2. A preamble template
+  3. A series of format strings to translate headings to LaTeX, with and
+     without numbering
+
+  For example, I’m quite a fan of the [KOMA-script] family. Should I
+  want to add a `kart' class (for: *k*oma *art*icle), I simply need to
+  do something like the following:
+  ┌────
+  │ (add-to-list 'org-latex-classes
+  │              '("kart" ; class name
+  │                "\\documentclass{scrartcl}" ; preamble template
+  │                ("\\section{%s}" . "\\section*{%s}") ; H1 translation
+  │                ("\\subsection{%s}" . "\\subsection*{%s}") ; H2 translation
+  │                ("\\subsubsection{%s}" . "\\subsubsection*{%s}") ; H3...
+  │                ("\\paragraph{%s}" . "\\paragraph*{%s}")
+  │                ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+  └────
+
+  See the documentation for `org-latex-classes' for more information on
+  how the preamble template in handled.
+
+
+[svg] <https://ctan.org/pkg/svg>
+
+[KOMA-script] <https://ctan.org/pkg/koma-script>
+
+
+Other improvements
+══════════════════
+
+  ⁃ `ox-koma-letter.el' has been brought into Org’s main directory from
+    the ) `contrib/' repo _Bastien Guerry_
+  ⁃ Speed up publishing by using delayed hooks and temp buffers instead
+    of finding files _Gustav Wikström_
+  ⁃ Improve generated HTML quality: prevent W3C warning and add some
+    accessibility labels _TEC_
+  ⁃ Make the behaviour of the “goto variant” of `org-refile'
+    (`org-speed-commands') less confusing _Marco Wahl_
+  ⁃ Backport an update to the OpenDocument schema _Kyle Meyer_
+
+
+Bugfixes
+════════
+
+  ⁃ Off by one error in texinfo menu generation _Nicolas Goaziou_
+  ⁃ Error in entry/conversion of non-24h times in the agenda _Nicolas
+    Goaziou_
+  ⁃ Only use `replace-buffer-contents' with Emacs 27+ when saving src
+    blocks, as the behaviour isn’t consistent until then _Nicolas
+    Goaziou_
+  ⁃ Prevent “before first headline” error in `org-clock' when clocking
+    out _Nicolas Goaziou_
+  ⁃ Avoid setting the global agenda name when following a timestamp link
+    _Ingo Lohmar_
+  ⁃ Don’t bind `<tab>' in `org-mode-map' _Nicolas Goaziou_
+  ⁃ Erroneous tangling of source block with `:tangle no' to a file `no'
+    when the tangle command is called with a single universal argument
+    _Jacopo De Simoi_
+
+
+
+Footnotes
+─────────
+
+[1] As has been the writing of this blog post 😜
+
+[2] First-class support for citations is coming to Org! With support
+for [CSL] (<https://citationstyles.org/>) and [BibTeX]
+(<https://en.wikipedia.org/wiki/BibTeX>), with a number of citation
+processors 🙌. Soon^{TM}
+
+[3] I’m rather a fan of the `capitalize' option because (1)
+technically the reference to a named object is a proper noun, and (2)
+this means you don’t have to worry about references not being
+capitalized when appearing at the start of a sentence.

@@ -1,0 +1,56 @@
+# Created 2022-03-03 Thu 01:40
+#+title: December 2021
+#+date: 2021-12-31
+#+author: TEC
+#+subtitle: Looking back on my first year of blogging
+Just over eight months ago, I kicked off /This Month in Org/ with an emphatic
+announcement of the blog's in the form of a [[file:2021-04-26-Welcome.org][Welcome]] post. If you haven't
+guessed, this is the first "blog post" I've ever written. In that /welcome/ post,
+I gave my motivation for starting the blog --- essentially to bridge a perceived
+gap in information sources between a subscription to the Org project mailing
+list, and nothing.
+
+That is why I thought this blog should exist, but until now I have neglected to
+mention what /I/ want to accomplish with it. By starting /TMiO/ I hoped to:
+- Engage more people with the improvements being made to Org[fn:1].
+- Highlight some of the great work being done by Org[fn:1] contributors.
+- Encourage more people to consider contributing to Org[fn:1].
+- Foster a stronger sense of an Org[fn:1] community, outside the mailing list.
+
+Since then, I've effused about Org to the tune of around ten thousand words. We
+started off with a fairly dry recount recent changes, which (after initial
+feedback) has shifted slightly to try to give more context on the improvements
+and how they may be used. In June I even went as far as to make the majority of
+the post about pre-existing features (writing Org for LaTeX).
+This change has been made to:
+- Try to make the blog posts a little more interesting, and less tedious.
+- Potentially introduce readers to nice features of Org they weren't aware of before.
+
+We have now arrived at the first crucial question of this post: /How effective
+has this blog been in achieving its goals?/
+
+Let's start off by looking at engagement. There is no tracking on this site, and
+I'm not even counting page views. We could read into Reddit upvotes (which
+usually hover around 100-ish per post), but with no strong trend I'm wary of
+reading too much into those numbers. What about engendering an interest in
+contributing? This is even harder to consider. It is similarly difficult to
+judge whether this blog might be helping (even if only a bit) foster a stronger
+sense of community.
+
+Ok, how about the second crucial question: /Moving forwards, what changes should
+I make to the style of posts, if any?/
+
+Hmmm, this is a prickly one too. Both of these questions suffer from the same
+problem --- /I/ can't answer them. Simply put, I need to hear from /you/. Whether it
+be in the Reddit comments section, or by Email (=tec@= this domain), to direct
+2022's posts I am /very/ interested in hearing your thoughts on:
+- How engaging you've found this blog? (the content, the style of writing, etc.)
+- Whether this blog has influenced your feelings on the Org project and/or community?
+- Whether this blog has affected your thoughts on contributing to Org?
+- What you think this blog has done well/badly over the past year?
+- If there's anything you'd be interested in this blog doing differently in 2022?
+
+That's all for now! Thank you for reading, and have a great new year 🙂
+
+[fn:1] Both the org-mode codebase, and also the ecosystem that's sprung up
+around it
