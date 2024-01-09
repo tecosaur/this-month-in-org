@@ -10,8 +10,8 @@
      xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
      xmlns:media="http://search.yahoo.com/mrss/"><channel>
   <title>This Month in Org</title>
-  <atom:link href="https://blog.tecosaur.com/tmio/rss.xml" rel="self" type="application/rss+xml" />
-  <link>https://blog.tecosaur.com/tmio/</link>
+  <atom:link href="https://blog.tecosaur.net/tmio/rss.xml" rel="self" type="application/rss+xml" />
+  <link>https://blog.tecosaur.net/tmio/</link>
   <description><![CDATA[]]></description>
   <language>en</language>
   <pubDate>Thu, 02 Jun 2022 00:55:48 +0800</pubDate>
@@ -21,15 +21,15 @@
   <image>
     <url>https://orgmode.org/img/org-mode-unicorn-logo.png</url>
     <title>This Month in Org</title>
-    <link>https://blog.tecosaur.com/tmio/</link>
+    <link>https://blog.tecosaur.net/tmio/</link>
   </image>
 
 
   <item>
     <title>May 2022</title>
-    <link>https://blog.tecosaur.com/tmio/2022-05-31-folding.html</link>
+    <link>https://blog.tecosaur.net/tmio/2022-05-31-folding.html</link>
     <author>tec@tecosaur.com (TEC)</author>
-    <guid isPermaLink="false">https://blog.tecosaur.com/tmio/2022-05-31-folding.html</guid>
+    <guid isPermaLink="false">https://blog.tecosaur.net/tmio/2022-05-31-folding.html</guid>
     <pubDate>Thu, 02 Jun 2022 00:00:00 +0800</pubDate>
 
     <description><![CDATA[<p>
@@ -67,14 +67,14 @@
 
 
     <figure id="orga3ad54f">
-    <img src="https://blog.tecosaur.com/tmio/figures/org-fold-perf-shifttab-contents.svg" alt="org-fold-perf-shifttab-contents.svg" class="org-svg">
+    <img src="https://blog.tecosaur.net/tmio/figures/org-fold-perf-shifttab-contents.svg" alt="org-fold-perf-shifttab-contents.svg" class="org-svg">
 
     <figcaption><span class="figure-number">Figure 1: </span>The scaling of <code>org-shifttab</code> showing file contents, as file size increases, with and without org-fold.</figcaption>
     </figure>
 
 
     <figure id="org925299a">
-    <img src="https://blog.tecosaur.com/tmio/figures/org-fold-perf-shifttab-showall.svg" alt="org-fold-perf-shifttab-showall.svg" class="org-svg">
+    <img src="https://blog.tecosaur.net/tmio/figures/org-fold-perf-shifttab-showall.svg" alt="org-fold-perf-shifttab-showall.svg" class="org-svg">
 
     <figcaption><span class="figure-number">Figure 2: </span>The scaling of <code>org-shifttab</code> showing the entire file, as file size increases, with and without org-fold.</figcaption>
     </figure>
@@ -177,9 +177,9 @@
 </item>
 <item>
   <title>Special Announcement</title>
-  <link>https://blog.tecosaur.com/tmio/2022-04-01-confluence.html</link>
+  <link>https://blog.tecosaur.net/tmio/2022-04-01-confluence.html</link>
   <author>tec@tecosaur.com (TEC)</author>
-  <guid isPermaLink="false">https://blog.tecosaur.com/tmio/2022-04-01-confluence.html</guid>
+  <guid isPermaLink="false">https://blog.tecosaur.net/tmio/2022-04-01-confluence.html</guid>
   <pubDate>Sat, 02 Apr 2022 00:00:00 +0800</pubDate>
 
   <description><![CDATA[<p>
@@ -203,7 +203,7 @@
 
 
   <figure id="orgb690172">
-  <img src="https://blog.tecosaur.com/tmio/figures/org-markup-to-confluence.svg" alt="org-markup-to-confluence.svg" class="org-svg">
+  <img src="https://blog.tecosaur.net/tmio/figures/org-markup-to-confluence.svg" alt="org-markup-to-confluence.svg" class="org-svg">
 
   <figcaption><span class="figure-number">Figure 3: </span>Translation between Org's syntax and our new Confluence overlords's equivalents</figcaption>
   </figure>
@@ -239,9 +239,9 @@
 </item>
 <item>
   <title>February 2022</title>
-  <link>https://blog.tecosaur.com/tmio/2022-02-30-orgnvim.html</link>
+  <link>https://blog.tecosaur.net/tmio/2022-02-30-orgnvim.html</link>
   <author>tec@tecosaur.com (TEC)</author>
-  <guid isPermaLink="false">https://blog.tecosaur.com/tmio/2022-02-30-orgnvim.html</guid>
+  <guid isPermaLink="false">https://blog.tecosaur.net/tmio/2022-02-30-orgnvim.html</guid>
   <pubDate>Fri, 04 Mar 2022 00:00:00 +0800</pubDate>
 
   <description><![CDATA[<p>
@@ -662,9 +662,9 @@
 </item>
 <item>
   <title>January 2022</title>
-  <link>https://blog.tecosaur.com/tmio/2022-01-31-caching.html</link>
+  <link>https://blog.tecosaur.net/tmio/2022-01-31-caching.html</link>
   <author>tec@tecosaur.com (TEC)</author>
-  <guid isPermaLink="false">https://blog.tecosaur.com/tmio/2022-01-31-caching.html</guid>
+  <guid isPermaLink="false">https://blog.tecosaur.net/tmio/2022-01-31-caching.html</guid>
   <pubDate>Tue, 01 Feb 2022 00:00:00 +0800</pubDate>
 
   <description><![CDATA[<p>
@@ -780,7 +780,7 @@
 
 
   <figure id="org4c89641">
-  <img src="https://blog.tecosaur.com/tmio/figures/ox-latex-image-link-localisation-demo.png" alt="ox-latex-image-link-localisation-demo.png">
+  <img src="https://blog.tecosaur.net/tmio/figures/ox-latex-image-link-localisation-demo.png" alt="ox-latex-image-link-localisation-demo.png">
 
   <figcaption><span class="figure-number">Figure 4: </span>A screenshot of a (compiled to PDF) LaTeX export, with an HTTPS and tramp images.</figcaption>
   </figure>
@@ -815,9 +815,9 @@
 </item>
 <item>
   <title>December 2021</title>
-  <link>https://blog.tecosaur.com/tmio/2021-12-31-retrospection.html</link>
+  <link>https://blog.tecosaur.net/tmio/2021-12-31-retrospection.html</link>
   <author>tec@tecosaur.com (TEC)</author>
-  <guid isPermaLink="false">https://blog.tecosaur.com/tmio/2021-12-31-retrospection.html</guid>
+  <guid isPermaLink="false">https://blog.tecosaur.net/tmio/2021-12-31-retrospection.html</guid>
   <pubDate>Sun, 02 Jan 2022 00:00:00 +0800</pubDate>
 
   <description><![CDATA[<p>
@@ -897,9 +897,9 @@
 </item>
 <item>
   <title>November 2021</title>
-  <link>https://blog.tecosaur.com/tmio/2021-11-30-element.html</link>
+  <link>https://blog.tecosaur.net/tmio/2021-11-30-element.html</link>
   <author>tec@tecosaur.com (TEC)</author>
-  <guid isPermaLink="false">https://blog.tecosaur.com/tmio/2021-11-30-element.html</guid>
+  <guid isPermaLink="false">https://blog.tecosaur.net/tmio/2021-11-30-element.html</guid>
   <pubDate>Thu, 02 Dec 2021 00:00:00 +0800</pubDate>
 
   <description><![CDATA[<p>
@@ -1081,7 +1081,7 @@
 
 
   <figure id="orgaf14b63">
-  <img src="https://blog.tecosaur.com/tmio/figures/inline-src-block-fontified-vs-code.png" alt="inline-src-block-fontified-vs-code.png">
+  <img src="https://blog.tecosaur.net/tmio/figures/inline-src-block-fontified-vs-code.png" alt="inline-src-block-fontified-vs-code.png">
 
   <figcaption><span class="figure-number">Figure 5: </span>Side-by-side comparison of a identical paragraphs using code (<code>~</code>) markup and inline source blocks (<code>src_</code>).</figcaption>
   </figure>
@@ -1096,7 +1096,7 @@
 
 
   <figure id="orgc4ca8fe">
-  <img src="https://blog.tecosaur.com/tmio/figures/inline-src-block-julia-demo.png" alt="inline-src-block-julia-demo.png">
+  <img src="https://blog.tecosaur.net/tmio/figures/inline-src-block-julia-demo.png" alt="inline-src-block-julia-demo.png">
 
   <figcaption><span class="figure-number">Figure 6: </span>A paragraph making use of <i>evaluated</i> inline source blocks. Note that the <kbd>⟨11⟩</kbd> is a prettified results macro (using a potential future org-mode patch).</figcaption>
   </figure>
@@ -1206,7 +1206,7 @@
 
 
   <figure id="org639ab3a">
-  <img src="https://blog.tecosaur.com/tmio/figures/proportional-image-width.png" alt="proportional-image-width.png">
+  <img src="https://blog.tecosaur.net/tmio/figures/proportional-image-width.png" alt="proportional-image-width.png">
 
   <figcaption><span class="figure-number">Figure 7: </span>A containing with an image set to half of the accesible text width</figcaption>
   </figure>
@@ -1290,9 +1290,9 @@
 </item>
 <item>
   <title>May 2021</title>
-  <link>https://blog.tecosaur.com/tmio/2021-05-31-async.html</link>
+  <link>https://blog.tecosaur.net/tmio/2021-05-31-async.html</link>
   <author>tec@tecosaur.com (TEC)</author>
-  <guid isPermaLink="false">https://blog.tecosaur.com/tmio/2021-05-31-async.html</guid>
+  <guid isPermaLink="false">https://blog.tecosaur.net/tmio/2021-05-31-async.html</guid>
   <pubDate>Wed, 01 Dec 2021 00:00:00 +0800</pubDate>
 
   <description><![CDATA[<p>
@@ -1466,7 +1466,7 @@
 
 
   <figure id="orgf9a85fc">
-  <img src="https://blog.tecosaur.com/tmio/figures/org-verses-example-poem-dream-within-dream.png" alt="org-verses-example-poem-dream-within-dream.png">
+  <img src="https://blog.tecosaur.net/tmio/figures/org-verses-example-poem-dream-within-dream.png" alt="org-verses-example-poem-dream-within-dream.png">
 
   <figcaption><span class="figure-number">Figure 8: </span>A short Poe-em</figcaption>
   </figure>
@@ -1587,9 +1587,9 @@
 </item>
 <item>
   <title>October 2021</title>
-  <link>https://blog.tecosaur.com/tmio/2021-10-31-release.html</link>
+  <link>https://blog.tecosaur.net/tmio/2021-10-31-release.html</link>
   <author>tec@tecosaur.com (TEC)</author>
-  <guid isPermaLink="false">https://blog.tecosaur.com/tmio/2021-10-31-release.html</guid>
+  <guid isPermaLink="false">https://blog.tecosaur.net/tmio/2021-10-31-release.html</guid>
   <pubDate>Mon, 01 Nov 2021 00:00:00 +0800</pubDate>
 
   <description><![CDATA[<blockquote>
@@ -1622,7 +1622,7 @@
 
 
   <figure id="org13b9f43">
-  <img src="https://blog.tecosaur.com/tmio/figures/citation-structure-full.svg" alt="citation-structure-full.svg" class="org-svg">
+  <img src="https://blog.tecosaur.net/tmio/figures/citation-structure-full.svg" alt="citation-structure-full.svg" class="org-svg">
 
   <figcaption><span class="figure-number">Figure 9: </span>The full citation syntax</figcaption>
   </figure>
@@ -1636,7 +1636,7 @@
 
 
   <figure id="orga6b6156">
-  <img src="https://blog.tecosaur.com/tmio/figures/org-citar-insertion.png" alt="org-citar-insertion.png">
+  <img src="https://blog.tecosaur.net/tmio/figures/org-citar-insertion.png" alt="org-citar-insertion.png">
 
   <figcaption><span class="figure-number">Figure 10: </span>Inserting a citation with the <i>citar</i> package</figcaption>
   </figure>
@@ -1678,7 +1678,7 @@
 
 
   <figure id="org937ebae">
-  <img src="https://blog.tecosaur.com/tmio/figures/ob-julia-latexify-rendered.png" alt="ob-julia-latexify-rendered.png">
+  <img src="https://blog.tecosaur.net/tmio/figures/ob-julia-latexify-rendered.png" alt="ob-julia-latexify-rendered.png">
 
   <figcaption><span class="figure-number">Figure 11: </span>Rendered LaTeX representations of some Julia values</figcaption>
   </figure>
@@ -1750,9 +1750,9 @@
 </item>
 <item>
   <title>April 2021</title>
-  <link>https://blog.tecosaur.com/tmio/2021-04-30-export-plot.html</link>
+  <link>https://blog.tecosaur.net/tmio/2021-04-30-export-plot.html</link>
   <author>tec@tecosaur.com (TEC)</author>
-  <guid isPermaLink="false">https://blog.tecosaur.com/tmio/2021-04-30-export-plot.html</guid>
+  <guid isPermaLink="false">https://blog.tecosaur.net/tmio/2021-04-30-export-plot.html</guid>
   <pubDate>Mon, 27 Sep 2021 00:00:00 +0800</pubDate>
 
   <description><![CDATA[<p>
@@ -1952,9 +1952,9 @@
 </item>
 <item>
   <title>July 2021</title>
-  <link>https://blog.tecosaur.com/tmio/2021-07-31-citations.html</link>
+  <link>https://blog.tecosaur.net/tmio/2021-07-31-citations.html</link>
   <author>tec@tecosaur.com (TEC)</author>
-  <guid isPermaLink="false">https://blog.tecosaur.com/tmio/2021-07-31-citations.html</guid>
+  <guid isPermaLink="false">https://blog.tecosaur.net/tmio/2021-07-31-citations.html</guid>
   <pubDate>Mon, 27 Sep 2021 00:00:00 +0800</pubDate>
 
   <description><![CDATA[<p>
@@ -1965,7 +1965,7 @@
 
 
   <figure id="org8219632">
-  <img src="https://blog.tecosaur.com/tmio/figures/celebrate-citations.svg" alt="celebrate-citations.svg" class="org-svg">
+  <img src="https://blog.tecosaur.net/tmio/figures/celebrate-citations.svg" alt="celebrate-citations.svg" class="org-svg">
 
   </figure>
 
@@ -2076,7 +2076,7 @@
 
 
   <figure id="org40858b1">
-  <img src="https://blog.tecosaur.com/tmio/figures/citation-structure-basic.svg" alt="citation-structure-basic.svg" class="org-svg">
+  <img src="https://blog.tecosaur.net/tmio/figures/citation-structure-basic.svg" alt="citation-structure-basic.svg" class="org-svg">
 
   <figcaption><span class="figure-number">Figure 12: </span>The new citation syntax, for simple citations</figcaption>
   </figure>
@@ -2126,7 +2126,7 @@
 
 
   <figure id="org2fe6973">
-  <img src="https://blog.tecosaur.com/tmio/figures/citation-structure-full.svg" alt="citation-structure-full.svg" class="org-svg">
+  <img src="https://blog.tecosaur.net/tmio/figures/citation-structure-full.svg" alt="citation-structure-full.svg" class="org-svg">
 
   <figcaption><span class="figure-number">Figure 13: </span>The new citations syntax, in full</figcaption>
   </figure>
@@ -2528,14 +2528,14 @@
 
 
   <figure id="orgfbc5693">
-  <img src="https://blog.tecosaur.com/tmio/figures/zotero-export-library.png" alt="zotero-export-library.png">
+  <img src="https://blog.tecosaur.net/tmio/figures/zotero-export-library.png" alt="zotero-export-library.png">
 
   <figcaption><span class="figure-number">Figure 14: </span>Zotero library right click context menu, showing the export option</figcaption>
   </figure>
 
 
   <figure id="org45937c9">
-  <img src="https://blog.tecosaur.com/tmio/figures/zotero-export-options-prompt.png" alt="zotero-export-options-prompt.png">
+  <img src="https://blog.tecosaur.net/tmio/figures/zotero-export-options-prompt.png" alt="zotero-export-options-prompt.png">
 
   <figcaption><span class="figure-number">Figure 15: </span>Zotero collection export dialog</figcaption>
   </figure>
@@ -2547,7 +2547,7 @@
 
 
   <figure id="org4ce3450">
-  <img src="https://blog.tecosaur.com/tmio/figures/zotero-cite-styles-menu.png" alt="zotero-cite-styles-menu.png">
+  <img src="https://blog.tecosaur.net/tmio/figures/zotero-cite-styles-menu.png" alt="zotero-cite-styles-menu.png">
 
   <figcaption><span class="figure-number">Figure 16: </span>Zotero CSL style management within preferences</figcaption>
   </figure>
@@ -2612,9 +2612,9 @@
 </item>
 <item>
   <title>August 2021</title>
-  <link>https://blog.tecosaur.com/tmio/2021-08-38-roaming.html</link>
+  <link>https://blog.tecosaur.net/tmio/2021-08-38-roaming.html</link>
   <author>tec@tecosaur.com (TEC)</author>
-  <guid isPermaLink="false">https://blog.tecosaur.com/tmio/2021-08-38-roaming.html</guid>
+  <guid isPermaLink="false">https://blog.tecosaur.net/tmio/2021-08-38-roaming.html</guid>
   <pubDate>Wed, 08 Sep 2021 00:00:00 +0800</pubDate>
 
   <description><![CDATA[<blockquote>
@@ -2657,7 +2657,7 @@
 
 
   <figure id="org95fc4b9">
-  <img src="https://blog.tecosaur.com/tmio/figures/org-roam-graph-2d-overview.png" alt="org-roam-graph-2d-overview.png">
+  <img src="https://blog.tecosaur.net/tmio/figures/org-roam-graph-2d-overview.png" alt="org-roam-graph-2d-overview.png">
 
   <figcaption><span class="figure-number">Figure 17: </span>org-roam-ui's 2D overview.</figcaption>
   </figure>
@@ -2678,7 +2678,7 @@
 
 
   <figure id="orgb7ac582">
-  <img src="https://blog.tecosaur.com/tmio/figures/org-roam-ui-in-emacs.png" alt="org-roam-ui-in-emacs.png">
+  <img src="https://blog.tecosaur.net/tmio/figures/org-roam-ui-in-emacs.png" alt="org-roam-ui-in-emacs.png">
 
   <figcaption><span class="figure-number">Figure 18: </span>Embed org-roam-ui in Emacs using xwidget-webkit.</figcaption>
   </figure>
@@ -2747,9 +2747,9 @@
 </item>
 <item>
   <title>June 2021</title>
-  <link>https://blog.tecosaur.com/tmio/2021-06-34-relaxed.html</link>
+  <link>https://blog.tecosaur.net/tmio/2021-06-34-relaxed.html</link>
   <author>tec@tecosaur.com (TEC)</author>
-  <guid isPermaLink="false">https://blog.tecosaur.com/tmio/2021-06-34-relaxed.html</guid>
+  <guid isPermaLink="false">https://blog.tecosaur.net/tmio/2021-06-34-relaxed.html</guid>
   <pubDate>Mon, 02 Aug 2021 00:00:00 +0800</pubDate>
 
   <description><![CDATA[<p>
@@ -2763,7 +2763,7 @@
 
 
   <figure id="orgddf564a">
-  <img src="https://blog.tecosaur.com/tmio/figures/dilbert-zenos-paradox.jpg" alt="dilbert-zenos-paradox.jpg">
+  <img src="https://blog.tecosaur.net/tmio/figures/dilbert-zenos-paradox.jpg" alt="dilbert-zenos-paradox.jpg">
 
   <figcaption><span class="figure-number">Figure 19: </span>It's right around the corner, I swear!</figcaption>
   </figure>
@@ -2780,7 +2780,7 @@
 
 
   <figure id="orgf1b9db7">
-  <img src="https://blog.tecosaur.com/tmio/figures/org-latex-default-reference-to-sec.png" alt="org-latex-default-reference-to-sec.png">
+  <img src="https://blog.tecosaur.net/tmio/figures/org-latex-default-reference-to-sec.png" alt="org-latex-default-reference-to-sec.png">
 
   <figcaption><span class="figure-number">Figure 20: </span>A LaTeX export of a simple document with a reference to both the first and second section. "2" what? Section 2, Table 2, Figure 2, ...</figcaption>
   </figure>
@@ -2793,7 +2793,7 @@
 
 
   <figure id="org7bc806b">
-  <img src="https://blog.tecosaur.com/tmio/figures/org-latex-cref-reference-to-sec.png" alt="org-latex-cref-reference-to-sec.png">
+  <img src="https://blog.tecosaur.net/tmio/figures/org-latex-cref-reference-to-sec.png" alt="org-latex-cref-reference-to-sec.png">
 
   <figcaption><span class="figure-number">Figure 21: </span>A LaTeX export of the same document, but now using <code>cleveref</code>. Note the change from "1" and "2" to "Section 1" and "Section 2".</figcaption>
   </figure>
@@ -2842,7 +2842,7 @@
   sufficient.
   </p>
   <div class="org-src-container">
-  <pre class="src src-org">  <span class="org-org-link"><a href="https://blog.tecosaur.com/tmio/figures/salvador-dali-persistence-of-memory.jpg">https://blog.tecosaur.com/tmio/figures/salvador-dali-persistence-of-memory.jpg</a></span>
+  <pre class="src src-org">  <span class="org-org-link"><a href="https://blog.tecosaur.net/tmio/figures/salvador-dali-persistence-of-memory.jpg">https://blog.tecosaur.net/tmio/figures/salvador-dali-persistence-of-memory.jpg</a></span>
   </pre>
   </div>
   <p>
@@ -2859,7 +2859,7 @@
   </p>
   <div class="org-src-container">
   <pre class="src src-org"><span class="org-org-meta-line">  #+caption:</span> <span class="org-org-block">A famous surrealist painting</span>
-  <span class="org-org-link"><a href="https://blog.tecosaur.com/tmio/figures/salvador-dali-persistence-of-memory.jpg">https://blog.tecosaur.com/tmio/figures/salvador-dali-persistence-of-memory.jpg</a></span>
+  <span class="org-org-link"><a href="https://blog.tecosaur.net/tmio/figures/salvador-dali-persistence-of-memory.jpg">https://blog.tecosaur.net/tmio/figures/salvador-dali-persistence-of-memory.jpg</a></span>
   </pre>
   </div>
   <div class="org-src-container">
@@ -2877,7 +2877,7 @@
   </p>
 
   <figure id="org0c0bedc">
-  <img src="https://blog.tecosaur.com/tmio/figures/salvador-dali-persistence-of-memory.jpg" alt="salvador-dali-persistence-of-memory.jpg">
+  <img src="https://blog.tecosaur.net/tmio/figures/salvador-dali-persistence-of-memory.jpg" alt="salvador-dali-persistence-of-memory.jpg">
 
   <figcaption><span class="figure-number">Figure 22: </span>A famous surrealist painting</figcaption>
   </figure>
@@ -2939,7 +2939,7 @@
   </p>
 
   <figure id="orgceb5b17">
-  <img src="https://blog.tecosaur.com/tmio/figures/org-table-to-latex-example.png" alt="org-table-to-latex-example.png">
+  <img src="https://blog.tecosaur.net/tmio/figures/org-table-to-latex-example.png" alt="org-table-to-latex-example.png">
 
   <figcaption><span class="figure-number">Figure 23: </span>Look ma, I put the caption in the right place.</figcaption>
   </figure>
@@ -3149,9 +3149,9 @@
 </item>
 <item>
   <title>Welcome</title>
-  <link>https://blog.tecosaur.com/tmio/2021-04-26-Welcome.html</link>
+  <link>https://blog.tecosaur.net/tmio/2021-04-26-Welcome.html</link>
   <author>tec@tecosaur.com (TEC)</author>
-  <guid isPermaLink="false">https://blog.tecosaur.com/tmio/2021-04-26-Welcome.html</guid>
+  <guid isPermaLink="false">https://blog.tecosaur.net/tmio/2021-04-26-Welcome.html</guid>
   <pubDate>Tue, 27 Apr 2021 00:00:00 +0800</pubDate>
 
   <description><![CDATA[<p>
@@ -3227,7 +3227,7 @@
 
 
   <figure id="org17e1c03">
-  <img src="https://blog.tecosaur.com/tmio/figures/screenshot-of-updates-orgmode-org.png" alt="screenshot-of-updates-orgmode-org.png">
+  <img src="https://blog.tecosaur.net/tmio/figures/screenshot-of-updates-orgmode-org.png" alt="screenshot-of-updates-orgmode-org.png">
 
   <figcaption><span class="figure-number">Figure 24: </span>A screenshot of <a href="https://updates.orgmode.org/">updates.orgmode.org</a></figcaption>
   </figure>
@@ -3284,7 +3284,7 @@
 
 
   <figure id="org75ae980">
-  <img src="https://blog.tecosaur.com/tmio/figures/org-edit-special-latex-fragment.png" alt="org-edit-special-latex-fragment.png">
+  <img src="https://blog.tecosaur.net/tmio/figures/org-edit-special-latex-fragment.png" alt="org-edit-special-latex-fragment.png">
 
   <figcaption><span class="figure-number">Figure 26: </span>Running <code>org-edit-special</code> on an inline LaTeX fragment</figcaption>
   </figure>
@@ -3303,7 +3303,7 @@
 
 
   <figure id="orgc262328">
-  <img src="https://blog.tecosaur.com/tmio/figures/org-startup-num-and-levels.png" alt="org-startup-num-and-levels.png">
+  <img src="https://blog.tecosaur.net/tmio/figures/org-startup-num-and-levels.png" alt="org-startup-num-and-levels.png">
 
   <figcaption><span class="figure-number">Figure 27: </span>Opening a buffer with the new <kbd>num</kbd> and <kbd>show2levels</kbd> startup options</figcaption>
   </figure>
