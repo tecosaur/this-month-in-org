@@ -9,7 +9,7 @@
                                2022-01-31
 
 
-There are less “obvious user-facing changes” this month, but a lot of
+There are less "obvious user-facing changes" this month, but a lot of
 good work has been happening 🙂.
 
 
@@ -20,14 +20,14 @@ The cache continues to make strides
   cache has existed for a while now, but it used to be too buggy to be
   useful.
 
-  This is no longer the case! We’re finally confident enough to flip
-  `org-element-use-cache'’s default from `nil' to `t'. I mentioned some
+  This is no longer the case! We're finally confident enough to flip
+  `org-element-use-cache''s default from `nil' to `t'. I mentioned some
   of the improvements in [November], however Ihor has continued to make
   strides with the cache.
 
   Getting the cache right is tough though, and so while the situation is
   much improved there are still lingering bugs which need to be chased
-  down. If you only take one thing away from the post, I’d like it to be
+  down. If you only take one thing away from the post, I'd like it to be
   this:
 
   The cache is actively being developed now, for the first time in
@@ -51,13 +51,13 @@ The cache continues to make strides
   └────
 
   A good way to start is by copying this to your clipboard and then
-  trying `M-x org-submit-bug-report'. Regardless of whether you’re using
+  trying `M-x org-submit-bug-report'. Regardless of whether you're using
   an Emacs mail client, this will collect all the important information
   (org-mode version, etc.) and populate a buffer with it. Add the
-  warning text, and that will be a great help! After all, it’s quite
-  hard to fix bugs we don’t know about 😆.
+  warning text, and that will be a great help!  After all, it's quite
+  hard to fix bugs we don't know about 😆.
 
-  As of October 2021, “bulk” heading promotion/demotion operations are
+  As of October 2021, "bulk" heading promotion/demotion operations are
   now faster thanks to the cache, and there have now been further
   improvements relating to headings. It used to be the case that every
   time heading properties changed the entire heading (and contents) were
@@ -86,9 +86,9 @@ Persisting data
 
   Over the past month, Ihor has /doubled/ the total number of commits
   applied to `org-persist.el' and now more kinds of data can be
-  persisted, such as remote files (via. tramp) and online resources.
-  This opens up a lot of new possibilities, and we can begin to see what
-  this will allow for in the next highlight.
+  persisted, such as remote files (via. tramp) and online
+  resources. This opens up a lot of new possibilities, and we can begin
+  to see what this will allow for in the next highlight.
 
 
 Exporting documents with remote resources
@@ -99,7 +99,7 @@ Exporting documents with remote resources
   document, seen it look nice in the HTML export and then be
   disappointed to just see a link in LaTeX? Well I have. Thankfully this
   is no longer the case though, thanks to a helper function
-  `org-export-link-localise' that’s just been added to `ox.el'.
+  `org-export-link-localise' that's just been added to `ox.el'.
 
   Using `org-persist.el' this acquires a local copy of the remote
   resource and substitutes it in for the remote link. This is currently
@@ -109,12 +109,12 @@ Exporting documents with remote resources
   <file:figures/ox-latex-image-link-localisation-demo.png>
 
   While this is currently only implemented for `ox-latex', this can be
-  applied generally, and so there’s a good chance you’ll hear more about
+  applied generally, and so there's a good chance you'll hear more about
   this in the future.
 
   There are also thoughts of moving this to the links file (`ol.el')
-  which would make this functionality more broadly accessible (e.g.
-  using cached/local versions of a resource in other places, and
+  which would make this functionality more broadly accessible
+  (e.g. using cached/local versions of a resource in other places, and
   defining custom downloaders for custom link types).
 
 
@@ -124,7 +124,7 @@ Other improvements
   ⁃ Produce less native-comp warnings _Ihor Radchenko_
   ⁃ Add a header to the clock report table _Samim Pezeshki_
   ⁃ More verbose test failure summary _Max Nikulin_
-  ⁃ Parallelise `make'ing the docs _Marco Wahl_
+  ⁃ Parallelise `make'​ing the docs _Marco Wahl_
   ⁃ More org-element tests _Ihor Radchenko_
 
 

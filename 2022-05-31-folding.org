@@ -1,4 +1,4 @@
-# Created 2022-06-02 Thu 00:55
+# Created 2024-01-11 Thu 11:13
 #+title: May 2022
 #+date: 2022-05-31
 #+author: TEC
@@ -12,7 +12,6 @@ this post will make up the absense of the last one 🙂.
 Since it's been longer than I thought since the last standard post, we've got a
 fair few commits to catch up on --- about 200. Most of these are miscellaneous
 minor improvements and bugfixes, but a few notable changes have arrived too.
-
 * Folding
 
 The fabulous new folding engine (=org-fold-core=) should noticeably improve Org's
@@ -63,7 +62,6 @@ If you're an end-user, perhaps politely make an issue on the repo for a project
 - Help the packages you use adapt to this change
 - Set ~org-fold-core-style~ to ~overlays~ to restore the old behaviour
 #+end_warning
-
 * /Engraved/ source code blocks in LaTeX
 
 All too often exporting code to LaTeX has been a disappointment, with lovely
@@ -98,22 +96,21 @@ The theme can also be set on a per-block level using the LaTeX attribute
 Here's what using these new capabilities looks like in practice.
 
 #+begin_src org
-,#+title: Engraving source blocks
-,#+latex_engraved_theme: modus-operandi
+  ,#+title: Engraving source blocks
+  ,#+latex_engraved_theme: modus-operandi
 
-,#+begin_src emacs-lisp
-(message "look ma, some %s" 'code)
-,#+end_src
+  ,#+begin_src emacs-lisp
+  (message "look ma, some %s" 'code)
+  ,#+end_src
 
-,#+attr_latex: :engraved-theme modus-viviandi
-,#+begin_src shell
-echo "This is shell code"
-,#+end_src
+  ,#+attr_latex: :engraved-theme modus-viviandi
+  ,#+begin_src shell
+  echo "This is shell code"
+  ,#+end_src
 #+end_src
 
 This may well be the best syntax-highlighting solution available for PDFs/LaTeX
 currently available, but I am a tad biased 😛.
-
 * TexInfo export improvements
 
 Jonas Bernoulli has been using a custom TexInfo backend for Magit's
@@ -122,7 +119,6 @@ features he was missing into Org's built-in TexInfo exporter.
 
 Upstreaming like this always takes a fair bit of effort, so thank you Jonas for
 going through with this!
-
 * Toggle noweb prefix handling
 
 Previously, whenever a noweb reference appeared on a non-empty line, a
@@ -132,27 +128,26 @@ Clearly, this is not always desirable, and this behaviour can now be turned of
 by setting the new header argument =:noweb-prefix no=.
 
 #+begin_src org
-,#+begin_src emacs-lisp :noweb yes :noweb-prefix no
-(setq example-data "<<example>>")
-,#+end_src
+  ,#+begin_src emacs-lisp :noweb yes :noweb-prefix no
+  (setq example-data "<<example>>")
+  ,#+end_src
 
-Will now expand to
+  Will now expand to
 
-,#+begin_src emacs-lisp
-(setq example-data "some
-multi-line
-content")
-,#+end_src
+  ,#+begin_src emacs-lisp
+  (setq example-data "some
+  multi-line
+  content")
+  ,#+end_src
 
-Instead of
+  Instead of
 
-,#+begin_src emacs-lisp
-(setq example-data "some
-(setq example-data "multiline
-(setq example-data "content")
-,#+end_src
+  ,#+begin_src emacs-lisp
+  (setq example-data "some
+  (setq example-data "multiline
+  (setq example-data "content")
+  ,#+end_src
 #+end_src
-
 * Package highlight: org-modern
 I think we've all [[https://github.com/integral-dw/org-superstar-mode][seen]] [[https://github.com/sabof/org-bullets][plenty]] of =org-mode= [[https://github.com/Fuco1/org-pretty-table][prettification]] [[https://github.com/harrybournis/org-fancy-priorities][packages]] [[https://gitlab.com/marcowahl/org-pretty-tags][before]], so
 what makes Minad's [[https://github.com/minad/org-modern][org-modern]] special? It's actually doing something similar to
@@ -165,7 +160,6 @@ giving it a shot.
 
 #+caption: A demonstration of org-modern taken from the project README.
 [[file:figures/org-modern-readme-demo.gif]]
-
 * Other improvements
 - Clean up some magic numbers in =org-attach= _Marco Wahl_
 - Allow /any/ command form in ~org-attach-commands~ (including keyboard macros)
@@ -181,7 +175,6 @@ giving it a shot.
 - More unit tests _Kyle Keyer, Nick Dokos_
 - Documentation improvements _Kyle Meyer, Juan Manuel Macias, Bastien, Karl
   Fogel, Cody Harris_
-
 * Bugfixes
 - An Emacs <28 bug in =org-persist= _Ihor Radchenko_
 - Author extraction in =oc-basic= _Nicolas Goaziou_

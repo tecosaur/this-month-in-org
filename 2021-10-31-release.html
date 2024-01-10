@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-03-03 Thu 01:40 -->
+<!-- 2024-01-11 Thu 11:13 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>October 2021</title>
@@ -43,25 +43,24 @@
 <p class="subtitle" role="doc-subtitle">Release 9.5</p>
 </header><blockquote>
 <p>
-Turns out that life became busy enough that instead of delaying, last month&rsquo;s
-post had to be cancelled. We&rsquo;re now back to business as usual though 🙂.
+Turns out that life became busy enough that instead of delaying, last month's
+post had to be cancelled. We're now back to business as usual though 🙂.
 </p>
 </blockquote>
 
 <p>
 There have been some cool recent developments in Org over the past two months,
-but you&rsquo;ll have to learn about those is next month&rsquo;s edition as <i>Org 9.5 has been
-released</i> 🎉. So, let&rsquo;s go over some of the changes I&rsquo;m most excited about, in no
+but you'll have to learn about those is next month's edition as <i>Org 9.5 has been
+released</i> 🎉. So, let's go over some of the changes I'm most excited about, in no
 particular order. To get a more complete picture of the latest changes, see
 <a href="https://git.savannah.gnu.org/cgit/emacs/org-mode.git/tree/etc/ORG-NEWS?h=release_9.5#n14"><span class='acr'>ORG</span>-<span class='acr'>NEWS</span></a>.
 </p>
-
 <div id="outline-container-new-citation-engine" class="outline-2">
 <h2 id="new-citation-engine">The new citation engine<a aria-hidden="true" href="#new-citation-engine">#</a> </h2>
 <div class="outline-text-2" id="text-new-citation-engine">
 <p>
-As tempted as I am to wax lyrical about the lovely new citation engine, I&rsquo;ve
-already dedicated <a href="2021-07-31-citations.html">July&rsquo;s post</a> to it, and so will simply highlight how versatile
+As tempted as I am to wax lyrical about the lovely new citation engine, I've
+already dedicated <a href="2021-07-31-citations.html">July's post</a> to it, and so will simply highlight how versatile
 the syntax is. Combined with the ability to swap out the default backends
 (basic, <span class='acr'>CSL</span>, natbib, and bib(la)tex) for a 3rd party backend (for example,
 provided by a package) it is capable of meeting your citation and technical
@@ -69,7 +68,7 @@ document publishing needs, whatever they may be.
 </p>
 
 
-<figure id="org10aca4d">
+<figure id="org3a7bfcd">
 <img src="figures/citation-structure-full.svg" alt="citation-structure-full.svg" class="org-svg">
 
 <figcaption><span class="figure-number">Figure 1: </span>The full citation syntax</figcaption>
@@ -77,25 +76,24 @@ document publishing needs, whatever they may be.
 
 <p>
 Since the announcement of org-cite, the ecosystem has continued to expand with a
-number of promising packages like Bruce D&rsquo;Arcus&rsquo; <a href="https://github.com/bdarcus/citar">citar</a> (previously
+number of promising packages like Bruce D'Arcus' <a href="https://github.com/bdarcus/citar">citar</a> (previously
 <i>bibtex-actions</i>), which currently provides what is arguably the best citation
 insertion experience.
 </p>
 
 
-<figure id="org3222cc0">
+<figure id="org58ff9c3">
 <img src="figures/org-citar-insertion.png" alt="org-citar-insertion.png" class="doom-one">
 
 <figcaption><span class="figure-number">Figure 2: </span>Inserting a citation with the <i>citar</i> package</figcaption>
 </figure>
 </div>
 </div>
-
 <div id="outline-container-asynchronous-session-evaluation" class="outline-2">
 <h2 id="asynchronous-session-evaluation">Asynchronous session evaluation<a aria-hidden="true" href="#asynchronous-session-evaluation">#</a> </h2>
 <div class="outline-text-2" id="text-asynchronous-session-evaluation">
 <p>
-Since being featured in <a href="2021-05-31-async.html">May&rsquo;s post</a>, we&rsquo;ve had the initial python support
+Since being featured in <a href="2021-05-31-async.html">May's post</a>, we've had the initial python support
 expanded with support for R too. I have good reason to believe that more
 backends will join this list in the future.
 </p>
@@ -106,12 +104,11 @@ blocks with a <kbd>:session</kbd>.
 </p>
 </div>
 </div>
-
 <div id="outline-container-latex-environment-results" class="outline-2">
 <h2 id="latex-environment-results">LaTeX environment <kbd>#+results</kbd> are now removed<a aria-hidden="true" href="#latex-environment-results">#</a> </h2>
 <div class="outline-text-2" id="text-latex-environment-results">
 <p>
-LaTeX environments (i.e. <code class="src src-LaTeX"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{} ... <span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{}</code> blocks) have been added
+LaTeX environments (i.e. <code class="src src-LaTeX"><span class="org-keyword">\begin</span>{} ... <span class="org-keyword">\end</span>{}</code> blocks) have been added
 to the list of <kbd>#+results</kbd> types that will be removed. This is bigger news than
 one might think, as it means that raw LaTeX environments are now a viable output
 for org-babel backends. This possesses a distinct advantage over <kbd>:results latex</kbd>
@@ -127,14 +124,13 @@ and more.
 </p>
 
 
-<figure id="org168b7cf">
+<figure id="org133ed9c">
 <img src="figures/ob-julia-latexify-rendered.png" alt="ob-julia-latexify-rendered.png" class="doom-one">
 
 <figcaption><span class="figure-number">Figure 3: </span>Rendered LaTeX representations of some Julia values</figcaption>
 </figure>
 </div>
 </div>
-
 <div id="outline-container-more-fontification" class="outline-2">
 <h2 id="more-fontification">More fontification<a aria-hidden="true" href="#more-fontification">#</a> </h2>
 <div class="outline-text-2" id="text-more-fontification">
@@ -151,7 +147,6 @@ Inline export snippets are now also fontified using the <code>org-tag</code> and
 </p>
 </div>
 </div>
-
 <div id="outline-container-more-link-formatting" class="outline-2">
 <h2 id="more-link-formatting">More link formatting options with org-capture<a aria-hidden="true" href="#more-link-formatting">#</a> </h2>
 <div class="outline-text-2" id="text-more-link-formatting">
@@ -161,7 +156,6 @@ target. This allows for links with automatically generated descriptions 🙂.
 </p>
 </div>
 </div>
-
 <div id="outline-container-export-improvements" class="outline-2">
 <h2 id="export-improvements">Export improvements<a aria-hidden="true" href="#export-improvements">#</a> </h2>
 <div class="outline-text-2" id="text-export-improvements">
@@ -190,7 +184,6 @@ and quote blocks (<kbd>:environment</kbd> and <kbd>:options</kbd>).
 </p>
 </div>
 </div>
-
 <div id="outline-container-project-changes" class="outline-2">
 <h2 id="project-changes">Project changes<a aria-hidden="true" href="#project-changes">#</a> </h2>
 <div class="outline-text-2" id="text-project-changes">

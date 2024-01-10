@@ -1,4 +1,4 @@
-# Created 2022-03-03 Thu 01:40
+# Created 2024-01-11 Thu 11:13
 #+title: July 2021
 #+date: 2021-07-31
 #+author: TEC
@@ -8,7 +8,6 @@ arriving imminently. At this point, I think it's a good idea to set the tone for
 this post.
 
 [[file:figures/celebrate-citations.svg]]
-
 * Citations
 
 After /years/ of (on and off) discussion[fn:1], I am elated to be able to present
@@ -26,7 +25,6 @@ providing robust CSL support, and integrates with =oc-csl.el=.
 
 [fn:1] Citations were first being mentioned on the mailing list back in 2007, in
 [[https://lists.gnu.org/archive/html/emacs-orgmode/2007-05/msg00146.html][a thread about footnotes]].
-
 ** Outline
 
 Citations have been carefully designed in such a way that users and Elisp
@@ -62,7 +60,6 @@ seeing the development of packages like [[https://github.com/jkitchin/org-ref-ci
 
 [fn:2] There is currently an [[https://github.com/andras-simonyi/org-cite-csl-activate][ongoing effort]] to use =oc.el= and =citeproc.el= to
 produce citation overlays in the buffer.
-
 ** Basic usage
 
 To get started with Org Cite, we must have some form of bibliography.
@@ -70,22 +67,22 @@ This can either be a BibTeX file or a CSL-JSON file.
 
 As an example, say we have a file =orgcite.bib= containing the following
 #+begin_src bibtex
-@article{OrgCitations,
-         author={org, mode and Syntax, Citation and List, Mailing and Effort, Time},
-         journal={Journal of Plain Text Formats},
-         title={Elegant Citations with Org-Mode},
-         year={2021},
-         month={7},
-         volume={42},
-         number={1},
-         pages={2-3}}
+  @article{OrgCitations,
+           author={org, mode and Syntax, Citation and List, Mailing and Effort, Time},
+           journal={Journal of Plain Text Formats},
+           title={Elegant Citations with Org-Mode},
+           year={2021},
+           month={7},
+           volume={42},
+           number={1},
+           pages={2-3}}
 #+end_src
 
 First we need to let Org know about this bibliography file (which must have a
 =.bib=, =.bibtex=, or =.json= extension), which we do either via the =#+bibliography=
 keyword, or the variable ~org-cite-global-bibliography~.
 #+begin_example
-,#+bibliography: orgcite.bib
+  ,#+bibliography: orgcite.bib
 #+end_example
 
 #+bibliography: orgcite.bib
@@ -103,7 +100,7 @@ Finally, to insert a bibliography somewhere, we just need to insert the
 =#+print_bibliography= keyword, like so:
 
 #+begin_example
-,#+print_bibliography:
+  ,#+print_bibliography:
 #+end_example
 
 #+begin_info
@@ -112,12 +109,11 @@ Finally, to insert a bibliography somewhere, we just need to insert the
 
 So, to summarise, all one needs to get started is:
 #+begin_example
-,#+bibliography: references.bib
-[cite:@key]
-,#+print_bibliography:
+  ,#+bibliography: references.bib
+  [cite:@key]
+  ,#+print_bibliography:
 #+end_example
 That's it! 🎉
-
 ** The cite syntax
 
 Don't let the simplicity in the examples above fool you, the new syntax is quite
@@ -137,7 +133,7 @@ cite syntax:
     part of the work, for example: =p. 7= to refer to page 7.
 
 Using the default CSL citation style (Chicago author-name) =[cite/l/b:see
-@OrgCitations pp. 7 for fun]= becomes see [[citeproc_bib_item_1][org et al. 2021, 7]] for fun.
+@OrgCitations pp. 7 for fun]= becomes see [[citeproc_bib_item_1][7]] for fun.
 
 The citation styles and variants, and recognised locators are handled by the
 citation processors. Org cite's bundled processors currently supports the
@@ -156,12 +152,12 @@ following citation styles.
 | =na= noauthor | =b= bare             | [[citeproc_bib_item_1][2021]]                                 |             | citeyear    |
 | =na= noauthor |                      | ([[citeproc_bib_item_1][2021]])                               | autocite*   | citeyearpar |
 |---------------+----------------------+---------------------------------------------------------------+-------------+-------------|
-| =l= locators  | =bc= bare-caps       | [[citeproc_bib_item_1][Org et al. 2021, 2]]                   | Notecite    |             |
-| =l= locators  | =b= bare             | [[citeproc_bib_item_1][org et al. 2021, 2]]                   | notecite    |             |
-| =l= locators  | =bc= caps            | , [[citeproc_bib_item_1][Org et al. 2021, 2]]                 | Pnotecite   |             |
-| =l= locators  |                      | (, [[citeproc_bib_item_1][org et al. 2021, 2]])               | pnotecite   |             |
+| =l= locators  | =bc= bare-caps       | ([[citeproc_bib_item_1][2]])                                  | Notecite    |             |
+| =l= locators  | =b= bare             | [[citeproc_bib_item_1][2]]                                    | notecite    |             |
+| =l= locators  | =bc= caps            | (, [[citeproc_bib_item_1][2]])                                | Pnotecite   |             |
+| =l= locators  |                      | (, [[citeproc_bib_item_1][2]])                                | pnotecite   |             |
 |---------------+----------------------+---------------------------------------------------------------+-------------+-------------|
-| =n= nocite    |                      | ([[citeproc_bib_item_1][org et al. 2021]])                    | nocite      | nocite      |
+| =n= nocite    |                      |                                                               | nocite      | nocite      |
 |---------------+----------------------+---------------------------------------------------------------+-------------+-------------|
 | =t= text      | =b= bare             | org et al. ([[citeproc_bib_item_1][2021]])                    |             | citealp     |
 | =t= text      | =c= caps             | Org et al. ([[citeproc_bib_item_1][2021]])                    | Textcite    | Citep       |
@@ -197,7 +193,6 @@ The CSL processor supports the following locators:
 - *=sub verbo=*, =s.v.=, =s.vv.=
 - *=verse=*, =v.=, =vv.=
 - *=volume=*, =vol.=, =vols.=
-
 ** More on exporting
 
 The style of the citations and the bibliography depend on three things:
@@ -210,7 +205,7 @@ The citation processor is automatically selected based on
 on a per-document basis via the =#+cite_export= keyword. Here, I shall use the =csl=
 processor,
 #+begin_example
-,#+cite_export: csl
+  ,#+cite_export: csl
 #+end_example
 
 #+cite_export: csl
@@ -219,7 +214,7 @@ With ~org-cite-export-processors~, you can also set the bibliography and citatio
 style by giving a triplet of parameters src_elisp{(PROCESSOR BIBLIOGRAPHY-STYLE CITATION-STYLE)} instead of just the processor. You can also use this triplet of
 values with the =#+cite_export= keyword
 #+begin_example
-,#+cite_export: processor bibliography-style citation-style
+  ,#+cite_export: processor bibliography-style citation-style
 #+end_example
 
 There are also some more options about how the bibliography is produced. These
@@ -228,10 +223,9 @@ processor does not currently support any options, the BibLaTeX processor passes
 options to a src_LaTeX{\printbibliography} command, allowing for the
 following:
 #+begin_example
-,#+print_bibliography: :section 2 :heading subbibliography
-,#+print_bibliography: :keyword abc,xyz :title "Primary Sources"
+  ,#+print_bibliography: :section 2 :heading subbibliography
+  ,#+print_bibliography: :keyword abc,xyz :title "Primary Sources"
 #+end_example
-
 ** Using CSL
 
 [[https://github.com/andras-simonyi/citeproc-el][Citeproc]] is currently available on [[https://melpa.org/#/citeproc][MELPA]], and so can be installed via your
@@ -260,12 +254,11 @@ When exporting, you can set the style by providing a path to CSL style files,
 either absolute or relative to ~org-cite-csl-styles-dir~. For example, if I
 download =apa.csl= I can use it like so:
 #+begin_example
-,#+cite_export: csl ~/Downloads/apa.csl
+  ,#+cite_export: csl ~/Downloads/apa.csl
 #+end_example
 
 When no style is given ~org-cite-csl--fallback-style-file~ will be used, which
 defaults to a bundled Chicago author-date style.
-
 ** Working with Zotero
 
 There are quite a few reference managers available, however, the list rapidly
@@ -295,13 +288,13 @@ Since these files are put under =~/Zotero/styles=, you can use them with Org Cit
 and Citeproc simply by setting ~org-cite-csl-styles-dir~ to the Zotero styles
 directory.
 #+begin_src emacs-lisp
-(setq org-cite-csl-styles-dir "~/Zotero/styles")
+  (setq org-cite-csl-styles-dir "~/Zotero/styles")
 #+end_src
 
 To then use the citation style defined by =~/Zotero/styles/apa.csl= one can then
 simply refer to =apa.csl= when using the =#+cite_export= keyword.
 #+begin_example
-,#+cite_export: csl apa.csl
+  ,#+cite_export: csl apa.csl
 #+end_example
 
 [fn:3] I'm talking about a certain company [[https://moneyweek.com/505757/great-frauds-in-history-robert-maxwell][created by a British Fraudster]] that
@@ -311,7 +304,6 @@ vigorously [[https://web.archive.org/web/20200129202353/http://legacy.earlham.ed
 (repeatedly), made [[https://www.michaeleisen.org/blog/?p=807][financial contributions to politicians who then tried to
 prevent publicly accesible reaserch]], and whose reference manager [[https://www.zotero.org/support/kb/mendeley_import#mendeley_database_encryption][encrypted
 reaserchers' /own/ databases]] "to comply with GDPR".
-
 ** A bright future
 
 Org Cite has only just been merged in the past month, and is yet to be included

@@ -1,4 +1,4 @@
-# Created 2022-03-04 Fri 16:30
+# Created 2024-01-11 Thu 11:13
 #+title: February 2022
 #+date: 2022-02-30
 #+author: Kristijan Husak
@@ -26,7 +26,6 @@ A simple Google search yielded something that seemed just like a very simple
 editor with strange, but more familiar shortcuts. I didn't bother too much to
 figure out what it is, because I was already pulled in fairly deep into Vim and
 its philosophy.
-
 * Note taking in (Neo)Vim
 
 At first, I did some note taking only when really necessary, in random
@@ -48,7 +47,6 @@ different version of Markdown. You put some unordered lists as your notes, and
 that's it. I never spent more time trying to see all the neat features. I even
 tried creating some of my custom note taking tools, but I never managed to
 finish them because I didn't have a clear idea of how to solve my problems.
-
 * First encounter with Orgmode like tool: vim-dotoo
 
 One weekend, I was browsing through Vim subreddit, as I usually do at least once
@@ -66,7 +64,6 @@ mind? From that point on, this plugin had my full attention.
 I'm always emphasizing that [[https://github.com/dhruvasagar][dhruvasagar]] and his [[https://github.com/dhruvasagar/vim-dotoo][vim-dotoo]] plugin are most
 deserving for having inspired [[https://github.com/nvim-orgmode/orgmode]], and I
 can't thank him enough for that.
-
 * First steps with vim-dotoo and birth of orgmode.nvim
 
 For some time, I was using [[https://github.com/dhruvasagar/vim-dotoo][vim-dotoo]]. I moved all of my Vimwiki notes to it. It
@@ -99,14 +96,12 @@ parser, but it was just too time consuming and complicated. I proceeded with the
 regex parsing to see how far I can go.
 
 Besides parsing, I had a few more challenges to overcome:
-
 ** Understanding the OrgMode syntax and all the functionality
 
 This is still the biggest challenge. I didn't have any idea how big and robust
 OrgMode is. If I would know it at that time, I wouldn't even jump on this train.
 It's really hard to grasp all of it. Considering I've only used it for around 8
 months, I think I made some good progress on learning it.
-
 ** Remote editing
 
 By remote editing, I mean automatically updating content in the current
@@ -122,7 +117,6 @@ this by:
   so I can pinpoint the correct location
 - Opening a file in a =1 row x 1 col= floating window and doing quick
   edits there
-
 ** Working with dates
 
 From my experience, dates are challenging in all areas of programming,
@@ -131,7 +125,6 @@ those seemed a bit too basic for my use case, and I wanted to keep
 external plugins to the minimum. I went with a custom solution that uses
 Lua's native dates, which has certain limitations, but works out for
 most of the things.
-
 ** Highlighting, mostly in Agenda view
 
 Vim's syntax engine is fairly old, but still very much used, especially
@@ -145,7 +138,6 @@ would be really hard to add, because the content is too dynamic. I went
 with the Neovim highlight API that allows Highlighting things by their
 exact position in the buffer. Tree-sitter implementation does something
 similar in the background for Highlighting.
-
 ** Keeping configuration simple and familiar to Emacs OrgMode
 
 Vim-dotoo configuration was mostly Vim style, through some global
@@ -159,38 +151,38 @@ Neovim:
 Emacs:
 
 #+begin_src elisp
-(setq org-agenda-files '("~/orgmodes"))
-(setq org-agenda-skip-scheduled-if-done t)
-(setq org-agenda-span 7)
-(setq org-hide-leading-stars t)
- (setq org-capture-templates
-       '(("t" "Todo" entry (file "~/orgmodes/todos.org")
-      "* TODO %?")
-     ("j" "Journal" entry (file "~/orgmodes/journal.org")
-      "* %?\nEntered on %U\n   %a")))
+  (setq org-agenda-files '("~/orgmodes"))
+  (setq org-agenda-skip-scheduled-if-done t)
+  (setq org-agenda-span 7)
+  (setq org-hide-leading-stars t)
+   (setq org-capture-templates
+         '(("t" "Todo" entry (file "~/orgmodes/todos.org")
+        "* TODO %?")
+       ("j" "Journal" entry (file "~/orgmodes/journal.org")
+        "* %?\nEntered on %U\n   %a")))
 #+end_src
 
 Neovim:
 
 #+begin_src lua
-require('orgmode').setup({
-   org_agenda_files = { '~/orgmodes' },
-   org_agenda_skip_scheduled_if_done = true,
-   org_agenda_span = 7,
-   org_hide_leading_stars = true
-   org_capture_templates = {
-      t = {
-     description = 'Todo',
-     target = '~/orgmodes/todos.org',
-     template = '* TODO %?',
-      },
-      j = {
-     description = 'Journal',
-     target = '~/orgmodes/journal.org',
-     template = '* %?\nEntered on %U\n   %a',
-      }
-   }
-})
+  require('orgmode').setup({
+     org_agenda_files = { '~/orgmodes' },
+     org_agenda_skip_scheduled_if_done = true,
+     org_agenda_span = 7,
+     org_hide_leading_stars = true
+     org_capture_templates = {
+        t = {
+       description = 'Todo',
+       target = '~/orgmodes/todos.org',
+       template = '* TODO %?',
+        },
+        j = {
+       description = 'Journal',
+       target = '~/orgmodes/journal.org',
+       template = '* %?\nEntered on %U\n   %a',
+        }
+     }
+  })
 #+end_src
 
 One of the most noticeable differences is between the usage of hyphens
@@ -198,7 +190,6 @@ One of the most noticeable differences is between the usage of hyphens
 because hyphens is not a valid character in variable names in Lua, so
 all of the options would need to be wrapped as a string (for example:
 =['org-agenda-files']=).
-
 * First release of orgmode.nvim and introduction of tree-sitter parser
 
 After ~1.5 months I [[https://www.reddit.com/r/neovim/comments/o8zp0k/orgmodenvim_orgmode_clone_written_in_lua_for/][published the initial version]]. The focus was on Agenda and
@@ -229,7 +220,6 @@ Also, as much as tree-sitter is powerful, its main purpose is to parse
 programming languages, which mostly has "static" patterns to match. Orgmode is
 by its nature dynamic, which causes a variety of issues for a parser that's not
 meant for that kind of usage.
-
 * Limitations
 
 (Neo)Vim is a great editor, but it still cannot compare to Emacs in certain
@@ -239,7 +229,6 @@ certain things.
 I even [[https://github.com/nvim-orgmode/orgmode/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+label%3Aneovim-dependency][made a label]] for reported issues where Neovim support for certain things
 is a blocker. I'm hoping that at least some of these will be available in future
 Neovim releases.
-
 * Features
 
 I will not go into too many details about the available features, since those
@@ -250,7 +239,6 @@ This allows getting a "desktop notification" for tasks that are within
 the specified threshold for schedule/deadline time. It requires some
 configuration to set up a cron job, but it's been working great for me
 for several months now.
-
 * Plans
 
 The current state of the project is very usable for me. I'm not lacking any of
@@ -276,7 +264,6 @@ And a long term goal for these:
 - [[https://github.com/nvim-orgmode/orgmode/issues/135][Custom agenda commands]]
 - More clocking features (reports)
 - File specific configuration via directives ([[https://github.com/nvim-orgmode/orgmode/issues/185][todo keywords]], properties, etc.)
-
 * Closing thoughts
 
 When I started working on [[https://github.com/nvim-orgmode/orgmode][nvim-orgmode]], I didn't have a clue what I'm jumping

@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>2021-07-31-citations.org.html</title>
+    <style>
+      body { background: #fafafa; color: #2a2a2a; }
+      pre {
+        font-size: 1rem;
+        max-width: min(100rem, 100%);
+        width: max-content;
+        white-space: pre-wrap;
+        margin: auto; }
+      .ef-D {
+        color: #2a2a2a; background-color: #fafafa; font-weight: 400; }
+      .ef-b {
+        font-weight: 700; }
+      .ef-i {
+        text-decoration: italic; }
+      .ef-vp {
+         }
+      .ef-h {
+        color: #9e9e9e; }
+      .ef-sc {
+        color: #4f894c; }
+      .ef-w {
+        color: #9a7500; }
+      .ef-e {
+        color: #99324b; }
+      .ef-l {
+        color: #3b6ea8; font-weight: 700; }
+      .ef-lv {
+        color: #8b008b; font-weight: 700; }
+      .ef-hi {
+        color: #fafafa; background-color: #3b6ea8; }
+      .ef-c {
+        color: #b1b1b1; }
+      .ef-cd {
+        color: #b1b1b1; }
+      .ef-s {
+        color: #4f894c; }
+      .ef-d {
+        color: #b6b6b6; }
+      .ef-m {
+        color: #97365b; }
+      .ef-k {
+        color: #3b6ea8; }
+      .ef-bi {
+        color: #29838d; }
+      .ef-f {
+        color: #29838d; }
+      .ef-v {
+        color: #cb9aad; }
+      .ef-t {
+        color: #9a7500; }
+      .ef-o {
+        color: #97365b; }
+      .ef-wr {
+        color: #9a7500; }
+      .ef-nc {
+        color: #3b6ea8; font-weight: 700; }
+      .ef-pp {
+        color: #3b6ea8; font-weight: 700; }
+      .ef-rc {
+        color: #3b6ea8; font-weight: 700; }
+      .ef-rb {
+        color: #3b6ea8; font-weight: 700; }
+      .ef-ob {
+        background-color: #e0e0e0; }
+      .ef-obb {
+        color: #b1b1b1; background-color: #e0e0e0; }
+      .ef-obe {
+        color: #b1b1b1; background-color: #e0e0e0; }
+      .ef-Oa {
+        color: #3b6ea8; font-weight: nil; font-size: 1.25em }
+      .ef-Ob {
+        color: #97365b; font-weight: 700; font-size: 1.15em }
+      .ef-Oc {
+        color: #842879; font-weight: 700; font-size: 1.12em }
+      .ef-Od {
+        color: #6c92bd; font-weight: 600; font-size: 1.09em }
+      .ef-Oe {
+        color: #b16883; font-weight: 600; font-size: 1.06em }
+      .ef-Of {
+        color: #9db6d3; font-weight: 600; font-size: 1.03em }
+      .ef-Og {
+        color: #cb9aad; font-weight: 700; }
+      .ef-Oh {
+        color: #d7e2ed; font-weight: 600; }
+      .ef-hn {
+        color: #97365b; font-weight: 700; }
+      .ef-hq {
+        color: #3b6ea8; }
+      .ef-hs {
+        color: #9a7500; }
+      .ef-rda {
+        color: #3b6ea8; }
+      .ef-rdb {
+        color: #97365b; }
+      .ef-rdc {
+        color: #4f894c; }
+      .ef-rdd {
+        color: #842879; }
+      .ef-rde {
+        color: #29838d; }
+      .ef-rdf {
+        color: #3b6ea8; }
+      .ef-rdg {
+        color: #97365b; }
+      .ef-rdh {
+        color: #4f894c; }
+      .ef-rdi {
+        color: #842879; }
+    </style>
+  </head>
+  <body>
+<pre>
+<span style="color: #9e9e9e;">#+title:</span> <span style="font-weight: 700;">July 2021
+</span><span style="color: #9e9e9e;">#+subtitle:</span> Introducing citations!
+<span style="color: #9e9e9e;">#+author:</span> TEC
+<span style="color: #9e9e9e;">#+date:</span> 2021-07-31
+
+Last month I not-at-all-subtly hinted that a certain long-awaited feature was
+arriving imminently. At this point, I think it's a good idea to set the tone for the rest of
+this post.
+
+<span style="color: #b1b1b1;">#+attr_latex: :options inkscapelatex=false</span>
+<span style="color: #3b6ea8; font-weight: 700;">[[file:figures/celebrate-citations.svg]]</span>
+
+<span style="color: #3b6ea8; font-weight: nil; font-size: 1.25em">* Citations</span>
+
+After <span class="ef-i">/years/</span> of (on and off) discussion[fn:1], I am elated to be able to present
+Org's new native citation syntax. Org has grown a thoroughly designed, modular,
+capable citation system. At last you can refer to Org for all your attribution
+needs. Special thanks must go to Nicolas Goaziou for leading the charge, John
+Kitchin for paving the way with the <span style="color: #9e9e9e;">=org-ref=</span> package, Bruce D'Arcus for driving a
+lot of careful consideration of design decisions and starting to document some
+of the details --- and the many other denizens of the mailing list who have
+contributed to the discussion over the years.
+
+András Simonyi's also deserves a special mention for his work creating the Elisp
+CSL library <span style="color: #9e9e9e;">~Citeproc.el~</span>, which while not directly included in Org is crucial to
+providing robust CSL support, and integrates with <span style="color: #9e9e9e;">=oc-csl.el=</span>.
+
+<span style="color: #97365b; font-weight: 700; font-size: 1.15em">** Outline</span>
+
+Citations have been carefully designed in such a way that users and Elisp
+tinkerers will be able to easily adapt and extend it to fit their needs.
+To that end, Org Cite (or OC for short) has been split into two halves:
++ <span style="color: #9e9e9e;">=oc.el=</span> which defines the syntax and provides some machinery to interact with
+  citations
++ Citation processors which interface with <span style="color: #9e9e9e;">=oc.el=</span> to produce nicely-formatted
+  citations to be inserted in your bibliography, within the text, and even
+  rendered in the buffer[fn:2]
+
+There are four capabilities that Org Cite uses the processors for
+1. Inserting and editing citations
+2. Following citations to their definition
+3. Fontifying the citations in the buffer
+4. Exporting the citations
+
+Each capability can have a particular citation processor assigned, independently
+of the others. Out of the box, Org uses the <span style="color: #9e9e9e;">=basic=</span> processor for all of these tasks.
+
+The <span style="color: #9e9e9e;">=basic=</span> citation processor is one of four currently bundled with Org:
++ <span style="color: #9e9e9e;">=basic=</span>, which has no dependencies and provides all four capabilities. It export
+  to all formats, but only provides very simple citations.
++ <span style="color: #9e9e9e;">=biblatex=</span> and <span style="color: #9e9e9e;">=natbib=</span>, which provide the export capability to create citations
+  via <span style="color: #3b6ea8; font-weight: 700;">[[http://biblatex-biber.sourceforge.net/][Biber]]</span> and (to a lesser extent) <span style="color: #3b6ea8; font-weight: 700;">[[https://ctan.org/pkg/natbib][natbib]]</span>, but only for LaTeX.
++ <span style="color: #9e9e9e;">=csl=</span>, which provides the export capability using the <span style="color: #3b6ea8; font-weight: 700;">[[https://citationstyles.org/][Citation Style Language]]</span>,
+  and exports to HTML, LaTeX, Org, and plain text (with an <span style="color: #3b6ea8; font-weight: 700;">[[https://github.com/andras-simonyi/citeproc-el/issues/23][open issue]]</span> for ODT)
+  --- but depends on <span style="color: #3b6ea8; font-weight: 700;">[[https://github.com/andras-simonyi/citeproc-el][citeproc.el]]</span>.
+
+This provides a solid foundation for other packages to build off, and despite
+Org Cite being yet to be released or documented in the manual we are already
+seeing the development of packages like <span style="color: #3b6ea8; font-weight: 700;">[[https://github.com/jkitchin/org-ref-cite][org-ref-cite]]</span> (by John Kitchin).
+
+<span style="color: #97365b; font-weight: 700; font-size: 1.15em">** Basic usage</span>
+
+To get started with Org Cite, we must have some form of bibliography.
+This can either be a BibTeX file or a CSL-JSON file.
+
+As an example, say we have a file <span style="color: #9e9e9e;">=orgcite.bib=</span> containing the following
+<span class="ef-obb">#+begin_src bibtex :tangle orgcite.bib :comments none
+</span><span style="color: #29838d; background-color: #e0e0e0;">@article</span><span class="ef-ob">{</span><span style="color: #97365b; background-color: #e0e0e0;">OrgCitations</span><span class="ef-ob">,
+         </span><span style="color: #cb9aad; background-color: #e0e0e0;">author</span><span class="ef-ob">={org, mode and Syntax, Citation and List, Mailing and Effort, Time},
+         </span><span style="color: #cb9aad; background-color: #e0e0e0;">journal</span><span class="ef-ob">={Journal of Plain Text Formats},
+         </span><span style="color: #cb9aad; background-color: #e0e0e0;">title</span><span class="ef-ob">={Elegant Citations with Org-Mode},
+         </span><span style="color: #cb9aad; background-color: #e0e0e0;">year</span><span class="ef-ob">={2021},
+         </span><span style="color: #cb9aad; background-color: #e0e0e0;">month</span><span class="ef-ob">={7},
+         </span><span style="color: #cb9aad; background-color: #e0e0e0;">volume</span><span class="ef-ob">={42},
+         </span><span style="color: #cb9aad; background-color: #e0e0e0;">number</span><span class="ef-ob">={1},
+         </span><span style="color: #cb9aad; background-color: #e0e0e0;">pages</span><span class="ef-ob">={2-3}}
+</span><span class="ef-obe">#+end_src
+</span>
+First we need to let Org know about this bibliography file (which must have a
+<span style="color: #9e9e9e;">=.bib=</span>, <span style="color: #9e9e9e;">=.bibtex=</span>, or <span style="color: #9e9e9e;">=.json=</span> extension), which we do either via the <span style="color: #9e9e9e;">=#+bibliography=</span>
+keyword, or the variable <span style="color: #9e9e9e;">~org-cite-global-bibliography~</span>.
+<span class="ef-obb">#+begin_example
+</span><span style="color: #9e9e9e; background-color: #e0e0e0;">,#+bibliography: orgcite.bib
+</span><span class="ef-obe">#+end_example
+</span>
+<span style="color: #b1b1b1;">#+bibliography: orgcite.bib</span>
+
+Once you have a bibliography source, you can start referencing to your heart's
+content! The basic citation syntax is as follows:
+
+<span style="color: #b1b1b1;">#+caption:</span> <span class="ef-ob">The new citation syntax, for simple citations</span>
+<span style="color: #b1b1b1;">#+attr_latex: :width 0.5\linewidth :options inkscapelatex=false</span>
+<span style="color: #3b6ea8; font-weight: 700;">[[file:figures/citation-structure-basic.svg]]</span>
+
+Using the default style <span style="color: #9e9e9e;">=</span><span style="color: #3b6ea8; font-weight: 700;">[cite:</span><span style="color: #3b6ea8; font-weight: 700;">@OrgCitations</span><span style="color: #3b6ea8; font-weight: 700;">]</span><span style="color: #9e9e9e;">=</span> produces <span style="color: #3b6ea8; font-weight: 700;">[cite:</span><span style="color: #3b6ea8; font-weight: 700;">@OrgCitations</span><span style="color: #3b6ea8; font-weight: 700;">]</span>. For
+more information on the styles currently available, see <span style="color: #3b6ea8; font-weight: 700;">[[cite-styles]]</span>.
+
+Finally, to insert a bibliography somewhere, we just need to insert the
+<span style="color: #9e9e9e;">=#+print_bibliography=</span> keyword, like so:
+
+<span class="ef-obb">#+begin_example
+</span><span style="color: #9e9e9e; background-color: #e0e0e0;">,#+print_bibliography:
+</span><span class="ef-obe">#+end_example
+</span>
+<span class="ef-obb">#+begin_info
+</span>#+print_bibliography:
+<span class="ef-obe">#+end_info
+</span>
+So, to summarise, all one needs to get started is:
+<span class="ef-obb">#+begin_example
+</span><span style="color: #9e9e9e; background-color: #e0e0e0;">,#+bibliography: references.bib
+</span><span style="color: #3b6ea8; background-color: #e0e0e0; font-weight: 700;">[cite:</span><span style="color: #99324b; background-color: #e0e0e0; font-weight: 700;">@key</span><span style="color: #3b6ea8; background-color: #e0e0e0; font-weight: 700;">]</span><span style="color: #9e9e9e; background-color: #e0e0e0;">
+,#+print_bibliography:
+</span><span class="ef-obe">#+end_example
+</span>That's it! 🎉
+
+<span style="color: #97365b; font-weight: 700; font-size: 1.15em">** The cite syntax</span>
+
+Don't let the simplicity in the examples above fool you, the new syntax is quite
+capable of expressing more complex forms. Here's the <span class="ef-i">/full/</span> version of the new
+cite syntax:
+
+<span style="color: #b1b1b1;">#+caption:</span> <span class="ef-ob">The new citations syntax, in full</span>
+<span style="color: #b1b1b1;">#+attr_latex: :options inkscapelatex=false</span>
+<span style="color: #3b6ea8; font-weight: 700;">[[file:figures/citation-structure-full.svg]]</span>
+
++ The <span class="ef-b">*style*</span> and <span class="ef-b">*variant*</span> determine what form the exported citation takes
++ The <span class="ef-b">*common prefix*</span> and <span class="ef-b">*suffix*</span> and put at the start and end of the generated
+  citation, respectively
++ The citation <span class="ef-b">*key*</span> refers to a Bib(La)TeX or CSL-JSON key
+  - The citation <span class="ef-b">*prefix*</span> and <span class="ef-b">*suffix*</span> are put before and after the reference to the
+    key
+  - Some citation processors recognise locators, which refer to a particular
+    part of the work, for example: <span style="color: #9e9e9e;">=p. 7=</span> to refer to page 7.
+
+Using the default CSL citation style (Chicago author-name) <span style="color: #9e9e9e;">=</span><span style="color: #3b6ea8; font-weight: 700;">[cite/l/b:see
+</span><span style="color: #3b6ea8; font-weight: 700;">@OrgCitations</span><span style="color: #3b6ea8; font-weight: 700;"> pp. 7 for fun]</span><span style="color: #9e9e9e;">=</span> becomes <span style="color: #3b6ea8; font-weight: 700;">[cite/l/b:see </span><span style="color: #3b6ea8; font-weight: 700;">@OrgCitations</span><span style="color: #3b6ea8; font-weight: 700;"> pp. 7 for fun]</span>.
+
+The citation styles and variants, and recognised locators are handled by the
+citation processors. Org cite's bundled processors currently supports the
+following citation styles.
+
+<span style="color: #b1b1b1;">#+name: cite-styles</span>
+<span style="color: #b1b1b1;">#+caption:</span> <span class="ef-ob">The current set of supported citation styles with variants,</span>
+<span style="color: #b1b1b1;">#+caption:</span> <span class="ef-ob">with samples generated by ~oc-csl.el~ and ~citeproc.el~.</span>
+<span style="color: #b1b1b1;">#+attr_latex: :font \small</span>
+| Style       | Variant            | Sample                          | Bib(La)TeX  | NatBib      |
+|-------------+--------------------+---------------------------------+-------------+-------------|
+| <span style="color: #9e9e9e;">=a=</span> author    | <span style="color: #9e9e9e; text-decoration: italic; font-weight: 700;">=cf=</span><span style="text-decoration: italic; font-weight: 700;"> caps-full       </span>| <span style="color: #3b6ea8; font-weight: 700;">[cite/a/cf:</span><span style="color: #3b6ea8; font-weight: 700;">@OrgCitations</span><span style="color: #3b6ea8; font-weight: 700;">]</span>       | Citeauthor  |             |
+| <span style="color: #9e9e9e;">=a=</span> author    | <span style="color: #9e9e9e; text-decoration: italic; font-weight: 700;">=f=</span><span style="text-decoration: italic; font-weight: 700;"> full             </span>| <span style="color: #3b6ea8; font-weight: 700;">[cite/a/f:</span><span style="color: #3b6ea8; font-weight: 700;">@OrgCitations</span><span style="color: #3b6ea8; font-weight: 700;">]</span>        | citeauthor  | citeauthor* |
+| <span style="color: #9e9e9e;">=a=</span> author    | <span style="color: #9e9e9e; text-decoration: italic; font-weight: 700;">=c=</span><span style="text-decoration: italic; font-weight: 700;"> caps             </span>| <span style="color: #3b6ea8; font-weight: 700;">[cite/a/c:</span><span style="color: #3b6ea8; font-weight: 700;">@OrgCitations</span><span style="color: #3b6ea8; font-weight: 700;">]</span>        | Citeauthor* | Citeauthor  |
+| <span style="color: #9e9e9e; text-decoration: italic; font-weight: 700;">=a=</span><span style="text-decoration: italic; font-weight: 700;"> author    </span>|                    | <span style="color: #3b6ea8; font-weight: 700;">[cite/a:</span><span style="color: #3b6ea8; font-weight: 700;">@OrgCitations</span><span style="color: #3b6ea8; font-weight: 700;">]</span>          | citeauthor* | citeauthor  |
+|-------------+--------------------+---------------------------------+-------------+-------------|
+| <span style="color: #9e9e9e;">=na=</span> noauthor | <span style="color: #9e9e9e; text-decoration: italic; font-weight: 700;">=b=</span><span style="text-decoration: italic; font-weight: 700;"> bare             </span>| <span style="color: #3b6ea8; font-weight: 700;">[cite/na/b:</span><span style="color: #3b6ea8; font-weight: 700;">@OrgCitations</span><span style="color: #3b6ea8; font-weight: 700;">]</span>       |             | citeyear    |
+| <span style="color: #9e9e9e; text-decoration: italic; font-weight: 700;">=na=</span><span style="text-decoration: italic; font-weight: 700;"> noauthor </span>|                    | <span style="color: #3b6ea8; font-weight: 700;">[cite/na:</span><span style="color: #3b6ea8; font-weight: 700;">@OrgCitations</span><span style="color: #3b6ea8; font-weight: 700;">]</span>         | autocite*   | citeyearpar |
+|-------------+--------------------+---------------------------------+-------------+-------------|
+| <span style="color: #9e9e9e;">=l=</span> locators  | <span style="color: #9e9e9e; text-decoration: italic; font-weight: 700;">=bc=</span><span style="text-decoration: italic; font-weight: 700;"> bare-caps       </span>| <span style="color: #3b6ea8; font-weight: 700;">[cite/l/bc:</span><span style="color: #3b6ea8; font-weight: 700;">@OrgCitations</span><span style="color: #3b6ea8; font-weight: 700;"> p. 2]</span>  | Notecite    |             |
+| <span style="color: #9e9e9e;">=l=</span> locators  | <span style="color: #9e9e9e; text-decoration: italic; font-weight: 700;">=b=</span><span style="text-decoration: italic; font-weight: 700;"> bare             </span>| <span style="color: #3b6ea8; font-weight: 700;">[cite/l/b:</span><span style="color: #3b6ea8; font-weight: 700;">@OrgCitations</span><span style="color: #3b6ea8; font-weight: 700;"> p. 2]</span>   | notecite    |             |
+| <span style="color: #9e9e9e;">=l=</span> locators  | <span style="color: #9e9e9e; text-decoration: italic; font-weight: 700;">=bc=</span><span style="text-decoration: italic; font-weight: 700;"> caps            </span>| <span style="color: #3b6ea8; font-weight: 700;">[cite/l/bc:</span><span style="color: #3b6ea8; font-weight: 700;">@OrgCitations</span><span style="color: #3b6ea8; font-weight: 700;">, p. 2]</span> | Pnotecite   |             |
+| <span style="color: #9e9e9e; text-decoration: italic; font-weight: 700;">=l=</span><span style="text-decoration: italic; font-weight: 700;"> locators  </span>|                    | <span style="color: #3b6ea8; font-weight: 700;">[cite/l:</span><span style="color: #3b6ea8; font-weight: 700;">@OrgCitations</span><span style="color: #3b6ea8; font-weight: 700;">, p. 2]</span>    | pnotecite   |             |
+|-------------+--------------------+---------------------------------+-------------+-------------|
+| <span style="color: #9e9e9e; text-decoration: italic; font-weight: 700;">=n=</span><span style="text-decoration: italic; font-weight: 700;"> nocite    </span>|                    | <span style="color: #3b6ea8; font-weight: 700;">[cite/n:</span><span style="color: #3b6ea8; font-weight: 700;">@OrgCitations</span><span style="color: #3b6ea8; font-weight: 700;">]</span>          | nocite      | nocite      |
+|-------------+--------------------+---------------------------------+-------------+-------------|
+| <span style="color: #9e9e9e;">=t=</span> text      | <span style="color: #9e9e9e; text-decoration: italic; font-weight: 700;">=b=</span><span style="text-decoration: italic; font-weight: 700;"> bare             </span>| <span style="color: #3b6ea8; font-weight: 700;">[cite/t/b:</span><span style="color: #3b6ea8; font-weight: 700;">@OrgCitations</span><span style="color: #3b6ea8; font-weight: 700;">]</span>        |             | citealp     |
+| <span style="color: #9e9e9e;">=t=</span> text      | <span style="color: #9e9e9e; text-decoration: italic; font-weight: 700;">=c=</span><span style="text-decoration: italic; font-weight: 700;"> caps             </span>| <span style="color: #3b6ea8; font-weight: 700;">[cite/t/c:</span><span style="color: #3b6ea8; font-weight: 700;">@OrgCitations</span><span style="color: #3b6ea8; font-weight: 700;">]</span>        | Textcite    | Citep       |
+| <span style="color: #9e9e9e;">=t=</span> text      | <span style="color: #9e9e9e; text-decoration: italic; font-weight: 700;">=f=</span><span style="text-decoration: italic; font-weight: 700;"> full             </span>| <span style="color: #3b6ea8; font-weight: 700;">[cite/t/f:</span><span style="color: #3b6ea8; font-weight: 700;">@OrgCitations</span><span style="color: #3b6ea8; font-weight: 700;">]</span>        |             | citep*      |
+| <span style="color: #9e9e9e;">=t=</span> text      | <span style="color: #9e9e9e; text-decoration: italic; font-weight: 700;">=bc=</span><span style="text-decoration: italic; font-weight: 700;"> bare-caps       </span>| <span style="color: #3b6ea8; font-weight: 700;">[cite/t/bc:</span><span style="color: #3b6ea8; font-weight: 700;">@OrgCitations</span><span style="color: #3b6ea8; font-weight: 700;">]</span>       |             | Citealp     |
+| <span style="color: #9e9e9e;">=t=</span> text      | <span style="color: #9e9e9e; text-decoration: italic; font-weight: 700;">=bf=</span><span style="text-decoration: italic; font-weight: 700;"> bare-full       </span>| <span style="color: #3b6ea8; font-weight: 700;">[cite/t/bf:</span><span style="color: #3b6ea8; font-weight: 700;">@OrgCitations</span><span style="color: #3b6ea8; font-weight: 700;">]</span>       |             | citealp*    |
+| <span style="color: #9e9e9e;">=t=</span> text      | <span style="color: #9e9e9e; text-decoration: italic; font-weight: 700;">=cf=</span><span style="text-decoration: italic; font-weight: 700;"> caps-full       </span>| <span style="color: #3b6ea8; font-weight: 700;">[cite/t/cf:</span><span style="color: #3b6ea8; font-weight: 700;">@OrgCitations</span><span style="color: #3b6ea8; font-weight: 700;">]</span>       |             | Citep*      |
+| <span style="color: #9e9e9e;">=t=</span> text      | <span style="color: #9e9e9e; text-decoration: italic; font-weight: 700;">=bcf=</span><span style="text-decoration: italic; font-weight: 700;"> bare-caps-full </span>| <span style="color: #3b6ea8; font-weight: 700;">[cite/t/bcf:</span><span style="color: #3b6ea8; font-weight: 700;">@OrgCitations</span><span style="color: #3b6ea8; font-weight: 700;">]</span>      |             | Citealp*    |
+| <span style="color: #9e9e9e; text-decoration: italic; font-weight: 700;">=t=</span><span style="text-decoration: italic; font-weight: 700;"> text      </span>|                    | <span style="color: #3b6ea8; font-weight: 700;">[cite/t:</span><span style="color: #3b6ea8; font-weight: 700;">@OrgCitations</span><span style="color: #3b6ea8; font-weight: 700;">]</span>          | textcite    |             |
+|-------------+--------------------+---------------------------------+-------------+-------------|
+| (default)   | <span style="color: #9e9e9e; text-decoration: italic; font-weight: 700;">=b=</span><span style="text-decoration: italic; font-weight: 700;"> bare             </span>| <span style="color: #3b6ea8; font-weight: 700;">[cite//b:</span><span style="color: #3b6ea8; font-weight: 700;">@OrgCitations</span><span style="color: #3b6ea8; font-weight: 700;">]</span>         | cite        | citealp     |
+| (default)   | <span style="color: #9e9e9e; text-decoration: italic; font-weight: 700;">=bc=</span><span style="text-decoration: italic; font-weight: 700;"> bare-caps       </span>| <span style="color: #3b6ea8; font-weight: 700;">[cite//bc:</span><span style="color: #3b6ea8; font-weight: 700;">@OrgCitations</span><span style="color: #3b6ea8; font-weight: 700;">]</span>        | Cite        | Citealp     |
+| (default)   | <span style="color: #9e9e9e; text-decoration: italic; font-weight: 700;">=f=</span><span style="text-decoration: italic; font-weight: 700;"> full             </span>| <span style="color: #3b6ea8; font-weight: 700;">[cite//f:</span><span style="color: #3b6ea8; font-weight: 700;">@OrgCitations</span><span style="color: #3b6ea8; font-weight: 700;">]</span>         |             | citep*      |
+| (default)   | <span style="color: #9e9e9e; text-decoration: italic; font-weight: 700;">=bf=</span><span style="text-decoration: italic; font-weight: 700;"> bare-full       </span>| <span style="color: #3b6ea8; font-weight: 700;">[cite//bf:</span><span style="color: #3b6ea8; font-weight: 700;">@OrgCitations</span><span style="color: #3b6ea8; font-weight: 700;">]</span>        |             | citealp     |
+| (default)   | <span style="color: #9e9e9e; text-decoration: italic; font-weight: 700;">=cf=</span><span style="text-decoration: italic; font-weight: 700;"> caps-full       </span>| <span style="color: #3b6ea8; font-weight: 700;">[cite//cf:</span><span style="color: #3b6ea8; font-weight: 700;">@OrgCitations</span><span style="color: #3b6ea8; font-weight: 700;">]</span>        |             | Citep*      |
+| (default)   | <span style="color: #9e9e9e; text-decoration: italic; font-weight: 700;">=bcf=</span><span style="text-decoration: italic; font-weight: 700;"> bare-caps-full </span>| <span style="color: #3b6ea8; font-weight: 700;">[cite//bcf:</span><span style="color: #3b6ea8; font-weight: 700;">@OrgCitations</span><span style="color: #3b6ea8; font-weight: 700;">]</span>       |             | Citealp*    |
+| (default)   |                    | <span style="color: #3b6ea8; font-weight: 700;">[cite:</span><span style="color: #3b6ea8; font-weight: 700;">@OrgCitations</span><span style="color: #3b6ea8; font-weight: 700;">]</span>            | autocite    | citep       |
+
+The CSL processor supports the following locators:
++ <span class="ef-b">*=book=*</span>, <span style="color: #9e9e9e;">=bk.=</span>, <span style="color: #9e9e9e;">=bks.=</span>
++ <span class="ef-b">*=chapter=*</span>, <span style="color: #9e9e9e;">=chap.=</span>, <span style="color: #9e9e9e;">=chaps.=</span>
++ <span class="ef-b">*=column=*</span>, <span style="color: #9e9e9e;">=col.=</span>, <span style="color: #9e9e9e;">=cols.=</span>
++ <span class="ef-b">*=figure=*</span>, <span style="color: #9e9e9e;">=fig.=</span>, <span style="color: #9e9e9e;">=figs.=</span>
++ <span class="ef-b">*=folio=*</span>, <span style="color: #9e9e9e;">=fol.=</span>, <span style="color: #9e9e9e;">=fols.=</span>
++ <span class="ef-b">*=number=*</span>, <span style="color: #9e9e9e;">=no.=</span>, <span style="color: #9e9e9e;">=Os.=</span>
++ <span class="ef-b">*=line=*</span>, <span style="color: #9e9e9e;">=l.=</span>, <span style="color: #9e9e9e;">=ll.=</span>
++ <span class="ef-b">*=note=*</span>, <span style="color: #9e9e9e;">=n.=</span>, <span style="color: #9e9e9e;">=nn.=</span>
++ <span class="ef-b">*=opus=*</span>, <span style="color: #9e9e9e;">=op.=</span>, <span style="color: #9e9e9e;">=opp.=</span>
++ <span class="ef-b">*=page=*</span>, <span style="color: #9e9e9e;">=p=</span>, <span style="color: #9e9e9e;">=p.=</span>, <span style="color: #9e9e9e;">=pp.=</span>
++ <span class="ef-b">*=paragraph=*</span>, <span style="color: #9e9e9e;">=para.=</span>, <span style="color: #9e9e9e;">=paras.=</span>, <span style="color: #9e9e9e;">=¶=</span>, <span style="color: #9e9e9e;">=¶¶=</span>, <span style="color: #9e9e9e;">=§=</span>, <span style="color: #9e9e9e;">=§§=</span>
++ <span class="ef-b">*=part=*</span>, <span style="color: #9e9e9e;">=pt.=</span>, <span style="color: #9e9e9e;">=pts.=</span>
++ <span class="ef-b">*=section=*</span>, <span style="color: #9e9e9e;">=sec.=</span>, <span style="color: #9e9e9e;">=secs.=</span>
++ <span class="ef-b">*=sub verbo=*</span>, <span style="color: #9e9e9e;">=s.v.=</span>, <span style="color: #9e9e9e;">=s.vv.=</span>
++ <span class="ef-b">*=verse=*</span>, <span style="color: #9e9e9e;">=v.=</span>, <span style="color: #9e9e9e;">=vv.=</span>
++ <span class="ef-b">*=volume=*</span>, <span style="color: #9e9e9e;">=vol.=</span>, <span style="color: #9e9e9e;">=vols.=</span>
+
+<span style="color: #97365b; font-weight: 700; font-size: 1.15em">** More on exporting</span>
+
+The style of the citations and the bibliography depend on three things:
+1. The citation processor used
+2. The citation style
+3. The bibliography style
+
+The citation processor is automatically selected based on
+<span style="color: #9e9e9e;">~org-cite-export-processors~</span> based on the export format being used, but can be set
+on a per-document basis via the <span style="color: #9e9e9e;">=#+cite_export=</span> keyword. Here, I shall use the <span style="color: #9e9e9e;">=csl=</span>
+processor,
+<span class="ef-obb">#+begin_example
+</span><span style="color: #9e9e9e; background-color: #e0e0e0;">,#+cite_export: csl
+</span><span class="ef-obe">#+end_example
+</span>
+<span style="color: #b1b1b1;">#+cite_export: csl</span>
+
+With <span style="color: #9e9e9e;">~org-cite-export-processors~</span>, you can also set the bibliography and citation
+style by giving a triplet of parameters <span style="color: #9e9e9e; background-color: #e0e0e0;">src_</span><span style="color: #b1b1b1; background-color: #e0e0e0;">elisp</span><span style="color: #9e9e9e; background-color: #e0e0e0;">{</span><span class="ef-ob">(PROCESSOR BIBLIOGRAPHY-STYLE
+CITATION-STYLE)</span><span style="color: #9e9e9e; background-color: #e0e0e0;">}</span> instead of just the processor. You can also use this triplet of
+values with the <span style="color: #9e9e9e;">=#+cite_export=</span> keyword
+<span class="ef-obb">#+begin_example
+</span><span style="color: #9e9e9e; background-color: #e0e0e0;">,#+cite_export: processor bibliography-style citation-style
+</span><span class="ef-obe">#+end_example
+</span>
+There are also some more options about how the bibliography is produced. These
+options are handled by the active citation processor. For example, while the CSL
+processor does not currently support any options, the BibLaTeX processor passes
+options to a <span style="color: #9e9e9e; background-color: #e0e0e0;">src_</span><span style="color: #b1b1b1; background-color: #e0e0e0;">LaTeX</span><span style="color: #9e9e9e; background-color: #e0e0e0;">{</span><span style="color: #3b6ea8; background-color: #e0e0e0;">\printbibliography</span><span style="color: #9e9e9e; background-color: #e0e0e0;">}</span> command, allowing for the
+following:
+<span class="ef-obb">#+begin_example
+</span><span style="color: #9e9e9e; background-color: #e0e0e0;">,#+print_bibliography: :section 2 :heading subbibliography
+,#+print_bibliography: :keyword abc,xyz :title "Primary Sources"
+</span><span class="ef-obe">#+end_example
+</span>
+<span style="color: #97365b; font-weight: 700; font-size: 1.15em">** Using CSL</span>
+
+<span style="color: #3b6ea8; font-weight: 700;">[[https://github.com/andras-simonyi/citeproc-el][Citeproc]]</span> is currently available on <span style="color: #3b6ea8; font-weight: 700;">[[https://melpa.org/#/citeproc][MELPA]]</span>, and so can be installed via your
+package manager of choice so long as MELPA is included in your
+<span style="color: #9e9e9e;">~package-archives~</span>. When available, it will be automatically loaded by
+<span style="color: #9e9e9e;">=oc-csl.el=</span>.
+
+It currently supports exporting to:
++ HTML
++ LaTeX
++ Org
++ Plain text
+
+Should you be interested in other formats, know that Citeproc is designed to
+easily support adding new formats (see <span style="color: #9e9e9e;">=citeproc-formatters.el=</span> for examples).
+
+Citeproc can currently retrieve bibliographic information from the following
+formats:
++ CSL-JSON
++ Bib(La)TeX
++ org-bibtex
+
+Though support for Bib(La)TeX and <span style="color: #3b6ea8; font-weight: 700;">[[https://gewhere.github.io/org-bibtex][org-bibtex]]</span> is rudimentary compared to CSL-JSON.
+
+When exporting, you can set the style by providing a path to CSL style files,
+either absolute or relative to <span style="color: #9e9e9e;">~org-cite-csl-styles-dir~</span>. For example, if I
+download <span style="color: #9e9e9e;">=apa.csl=</span> I can use it like so:
+<span class="ef-obb">#+begin_example
+</span><span style="color: #9e9e9e; background-color: #e0e0e0;">,#+cite_export: csl ~/Downloads/apa.csl
+</span><span class="ef-obe">#+end_example
+</span>
+When no style is given <span style="color: #9e9e9e;">~org-cite-csl--fallback-style-file~</span> will be used, which
+defaults to a bundled Chicago author-date style.
+
+<span style="color: #97365b; font-weight: 700; font-size: 1.15em">** Working with Zotero</span>
+
+There are quite a few reference managers available, however, the list rapidly
+shrinks if you restrict yourself to applications which are:
++ somewhat feature-rich
++ open source software
++ not owned by a parasitic company[fn:3]
+
+<span style="color: #3b6ea8; font-weight: 700;">[[https://www.zotero.org/][Zotero]]</span> is a good option, and if you're using it it's quite easy to use it with
+Org Cite. Out of the box, you can tell it to export your library, or parts of it,
+to a <span style="color: #9e9e9e;">=.bib=</span> file and automatically keep it in sync. I'd recommend installing the
+<span style="color: #3b6ea8; font-weight: 700;">[[https://retorque.re/zotero-better-bibtex/][Better BibTeX]]</span> extension though.
+
+<span style="color: #b1b1b1;">#+caption:</span> <span class="ef-ob">Zotero library right click context menu, showing the export option</span>
+<span style="color: #b1b1b1;">#+attr_latex: :width 0.4\linewidth</span>
+<span style="color: #b1b1b1;">#+attr_html: :class invertible</span>
+<span style="color: #3b6ea8; font-weight: 700;">[[file:figures/zotero-export-library.png]]</span>
+
+<span style="color: #b1b1b1;">#+caption:</span> <span class="ef-ob">Zotero collection export dialog</span>
+<span style="color: #b1b1b1;">#+attr_latex: :width 0.3\linewidth</span>
+<span style="color: #b1b1b1;">#+attr_html: :class invertible</span>
+<span style="color: #3b6ea8; font-weight: 700;">[[file:figures/zotero-export-options-prompt.png]]</span>
+
+Zotero also works well with CSL. In addition to supporting CSL-JSON exports,
+Zotero also features an easy way to install CSL styles within the preferences.
+
+<span style="color: #b1b1b1;">#+caption:</span> <span class="ef-ob">Zotero CSL style management within preferences</span>
+<span style="color: #b1b1b1;">#+attr_latex: :width 0.6\linewidth</span>
+<span style="color: #b1b1b1;">#+attr_html: :class invertible</span>
+<span style="color: #3b6ea8; font-weight: 700;">[[file:figures/zotero-cite-styles-menu.png]]</span>
+
+Since these files are put under <span style="color: #9e9e9e;">=~/Zotero/styles=</span>, you can use them with Org Cite
+and Citeproc simply by setting <span style="color: #9e9e9e;">~org-cite-csl-styles-dir~</span> to the Zotero styles
+directory.
+<span class="ef-obb">#+begin_src emacs-lisp
+</span><span class="ef-ob">(</span><span style="color: #3b6ea8; background-color: #e0e0e0;">setq</span><span class="ef-ob"> org-cite-csl-styles-dir </span><span style="color: #4f894c; background-color: #e0e0e0;">"~/Zotero/styles"</span><span class="ef-ob">)
+</span><span class="ef-obe">#+end_src
+</span>
+To then use the citation style defined by <span style="color: #9e9e9e;">=~/Zotero/styles/apa.csl=</span> one can then
+simply refer to <span style="color: #9e9e9e;">=apa.csl=</span> when using the <span style="color: #9e9e9e;">=#+cite_export=</span> keyword.
+<span class="ef-obb">#+begin_example
+</span><span style="color: #9e9e9e; background-color: #e0e0e0;">,#+cite_export: csl apa.csl
+</span><span class="ef-obe">#+end_example
+</span>
+<span style="color: #97365b; font-weight: 700; font-size: 1.15em">** A bright future</span>
+
+Org Cite has only just been merged in the past month, and is yet to be included
+in an Org release, but we're seeing a tremendous degree of community interest.
+There are <span class="ef-i">/already/</span> promising developments with third-party packages, such as
+<span style="color: #3b6ea8; font-weight: 700;">[[https://github.com/bdarcus/bibtex-actions][bibtex-actions]]</span> and <span style="color: #3b6ea8; font-weight: 700;">[[https://github.com/jkitchin/org-ref-cite][org-ref-cite]]</span>. I can't wait to see how the ecosystem continues
+to develop 😃.
+
+<span style="color: #3b6ea8; font-weight: nil; font-size: 1.25em">* Footnotes</span>
+
+[fn:1] Citations were first being mentioned on the mailing list back in 2007, in
+<span style="color: #3b6ea8; font-weight: 700;">[[https://lists.gnu.org/archive/html/emacs-orgmode/2007-05/msg00146.html][a thread about footnotes]]</span>.
+
+[fn:2]There is currently an <span style="color: #3b6ea8; font-weight: 700;">[[https://github.com/andras-simonyi/org-cite-csl-activate][ongoing effort]]</span> to use <span style="color: #9e9e9e;">=oc.el=</span> and <span style="color: #9e9e9e;">=citeproc.el=</span> to
+produce citation overlays in the buffer.
+
+[fn:3] I'm talking about a certain company <span style="color: #3b6ea8; font-weight: 700;">[[https://moneyweek.com/505757/great-frauds-in-history-robert-maxwell][created by a British Fraudster]]</span> that
+has a <span style="color: #3b6ea8; font-weight: 700;">[[https://www.theguardian.com/science/2017/jun/27/profitable-business-scientific-publishing-bad-for-science][40% profit margin, engages in blackmail-like practices with universities]]</span>,
+prompted <span style="color: #3b6ea8; font-weight: 700;">[[http://thecostofknowledge.com/][19,000 researchers]]</span> to boycott them, <span style="color: #3b6ea8; font-weight: 700;">[[https://www.the-scientist.com/the-nutshell/elsevier-published-6-fake-journals-44160][published six fake journals]]</span>,
+vigorously <span style="color: #3b6ea8; font-weight: 700;">[[https://web.archive.org/web/20200129202353/http://legacy.earlham.edu/~peters/fos/2007/08/publishers-launch-anti-oa-lobbying.html][lobbys against Open Access]]</span>, <span style="color: #3b6ea8; font-weight: 700;">[[https://rossmounce.co.uk/2017/02/14/elsevier-selling-access-to-open-access-again/][charged for Open Acess articles]]</span>
+(repeatedly), made <span style="color: #3b6ea8; font-weight: 700;">[[https://www.michaeleisen.org/blog/?p=807][financial contributions to politicians who then tried to
+prevent publicly accesible reaserch]]</span>, and whose reference manager <span style="color: #3b6ea8; font-weight: 700;">[[https://www.zotero.org/support/kb/mendeley_import#mendeley_database_encryption][encrypted
+reaserchers' </span><span style="color: #3b6ea8; text-decoration: italic; font-weight: 700;">/own/</span><span style="color: #3b6ea8; font-weight: 700;"> databases]]</span> "to comply with GDPR".
+
+</pre>
+  <body>
+</html>

@@ -1,4 +1,4 @@
-# Created 2022-03-03 Thu 01:40
+# Created 2024-01-11 Thu 11:13
 #+title: November 2021
 #+date: 2021-11-30
 #+author: TEC
@@ -6,7 +6,6 @@
 With a 9.5 release highlight post last month, and the month before skipped, it's
 now /three months/ since the last regular instalment of TMIO. Let's get back up
 to date on some of the latest happenings with Org.
-
 * Org as markup
 
 Looking at the wider ecosystem, it certainly appears that there is a growing
@@ -38,7 +37,6 @@ standard given for common tools.
 
 At this stage, it isn't clear exactly how the Org-outside-Emacs landscape will
 evolve, but the swelling interest is very encouraging.
-
 * An Org parser in Julia
 
 Speaking of parsers, I may be somewhat biased but I'm quite happy that a Org
@@ -51,7 +49,6 @@ Julia. It's only been a week since development started, but it currently
 supports most of the [[https://orgmode.org/worg/dev/org-syntax.html][Org Syntax]] draft specification, along with the rendering of
 a parsed Org AST to a TTY or back to Org text. A few utility functions are also
 included, such as ~filtermap~ which operates similarly to ~org-element-map~.
-
 * Autoloading citation backends
 
 One small but impactful change is autoloading of citation backends. Until
@@ -60,12 +57,11 @@ src_elisp{(require 'oc-csl)} or face error messages.
 
 Now, if you have a line like:
 #+begin_example
-,#+cite_export: FORMAT ...
+  ,#+cite_export: FORMAT ...
 #+end_example
 org-mode will try to load the file =oc-FORMAT= before trying to process citations.
 
 This should make getting started with citations in Org just a bit easier.
-
 * A nicer =:tangle-mode= syntax
 
 The standard way of setting a =:tangle-mode= has typically been by providing a
@@ -82,10 +78,10 @@ three different forms of shorthand
 
 This means the following forms are now all equivalent:
 #+begin_example
-:tangle-mode (identity #o755)
-:tangle-mode o755
-:tangle-mode a=rx,u+w
-:tangle-mode rwxr-xr-x
+  :tangle-mode (identity #o755)
+  :tangle-mode o755
+  :tangle-mode a=rx,u+w
+  :tangle-mode rwxr-xr-x
 #+end_example
 
 It has also been noted on the mailing list that the =:tangle-mode (identity
@@ -99,7 +95,6 @@ made yet though.
 
 [fn:1] This is performed easily thanks to ~file-modes-symbolic-to-number~, which
 is used as the basis for both the ~chmod~ and ~ls -l~ shorthand interpretations.
-
 * Org element parser cache
 
 Ihor Radchenko has done some fantastic work over the past few months by
@@ -120,7 +115,6 @@ fontification is imperfect, and can actually differ from the true structure of
 the document as parsed (authoritatively) by =org-element=. This has lead to the
 well-received suggestion on the mailing list to rewrite the fontification code
 to be built on =org-element= instead.
-
 * Inline source block fontification
 
 I think [[https://orgmode.org/manual/Structure-of-Code-Blocks.html][inline source code blocks]] are an underappreciated feature of Org. I
@@ -143,7 +137,6 @@ show the code that produces them.
 #+caption: Note that the =⟨11⟩= is a prettified results macro (using a potential future
 #+caption: org-mode patch).
 [[file:figures/inline-src-block-julia-demo.png]]
-
 * Functions as default heading arguments
 
 Matt Huszagh has contributed a patch that allows functions to be used as values
@@ -153,10 +146,10 @@ default can be provided by evaluating a function on-the-fly.
 Consider for example the arguments required to produce a simple image using R
 with Babel:
 #+begin_src org
-,#+begin_src R :results graphics file :file myimage.svg
-library(ggplot2)
-ggplot(mpg, aes(displ, hwy, colour = class)) + geom_point()
-,#+end_src
+  ,#+begin_src R :results graphics file :file myimage.svg
+  library(ggplot2)
+  ggplot(mpg, aes(displ, hwy, colour = class)) + geom_point()
+  ,#+end_src
 #+end_src
 
 In a Jupyter-style (=.ipynb=) or throwaway document, we likely don't care about
@@ -167,44 +160,43 @@ First we must write a function that when run at the source block will give us a
 suitable file name, like so
 
 #+begin_src emacs-lisp
-(defun my/org-src-sha-to-image ()
-  (concat "generated-"
-          (substring
-           (sha1 (org-element-property :value (org-element-at-point)))
-           0 8)
-          ".svg"))
+  (defun my/org-src-sha-to-image ()
+    (concat "generated-"
+            (substring
+             (sha1 (org-element-property :value (org-element-at-point)))
+             0 8)
+            ".svg"))
 #+end_src
 
 Let's also write a function to guess whether the source block produces a plot by
 checking if there's a plot command on the last line.
 
 #+begin_src emacs-lisp
-(defun my/org-src-guess-results-type ()
-  (if (string-match-p "^ *\\(?:plot\\|ggplot\\)([^\n]+\n?\\'"
-                      (org-element-property :value (org-element-at-point)))
-      "graphics file" "replace"))
+  (defun my/org-src-guess-results-type ()
+    (if (string-match-p "^ *\\(?:plot\\|ggplot\\)([^\n]+\n?\\'"
+                        (org-element-property :value (org-element-at-point)))
+        "graphics file" "replace"))
 #+end_src
 
 Then we can just use these function in place of a static value in the default
 header arguments variable --- that's all it takes.
 
 #+begin_src emacs-lisp
-(setq org-babel-default-header-args:R
-      '((:results . my/org-src-guess-results-type)
-        (:file . my/org-src-sha-to-image)))
+  (setq org-babel-default-header-args:R
+        '((:results . my/org-src-guess-results-type)
+          (:file . my/org-src-sha-to-image)))
 #+end_src
 
 This means for most cases we can now get away without any header arguments at all.
 
 #+begin_src org
-,#+begin_src R
-library(ggplot2)
-ggplot(mpg, aes(displ, hwy, colour = class)) + geom_point()
-,#+end_src
+  ,#+begin_src R
+  library(ggplot2)
+  ggplot(mpg, aes(displ, hwy, colour = class)) + geom_point()
+  ,#+end_src
 #+end_src
 
 It's always lovely to see more ways of reducing boilerplate.
-
 * Proportional image widths
 
 Previously, as long as ~org-image-actual-width~ was ~nil~ or a list of the form
@@ -239,7 +231,6 @@ new special width parameter =t= to set this on a per-image basis with =#+attr_or
 discussions on the mailing list though, soon =#+attr_org= will be prioritised when
 determining display image width, no matter which order you put the attributes
 in. I do like having one less thing to remember 🙂.
-
 * Other improvements
 - Allow citations immediately following an item bullet _TEC_
 - Allow citations immediately following a footnote definition _Nicolas Goaziou_
@@ -270,7 +261,6 @@ in. I do like having one less thing to remember 🙂.
 - More tests! _Ihor Radchenko_
 - Documentation improvements! _Marco Wahl_ _Stefan Kangas_ _Daniel Fleischer_ _Wiliam
   Denton_ _Thomas Dye_ _Bastien_ _Bruce D'Arcus_ _Kyle Meyer_ _Nicolas Goaziou_
-
 * Bugfixes
 - Fix heading insertion in a case where point is before any heading _Marco Wahl_
 - Prevent stringp error when tangling Org from an org-src edit buffer _Mark Dawson_

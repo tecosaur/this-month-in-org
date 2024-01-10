@@ -10,7 +10,7 @@
 
 
 Last month I not-at-all-subtly hinted that a certain long-awaited
-feature was arriving imminently. At this point, I think it’s a good idea
+feature was arriving imminently. At this point, I think it's a good idea
 to set the tone for the rest of this post.
 
 <file:figures/celebrate-citations.svg>
@@ -20,16 +20,16 @@ Citations
 ═════════
 
   After /years/ of (on and off) discussion[1], I am elated to be able to
-  present Org’s new native citation syntax. Org has grown a thoroughly
+  present Org's new native citation syntax. Org has grown a thoroughly
   designed, modular, capable citation system. At last you can refer to
   Org for all your attribution needs. Special thanks must go to Nicolas
   Goaziou for leading the charge, John Kitchin for paving the way with
-  the `org-ref' package, Bruce D’Arcus for driving a lot of careful
+  the `org-ref' package, Bruce D'Arcus for driving a lot of careful
   consideration of design decisions and starting to document some of the
   details — and the many other denizens of the mailing list who have
   contributed to the discussion over the years.
 
-  András Simonyi’s also deserves a special mention for his work creating
+  András Simonyi's also deserves a special mention for his work creating
   the Elisp CSL library `Citeproc.el', which while not directly included
   in Org is crucial to providing robust CSL support, and integrates with
   `oc-csl.el'.
@@ -40,7 +40,7 @@ Outline
 
   Citations have been carefully designed in such a way that users and
   Elisp tinkerers will be able to easily adapt and extend it to fit
-  their needs. To that end, Org Cite (or OC for short) has been split
+  their needs.  To that end, Org Cite (or OC for short) has been split
   into two halves:
   ⁃ `oc.el' which defines the syntax and provides some machinery to
     interact with citations
@@ -118,12 +118,13 @@ Basic usage
   └────
 
   Once you have a bibliography source, you can start referencing to your
-  heart’s content! The basic citation syntax is as follows:
+  heart's content! The basic citation syntax is as follows:
 
   <file:figures/citation-structure-basic.svg>
 
-  Using the default style `[cite:@OrgCitations]' produces (org et al.
-  2021). For more information on the styles currently available, see 1.
+  Using the default style `[cite:@OrgCitations]' produces (org et
+  al. 2021). For more information on the styles currently available, see
+  1.
 
   Finally, to insert a bibliography somewhere, we just need to insert
   the `#+print_bibliography' keyword, like so:
@@ -132,9 +133,9 @@ Basic usage
   │ #+print_bibliography:
   └────
 
-  org, mode, Citation Syntax, Mailing List, and Time Effort. 2021.
-  “Elegant Citations with Org-Mode.” /Journal of Plain Text Formats/ 42
-  (1): 2–3.
+  org, mode, Citation Syntax, Mailing List, and Time
+  Effort. 2021. “Elegant Citations with Org-Mode.” /Journal of Plain
+  Text Formats/ 42 (1): 2–3.
 
   So, to summarise, all one needs to get started is:
   ┌────
@@ -142,14 +143,14 @@ Basic usage
   │ [cite:@key]
   │ #+print_bibliography:
   └────
-  That’s it! 🎉
+  That's it! 🎉
 
 
 The cite syntax
 ───────────────
 
-  Don’t let the simplicity in the examples above fool you, the new
-  syntax is quite capable of expressing more complex forms. Here’s the
+  Don't let the simplicity in the examples above fool you, the new
+  syntax is quite capable of expressing more complex forms. Here's the
   /full/ version of the new cite syntax:
 
   <file:figures/citation-structure-full.svg>
@@ -166,11 +167,10 @@ The cite syntax
       7.
 
   Using the default CSL citation style (Chicago author-name)
-  `[cite/l/b:see @OrgCitations pp. 7 for fun]' becomes see org et al.
-  2021, 7 for fun.
+  `[cite/l/b:see @OrgCitations pp. 7 for fun]' becomes see 7 for fun.
 
   The citation styles and variants, and recognised locators are handled
-  by the citation processors. Org cite’s bundled processors currently
+  by the citation processors. Org cite's bundled processors currently
   supports the following citation styles.
 
   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -184,12 +184,12 @@ The cite syntax
    `na' noauthor  `b' bare              2021                                               citeyear    
    `na' noauthor                        (2021)                                autocite*    citeyearpar 
   ─────────────────────────────────────────────────────────────────────────────────────────────────────
-   `l' locators   `bc' bare-caps        Org et al. 2021, 2                    Notecite                 
-   `l' locators   `b' bare              org et al. 2021, 2                    notecite                 
-   `l' locators   `bc' caps             , Org et al. 2021, 2                  Pnotecite                
-   `l' locators                         (, org et al. 2021, 2)                pnotecite                
+   `l' locators   `bc' bare-caps        (2)                                   Notecite                 
+   `l' locators   `b' bare              2                                     notecite                 
+   `l' locators   `bc' caps             (, 2)                                 Pnotecite                
+   `l' locators                         (, 2)                                 pnotecite                
   ─────────────────────────────────────────────────────────────────────────────────────────────────────
-   `n' nocite                           (org et al. 2021)                     nocite       nocite      
+   `n' nocite                                                                 nocite       nocite      
   ─────────────────────────────────────────────────────────────────────────────────────────────────────
    `t' text       `b' bare              org et al. (2021)                                  citealp     
    `t' text       `c' caps              Org et al. (2021)                     Textcite     Citep       
@@ -256,9 +256,9 @@ More on exporting
   └────
 
   There are also some more options about how the bibliography is
-  produced. These options are handled by the active citation processor.
-  For example, while the CSL processor does not currently support any
-  options, the BibLaTeX processor passes options to a
+  produced. These options are handled by the active citation
+  processor. For example, while the CSL processor does not currently
+  support any options, the BibLaTeX processor passes options to a
   `\printbibliography' command, allowing for the following:
   ┌────
   │ #+print_bibliography: :section 2 :heading subbibliography
@@ -320,10 +320,10 @@ Working with Zotero
   ⁃ open source software
   ⁃ not owned by a parasitic company[3]
 
-  [Zotero] is a good option, and if you’re using it it’s quite easy to
+  [Zotero] is a good option, and if you're using it it's quite easy to
   use it with Org Cite. Out of the box, you can tell it to export your
   library, or parts of it, to a `.bib' file and automatically keep it in
-  sync. I’d recommend installing the [Better BibTeX] extension though.
+  sync. I'd recommend installing the [Better BibTeX] extension though.
 
   <file:figures/zotero-export-library.png>
 
@@ -359,10 +359,10 @@ A bright future
 ───────────────
 
   Org Cite has only just been merged in the past month, and is yet to be
-  included in an Org release, but we’re seeing a tremendous degree of
-  community interest. There are /already/ promising developments with
+  included in an Org release, but we're seeing a tremendous degree of
+  community interest.  There are /already/ promising developments with
   third-party packages, such as [bibtex-actions] and [org-ref-cite]. I
-  can’t wait to see how the ecosystem continues to develop 😃.
+  can't wait to see how the ecosystem continues to develop 😃.
 
 
 [bibtex-actions] <https://github.com/bdarcus/bibtex-actions>
@@ -382,7 +382,7 @@ Footnotes
 (<https://github.com/andras-simonyi/org-cite-csl-activate>) to use
 `oc.el' and `citeproc.el' to produce citation overlays in the buffer.
 
-[3] I’m talking about a certain company [created by a British
+[3] I'm talking about a certain company [created by a British
 Fraudster]
 (<https://moneyweek.com/505757/great-frauds-in-history-robert-maxwell>)
 that has a [40% profit margin, engages in blackmail-like practices
@@ -398,6 +398,6 @@ vigorously [lobbys against Open Access]
 (repeatedly), made [financial contributions to politicians who then
 tried to prevent publicly accesible reaserch]
 (<https://www.michaeleisen.org/blog/?p=807>), and whose reference
-manager [encrypted reaserchers’ /own/ databases]
+manager [encrypted reaserchers' /own/ databases]
 (<https://www.zotero.org/support/kb/mendeley_import#mendeley_database_encryption>)
-“to comply with GDPR”.
+"to comply with GDPR".

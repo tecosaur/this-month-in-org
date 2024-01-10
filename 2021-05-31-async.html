@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-03-03 Thu 01:39 -->
+<!-- 2024-01-11 Thu 11:13 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>May 2021</title>
@@ -41,8 +41,7 @@
 
 <h1 class="title">May 2021</h1>
 <p class="subtitle" role="doc-subtitle">Asynchronous code execution</p>
-</header>
-<div id="outline-container-async-babel-sessions" class="outline-2">
+</header><div id="outline-container-async-babel-sessions" class="outline-2">
 <h2 id="async-babel-sessions">Async Babel sessions have landed<a aria-hidden="true" href="#async-babel-sessions">#</a> </h2>
 <div class="outline-text-2" id="text-async-babel-sessions">
 <p>
@@ -51,21 +50,21 @@ asynchronous output from source blocks <i>with full support for sessions</i> �
 </p>
 
 <p>
-If you haven&rsquo;t used sessions before, you&rsquo;re in for a treat! By simply assigning
+If you haven't used sessions before, you're in for a treat! By simply assigning
 a named session to a source code block, e.g. <kbd>:session foo</kbd>, the same process will
 be reused for any other code blocks that specify the <kbd>foo</kbd> session. To do this for
 a certain language across the entire document, you can set the header argument
 property, i.e.
 </p>
 <details id='async-babel-sessions,code--1' class='code' open><summary><span class="lang">Org mode</span></summary>
-    <div class='gutter'>
-    <a href='#async-babel-sessions,code--1'>#</a>
-    <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>    </div>
-    <div class="org-src-container">
+<div class='gutter'>
+<a href='#async-babel-sessions,code--1'>#</a>
+<button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
+<div class="org-src-container">
 <pre class="src src-org"><span class="org-org-meta-line">#+property: header-args:lang :session foo</span>
 </pre>
 </div>
-    </details>
+</details>
 
 <p>
 Along with the asynchronous process communication in <kbd>ob-comint.el</kbd>, we have an
@@ -75,7 +74,7 @@ not-too-distant future 😍.
 
 <p>
 To use this, just add the <kbd>:async</kbd> parameter to a python block. Instead of Emacs
-freezing until it completes execution, you&rsquo;ll see a placeholder inserted which is
+freezing until it completes execution, you'll see a placeholder inserted which is
 replaced by the result when it is ready.
 </p>
 
@@ -90,69 +89,68 @@ replaced by the result when it is ready.
 </figure>
 
 <p>
-<a href="https://github.com/nnicandro/emacs-jupyter">emacs-jupyter</a> allowed for asynchronous code execution (with sessions), but it&rsquo;s
-great to have a solution that doesn&rsquo;t require Jupyter kernels, and is part of
+<a href="https://github.com/nnicandro/emacs-jupyter">emacs-jupyter</a> allowed for asynchronous code execution (with sessions), but it's
+great to have a solution that doesn't require Jupyter kernels, and is part of
 Org.
 </p>
 </div>
 </div>
-
 <div id="outline-container-font-lock-inline" class="outline-2">
 <h2 id="font-lock-inline">Font lock for inline export snippets<a aria-hidden="true" href="#font-lock-inline">#</a> </h2>
 <div class="outline-text-2" id="text-font-lock-inline">
 <p>
-Now, this isn&rsquo;t necessarily a significant change, but I don&rsquo;t think many people
-know about this feature so I&rsquo;ll take the opportunity to go over it 🙂.
+Now, this isn't necessarily a significant change, but I don't think many people
+know about this feature so I'll take the opportunity to go over it 🙂.
 </p>
 
 <p>
 If you want to include a snippet of <span class='acr'>HTML</span>/LaTeX etc. when exporting to that
 format, you can use a <kbd>#+begin_export html</kbd> block which simply includes the
-enclosed content verbatim. This doesn&rsquo;t really work for small inline snippets
+enclosed content verbatim. This doesn't really work for small inline snippets
 though &#x2014; but never fear, Org has <i>inline</i> export snippets which simply follow the
 form <code class="src src-org"><span class="org-comment">@@</span><span class="org-org-tag">format:</span>content<span class="org-comment">@@</span></code>. For example:
 </p>
 
 <details id='font-lock-inline,code--1' class='code' open><summary><span class="lang">Org mode</span></summary>
-    <div class='gutter'>
-    <a href='#font-lock-inline,code--1'>#</a>
-    <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>    </div>
-    <div class="org-src-container">
-<pre class="src src-org">I love using Org to export to <span class="org-comment">@@</span><span class="org-org-tag">html:</span>&lt;abbr title="Hyper Text Markup Language"&gt;HTML&lt;/abbr&gt;<span class="org-comment">@@</span> <span class="org-comment">@@</span><span class="org-org-tag">latex:</span><span class="org-org-block"><span class="custom"><span class="org-font-latex-sedate"><span class="org-keyword">\LaTeX</span></span></span></span><span class="org-org-block"><span class="custom">{}</span></span><span class="org-comment">@@</span> documents.
+<div class='gutter'>
+<a href='#font-lock-inline,code--1'>#</a>
+<button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
+<div class="org-src-container">
+<pre class="src src-org">I love using Org to export to <span class="org-comment">@@</span><span class="org-org-tag">html:</span>&lt;abbr title="Hyper Text Markup Language"&gt;HTML&lt;/abbr&gt;<span class="org-comment">@@</span> <span class="org-comment">@@</span><span class="org-org-tag">latex:</span>\LaTeX{}<span class="org-comment">@@</span> documents.
 </pre>
 </div>
-    </details>
+</details>
 <p>
 which will export to <span class='acr'>HTML</span> as,
 </p>
 <details id='font-lock-inline,code--2' class='code' open><summary><span class="lang">HTML</span></summary>
-    <div class='gutter'>
-    <a href='#font-lock-inline,code--2'>#</a>
-    <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>    </div>
-    <div class="org-src-container">
+<div class='gutter'>
+<a href='#font-lock-inline,code--2'>#</a>
+<button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
+<div class="org-src-container">
 <pre class="src src-html">I love using Org to export to &lt;<span class="org-function-name">abbr</span> <span class="org-variable-name">title</span>=<span class="org-string">"Hyper Text Markup Language"</span>&gt;HTML&lt;/<span class="org-function-name">abbr</span>&gt; documents.
 </pre>
 </div>
-    </details>
+</details>
 <p>
 and then in LaTeX will be,
 </p>
 <details id='font-lock-inline,code--3' class='code' open><summary><span class="lang">LaTeX</span></summary>
-    <div class='gutter'>
-    <a href='#font-lock-inline,code--3'>#</a>
-    <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>    </div>
-    <div class="org-src-container">
-<pre class="src src-LaTeX">I love using Org to export to <span class="org-font-latex-sedate"><span class="org-keyword">\LaTeX</span></span>{} documents.
+<div class='gutter'>
+<a href='#font-lock-inline,code--3'>#</a>
+<button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
+<div class="org-src-container">
+<pre class="src src-LaTeX">I love using Org to export to <span class="org-keyword">\LaTeX</span>{} documents.
 </pre>
 </div>
-    </details>
+</details>
 <p>
-isn&rsquo;t that neat!
+isn't that neat!
 </p>
 
 <p>
-Now you&rsquo;ll find the <kbd>@@</kbd> parts using the comment face and the <kbd>format:</kbd> bit using the
-Org tag&rsquo;s face. It&rsquo;s a small change, but it makes it easier to see what&rsquo;s going on.
+Now you'll find the <kbd>@@</kbd> parts using the comment face and the <kbd>format:</kbd> bit using the
+Org tag's face. It's a small change, but it makes it easier to see what's going on.
 </p>
 
 <p>
@@ -160,26 +158,25 @@ No mode-specific syntax highlighting yet, but that may come in the future 😉.
 </p>
 </div>
 </div>
-
 <div id="outline-container-plot-your-results" class="outline-2">
 <h2 id="plot-your-results"><kbd>#+plot</kbd> your <kbd>#+results</kbd><a aria-hidden="true" href="#plot-your-results">#</a> </h2>
 <div class="outline-text-2" id="text-plot-your-results">
 <p>
-Org-plot has been getting some more love as of late (see <a href="2021-04-30-export-plot.html">last month&rsquo;s post</a>), and
-that hasn&rsquo;t stopped yet. This month there&rsquo;s been a fairly minor change that I&rsquo;m
+Org-plot has been getting some more love as of late (see <a href="2021-04-30-export-plot.html">last month's post</a>), and
+that hasn't stopped yet. This month there's been a fairly minor change that I'm
 quite a fan of. If you have a source block that produces a table of <kbd>#+results</kbd>, you
 can now put a <kbd>#+plot</kbd> statement immediately above to get a visualisation of those
 results!
 </p>
 
 <details id='plot-your-results,code--1' class='code' open><summary><span class="lang">Org mode</span></summary>
-    <div class='gutter'>
-    <a href='#plot-your-results,code--1'>#</a>
-    <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>    </div>
-    <div class="org-src-container">
+<div class='gutter'>
+<a href='#plot-your-results,code--1'>#</a>
+<button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
+<div class="org-src-container">
 <pre class="src src-org"><span class="org-org-block-begin-line">#+begin_src python</span>
 <span class="org-org-block"><span class="org-comment-delimiter"># </span></span><span class="org-org-block"><span class="org-comment">pretend this is some profound source of information</span></span>
-<span class="org-org-block"><span class="org-keyword">return</span></span><span class="org-org-block"> [[i, i^</span><span class="org-org-block"><span class="org-highlight-numbers-number">3</span></span><span class="org-org-block"> - </span><span class="org-org-block"><span class="org-highlight-numbers-number">4</span></span><span class="org-org-block">*i^</span><span class="org-org-block"><span class="org-highlight-numbers-number">2</span></span><span class="org-org-block"> - </span><span class="org-org-block"><span class="org-highlight-numbers-number">2</span></span><span class="org-org-block">*i] </span><span class="org-org-block"><span class="org-keyword">for</span></span><span class="org-org-block"> i </span><span class="org-org-block"><span class="org-keyword">in</span></span><span class="org-org-block"> </span><span class="org-org-block"><span class="org-builtin">range</span></span><span class="org-org-block">(</span><span class="org-org-block"><span class="org-highlight-numbers-number">5</span></span><span class="org-org-block">)]</span>
+<span class="org-org-block"><span class="org-keyword">return</span></span><span class="org-org-block"> [[i, i</span><span class="org-org-block"><span class="org-operator">^</span></span><span class="org-org-block">3 </span><span class="org-org-block"><span class="org-operator">-</span></span><span class="org-org-block"> 4</span><span class="org-org-block"><span class="org-operator">*</span></span><span class="org-org-block">i</span><span class="org-org-block"><span class="org-operator">^</span></span><span class="org-org-block">2 </span><span class="org-org-block"><span class="org-operator">-</span></span><span class="org-org-block"> 2</span><span class="org-org-block"><span class="org-operator">*</span></span><span class="org-org-block">i] </span><span class="org-org-block"><span class="org-keyword">for</span></span><span class="org-org-block"> i </span><span class="org-org-block"><span class="org-keyword">in</span></span><span class="org-org-block"> </span><span class="org-org-block"><span class="org-builtin">range</span></span><span class="org-org-block">(5)]</span>
 <span class="org-org-block-end-line">#+end_src</span>
 
 <span class="org-org-meta-line">#+plot: ind:1</span>
@@ -191,7 +188,7 @@ results!
 <span class="org-org-table">| 4 | 13 |</span>
 </pre>
 </div>
-    </details>
+</details>
 
 <p>
 As usual, this relies on <kbd>gnuplot</kbd> being present. You can read more
@@ -199,7 +196,6 @@ about it in the <a href="https://orgmode.org/manual/Org-Plot.html">manual</a>.
 </p>
 </div>
 </div>
-
 <div id="outline-container-fancier-latex-verses" class="outline-2">
 <h2 id="fancier-latex-verses">Fancier LaTeX verses<a aria-hidden="true" href="#fancier-latex-verses">#</a> </h2>
 <div class="outline-text-2" id="text-fancier-latex-verses">
@@ -217,105 +213,103 @@ blocks now support four new attributes:
 </ul>
 
 <details id='fancier-latex-verses,code--1' class='code' open><summary><span class="lang">Org mode</span></summary>
-    <div class='gutter'>
-    <a href='#fancier-latex-verses,code--1'>#</a>
-    <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>    </div>
-    <div class="org-src-container">
+<div class='gutter'>
+<a href='#fancier-latex-verses,code--1'>#</a>
+<button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
+<div class="org-src-container">
 <pre class="src src-org"><span class="org-org-meta-line">#+latex_header: \usepackage{verse}</span>
 
 <span class="org-org-meta-line">#+latex: \poemtitle{A Dream Within a Dream}</span>
 <span class="org-org-meta-line">#+attr_latex: :lines 3 :center t</span>
 <span class="org-org-meta-line">#+attr_latex: :versewidth Through my fingers to the deep,</span>
 <span class="org-org-block-begin-line">#+begin_verse</span>
-<span class="org-org-verse">Take this kiss upon the brow!</span>
-<span class="org-org-verse">And, in parting from you now,</span>
-<span class="org-org-verse">Thus much let me avow &#8212;</span>
-<span class="org-org-verse">You are not wrong, who deem</span>
-<span class="org-org-verse">That my days have been a dream;</span>
-<span class="org-org-verse">Yet if hope has flown away</span>
-<span class="org-org-verse">In a night, or in a day,</span>
-<span class="org-org-verse">In a vision, or in none,</span>
-<span class="org-org-verse">Is it therefore the less </span><span class="org-org-verse"><span class="org-italic">gone?</span></span>
-<span class="org-org-verse"><span class="org-italic">All</span></span><span class="org-org-verse"> that we see or seem</span>
-<span class="org-org-verse">Is but a dream within a dream.</span>
+Take this kiss upon the brow!
+And, in parting from you now,
+Thus much let me avow &#8212;
+You are not wrong, who deem
+That my days have been a dream;
+Yet if hope has flown away
+In a night, or in a day,
+In a vision, or in none,
+Is it therefore the less <span class="org-italic">/gone?/</span>
+<span class="org-italic">/All/</span> that we see or seem
+Is but a dream within a dream.
 
-<span class="org-org-verse">I stand amid the roar</span>
-<span class="org-org-verse">Of a surf-tormented shore,</span>
-<span class="org-org-verse">And I hold within my hand</span>
-<span class="org-org-verse">Grains of the golden sand &#8212;</span>
-<span class="org-org-verse">How </span><span class="org-org-verse"><span class="org-writegood-weasels">few</span></span><span class="org-org-verse">! yet how they creep</span>
-<span class="org-org-verse">Through my fingers to the deep,</span>
-<span class="org-org-verse">While I weep &#8212; while I weep!</span>
-<span class="org-org-verse">O God! Can I not grasp</span>
-<span class="org-org-verse">Them with a tighter clasp?</span>
-<span class="org-org-verse">O God! can I not save</span>
-<span class="org-org-verse"><span class="org-italic">One</span></span><span class="org-org-verse"> from the pitiless wave?</span>
-<span class="org-org-verse">Is </span><span class="org-org-verse"><span class="org-italic">all</span></span><span class="org-org-verse"> that we see or seem</span>
-<span class="org-org-verse">But a dream within a dream?</span>
+I stand amid the roar
+Of a surf-tormented shore,
+And I hold within my hand
+Grains of the golden sand &#8212;
+How few! yet how they creep
+Through my fingers to the deep,
+While I weep &#8212; while I weep!
+O God! Can I not grasp
+Them with a tighter clasp?
+O God! can I not save
+<span class="org-italic">/One/</span> from the pitiless wave?
+Is <span class="org-italic">/all/</span> that we see or seem
+But a dream within a dream?
 <span class="org-org-block-end-line">#+end_verse</span>
 </pre>
 </div>
-    </details>
+</details>
 
 
-<figure id="org6e89901">
+<figure id="org53cc3ef">
 <img src="figures/org-verses-example-poem-dream-within-dream.png" alt="org-verses-example-poem-dream-within-dream.png" class="invertible">
 
 <figcaption><span class="figure-number">Figure 1: </span>A short Poe-em</figcaption>
 </figure>
 </div>
 </div>
-
 <div id="outline-container-easy-zero-width" class="outline-2">
 <h2 id="easy-zero-width">Easy zero-width spaces with Org<a aria-hidden="true" href="#easy-zero-width">#</a> </h2>
 <div class="outline-text-2" id="text-easy-zero-width">
 <p>
 Occasionally you may run into annoyances when you wish to have two different Org
-elements right next to each other (no space) &#x2014; for example, <b>emph</b>asising part of
+elements right next to each other (no space) &#x2014; for example, <b>emph</b>​asising part of
 a word or putting a currency symbol immediately before an inline source block.
 </p>
 
 <p>
-The best solution to this in Org is zero-width spaces. As such, I&rsquo;ve found it
+The best solution to this in Org is zero-width spaces. As such, I've found it
 rather nice adding insertion of a zero-width space to the <code>org-mode-map</code> in my
 config. Perhaps some of you might find this solution useful too 🙂.
 </p>
 
 <details id='easy-zero-width,code--1' class='code' open><summary><span class="lang">Emacs Lisp</span></summary>
-    <div class='gutter'>
-    <a href='#easy-zero-width,code--1'>#</a>
-    <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>    </div>
-    <div class="org-src-container">
-<pre class="src src-emacs-lisp"><span class="org-rainbow-delimiters-depth-1">(</span><span class="org-constant">define-key</span> <span class="org-variable-name">org-mode-map</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-constant">kbd</span> <span class="org-string">"M-SPC M-SPC"</span><span class="org-rainbow-delimiters-depth-2">)</span>
-  <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">lambda</span> <span class="org-rainbow-delimiters-depth-3">()</span> <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-keyword">interactive</span><span class="org-rainbow-delimiters-depth-3">)</span> <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-constant">insert</span> <span class="org-string">"\u200b"</span><span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+<div class='gutter'>
+<a href='#easy-zero-width,code--1'>#</a>
+<button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(define-key org-mode-map (kbd <span class="org-string">"M-SPC M-SPC"</span>)
+  (<span class="org-keyword">lambda</span> () (<span class="org-keyword">interactive</span>) (insert <span class="org-string">"\u200b"</span>)))
 </pre>
 </div>
-    </details>
+</details>
 
 <p>
-Should you want to keep zero-width spaces out of exports, that&rsquo;s easy enough to
+Should you want to keep zero-width spaces out of exports, that's easy enough to
 accomplish with an <a href="https://orgmode.org/manual/Advanced-Export-Configuration.html">export filter</a>.
 </p>
 
 <details id='easy-zero-width,code--2' class='code' open><summary><span class="lang">Emacs Lisp</span></summary>
-    <div class='gutter'>
-    <a href='#easy-zero-width,code--2'>#</a>
-    <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>    </div>
-    <div class="org-src-container">
-<pre class="src src-emacs-lisp"><span class="org-rainbow-delimiters-depth-1">(</span><span class="org-keyword">defun</span> <span class="org-function-name">+org-export-remove-zero-width-space</span> <span class="org-rainbow-delimiters-depth-2">(</span>text _backend _info<span class="org-rainbow-delimiters-depth-2">)</span>
+<div class='gutter'>
+<a href='#easy-zero-width,code--2'>#</a>
+<button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span class="org-keyword">defun</span> <span class="org-function-name">+org-export-remove-zero-width-space</span> (text _backend _info)
   <span class="org-doc">"Remove zero width spaces from TEXT."</span>
-  <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">unless</span> <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-constant">org-export-derived-backend-p</span> <span class="org-highlight-quoted-quote">'</span><span class="org-highlight-quoted-symbol">org</span><span class="org-rainbow-delimiters-depth-3">)</span>
-    <span class="org-rainbow-delimiters-depth-3">(</span><span class="org-constant">replace-regexp-in-string</span> <span class="org-string">"\u200b"</span> <span class="org-string">""</span> text<span class="org-rainbow-delimiters-depth-3">)</span><span class="org-rainbow-delimiters-depth-2">)</span><span class="org-rainbow-delimiters-depth-1">)</span>
+  (<span class="org-keyword">unless</span> (org-export-derived-backend-p 'org)
+    (replace-regexp-in-string <span class="org-string">"\u200b"</span> <span class="org-string">""</span> text)))
 
-<span class="org-rainbow-delimiters-depth-1">(</span><span class="org-constant">add-to-list</span> <span class="org-highlight-quoted-quote">'</span><span class="org-variable-name">org-export-filter-final-output-functions</span> <span class="org-highlight-quoted-quote">#'</span><span class="org-highlight-quoted-symbol">+org-export-remove-zero-width-space</span> t<span class="org-rainbow-delimiters-depth-1">)</span>
+(add-to-list 'org-export-filter-final-output-functions #'+org-export-remove-zero-width-space t)
 </pre>
 </div>
-    </details>
+</details>
 </div>
 </div>
-
 <div id="outline-container-orgs-repos-have" class="outline-2">
-<h2 id="orgs-repos-have">Org&rsquo;s repos have moved<a aria-hidden="true" href="#orgs-repos-have">#</a> </h2>
+<h2 id="orgs-repos-have">Org's repos have moved<a aria-hidden="true" href="#orgs-repos-have">#</a> </h2>
 <div class="outline-text-2" id="text-orgs-repos-have">
 <ul class="org-ul">
 <li><kbd>contrib/</kbd> is now at <a href="https://git.sr.ht/~bzg/org-contrib">https://git.sr.ht/~bzg/org-contrib</a> for Org 9.5, and it will
@@ -325,14 +319,13 @@ be available on Non-<span class='acr'>GNU</span> <span class='acr'>ELPA</span>.<
 </ul>
 </div>
 </div>
-
 <div id="outline-container-other-improvements" class="outline-2">
 <h2 id="other-improvements">Other improvements<a aria-hidden="true" href="#other-improvements">#</a> </h2>
 <div class="outline-text-2" id="text-other-improvements">
 <ul class="org-ul">
 <li>Add support for <kbd>HHhMM</kbd> date formats (e.g. <kbd>13h20</kbd>) <span class="underline">Gustavo Barros</span></li>
 <li>Make tangling faster <i>and</i> more robust <span class="underline">Sébastien Miquel</span></li>
-<li>Allow importing tables from files that <i>don&rsquo;t</i> end in <kbd>.txt</kbd>, <kbd>.tsv</kbd>, or <kbd>.csv</kbd>
+<li>Allow importing tables from files that <i>don't</i> end in <kbd>.txt</kbd>, <kbd>.tsv</kbd>, or <kbd>.csv</kbd>
 <span class="underline">Utkarsh Singh</span></li>
 <li>Add an <span class='acr'>SVG</span>-specific post-export <kbd>ob-plantuml</kbd> step:
 <code>org-babel-plantuml-svg-text-to-path</code> for running Inkscape text-to-path
@@ -373,7 +366,6 @@ Nicolar Goaziou</span></li>
 </ul>
 </div>
 </div>
-
 <div id="outline-container-bugfixes" class="outline-2">
 <h2 id="bugfixes">Bugfixes<a aria-hidden="true" href="#bugfixes">#</a> </h2>
 <div class="outline-text-2" id="text-bugfixes">
@@ -383,7 +375,7 @@ Nicolar Goaziou</span></li>
 <li>Inserting a heading before a headline <span class="underline">Bastien Guerry</span></li>
 <li>Perform <code>org-entry-put</code> in a read-only buffer <span class="underline">Ihor Radchenko</span></li>
 <li>Emacs 24 compatibility for <kbd>ob-C</kbd> and <code>org-agenda-show-new-time</code> <span class="underline">Kyle Meyer</span></li>
-<li>Maintain Org&rsquo;s keybindings when <code>visual-line-mode</code> active <span class="underline">Bastien Guerry</span></li>
+<li>Maintain Org's keybindings when <code>visual-line-mode</code> active <span class="underline">Bastien Guerry</span></li>
 <li>Keep track of start of region beginning in <code>org-table-wrap-region</code> <span class="underline">Bastien Guerry</span></li>
 <li>Ensure correct visibility when unfolding subtree <span class="underline">Bastien Guerry</span></li>
 <li>Corner case in <code>org--backwards-paragaph-once</code> <span class="underline">Bastien Guerry</span></li>
@@ -395,7 +387,7 @@ instead of column <span class="underline"><span class='acr'>TEC</span></span></l
 <li>Prevent <kbd>ob-sql</kbd> from getting stuck on an error <span class="underline">Ivan Sokolov</span></li>
 <li>Make <kbd>org-columns</kbd> respect <code>global-visual-line-mode</code>, and simplify tag scanning
 <span class="underline">Nick Savage</span></li>
-<li>Don&rsquo;t fontify <kbd>::</kbd> in headlines as description item <span class="underline">Ihor Radchenko</span></li>
+<li>Don't fontify <kbd>::</kbd> in headlines as description item <span class="underline">Ihor Radchenko</span></li>
 <li>Handle a few corner-cases in <kbd>ob-R</kbd> <span class="underline">Jeremie Juste</span></li>
 <li>Many fixes to <code>org-indent-line</code> <span class="underline">Bastien Guerry</span></li>
 <li>Make headline numbering consistent with <span class='acr'>TOC</span> <span class="underline">Mingkai Dong</span></li>
@@ -403,8 +395,8 @@ instead of column <span class="underline"><span class='acr'>TEC</span></span></l
 <li>Fix edge case when converting durations to minutes <span class="underline">Nicolas Goaziou</span></li>
 <li>Make org-refile work in non-file-visiting buffers <span class="underline">Bastien Guerry</span></li>
 <li>Be more rigorous in <code>org-sort-remove-invisible</code> <span class="underline">Nicolas Goaziou</span></li>
-<li>Don&rsquo;t update checkbox stats when heading has <kbd>todo</kbd> <kbd>COOKIE_DATA</kbd> <span class="underline">Bastien Guerry</span></li>
-<li>Don&rsquo;t recognise a lone <kbd>:END:</kbd> to be forming a drawer <span class="underline">Nicolas Goaziou</span></li>
+<li>Don't update checkbox stats when heading has <kbd>todo</kbd> <kbd>COOKIE_DATA</kbd> <span class="underline">Bastien Guerry</span></li>
+<li>Don't recognise a lone <kbd>:END:</kbd> to be forming a drawer <span class="underline">Nicolas Goaziou</span></li>
 <li>Allow new footnotes in empty table cells <span class="underline">Nicolas Goaziou</span></li>
 </ul>
 </div>

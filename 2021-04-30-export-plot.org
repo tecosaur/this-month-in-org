@@ -1,10 +1,9 @@
-# Created 2022-03-03 Thu 01:40
+# Created 2024-01-11 Thu 11:13
 #+title: April 2021
 #+date: 2021-04-30
 #+author: TEC
 #+subtitle: Export /&/ plot in style
 #+html_head: <link rel="stylesheet" href="img-slider.css">
-
 * A discussion on contributor support
 
 Concerns [[https://lists.gnu.org/archive/html/emacs-orgmode/2021-04/msg00291.html][were raised]][fn:1] about some contributors' patches languishing, and it not
@@ -30,7 +29,6 @@ Test patches, improve documentation, translate pages, confirm bugs, feedback on 
 #+end_info
 
 [fn:1] Disclosure: this is me.
-
 * DOI link exporting
 
 [[https://www.doi.org/][Digital Document Identifiers]] (DOIs) are an ISO-standardised way of robustly
@@ -38,23 +36,22 @@ linking to a particular online resource. You'll see these a lot with academic
 papers, for example.
 
 Thanks to Nicolas Goaziou, when exporting to HTML, LaTeX, Ascii, and texinfo
-DOIs are turned into links, for example [[doi:10.18637/jss.v046.i03]] becomes:
+DOIs are turned into links, for example https://doi.org/10.18637/jss.v046.i03 becomes:
 
 #+begin_src html
-<a href="https://doi.org/10.18637/jss.v046.i03">doi:10.18637/jss.v046.i03</a>
+  <a href="https://doi.org/10.18637/jss.v046.i03">doi:10.18637/jss.v046.i03</a>
 #+end_src
 #+begin_src LaTeX
-\href{https://doi.org/10.18637/jss.v046.i03}{doi:10.18637/jss.v046.i03}
+  \href{https://doi.org/10.18637/jss.v046.i03}{doi:10.18637/jss.v046.i03}
 #+end_src
 #+begin_src text
-<https://doi.org/10.18637/jss.v046.i03>
+  <https://doi.org/10.18637/jss.v046.i03>
 #+end_src
 #+begin_src texinfo
-@uref{https://doi.org/10.18637/jss.v046.i03}
+  @uref{https://doi.org/10.18637/jss.v046.i03}
 #+end_src
 
 This is a minor change, but I think DOIs are great, so I'm highlighting it.
-
 * Org plot improvements
 
 Over the past month =org-plot.el= has received some attention, my two favourite
@@ -93,11 +90,11 @@ Then, if you can specify a certain columns as the independent variable
 
 You can see these parameters set in the figure above,
 #+begin_src org
-,#+plot: type:2d ind:1 deps:(2 3 4)
-| Xval | Red | Blue | Green |
-|------+-----+------+-------|
-|    0 |   1 |    2 |     3 |
-|    1 |   2 |    3 |     4 |
+  ,#+plot: type:2d ind:1 deps:(2 3 4)
+  | Xval | Red | Blue | Green |
+  |------+-----+------+-------|
+  |    0 |   1 |    2 |     3 |
+  |    1 |   2 |    3 |     4 |
 #+end_src
 
 This will call gnuplot and a window showing the plot will appear. If you want to
@@ -106,7 +103,6 @@ save the plot to a file, just use the =file= parameter, e.g.
 
 That should get you started, you can see [[https://orgmode.org/manual/Org-Plot.html][the manual]] for the full list of
 available keywords and find more examples of usage [[https://orgmode.org/worg/org-tutorials/org-plot.html][on worg]].
-
 * Tweaked ~ox-html~ style
 
 As displays become more high-res, lines of text which span the whole screen
@@ -117,7 +113,6 @@ centred in the page --- much better 🙂. _TEC_
 Also, the HTML export now:
 - has a slightly nicer source block style
 - labels =authinfo= blocks
-
 * A collection of export improvements
 
 - =Verbatim= in headings no longer breaks LaTeX exports _TEC_
@@ -131,7 +126,6 @@ Also, the HTML export now:
 - ~org-html-scripts~ and ~org-html-style-default~ have been changed from constants
   to configurable values _TEC_
 - eval macros =#+macro: ? (eval ...)= are now a little bit faster _Stefan Monnier_
-
 * Miscellaneous changes
 
 - ~org-link-descriptive~ is now buffer-local, to avoid interfering with other buffers _Kyle Meyer_

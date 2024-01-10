@@ -1,8 +1,7 @@
-# Created 2022-03-03 Thu 01:39
+# Created 2024-01-11 Thu 11:13
 #+title: Welcome
 #+date: 2021-04-26
 #+author: TEC
-
 * Introduction
 
 Org is an absolutely marvellous project. However, a quick glance at
@@ -46,7 +45,6 @@ have pictures.
 [fn:2] That said, with /interesting/ projects like the [[https://github.com/manateelazycat/emacs-application-framework][Emacs Application
 Framework]] and the [[https://github.com/ch11ng/exwm][Emacs X Window Manager]], one could argue that Org is
 (sometimes) a major component of a desktop environment...
-
 * Catching up on lost time --- a year in review
 
 I joined the Org mailing list in May last year, it's almost been a year since
@@ -54,7 +52,6 @@ then and we've seen the release of Org 9.4, and its inclusion in Emacs 27.
 
 I'm not going to do 12 months of work for just this one post, but I'd like to
 give you a sample of what's changed over the last year.
-
 ** A new discussion tracker --- [[https://updates.orgmode.org/][updates.orgmode.org]]
 
 Mid last year Bastien rolled out tracker for
@@ -75,7 +72,6 @@ inclined to help out with Org check out the /Help requests/ section in particula
 You can also get RSS feeds for individual sections, or get the information as
 JSON to work into your own projects, for example [[https://tecosaur.github.io/emacs-config/config.html#development][an elisp function to fetch and
 apply patches]].
-
 ** Inline display of remote images
 
 Ever gazed forlornly at a link like
@@ -90,7 +86,6 @@ their glory!
 
 To get this working, simply set src_elisp{org-display-remote-inline-images} to
 src_elisp{'download} or src_elisp{'cache}.
-
 ** Use ~org-edit-special~ (=C-c '=) with LaTeX fragments
 
 It's great how in Org you can jump into a LaTeX-mode minibuffer for LaTeX
@@ -98,7 +93,6 @@ environments, but why leave inline LaTeX fragments out? We'll, they're now in.
 
 #+caption: Running ~org-edit-special~ on an inline LaTeX fragment
 [[file:figures/org-edit-special-latex-fragment.png]]
-
 ** Control heading display on startup
 
 =org-num-mode= is great for when you're keeping an eye on section numbers, but
@@ -113,19 +107,17 @@ Should you want to set the number of levels you see on opening a file, there's
 now an option for that too. Gustav Wikström has added /another/ new option
 =#+startup: show<n>levels= (where =<n>= is between 2 and 5, inclusive).
 /NB: This is part of the upcoming 9.5 release/
-
 ** Set permissions of tangled files
 
 Are you particular about your file permissions? If so you'll likely like John
 Herrlin's new source block header argument =:file-mode= pertinent. The easiest way
 to set a permission is with an [[https://docs.nersc.gov/filesystems/unix-file-permissions/][octal value]], like so:
 #+begin_src org
-,#+begin_src shell :results file :file script.sh :file-mode (identity #o755)
-echo "#!/bin/bash"
-echo "echo Hello World"
-,#+end_src
+  ,#+begin_src shell :results file :file script.sh :file-mode (identity #o755)
+  echo "#!/bin/bash"
+  echo "echo Hello World"
+  ,#+end_src
 #+end_src
-
 ** A collection of improvements to source block header arguments
 
 These's been a whole set of these, so I'll just list them off.
@@ -138,7 +130,6 @@ These's been a whole set of these, so I'll just list them off.
      Guttersohn)
 - Screen, new argument =:screenrc= :: For those of you who still haven't moved to
      =tmux= (Kenneth D. Mankoff)
-
 ** A seven year old bug was fixed
 
 In 2013 [[https://lists.gnu.org/archive/html/emacs-orgmode/2013-08/msg00072.html][it was reported]] that an infinite loop could be triggered in

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>2021-11-30-element.org.html</title>
+    <style>
+      body { background: #fafafa; color: #2a2a2a; }
+      pre {
+        font-size: 1rem;
+        max-width: min(100rem, 100%);
+        width: max-content;
+        white-space: pre-wrap;
+        margin: auto; }
+      .ef-D {
+        color: #2a2a2a; background-color: #fafafa; font-weight: 400; }
+      .ef-b {
+        font-weight: 700; }
+      .ef-i {
+        text-decoration: italic; }
+      .ef-vp {
+         }
+      .ef-h {
+        color: #9e9e9e; }
+      .ef-sc {
+        color: #4f894c; }
+      .ef-w {
+        color: #9a7500; }
+      .ef-e {
+        color: #99324b; }
+      .ef-l {
+        color: #3b6ea8; font-weight: 700; }
+      .ef-lv {
+        color: #8b008b; font-weight: 700; }
+      .ef-hi {
+        color: #fafafa; background-color: #3b6ea8; }
+      .ef-c {
+        color: #b1b1b1; }
+      .ef-cd {
+        color: #b1b1b1; }
+      .ef-s {
+        color: #4f894c; }
+      .ef-d {
+        color: #b6b6b6; }
+      .ef-m {
+        color: #97365b; }
+      .ef-k {
+        color: #3b6ea8; }
+      .ef-bi {
+        color: #29838d; }
+      .ef-f {
+        color: #29838d; }
+      .ef-v {
+        color: #cb9aad; }
+      .ef-t {
+        color: #9a7500; }
+      .ef-o {
+        color: #97365b; }
+      .ef-wr {
+        color: #9a7500; }
+      .ef-nc {
+        color: #3b6ea8; font-weight: 700; }
+      .ef-pp {
+        color: #3b6ea8; font-weight: 700; }
+      .ef-rc {
+        color: #3b6ea8; font-weight: 700; }
+      .ef-rb {
+        color: #3b6ea8; font-weight: 700; }
+      .ef-ob {
+        background-color: #e0e0e0; }
+      .ef-obb {
+        color: #b1b1b1; background-color: #e0e0e0; }
+      .ef-obe {
+        color: #b1b1b1; background-color: #e0e0e0; }
+      .ef-Oa {
+        color: #3b6ea8; font-weight: nil; font-size: 1.25em }
+      .ef-Ob {
+        color: #97365b; font-weight: 700; font-size: 1.15em }
+      .ef-Oc {
+        color: #842879; font-weight: 700; font-size: 1.12em }
+      .ef-Od {
+        color: #6c92bd; font-weight: 600; font-size: 1.09em }
+      .ef-Oe {
+        color: #b16883; font-weight: 600; font-size: 1.06em }
+      .ef-Of {
+        color: #9db6d3; font-weight: 600; font-size: 1.03em }
+      .ef-Og {
+        color: #cb9aad; font-weight: 700; }
+      .ef-Oh {
+        color: #d7e2ed; font-weight: 600; }
+      .ef-hn {
+        color: #97365b; font-weight: 700; }
+      .ef-hq {
+        color: #3b6ea8; }
+      .ef-hs {
+        color: #9a7500; }
+      .ef-rda {
+        color: #3b6ea8; }
+      .ef-rdb {
+        color: #97365b; }
+      .ef-rdc {
+        color: #4f894c; }
+      .ef-rdd {
+        color: #842879; }
+      .ef-rde {
+        color: #29838d; }
+      .ef-rdf {
+        color: #3b6ea8; }
+      .ef-rdg {
+        color: #97365b; }
+      .ef-rdh {
+        color: #4f894c; }
+      .ef-rdi {
+        color: #842879; }
+    </style>
+  </head>
+  <body>
+<pre>
+<span style="color: #9e9e9e;">#+title:</span> <span style="font-weight: 700;">November 2021
+</span><span style="color: #9e9e9e;">#+subtitle:</span> Elementary improvements
+<span style="color: #9e9e9e;">#+author:</span> TEC
+<span style="color: #9e9e9e;">#+date:</span> 2021-11-30
+
+With a 9.5 release highlight post last month, and the month before skipped, it's
+now <span class="ef-i">/three months/</span> since the last regular instalment of TMIO. Let's get back up
+to date on some of the latest happenings with Org.
+
+<span style="color: #3b6ea8; font-weight: nil; font-size: 1.25em">* Org as markup</span>
+
+Looking at the wider ecosystem, it certainly appears that there is a growing
+appetite for Org markup outside org-mode. More projects like <span style="color: #3b6ea8; font-weight: 700;">[[https://gohugo.io/][Hugo]]</span> and <span style="color: #3b6ea8; font-weight: 700;">[[https://logseq.com/][Logseq]]</span>
+seem to be interested in supporting Org markup, and there has been a recent
+growth in editor extensions like Neovim's <span style="color: #3b6ea8; font-weight: 700;">[[https://github.com/nvim-orgmode/orgmode/][orgmode.nvim]]</span> (started in March this
+year) and Sublime Text's <span style="color: #3b6ea8; font-weight: 700;">[[https://packagecontrol.io/packages/OrgExtended][OrgExtended]]</span> (started in June this year).
+
+Interest in Org as a general-usage markup format can also be seen within the Org
+project. Primarily lead by Nicolas Goaziou, there is an ongoing attempt to
+codify the Org syntax in a formal specification in the Worg document <span style="color: #3b6ea8; font-weight: 700;">[[https://orgmode.org/worg/dev/org-syntax.html][Org Syntax
+(draft)]]</span>. Other members of the Org mailing list have directed their effort to
+creating non-elisp parsers for Org, both to help Org tools be created in other
+languages, and as put in the README for Tom Gillespie's <span style="color: #3b6ea8; font-weight: 700;">[[https://github.com/tgbugs/laundry][laundry]]</span> parser
+<span class="ef-obb">#+begin_quote
+</span>The long term goal of this work is to provide a reference that can be used to
+standardize Org syntax and behavior and to specify various levels of compliance
+for an implementation of Org mode.
+<span class="ef-obe">#+end_quote
+</span>
+Earlier this week Karl Voit, the author of the rather well-known document <span style="color: #3b6ea8; font-weight: 700;">[[https://karl-voit.at/2017/09/23/orgmode-as-markup-only/][Org
+Mode Is One of the Most Reasonable Markup Languages to Use for Text]]</span>, surprised
+the mailing list by announcing his independent creation of a multi-leveled
+standard for Org syntax subsets called "Orgdown" (the name is a blend of
+"Org-mode" and "markdown", but the standard is only a subset of Org). Each level
+defines a compliance score given by a mix of parsing and editing support, with
+example compliance scores for the first (and currently only) level of the
+standard given for common tools.
+
+At this stage, it isn't clear exactly how the Org-outside-Emacs landscape will
+evolve, but the swelling interest is very encouraging.
+
+<span style="color: #3b6ea8; font-weight: nil; font-size: 1.25em">* An Org parser in Julia</span>
+
+Speaking of parsers, I may be somewhat biased but I'm quite happy that a Org
+parser for <span style="color: #3b6ea8; font-weight: 700;">[[https://julialang.org/][Julia]]</span> now exists 🎉.
+
+<span style="color: #3b6ea8; font-weight: 700;">[[Https://github.com/tecosaur/OrgMode.jl]]</span>
+
+OrgMode.jl is a parser, but also intended as a general-purpose Org library for
+Julia. It's only been a week since development started, but it currently
+supports most of the <span style="color: #3b6ea8; font-weight: 700;">[[https://orgmode.org/worg/dev/org-syntax.html][Org Syntax]]</span> draft specification, along with the rendering of
+a parsed Org AST to a TTY or back to Org text. A few utility functions are also
+included, such as <span style="color: #9e9e9e;">~filtermap~</span> which operates similarly to <span style="color: #9e9e9e;">~org-element-map~</span>.
+
+<span style="color: #3b6ea8; font-weight: nil; font-size: 1.25em">* Autoloading citation backends</span>
+
+One small but impactful change is autoloading of citation backends. Until
+recently before say using the <span style="color: #9e9e9e;">=csl=</span> backend, one needed to
+<span style="color: #9e9e9e; background-color: #e0e0e0;">src_</span><span style="color: #b1b1b1; background-color: #e0e0e0;">elisp</span><span style="color: #9e9e9e; background-color: #e0e0e0;">{</span><span class="ef-ob">(</span><span style="color: #3b6ea8; background-color: #e0e0e0;">require</span><span class="ef-ob"> '</span><span style="color: #97365b; background-color: #e0e0e0;">oc-csl</span><span class="ef-ob">)</span><span style="color: #9e9e9e; background-color: #e0e0e0;">}</span> or face error messages.
+
+Now, if you have a line like:
+<span class="ef-obb">#+begin_example
+</span><span style="color: #9e9e9e; background-color: #e0e0e0;">#+cite_export: FORMAT ...
+</span><span class="ef-obe">#+end_example
+</span>org-mode will try to load the file <span style="color: #9e9e9e;">=oc-FORMAT=</span> before trying to process citations.
+
+This should make getting started with citations in Org just a bit easier.
+
+<span style="color: #3b6ea8; font-weight: nil; font-size: 1.25em">* A nicer </span><span style="color: #9e9e9e; font-weight: nil; font-size: 1.25em">=:tangle-mode=</span><span style="color: #3b6ea8; font-weight: nil; font-size: 1.25em"> syntax</span>
+
+The standard way of setting a <span style="color: #9e9e9e;">=:tangle-mode=</span> has typically been by providing a
+closure that makes use of Elisp's octal syntax, such as <span style="color: #9e9e9e;">=(identity #o755)=</span>. This
+is unnecessarily verbose, and certainly doesn't feel natural.
+
+With the addition of a small mode-interpreting function
+(<span style="color: #9e9e9e;">~org-babel-interpret-file-mode~</span>) It is now possible to specify <span style="color: #9e9e9e;">=:tangle-mode=</span> using
+three different forms of shorthand
++ <span style="font-weight: 700;">octal ::</span> <span style="color: #9e9e9e;">=o755=</span> is equivalent to <span style="color: #9e9e9e;">=(identity #o755)=</span>
++ <span style="font-weight: 700;">chmod ::</span> <span style="color: #9e9e9e;">~chmod~</span>-style inputs like <span style="color: #9e9e9e;">=u+x=</span> are now parsed to a file mode[fn:1] with the
+  the base/default mode set by <span style="color: #9e9e9e;">~org-babel-tangle-default-file-mode~</span>.
++ <span style="font-weight: 700;">ls -l ::</span> strings of the form given by <span style="color: #9e9e9e;">~ls -l~</span> like <span style="color: #9e9e9e;">=rwxr-xr-x=</span> are also accepted
+
+This means the following forms are now all equivalent:
+<span class="ef-obb">#+begin_example
+</span><span style="color: #9e9e9e; background-color: #e0e0e0;">:tangle-mode (identity #o755)
+:tangle-mode o755
+:tangle-mode a=rx,u+w
+:tangle-mode rwxr-xr-x
+</span><span class="ef-obe">#+end_example
+</span>
+It has also been noted on the mailing list that the <span style="color: #9e9e9e;">=:tangle-mode (identity
+#o755)=</span> form works by being transformed to <span style="color: #9e9e9e;">=:tangle-mode 493=</span> during parsing.
+Similarly <span style="color: #9e9e9e;">=:tangle-mode 755=</span> is equivalent to <span style="color: #9e9e9e;">=:tangle-mode (identity #o1363)=</span>. For
+some values the decimal and octal interpretation are <span class="ef-i">/both/</span> valid file modes. Due
+to the clear potential for confusion, and since file permissions are an
+important security consideration, it has been suggested on the mailing list that
+these forms should be depreciated with a warning in future. No decision has been
+made yet though.
+
+<span style="color: #3b6ea8; font-weight: nil; font-size: 1.25em">* Org element parser cache</span>
+
+Ihor Radchenko has done some fantastic work over the past few months by
+overhauling parts of <span style="color: #9e9e9e;">=org-element.el=</span> to introduce extensive caching. <span style="color: #9e9e9e;">=org-element=</span>
+is <span class="ef-i">/the/</span> Org markup parser inside org-mode. This allows for a huge jump in speed,
+and also provides a few functions which fetch information without updating the
+cache --- allowing for particularly speedy lookups with a small sacrifice to
+correctness guarantees on one or two properties in particular cases.
+
+Several org-mode APIs now make use of the cache to dramatically improve speed.
+Aside from improvements to typically slow operations, this is ideal for
+situations involving frequent buffer edits.
+It's no understatement to say that this work is transformative.
+
+One potential beneficiary from this work is actually fontification. It has
+become increasingly apparent that the current regex-based method for buffer
+fontification is imperfect, and can actually differ from the true structure of
+the document as parsed (authoritatively) by <span style="color: #9e9e9e;">=org-element=</span>. This has lead to the
+well-received suggestion on the mailing list to rewrite the fontification code
+to be built on <span style="color: #9e9e9e;">=org-element=</span> instead.
+
+<span style="color: #3b6ea8; font-weight: nil; font-size: 1.25em">* Inline source block fontification</span>
+
+I think <span style="color: #3b6ea8; font-weight: 700;">[[https://orgmode.org/manual/Structure-of-Code-Blocks.html][inline source code blocks]]</span> are an underappreciated feature of Org. I
+don't think it's helped that they have not been visually treated at all
+differently from plain text. Now though, they have a new dedicated face
+(<span style="color: #9e9e9e;">~org-inline-src-block~</span>) <span class="ef-i">/and/</span> in the same manner as source blocks, based on
+<span style="color: #9e9e9e;">~org-src-fontify-natively~</span> can be fontified using the language's major mode.
+
+<span style="color: #b1b1b1;">#+caption:</span> <span class="ef-ob">Side-by-side comparison of a identical paragraphs using code (~~~) markup</span>
+<span style="color: #b1b1b1;">#+caption:</span> <span class="ef-ob">and inline source blocks (~src_~).</span>
+<span style="color: #b1b1b1;">#+attr_html: :class doom-one</span>
+ <span style="color: #3b6ea8; font-weight: 700;">[[file:figures/inline-src-block-fontified-vs-code.png]]</span>
+
+If you aren't familiar with inline source blocks, you're missing out. They are
+very much the inline cousin of source blocks, and so support all your favourite
+Babel features like code execution and header arguments. This provides a
+fantastic capacity to inline dynamically computed expressions, and optionally
+show the code that produces them.
+
+<span style="color: #b1b1b1;">#+caption:</span> <span class="ef-ob">A paragraph making use of /evaluated/ inline source blocks.</span>
+<span style="color: #b1b1b1;">#+caption:</span> <span class="ef-ob">Note that the =⟨11⟩= is a prettified results macro (using a potential future</span>
+<span style="color: #b1b1b1;">#+caption:</span> <span class="ef-ob">org-mode patch).</span>
+<span style="color: #b1b1b1;">#+attr_html: :class doom-one</span>
+<span style="color: #3b6ea8; font-weight: 700;">[[file:figures/inline-src-block-julia-demo.png]]</span>
+
+<span style="color: #3b6ea8; font-weight: nil; font-size: 1.25em">* Functions as default heading arguments</span>
+
+Matt Huszagh has contributed a patch that allows functions to be used as values
+for default header arguments. This is great for arguments where a sensible
+default can be provided by evaluating a function on-the-fly.
+
+Consider for example the arguments required to produce a simple image using R
+with Babel:
+<span class="ef-obb">#+begin_src org
+</span><span class="ef-ob">,#+begin_src R :results graphics file :file myimage.svg
+library(ggplot2)
+ggplot(mpg, aes(displ, hwy, colour = class)) + geom_point()
+,#+end_src
+</span><span class="ef-obe">#+end_src
+</span>
+In a Jupyter-style (<span style="color: #9e9e9e;">=.ipynb=</span>) or throwaway document, we likely don't care about
+the file name at all. With these new capabilities, we can provide a file name
+dynamically as a default argument!
+
+First we must write a function that when run at the source block will give us a
+suitable file name, like so
+
+<span class="ef-obb">#+begin_src emacs-lisp
+</span><span class="ef-ob">(</span><span style="color: #3b6ea8; background-color: #e0e0e0;">defun</span> <span style="color: #29838d; background-color: #e0e0e0;">my/org-src-sha-to-image</span><span class="ef-ob"> ()
+  (concat </span><span style="color: #4f894c; background-color: #e0e0e0;">"generated-"</span><span class="ef-ob">
+          (substring
+           (sha1 (org-element-property </span><span style="color: #29838d; background-color: #e0e0e0;">:value</span><span class="ef-ob"> (org-element-at-point)))
+           0 8)
+          </span><span style="color: #4f894c; background-color: #e0e0e0;">".svg"</span><span class="ef-ob">))
+</span><span class="ef-obe">#+end_src
+</span>
+Let's also write a function to guess whether the source block produces a plot by
+checking if there's a plot command on the last line.
+
+<span class="ef-obb">#+begin_src emacs-lisp
+</span><span class="ef-ob">(</span><span style="color: #3b6ea8; background-color: #e0e0e0;">defun</span> <span style="color: #29838d; background-color: #e0e0e0;">my/org-src-guess-results-type</span><span class="ef-ob"> ()
+  (</span><span style="color: #3b6ea8; background-color: #e0e0e0;">if</span><span class="ef-ob"> (string-match-p </span><span style="color: #4f894c; background-color: #e0e0e0;">"^ *</span><span style="color: #3b6ea8; background-color: #e0e0e0; font-weight: 700;">\\</span><span style="color: #3b6ea8; background-color: #e0e0e0; font-weight: 700;">(?:</span><span style="color: #4f894c; background-color: #e0e0e0;">plot</span><span style="color: #3b6ea8; background-color: #e0e0e0; font-weight: 700;">\\</span><span style="color: #3b6ea8; background-color: #e0e0e0; font-weight: 700;">|</span><span style="color: #4f894c; background-color: #e0e0e0;">ggplot</span><span style="color: #3b6ea8; background-color: #e0e0e0; font-weight: 700;">\\</span><span style="color: #3b6ea8; background-color: #e0e0e0; font-weight: 700;">)</span><span style="color: #4f894c; background-color: #e0e0e0;">([</span><span style="color: #3b6ea8; background-color: #e0e0e0; font-weight: 700;">^</span><span style="color: #4f894c; background-color: #e0e0e0;">\n]+\n?\\'"</span><span class="ef-ob">
+                      (org-element-property </span><span style="color: #29838d; background-color: #e0e0e0;">:value</span><span class="ef-ob"> (org-element-at-point)))
+      </span><span style="color: #4f894c; background-color: #e0e0e0;">"graphics file"</span> <span style="color: #4f894c; background-color: #e0e0e0;">"replace"</span><span class="ef-ob">))
+</span><span class="ef-obe">#+end_src
+</span>
+Then we can just use these function in place of a static value in the default
+header arguments variable --- that's all it takes.
+
+<span class="ef-obb">#+begin_src emacs-lisp
+</span><span class="ef-ob">(</span><span style="color: #3b6ea8; background-color: #e0e0e0;">setq</span><span class="ef-ob"> org-babel-default-header-args:R
+      '((</span><span style="color: #29838d; background-color: #e0e0e0;">:results</span><span class="ef-ob"> . my/org-src-guess-results-type)
+        (</span><span style="color: #29838d; background-color: #e0e0e0;">:file</span><span class="ef-ob"> . my/org-src-sha-to-image)))
+</span><span class="ef-obe">#+end_src
+</span>
+This means for most cases we can now get away without any header arguments at all.
+
+<span class="ef-obb">#+begin_src org
+</span><span class="ef-ob">,#+begin_src R
+library(ggplot2)
+ggplot(mpg, aes(displ, hwy, colour = class)) + geom_point()
+,#+end_src
+</span><span class="ef-obe">#+end_src
+</span>
+It's always lovely to see more ways of reducing boilerplate.
+
+<span style="color: #3b6ea8; font-weight: nil; font-size: 1.25em">* Proportional image widths</span>
+
+Previously, as long as <span style="color: #9e9e9e;">~org-image-actual-width~</span> was <span style="color: #9e9e9e;">~nil~</span> or a list of the form
+<span style="color: #9e9e9e;">~(default-value)~</span>, <span style="color: #9e9e9e;">=org-mode=</span> would display images according to a <span style="color: #9e9e9e;">=:width=</span> attribute
+(e.g. <span style="color: #9e9e9e;">=#+attr_html: :width 400px=</span>) by simply looking for the first <span style="color: #9e9e9e;">=#+attr_=</span>
+affiliated keyword and reading the numeric component of the <span style="color: #9e9e9e;">=:width=</span> as the number
+of pixels wide the image should be.
+
+This has now become somewhat fancier. The image-width determining logic has been
+extracted to a new function (<span style="color: #9e9e9e;">~org-display-inline-image--width~</span>) which will now
+extract floating-point values like <span style="color: #9e9e9e;">=0.7=</span> and interpret them as that portion of the
+accessible text width in the buffer.
+
+<span style="color: #b1b1b1;">#+caption:</span> <span class="ef-ob">A containing with an image set to half of the accesible text width</span>
+<span style="color: #b1b1b1;">#+attr_html: :class doom-one</span>
+<span style="color: #3b6ea8; font-weight: 700;">[[file:figures/proportional-image-width.png]]</span>
+
+This means that a width parameter like <span style="color: #9e9e9e;">=#+attr_latex: :width 0.7\linewidth=</span> the
+image will displayed as 70% of the buffer text width.
+This also supports percentage value, like <span style="color: #9e9e9e;">=#+attr_html: :width 80%=</span> by dividing
+the number before the <span style="color: #9e9e9e;">=%=</span> by 100 as a floating-point value.
+As always, if you don't like the way display width is inferred here you can
+override it by putting a <span style="color: #9e9e9e;">=#+attr_org: :width X=</span> statement first.
+
+Support for proportional image widths extends to the <span style="color: #9e9e9e;">~(default-value)~</span> form of
+<span style="color: #9e9e9e;">~org-image-actual-width~</span>, as now if you set it to say <span style="color: #9e9e9e;">~(0.9)~</span> which will cause
+images <span class="ef-i">/without/</span> any width specification to be displayed at 90% of the buffer text
+width.
+
+If you want to have some images displayed as their actual width you can use the
+new special width parameter <span style="color: #9e9e9e;">=t=</span> to set this on a per-image basis with <span style="color: #9e9e9e;">=#+attr_org:
+:width t=</span>. Now all you need to do is remember to put this first. Based on current
+discussions on the mailing list though, soon <span style="color: #9e9e9e;">=#+attr_org=</span> will be prioritised when
+determining display image width, no matter which order you put the attributes
+in. I do like having one less thing to remember 🙂.
+
+<span style="color: #3b6ea8; font-weight: nil; font-size: 1.25em">* Other improvements</span>
++ Allow citations immediately following an item bullet _TEC_
++ Allow citations immediately following a footnote definition _Nicolas Goaziou_
++ Update some obsolete function references _Marco Wahl_
++ <span style="color: #9e9e9e;">=ob-gnuplot=</span> is now maintained by Ihor Radchenko
++ Improve makescript support for <span style="color: #9e9e9e;">=ORGVERSION=</span> in tag-less mirrors _Nicholas Vollmer_
++ New <span style="color: #9e9e9e;">=ob-julia=</span>, now maintained by Pedro Bruel
++ Allow for no indentation, but preserving current indentation by setting
+  <span style="color: #9e9e9e;">~org-indent-indentation-per-level~</span> to <span style="color: #9e9e9e;">~0~</span> _David Lukes_
++ Eliminate some byte-compile warnings _Nicholas Vollmer_ _Bastien_
++ Support Greek smart quotes _Juan Manuel Macías_
++ <span style="color: #9e9e9e;">=org-mouse=</span> support for intermediate-state checkboxes _Jim Porter_
++ Allow nested parenthesis in <span style="color: #9e9e9e;">~org-compile-prefix-format~</span> <span style="color: #9e9e9e;">=%(sexp)=</span> expressions _Ihor Radchenko_
++ <span style="color: #9e9e9e;">=oc-csl=</span> / citeproc improvements _András Simonyi_
++ Move more unmaintained/overly niche <span style="color: #9e9e9e;">=ob-*=</span> files to the contrib repo, reducing
+  the maintainer burden _Bastien_
++ Allow use of a function for <span style="color: #9e9e9e;">~org-agenda-overriding-header~</span> for dynamic headers
+  _Christopher League_
++ Improve <span style="color: #9e9e9e;">=org-protocol=</span> URI decoding _Max Nikulin_
++ Remove some obsolete LaTeX packages from the default packages list _TEC_
++ Add support for text and year citation styles to <span style="color: #9e9e9e;">=oc-csl=</span> _András Simonyi_
++ Produce lower-case keywords in <span style="color: #9e9e9e;">=ox-org=</span> _TEC_
++ Improve <span style="color: #9e9e9e;">=ob-gnuplot=</span> argument processing _Ihor Radchenko_
++ A collection of <span style="color: #9e9e9e;">=oc-*=</span> improvements _Nicholas Goaziou_
++ Support bare author citations in <span style="color: #9e9e9e;">=oc-csl=</span> _TEC_
++ Add <span style="color: #9e9e9e;">=:options=</span> LaTeX attribute to tables _Juan Manuel Macías_
++ Fix display error with <span style="color: #9e9e9e;">=ob-plantuml=</span> and html export _Su Lin_
++ More tests! _Ihor Radchenko_
++ Documentation improvements! _Marco Wahl_ _Stefan Kangas_ _Daniel Fleischer_ _Wiliam
+  Denton_ _Thomas Dye_ _Bastien_ _Bruce D'Arcus_ _Kyle Meyer_ _Nicolas Goaziou_
+
+<span style="color: #3b6ea8; font-weight: nil; font-size: 1.25em">* Bugfixes</span>
++ Fix heading insertion in a case where point is before any heading _Marco Wahl_
++ Prevent stringp error when tangling Org from an org-src edit buffer _Mark Dawson_
++ Prevent <span style="color: #9e9e9e;">~indent-tabs-mode~</span> from messing with justification in ASCII exports
+  _Morgan Willcock_
++ Fix form of default Babel haskell header args _Ihor Radchenko_
++ No more duplicated logbook entries for repeated tasks _Ihor Radchenko_
++ A headline fontification edge case _Sébastien Miquel_
++ Refactor code that needed Emacs 28 _Kyle Meyer_
++ Make sure a terminating emphasis marker can't be used as a beginning emphasis
+  marker in fontification _Ihor Radchenko_
++ Allow footnotes at footnote definition start _Nicholas Goaziou_
+
+<span style="color: #3b6ea8; font-weight: nil; font-size: 1.25em">* Footnotes</span>
+
+[fn:1] This is performed easily thanks to <span style="color: #9e9e9e;">~file-modes-symbolic-to-number~</span>, which
+is used as the basis for both the <span style="color: #9e9e9e;">~chmod~</span> and <span style="color: #9e9e9e;">~ls -l~</span> shorthand interpretations.
+
+</pre>
+  <body>
+</html>

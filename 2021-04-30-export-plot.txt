@@ -9,13 +9,10 @@
                                2021-04-30
 
 
-
-
-
 A discussion on contributor support
 ═══════════════════════════════════
 
-  Concerns [were raised][1] about some contributors’ patches
+  Concerns [were raised][1] about some contributors' patches
   languishing, and it not being made clear how long it might take to get
   a response from someone.
 
@@ -30,7 +27,7 @@ A discussion on contributor support
   ⁃ Tim Cross
   ⁃ John Corless
 
-  If you’ve been thinking about [getting involved with Org], now is a
+  If you've been thinking about [getting involved with Org], now is a
   great time to give it a shot!
 
   *Ways you can contribute to the project*
@@ -54,11 +51,12 @@ DOI link exporting
 ══════════════════
 
   [Digital Document Identifiers] (DOIs) are an ISO-standardised way of
-  robustly linking to a particular online resource. You’ll see these a
+  robustly linking to a particular online resource. You'll see these a
   lot with academic papers, for example.
 
   Thanks to Nicolas Goaziou, when exporting to HTML, LaTeX, Ascii, and
-  texinfo DOIs are turned into links, for example becomes:
+  texinfo DOIs are turned into links, for example
+  <https://doi.org/10.18637/jss.v046.i03> becomes:
 
   ┌────
   │ <a href="https://doi.org/10.18637/jss.v046.i03">doi:10.18637/jss.v046.i03</a>
@@ -73,7 +71,7 @@ DOI link exporting
   │ @uref{https://doi.org/10.18637/jss.v046.i03}
   └────
 
-  This is a minor change, but I think DOIs are great, so I’m
+  This is a minor change, but I think DOIs are great, so I'm
   highlighting it.
 
 
@@ -90,13 +88,13 @@ Org plot improvements
   ⁃ When an image is regenerated, all instances of the image in the
     buffer are refreshed _TEC_
 
-  Other than a few minor tweaks and bug fixes, that’s it for April.
-  However, over the last year there have been some rather nice
-  improvements that I didn’t mention in the initial blog post, so let’s
+  Other than a few minor tweaks and bug fixes, that's it for
+  April. However, over the last year there have been some rather nice
+  improvements that I didn't mention in the initial blog post, so let's
   go over them now.
 
   ⁃ The inbuilt plot types have been abstracted out into a new
-    structure: `org-plot/preset-plot-types'. This means if you have a
+    structure: `org-plot/preset-plot-types'.  This means if you have a
     gnuplot template you find yourself using a lot, you can now turn it
     into a custom plot type 😀 _TEC_
   ⁃ A new plot type has been added: a radar / spider plot _TEC_
@@ -116,12 +114,12 @@ Org plot improvements
       plots to your liking. For example, [I use this] to set line and
       background colours based on my current Emacs theme.
 
-  If you haven’t used Org plot before, I think it’s a great way to
+  If you haven't used Org plot before, I think it's a great way to
   quickly visualise data in a table. To get started, all you need is a
-  `#+plot' line above the table, with a certain `type' specified (e.g.
-  `type:2d' for a 2d line plot). Then, if you can specify a certain
-  columns as the independent variable (x-values) with `ind', and list
-  dependant variables (y-values) with `deps'.
+  `#+plot' line above the table, with a certain `type' specified
+  (e.g. `type:2d' for a 2d line plot).  Then, if you can specify a
+  certain columns as the independent variable (x-values) with `ind', and
+  list dependant variables (y-values) with `deps'.
 
   You can see these parameters set in the figure above,
   ┌────
@@ -134,7 +132,7 @@ Org plot improvements
 
   This will call gnuplot and a window showing the plot will appear. If
   you want to save the plot to a file, just use the `file' parameter,
-  e.g. `file:"demoplot.svg"' (note the quotes).
+  e.g.  `file:"demoplot.svg"' (note the quotes).
 
   That should get you started, you can see [the manual] for the full
   list of available keywords and find more examples of usage [on worg].
@@ -199,8 +197,8 @@ Miscellaneous changes
     Fung, Kyle Meyer_
   ⁃ New `ob-sqlite' maintainer — Nick Savage
   ⁃ Make lilypond header arguments user-configurable _Jamie Bayne_
-  ⁃ Fix `ob-C' regression which mixed up `int', `double', and `char*'.
-    Fix another regression with table parameters _tbanel_
+  ⁃ Fix `ob-C' regression which mixed up `int', `double', and
+    `char*'. Fix another regression with table parameters _tbanel_
   ⁃ Fix indentation of list items and new logbook drawer notes _Bastien
     Guerry_
   ⁃ Notice when theme changes with LaTeX previews _Yuri Lensky_

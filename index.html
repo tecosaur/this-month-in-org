@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-06-02 Thu 00:55 -->
+<!-- 2024-01-11 Thu 14:58 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>This Month in Org</title>
@@ -45,24 +45,24 @@
      color: #444; }
 </style>
 <script>
-    MathJax = {
-      chtml: {
-        scale: 1
-      },
-      svg: {
-        scale: 1,
-        fontCache: "global"
-      },
-      tex: {
-        tags: "ams",
-        multlineWidth: "85%",
-        tagSide: "right",
-        tagIndent: ".8em"
-      }
-    };
-    </script>
-    <script id="MathJax-script" async
-            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+MathJax = {
+  chtml: {
+    scale: 1
+  },
+  svg: {
+    scale: 1,
+    fontCache: "global"
+  },
+  tex: {
+    tags: "%AUTONUMBER",
+    multlineWidth: "85%",
+    tagSide: "right",
+    tagIndent: ".8em"
+  }
+};
+</script>
+<script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 </head>
 <body>
 <input type='checkbox' id='theme-switch'><div id='page'><label id='switch-label' for='theme-switch'></label><div id="content">
@@ -85,30 +85,28 @@ along with anything else Org-related I consider nifty.
 Posts are published in <kbd>.html</kbd>, <kbd>.org</kbd>, <kbd>.org.html</kbd>, <kbd>.txt</kbd>, and <kbd>.pdf</kbd> forms &#x2014; because why not 😛
 </p>
 </blockquote>
-
 <div id="outline-container-htmla-href2022-05" class="outline-2">
 <h2 id="htmla-href2022-05"><a href='2022-05-31-folding.html' style='text-decoration:none;color:inherit'> May 2022 <span class='tag'><span>2022-05-31</span></span></a><a aria-hidden="true" href="#htmla-href2022-05">#</a> </h2>
 <div class="outline-text-2" id="text-htmla-href2022-05">
 <p>
 Finding time as of late has been more difficult than I anticipated, and on top
-of that, just as I was thinking of writing last month&rsquo;s post, I got distracted
+of that, just as I was thinking of writing last month's post, I got distracted
 by an exciting patchset that has been in the works for over a year finally
 getting sorted out and landing. So, I hope that some of the fun developments in
 this post will make up the absense of the last one 🙂.
 </p>
 
 <p>
-Since it&rsquo;s been longer than I thought since the last standard post, we&rsquo;ve got a
+Since it's been longer than I thought since the last standard post, we've got a
 fair few commits to catch up on &#x2014; about 200. Most of these are miscellaneous
 minor improvements and bugfixes, but a few notable changes have arrived too.
 </p>
 </div>
-
 <div id="outline-container-folding" class="outline-3">
 <h3 id="folding">Folding<a aria-hidden="true" href="#folding">#</a> </h3>
 <div class="outline-text-3" id="text-folding">
 <p>
-The fabulous new folding engine (<kbd>org-fold-core</kbd>) should noticeably improve Org&rsquo;s
+The fabulous new folding engine (<kbd>org-fold-core</kbd>) should noticeably improve Org's
 performance with large files. It contains a number of key optimisations to
 improve speed, namely:
 </p>
@@ -125,27 +123,27 @@ kind enough to whip up some benchmarks.
 </p>
 
 
-<figure id="org5f7eeef">
+<figure id="orga23d521">
 <img src="figures/org-fold-perf-shifttab-contents.svg" alt="org-fold-perf-shifttab-contents.svg" class="invertible">
 
 <figcaption><span class="figure-number">Figure 1: </span>The scaling of <code>org-shifttab</code> showing file contents, as file size increases, with and without org-fold.</figcaption>
 </figure>
 
 
-<figure id="org85a331e">
+<figure id="orgb160857">
 <img src="figures/org-fold-perf-shifttab-showall.svg" alt="org-fold-perf-shifttab-showall.svg" class="invertible">
 
 <figcaption><span class="figure-number">Figure 2: </span>The scaling of <code>org-shifttab</code> showing the entire file, as file size increases, with and without org-fold.</figcaption>
 </figure>
 
 <p>
-Well this looks very promising<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>! Let&rsquo;s see how much of an improvement this is overall.
+Well this looks very promising<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>! Let's see how much of an improvement this is overall.
 </p>
 
 <div id='folding,table--1' class='table'>
-    <div class='gutter'><a href='#folding,table--1'>#</a></div>
-    <div class='tabular'>
-    <table>
+<div class='gutter'><a href='#folding,table--1'>#</a></div>
+<div class='tabular'>
+<table>
 <caption class="t-above"><span class="table-number">Table 1:</span> Time to run <kbd>org-shifttab</kbd> twice, cycling through all three display modes (in seconds).</caption>
 
 <colgroup>
@@ -210,27 +208,27 @@ Well this looks very promising<sup><a id="fnr.1" class="footref" href="#fn.1" ro
 </tr>
 </tbody>
 </table>
-    </div>    </div>
+</div></div>
 
 <p>
 To be clear, even the smallest file in this data &#x2014; a 1.1 Mb Org file with around
-a thousand headings, is fairly large. So, it&rsquo;s unlikely you&rsquo;ll notice much of a
+a thousand headings, is fairly large. So, it's unlikely you'll notice much of a
 difference with small&#x2013;medium files, but if you a few large+ files this should
 be a <i>fantastic</i> improvement. Once again, thanks Ihor!
 </p>
 
-<div class="warning" id="orgf04c853">
+<div class="warning" id="org1c5c734">
 <p>
 The change to text properties instead of overlays breaks a number of third party
-packages like <kbd>evil-search</kbd> and <kbd>consult</kbd>&rsquo;s <code>consult-line</code>.
-If you are involved in any packages affected by this, you&rsquo;ll either want to
+packages like <kbd>evil-search</kbd> and <kbd>consult</kbd>'s <code>consult-line</code>.
+If you are involved in any packages affected by this, you'll either want to
 consider supporting invisible text, or look at <code>isearch-filter-predicate</code> and
 <code>isearch-mode-end-hook</code>, which <kbd>org-fold</kbd> now uses.
-If you&rsquo;re an end-user, perhaps politely make an issue on the repo for a project
+If you're an end-user, perhaps politely make an issue on the repo for a project
 <i>if no issue currently exists</i>, and either:
 </p>
 <ul class="org-ul">
-<li>Stay off Org&rsquo;s bleeding edge till the package ecosystem has adapted to this change</li>
+<li>Stay off Org's bleeding edge till the package ecosystem has adapted to this change</li>
 <li>Help the packages you use adapt to this change</li>
 <li>Set <code>org-fold-core-style</code> to <code>overlays</code> to restore the old behaviour</li>
 </ul>
@@ -238,7 +236,6 @@ If you&rsquo;re an end-user, perhaps politely make an issue on the repo for a pr
 </div>
 </div>
 </div>
-
 <div id="outline-container--engraved-source" class="outline-3">
 <h3 id="-engraved-source"><i>Engraved</i> source code blocks in LaTeX<a aria-hidden="true" href="#-engraved-source">#</a> </h3>
 <div class="outline-text-3" id="text--engraved-source">
@@ -246,18 +243,18 @@ If you&rsquo;re an end-user, perhaps politely make an issue on the repo for a pr
 All too often exporting code to LaTeX has been a disappointment, with lovely
 syntax highlighting from Emacs major modes replaced with a markedly inferior
 attempt by pygments (setting <code>org-latex-listings</code> to <code>minted</code>) in a colour scheme I
-don&rsquo;t really like.
+don't really like.
 </p>
 
 <p>
 A bit over a year ago, a project called <a href="https://github.com/tecosaur/engrave-faces">engrave-faces</a> started with the aim of
-making Emacs&rsquo; font-lock more exportable, like a generalised <kbd>htmlize.el</kbd>. This has
+making Emacs' font-lock more exportable, like a generalised <kbd>htmlize.el</kbd>. This has
 recently been used to provide a new option for inline and block source code
 exports in LaTeX.
 </p>
 
 
-<figure id="org6f97a57">
+<figure id="orge84c6ba">
 <img src="figures/engraved-faces-sample.png" alt="engraved-faces-sample.png" class="invertible">
 
 <figcaption><span class="figure-number">Figure 3: </span>A screenshot of an Org code block, exported to a <span class='acr'>PDF</span>, using <kbd>engrave-faces</kbd> and the <kbd>doom-one-light</kbd> theme.</figcaption>
@@ -282,21 +279,21 @@ The theme can also be set on a per-block level using the LaTeX attribute
 </p>
 
 
-<figure id="org4246951">
+<figure id="org678d8a5">
 <img src="figures/engraved-faces-multitheme.png" alt="engraved-faces-multitheme.png">
 
 <figcaption><span class="figure-number">Figure 4: </span>Seven code blocks exported to LaTeX, each with a different engrave-faces theme.</figcaption>
 </figure>
 
 <p>
-Here&rsquo;s what using these new capabilities looks like in practice.
+Here's what using these new capabilities looks like in practice.
 </p>
 
 <details id='-engraved-source,code--1' class='code' open><summary><span class="lang">Org mode</span></summary>
-    <div class='gutter'>
-    <a href='#-engraved-source,code--1'>#</a>
-    <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>    </div>
-    <div class="org-src-container">
+<div class='gutter'>
+<a href='#-engraved-source,code--1'>#</a>
+<button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
+<div class="org-src-container">
 <pre class="src src-org"><span class="org-org-document-info-keyword">#+title:</span> <span class="org-org-document-title">Engraving source blocks</span>
 <span class="org-org-meta-line">#+latex_engraved_theme: modus-operandi</span>
 
@@ -306,11 +303,11 @@ Here&rsquo;s what using these new capabilities looks like in practice.
 
 <span class="org-org-meta-line">#+attr_latex: :engraved-theme modus-viviandi</span>
 <span class="org-org-block-begin-line">#+begin_src shell</span>
-<span class="org-org-block"><span class="org-type">echo</span></span><span class="org-org-block"> </span><span class="org-org-block"><span class="org-string">"This is shell code"</span></span>
+<span class="org-org-block"><span class="org-builtin">echo</span></span><span class="org-org-block"> </span><span class="org-org-block"><span class="org-string">"This is shell code"</span></span>
 <span class="org-org-block-end-line">#+end_src</span>
 </pre>
 </div>
-    </details>
+</details>
 
 <p>
 This may well be the best syntax-highlighting solution available for <span class='acr'>PDF</span><small>s</small>/LaTeX
@@ -318,14 +315,13 @@ currently available, but I am a tad biased 😛.
 </p>
 </div>
 </div>
-
 <div id="outline-container-texinfo-export-improvements" class="outline-3">
 <h3 id="texinfo-export-improvements">TexInfo export improvements<a aria-hidden="true" href="#texinfo-export-improvements">#</a> </h3>
 <div class="outline-text-3" id="text-texinfo-export-improvements">
 <p>
-Jonas Bernoulli has been using a custom TexInfo backend for Magit&rsquo;s
-documentation for a while now, and over the past few months he&rsquo;s worked the
-features he was missing into Org&rsquo;s built-in TexInfo exporter.
+Jonas Bernoulli has been using a custom TexInfo backend for Magit's
+documentation for a while now, and over the past few months he's worked the
+features he was missing into Org's built-in TexInfo exporter.
 </p>
 
 <p>
@@ -334,7 +330,6 @@ going through with this!
 </p>
 </div>
 </div>
-
 <div id="outline-container-toggle-noweb-prefix" class="outline-3">
 <h3 id="toggle-noweb-prefix">Toggle noweb prefix handling<a aria-hidden="true" href="#toggle-noweb-prefix">#</a> </h3>
 <div class="outline-text-3" id="text-toggle-noweb-prefix">
@@ -349,10 +344,10 @@ by setting the new header argument <kbd>:noweb-prefix no</kbd>.
 </p>
 
 <details id='toggle-noweb-prefix,code--1' class='code' open><summary><span class="lang">Org mode</span></summary>
-    <div class='gutter'>
-    <a href='#toggle-noweb-prefix,code--1'>#</a>
-    <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>    </div>
-    <div class="org-src-container">
+<div class='gutter'>
+<a href='#toggle-noweb-prefix,code--1'>#</a>
+<button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
+<div class="org-src-container">
 <pre class="src src-org"><span class="org-org-block-begin-line">#+begin_src emacs-lisp :noweb yes :noweb-prefix no</span>
 <span class="org-org-block">(</span><span class="org-org-block"><span class="org-keyword">setq</span></span><span class="org-org-block"> example-data </span><span class="org-org-block"><span class="org-string">"&lt;&lt;example&gt;&gt;"</span></span><span class="org-org-block">)</span>
 <span class="org-org-block-end-line">#+end_src</span>
@@ -374,33 +369,31 @@ Instead of
 <span class="org-org-block-end-line">#+end_src</span>
 </pre>
 </div>
-    </details>
+</details>
 </div>
 </div>
-
 <div id="outline-container-package-highlight-org" class="outline-3">
 <h3 id="package-highlight-org">Package highlight: org-modern<a aria-hidden="true" href="#package-highlight-org">#</a> </h3>
 <div class="outline-text-3" id="text-package-highlight-org">
 <p>
-I think we&rsquo;ve all <a href="https://github.com/integral-dw/org-superstar-mode">seen</a> <a href="https://github.com/sabof/org-bullets">plenty</a> of <kbd>org-mode</kbd> <a href="https://github.com/Fuco1/org-pretty-table">prettification</a> <a href="https://github.com/harrybournis/org-fancy-priorities">packages</a> <a href="https://gitlab.com/marcowahl/org-pretty-tags">before</a>, so
-what makes Minad&rsquo;s <a href="https://github.com/minad/org-modern">org-modern</a> special? It&rsquo;s actually doing something similar to
-Ihor&rsquo;s org-fold improvements, switching out slower overlay-based approaches for
+I think we've all <a href="https://github.com/integral-dw/org-superstar-mode">seen</a> <a href="https://github.com/sabof/org-bullets">plenty</a> of <kbd>org-mode</kbd> <a href="https://github.com/Fuco1/org-pretty-table">prettification</a> <a href="https://github.com/harrybournis/org-fancy-priorities">packages</a> <a href="https://gitlab.com/marcowahl/org-pretty-tags">before</a>, so
+what makes Minad's <a href="https://github.com/minad/org-modern">org-modern</a> special? It's actually doing something similar to
+Ihor's org-fold improvements, switching out slower overlay-based approaches for
 text properties. I can confirm that switching out <kbd>org-superstar-mode</kbd> for
 <kbd>org-modern</kbd> has made a substantial improvement in my experience, halving the
-first-load time of my <kbd>config.org</kbd> to around 20 seconds. If you&rsquo;re a fan of Org
-prettification and haven&rsquo;t taken a look at this package, I highly recommend
+first-load time of my <kbd>config.org</kbd> to around 20 seconds. If you're a fan of Org
+prettification and haven't taken a look at this package, I highly recommend
 giving it a shot.
 </p>
 
 
-<figure id="org23984dd">
+<figure id="org76d363c">
 <img src="figures/org-modern-readme-demo.gif" alt="org-modern-readme-demo.gif" class="invertible">
 
 <figcaption><span class="figure-number">Figure 5: </span>A demonstration of org-modern taken from the project <span class='acr'>README</span>.</figcaption>
 </figure>
 </div>
 </div>
-
 <div id="outline-container-other-improvements" class="outline-3">
 <h3 id="other-improvements">Other improvements<a aria-hidden="true" href="#other-improvements">#</a> </h3>
 <div class="outline-text-3" id="text-other-improvements">
@@ -422,7 +415,6 @@ Fogel, Cody Harris</span></li>
 </ul>
 </div>
 </div>
-
 <div id="outline-container-bugfixes" class="outline-3">
 <h3 id="bugfixes">Bugfixes<a aria-hidden="true" href="#bugfixes">#</a> </h3>
 <div class="outline-text-3" id="text-bugfixes">
@@ -439,28 +431,26 @@ Fogel, Cody Harris</span></li>
 </div>
 </div>
 </div>
-
-
 <div id="outline-container-htmla-href2022-04" class="outline-2">
 <h2 id="htmla-href2022-04"><a href='2022-04-01-confluence.html' style='text-decoration:none;color:inherit'> Special Announcement <span class='tag'><span>2022-04-01</span></span></a><a aria-hidden="true" href="#htmla-href2022-04">#</a> </h2>
 <div class="outline-text-2" id="text-htmla-href2022-04">
 <p>
-It <b>h</b>as become apparent to the Org Mode developers that Org is suffering from a
-severe lack of enterprise adoption. To r<b>e</b>ctify this, we will be leveraging our
-collective decades working on holistic human-markup interaction tools to rapid<b>l</b>y
+It <b>h</b>​as become apparent to the Org Mode developers that Org is suffering from a
+severe lack of enterprise adoption. To r​<b>e</b>​ctify this, we will be leveraging our
+collective decades working on holistic human-markup interaction tools to rapid​<b>l</b>​y
 pivot to what we believe to be the <i>true</i> markup format of the future &#x2014;
 <a href="https://confluence.atlassian.com/doc/confluence-wiki-markup-251003035.html">Confluence Wiki Markup</a>.
 </p>
 
 <p>
-With this <b>p</b>aradigm shift, you can look forward to a much more intuitive syntax,
+With this <b>p</b>​aradigm shift, you can look forward to a much more intuitive syntax,
 empowering you to create next-generation agile documents.
 </p>
 
 <p>
-To assist you in this <b>t</b>ransition, we&rsquo;ll give you a brief overview of the changes
+To assist you in this <b>t</b>​ransition, we'll give you a brief overview of the changes
 you can expect. Text formatting is almost unaffected, with a few sensible
-changes made to the surrounding c<b>h</b>aracters.
+changes made to the surrounding c​<b>h</b>​aracters.
 </p>
 
 <p>
@@ -468,7 +458,6 @@ changes made to the surrounding c<b>h</b>aracters.
 </p>
 </div>
 </div>
-
 <div id="outline-container-htmla-href2022-02" class="outline-2">
 <h2 id="htmla-href2022-02"><a href='2022-02-30-orgnvim.html' style='text-decoration:none;color:inherit'> February 2022 <span class='tag'><span>2022-02-30</span></span></a><a aria-hidden="true" href="#htmla-href2022-02">#</a> </h2>
 <div class="outline-text-2" id="text-htmla-href2022-02">
@@ -479,18 +468,18 @@ experience outside Emacs.
 </p>
 
 <p>
-<div class="link-preview"><a href="https://github.com/nvim-orgmode/orgmode"><img src="https://opengraph.githubassets.com/ea0506a8873e453706563562e175a9427da52ac41d86e0cd8daa6d45624a5746/nvim-orgmode/orgmode"/><small>github.com</small><p><b>GitHub - nvim-orgmode/orgmode: Orgmode clone written in Lua for Neovim 0.7+.</b></br>Orgmode clone written in Lua for Neovim 0.7+. Contribute to nvim-orgmode/orgmode development by creating an account on GitHub.</p></a></div>
+<div class="link-preview"><a href="https://github.com/nvim-orgmode/orgmode"><img src="https://opengraph.githubassets.com/f86a7a47f5ae42199e2e39fb24fc82118fa106c93369a4272f8a5af6b6b37f11/nvim-orgmode/orgmode"/><small>github.com</small><p><b>GitHub - nvim-orgmode/orgmode: Orgmode clone written in Lua for Neovim 0.9+.</b></br>Orgmode clone written in Lua for Neovim 0.9+. Contribute to nvim-orgmode/orgmode development by creating an account on GitHub.</p></a></div>
 </p>
 
 <p>
-&ldquo;But I use Emacs, I don&rsquo;t care&rdquo; you may say. In that case, I&rsquo;d like to point out
+"But I use Emacs, I don't care" you may say. In that case, I'd like to point out
 that wider spread and better Org support enriches the Org ecosystem as a whole.
 It makes the format more approachable, and <i>useful</i> for other people. This is good
 for everybody.
 </p>
 
 <p>
-Without any further ado, here&rsquo;s the guest post kindly written by Kristijan.
+Without any further ado, here's the guest post kindly written by Kristijan.
 Enjoy!
 </p>
 
@@ -498,7 +487,7 @@ Enjoy!
 
 <p>
 Like every beginner Vim user, at some point I ran into a usual editor war post:
-Vim vs Emacs. At that time, I didn&rsquo;t have an idea what &ldquo;Emacs&rdquo; was.
+Vim vs Emacs. At that time, I didn't have an idea what "Emacs" was.
 </p>
 
 <p>
@@ -506,16 +495,14 @@ Vim vs Emacs. At that time, I didn&rsquo;t have an idea what &ldquo;Emacs&rdquo;
 </p>
 </div>
 </div>
-
 <div id="outline-container-htmla-href2022-01" class="outline-2">
 <h2 id="htmla-href2022-01"><a href='2022-01-31-caching.html' style='text-decoration:none;color:inherit'> January 2022 <span class='tag'><span>2022-01-31</span></span></a><a aria-hidden="true" href="#htmla-href2022-01">#</a> </h2>
 <div class="outline-text-2" id="text-htmla-href2022-01">
 <p>
-There are less &ldquo;obvious user-facing changes&rdquo; this month, but a lot of good work
+There are less "obvious user-facing changes" this month, but a lot of good work
 has been happening 🙂.
 </p>
 </div>
-
 <div id="outline-container-cache-continues-make" class="outline-3">
 <h3 id="cache-continues-make">The cache continues to make strides<a aria-hidden="true" href="#cache-continues-make">#</a> </h3>
 <div class="outline-text-3" id="text-cache-continues-make">
@@ -525,8 +512,8 @@ existed for a while now, but it used to be too buggy to be useful.
 </p>
 
 <p>
-This is no longer the case! We&rsquo;re finally confident enough to flip
-<code>org-element-use-cache</code>&rsquo;s default from <code>nil</code> to <code>t</code>. I mentioned some of the
+This is no longer the case! We're finally confident enough to flip
+<code>org-element-use-cache</code>'s default from <code>nil</code> to <code>t</code>. I mentioned some of the
 improvements in , however Ihor has continued to make strides with the
 cache.
 </p>
@@ -534,7 +521,7 @@ cache.
 <p>
 Getting the cache right is tough though, and so while the situation is much
 improved there are still lingering bugs which need to be chased down. If you
-only take one thing away from the post, I&rsquo;d like it to be this:
+only take one thing away from the post, I'd like it to be this:
 </p>
 
 <p>
@@ -543,14 +530,13 @@ only take one thing away from the post, I&rsquo;d like it to be this:
 </div>
 </div>
 </div>
-
 <div id="outline-container-htmla-href2021-12" class="outline-2">
 <h2 id="htmla-href2021-12"><a href='2021-12-31-retrospection.html' style='text-decoration:none;color:inherit'> December 2021 <span class='tag'><span>2021-12-31</span></span></a><a aria-hidden="true" href="#htmla-href2021-12">#</a> </h2>
 <div class="outline-text-2" id="text-htmla-href2021-12">
 <p>
 Just over eight months ago, I kicked off <i>This Month in Org</i> with an emphatic
-announcement of the blog&rsquo;s in the form of a <a href="2021-04-26-Welcome.html">Welcome</a> post. If you haven&rsquo;t
-guessed, this is the first &ldquo;blog post&rdquo; I&rsquo;ve ever written. In that <i>welcome</i> post,
+announcement of the blog's in the form of a <a href="2021-04-26-Welcome.html">Welcome</a> post. If you haven't
+guessed, this is the first "blog post" I've ever written. In that <i>welcome</i> post,
 I gave my motivation for starting the blog &#x2014; essentially to bridge a perceived
 gap in information sources between a subscription to the Org project mailing
 list, and nothing.
@@ -567,17 +553,15 @@ mention what <i>I</i> want to accomplish with it. By starting <i>TMiO</i> I hope
 </ul>
 </div>
 </div>
-
 <div id="outline-container-htmla-href2021-11" class="outline-2">
 <h2 id="htmla-href2021-11"><a href='2021-11-30-element.html' style='text-decoration:none;color:inherit'> November 2021 <span class='tag'><span>2021-11-30</span></span></a><a aria-hidden="true" href="#htmla-href2021-11">#</a> </h2>
 <div class="outline-text-2" id="text-htmla-href2021-11">
 <p>
-With a 9.5 release highlight post last month, and the month before skipped, it&rsquo;s
-now <i>three months</i> since the last regular instalment of <span class='acr'>TMIO</span>. Let&rsquo;s get back up
+With a 9.5 release highlight post last month, and the month before skipped, it's
+now <i>three months</i> since the last regular instalment of <span class='acr'>TMIO</span>. Let's get back up
 to date on some of the latest happenings with Org.
 </p>
 </div>
-
 <div id="outline-container-org-as-markup" class="outline-3">
 <h3 id="org-as-markup">Org as markup<a aria-hidden="true" href="#org-as-markup">#</a> </h3>
 <div class="outline-text-3" id="text-org-as-markup">
@@ -585,8 +569,8 @@ to date on some of the latest happenings with Org.
 Looking at the wider ecosystem, it certainly appears that there is a growing
 appetite for Org markup outside org-mode. More projects like <a href="https://gohugo.io/">Hugo</a> and <a href="https://logseq.com/">Logseq</a>
 seem to be interested in supporting Org markup, and there has been a recent
-growth in editor extensions like Neovim&rsquo;s <a href="https://github.com/nvim-orgmode/orgmode/">orgmode.nvim</a> (started in March this
-year) and Sublime Text&rsquo;s <a href="https://packagecontrol.io/packages/OrgExtended">OrgExtended</a> (started in June this year).
+growth in editor extensions like Neovim's <a href="https://github.com/nvim-orgmode/orgmode/">orgmode.nvim</a> (started in March this
+year) and Sublime Text's <a href="https://packagecontrol.io/packages/OrgExtended">OrgExtended</a> (started in June this year).
 </p>
 
 <p>
@@ -595,26 +579,24 @@ year) and Sublime Text&rsquo;s <a href="https://packagecontrol.io/packages/OrgEx
 </div>
 </div>
 </div>
-
 <div id="outline-container-htmla-href2021-10" class="outline-2">
 <h2 id="htmla-href2021-10"><a href='2021-10-31-release.html' style='text-decoration:none;color:inherit'> October 2021 <span class='tag'><span>2021-10-31</span></span></a><a aria-hidden="true" href="#htmla-href2021-10">#</a> </h2>
 <div class="outline-text-2" id="text-htmla-href2021-10">
 <blockquote>
 <p>
-Turns out that life became busy enough that instead of delaying, last month&rsquo;s
-post had to be cancelled. We&rsquo;re now back to business as usual though 🙂.
+Turns out that life became busy enough that instead of delaying, last month's
+post had to be cancelled. We're now back to business as usual though 🙂.
 </p>
 </blockquote>
 
 <p>
 There have been some cool recent developments in Org over the past two months,
-but you&rsquo;ll have to learn about those is next month&rsquo;s edition as <i>Org 9.5 has been
-released</i> 🎉. So, let&rsquo;s go over some of the changes I&rsquo;m most excited about, in no
+but you'll have to learn about those is next month's edition as <i>Org 9.5 has been
+released</i> 🎉. So, let's go over some of the changes I'm most excited about, in no
 particular order. To get a more complete picture of the latest changes, see
 <a href="https://git.savannah.gnu.org/cgit/emacs/org-mode.git/tree/etc/ORG-NEWS?h=release_9.5#n14"><span class='acr'>ORG</span>-<span class='acr'>NEWS</span></a>.
 </p>
 </div>
-
 <div id="outline-container-new-citation-engine" class="outline-3">
 <h3 id="new-citation-engine">The new citation engine<a aria-hidden="true" href="#new-citation-engine">#</a> </h3>
 <div class="outline-text-3" id="text-new-citation-engine">
@@ -624,25 +606,23 @@ particular order. To get a more complete picture of the latest changes, see
 </div>
 </div>
 </div>
-
 <div id="outline-container-htmla-href2021-08" class="outline-2">
 <h2 id="htmla-href2021-08"><a href='2021-08-38-roaming.html' style='text-decoration:none;color:inherit'> August 2021 <span class='tag'><span>2021-08-38</span></span></a><a aria-hidden="true" href="#htmla-href2021-08">#</a> </h2>
 <div class="outline-text-2" id="text-htmla-href2021-08">
 <blockquote>
 <p>
-Dear readers, unfortunately I&rsquo;ve been unusually busy as of late, and will
-continue to be for a bit over a month. As such, it&rsquo;s entirely likely that the
+Dear readers, unfortunately I've been unusually busy as of late, and will
+continue to be for a bit over a month. As such, it's entirely likely that the
 next post or two may <del>be late</del> make use of creative dates too.
 </p>
 </blockquote>
 
 <p>
-In terms of Org development, we&rsquo;ve had a fairly slow month &#x2014; mostly tweaks and
+In terms of Org development, we've had a fairly slow month &#x2014; mostly tweaks and
 fixes, concentrated on the new org-cite functionality. However, there have been
 big developments with Roam as of late.
 </p>
 </div>
-
 <div id="outline-container-org-roam-v2" class="outline-3">
 <h3 id="org-roam-v2"><a href="https://github.com/org-roam/org-roam">Org-roam v2</a><a aria-hidden="true" href="#org-roam-v2">#</a> </h3>
 <div class="outline-text-3" id="text-org-roam-v2">
@@ -652,23 +632,21 @@ big developments with Roam as of late.
 </div>
 </div>
 </div>
-
 <div id="outline-container-htmla-href2021-07" class="outline-2">
 <h2 id="htmla-href2021-07"><a href='2021-07-31-citations.html' style='text-decoration:none;color:inherit'> July 2021 <span class='tag'><span>2021-07-31</span></span></a><a aria-hidden="true" href="#htmla-href2021-07">#</a> </h2>
 <div class="outline-text-2" id="text-htmla-href2021-07">
 <p>
 Last month I not-at-all-subtly hinted that a certain long-awaited feature was
-arriving imminently. At this point, I think it&rsquo;s a good idea to set the tone for the rest of
+arriving imminently. At this point, I think it's a good idea to set the tone for the rest of
 this post.
 </p>
 
 
-<figure id="org71f0d97">
+<figure id="org9e6fb14">
 <img src="figures/celebrate-citations.svg" alt="celebrate-citations.svg" class="org-svg">
 
 </figure>
 </div>
-
 <div id="outline-container-citations" class="outline-3">
 <h3 id="citations">Citations<a aria-hidden="true" href="#citations">#</a> </h3>
 <div class="outline-text-3" id="text-citations">
@@ -678,27 +656,25 @@ this post.
 </div>
 </div>
 </div>
-
 <div id="outline-container-htmla-href2021-06" class="outline-2">
 <h2 id="htmla-href2021-06"><a href='2021-06-34-relaxed.html' style='text-decoration:none;color:inherit'> June 2021 <span class='tag'><span>2021-06-34</span></span></a><a aria-hidden="true" href="#htmla-href2021-06">#</a> </h2>
 <div class="outline-text-2" id="text-htmla-href2021-06">
 <p>
 The previous two months have been pretty good for Org development &#x2014; with many
 bug fixes and feature improvements. This month has been substantially slower
-than the last<sup>[1]</sup>, but that&rsquo;s not to say not much is happening: in fact, there are
+than the last<sup>[1]</sup>, but that's not to say not much is happening: in fact, there are
 some rather nifty contributions lined up for the not-too-distant future and a
 certain long-awaited feature branch<sup>[2]</sup> is getting very close to merging 😀.
-You&rsquo;ll just have to stick around to hear about those in a future edition of <span class='acr'>TMIO</span> 😉.
+You'll just have to stick around to hear about those in a future edition of <span class='acr'>TMIO</span> 😉.
 </p>
 
 
-<figure id="orgaecd1b1">
+<figure id="org4c5b4b8">
 <img src="figures/dilbert-zenos-paradox.jpg" alt="dilbert-zenos-paradox.jpg" class="invertible">
 
-<figcaption><span class="figure-number">Figure 6: </span>It&rsquo;s right around the corner, I swear!</figcaption>
+<figcaption><span class="figure-number">Figure 6: </span>It's right around the corner, I swear!</figcaption>
 </figure>
 </div>
-
 <div id="outline-container-customise-reference-command" class="outline-3">
 <h3 id="customise-reference-command">Customise the reference command used in LaTeX<a aria-hidden="true" href="#customise-reference-command">#</a> </h3>
 <div class="outline-text-3" id="text-customise-reference-command">
@@ -708,7 +684,6 @@ You&rsquo;ll just have to stick around to hear about those in a future edition o
 </div>
 </div>
 </div>
-
 <div id="outline-container-htmla-href2021-05" class="outline-2">
 <h2 id="htmla-href2021-05"><a href='2021-05-31-async.html' style='text-decoration:none;color:inherit'> May 2021 <span class='tag'><span>2021-05-31</span></span></a><a aria-hidden="true" href="#htmla-href2021-05">#</a> </h2>
 <div class="outline-text-2" id="text-htmla-href2021-05">
@@ -722,21 +697,21 @@ asynchronous output from source blocks <i>with full support for sessions</i> �
 </p>
 
 <p>
-If you haven&rsquo;t used sessions before, you&rsquo;re in for a treat! By simply assigning
+If you haven't used sessions before, you're in for a treat! By simply assigning
 a named session to a source code block, e.g. <kbd>:session foo</kbd>, the same process will
 be reused for any other code blocks that specify the <kbd>foo</kbd> session. To do this for
 a certain language across the entire document, you can set the header argument
 property, i.e.
 </p>
 <details id='async-babel-sessions,code--1' class='code' open><summary><span class="lang">Org mode</span></summary>
-    <div class='gutter'>
-    <a href='#async-babel-sessions,code--1'>#</a>
-    <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>    </div>
-    <div class="org-src-container">
+<div class='gutter'>
+<a href='#async-babel-sessions,code--1'>#</a>
+<button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
+<div class="org-src-container">
 <pre class="src src-org"><span class="org-org-meta-line">#+property: header-args:lang :session foo</span>
 </pre>
 </div>
-    </details>
+</details>
 
 <p>
 Along with the asynchronous process communication in <kbd>ob-comint.el</kbd>, we have an
@@ -750,7 +725,6 @@ not-too-distant future 😍.
 </div>
 </div>
 </div>
-
 <div id="outline-container-htmla-href2021-04" class="outline-2">
 <h2 id="htmla-href2021-04"><a href='2021-04-30-export-plot.html' style='text-decoration:none;color:inherit'> April 2021 <span class='tag'><span>2021-04-30</span></span></a><a aria-hidden="true" href="#htmla-href2021-04">#</a> </h2>
 <div class="outline-text-2" id="text-htmla-href2021-04">
@@ -759,7 +733,7 @@ not-too-distant future 😍.
 <h3 id="discussion-contributor-support">A discussion on contributor support<a aria-hidden="true" href="#discussion-contributor-support">#</a> </h3>
 <div class="outline-text-3" id="text-discussion-contributor-support">
 <p>
-Concerns <a href="https://lists.gnu.org/archive/html/emacs-orgmode/2021-04/msg00291.html">were raised</a><sup>[1]</sup> about some contributors&rsquo; patches languishing, and it not
+Concerns <a href="https://lists.gnu.org/archive/html/emacs-orgmode/2021-04/msg00291.html">were raised</a><sup>[1]</sup> about some contributors' patches languishing, and it not
 being made clear how long it might take to get a response from someone.
 </p>
 
@@ -785,7 +759,6 @@ and core maintainers:
 </div>
 </div>
 </div>
-
 <div id="outline-container--htmla-href2021" class="outline-2">
 <h2 id="-htmla-href2021"><a href='2021-04-26-Welcome.html' style='text-decoration:none;color:inherit'> Welcome <span class='tag'><span>2021-04-26</span></span></a><a aria-hidden="true" href="#-htmla-href2021">#</a> </h2>
 <div class="outline-text-2" id="text--htmla-href2021">
@@ -795,8 +768,8 @@ and core maintainers:
 <div class="outline-text-3" id="text-introduction">
 <p>
 Org is an absolutely marvellous project. However, a quick glance at
-<a href="https://orgmode.org">https://orgmode.org</a> can lead one to think &ldquo;so&#x2026; it&rsquo;s an Emacs version of
-Markdown? What&rsquo;s the big deal?&rdquo;. While it&rsquo;s easy to understand how someone might
+<a href="https://orgmode.org">https://orgmode.org</a> can lead one to think "so&#x2026; it's an Emacs version of
+Markdown? What's the big deal?". While it's easy to understand how someone might
 think that at first, that impression misses two crucial points:
 </p>
 <ul class="org-ul">

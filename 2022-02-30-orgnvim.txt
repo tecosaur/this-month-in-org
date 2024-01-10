@@ -15,22 +15,22 @@ efforts to provide a good experience outside Emacs.
 
 //github.com/nvim-orgmode/orgmode
 
-“But I use Emacs, I don’t care” you may say. In that case, I’d like to
+"But I use Emacs, I don't care" you may say. In that case, I'd like to
 point out that wider spread and better Org support enriches the Org
-ecosystem as a whole. It makes the format more approachable, and
+ecosystem as a whole.  It makes the format more approachable, and
 /useful/ for other people. This is good for everybody.
 
-Without any further ado, here’s the guest post kindly written by
-Kristijan. Enjoy!
+Without any further ado, here's the guest post kindly written by
+Kristijan.  Enjoy!
 
 ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 
 Like every beginner Vim user, at some point I ran into a usual editor
-war post: Vim vs Emacs. At that time, I didn’t have an idea what “Emacs”
+war post: Vim vs Emacs. At that time, I didn't have an idea what "Emacs"
 was.
 
 A simple Google search yielded something that seemed just like a very
-simple editor with strange, but more familiar shortcuts. I didn’t bother
+simple editor with strange, but more familiar shortcuts. I didn't bother
 too much to figure out what it is, because I was already pulled in
 fairly deep into Vim and its philosophy.
 
@@ -46,19 +46,19 @@ Note taking in (Neo)Vim
   [vimwiki] was the natural choice.
 
   That worked very well for a period, until the need for writing quick
-  notes arise. Vimwiki didn’t have anything that would allow that. I
+  notes arise. Vimwiki didn't have anything that would allow that. I
   could of course have a mapping that opens a specific file where I can
   add notes, but that just never felt right in my mind. I would keep a
   bunch of things in the same place, and then later I needed to spend
   some time organizing them.
 
-  At that point, I wasn’t sure how to achieve what I want. I did a brief
-  look at [Emacs OrgMode] to see what’s all the fuss about, but to me,
+  At that point, I wasn't sure how to achieve what I want. I did a brief
+  look at [Emacs OrgMode] to see what's all the fuss about, but to me,
   it seemed just like a different version of Markdown. You put some
-  unordered lists as your notes, and that’s it. I never spent more time
+  unordered lists as your notes, and that's it. I never spent more time
   trying to see all the neat features. I even tried creating some of my
   custom note taking tools, but I never managed to finish them because I
-  didn’t have a clear idea of how to solve my problems.
+  didn't have a clear idea of how to solve my problems.
 
 
 [vimwiki] <https://github.com/vimwiki/vimwiki>
@@ -70,22 +70,22 @@ First encounter with Orgmode like tool: vim-dotoo
 ═════════════════════════════════════════════════
 
   One weekend, I was browsing through Vim subreddit, as I usually do at
-  least once a day. There was a post about an “Orgmode like task
-  logging” plugin called [vim-dotoo]. I opened it up, and I didn’t see
-  much at that point. I wasn’t too excited. I went through readme, and
+  least once a day. There was a post about an "Orgmode like task
+  logging" plugin called [vim-dotoo]. I opened it up, and I didn't see
+  much at that point. I wasn't too excited. I went through readme, and
   noticed that author ([dhruvasagar]) put a fairly big emphasis on the
-  “Agenda view”. I had no idea what “Agenda view” is. Thankfully, the
+  "Agenda view". I had no idea what "Agenda view" is.  Thankfully, the
   author also made a [screencast], which is rather long (1.5h), but I
   had some time, so I went through it.
 
-  At that point, I was first met with “Capturing” and “Refiling”. *My
+  At that point, I was first met with "Capturing" and "Refiling". *My
   mind was blown!* What a simple, yet extremely powerful idea! How had
   that never crossed my mind? From that point on, this plugin had my
   full attention.
 
-  I’m always emphasizing that [dhruvasagar] and his [vim-dotoo] plugin
+  I'm always emphasizing that [dhruvasagar] and his [vim-dotoo] plugin
   are most deserving for having inspired
-  <https://github.com/nvim-orgmode/orgmode>, and I can’t thank him
+  <https://github.com/nvim-orgmode/orgmode>, and I can't thank him
   enough for that.
 
 
@@ -103,19 +103,19 @@ First steps with vim-dotoo and birth of orgmode.nvim
   notes to it. It was a breath of fresh air. Alongside that, I started
   getting more interest in the original Emacs Orgmode. I started
   noticing the differences, and some of the missing features that were
-  now looking quite attractive. I made [few contributions] to vim-dotoo.
-  As time passed, and my notes started to grow, things began being slow.
-  I did some profiling, and figured out that it’s just a usual Vim
-  problem, Vimscript performance. It was just too slow for certain
-  things that Orgmode provides, and it would hardly get any better as
-  more things are added.
+  now looking quite attractive. I made [few contributions] to
+  vim-dotoo. As time passed, and my notes started to grow, things began
+  being slow. I did some profiling, and figured out that it's just a
+  usual Vim problem, Vimscript performance. It was just too slow for
+  certain things that Orgmode provides, and it would hardly get any
+  better as more things are added.
 
   Separately from Vim and Vimscript, [Neovim] was on a stable `v0.4'
   release, and `v0.5' was still being developed. I was using Neovim from
   version 0.3, and was carefully following the progress on it. Lua was
   introduced as a first class citizen. A Bunch of new plugins arise from
   it. All the benchmarks showed that Lua outperforms Vimscript in almost
-  everything. Besides the performance, Lua is a “normal” programming
+  everything. Besides the performance, Lua is a "normal" programming
   language, which means that support for it is much better.
 
   At that point, I became curious: Could Lua be the path to the faster
@@ -127,7 +127,7 @@ First steps with vim-dotoo and birth of orgmode.nvim
   bit.
 
   One weekend, I started working on it. It was really interesting and
-  challenging. I spent a lot of my free time on it. At certain points,
+  challenging.  I spent a lot of my free time on it. At certain points,
   it seemed like hacking, since it was not a proper parsing. I tried to
   learn how to write a proper parser, but it was just too time consuming
   and complicated. I proceeded with the regex parsing to see how far I
@@ -146,11 +146,11 @@ First steps with vim-dotoo and birth of orgmode.nvim
 Understanding the OrgMode syntax and all the functionality
 ──────────────────────────────────────────────────────────
 
-  This is still the biggest challenge. I didn’t have any idea how big
-  and robust OrgMode is. If I would know it at that time, I wouldn’t
-  even jump on this train. It’s really hard to grasp all of it.
-  Considering I’ve only used it for around 8 months, I think I made some
-  good progress on learning it.
+  This is still the biggest challenge. I didn't have any idea how big
+  and robust OrgMode is. If I would know it at that time, I wouldn't
+  even jump on this train.  It's really hard to grasp all of
+  it. Considering I've only used it for around 8 months, I think I made
+  some good progress on learning it.
 
 
 Remote editing
@@ -178,20 +178,20 @@ Working with dates
   so this is not so surprising. There are some Lua plugins for dates,
   but those seemed a bit too basic for my use case, and I wanted to keep
   external plugins to the minimum. I went with a custom solution that
-  uses Lua’s native dates, which has certain limitations, but works out
+  uses Lua's native dates, which has certain limitations, but works out
   for most of the things.
 
 
 Highlighting, mostly in Agenda view
 ───────────────────────────────────
 
-  Vim’s syntax engine is fairly old, but still very much used,
+  Vim's syntax engine is fairly old, but still very much used,
   especially in the Vim community. Implementation of tree-sitter
-  slightly improved this experience in Neovim, because “Highlight
-  matches” are found via tree-sitter, instead of a bunch of regexes.
+  slightly improved this experience in Neovim, because "Highlight
+  matches" are found via tree-sitter, instead of a bunch of regexes.
 
   This helped me out later for the Org file itself, but agenda view is
-  still something that’s built as a custom view. Old Syntax highlight
+  still something that's built as a custom view. Old Syntax highlight
   engine would be really hard to add, because the content is too
   dynamic. I went with the Neovim highlight API that allows Highlighting
   things by their exact position in the buffer. Tree-sitter
@@ -207,7 +207,7 @@ Keeping configuration simple and familiar to Emacs OrgMode
   Emacs OrgMode user, by having as many options as possible named
   completely the same as in Emacs.
 
-  For example, Here’s a comparison of few options between Emacs and
+  For example, Here's a comparison of few options between Emacs and
   Neovim:
 
   Emacs:
@@ -258,12 +258,12 @@ First release of orgmode.nvim and introduction of tree-sitter parser
 ════════════════════════════════════════════════════════════════════
 
   After ~1.5 months I [published the initial version]. The focus was on
-  Agenda and capturing (GTD), since those are the things I mostly used.
-  It got some traction, and people started testing it and reporting
-  bugs.
+  Agenda and capturing (GTD), since those are the things I mostly
+  used. It got some traction, and people started testing it and
+  reporting bugs.
 
-  One of the common questions was: /“Any plans to introduce tree-sitter
-  parser?”/.
+  One of the common questions was: /"Any plans to introduce tree-sitter
+  parser?"/.
 
   I knew about [tree-sitter] and used it in my day-to-day job for a few
   programming languages, but I had absolutely no idea how it worked, and
@@ -271,23 +271,23 @@ First release of orgmode.nvim and introduction of tree-sitter parser
   continued working on what I had.
 
   One day, Emilia ([milisims]) contacted me via email to ask me if I
-  would be willing to try the tree-sitter parser she’s been working on
+  would be willing to try the tree-sitter parser she's been working on
   for some time. I gladly accepted. She gave me access to the
   repository, and I started tinkering with it in a separate branch. No
   one was aware at that point that tree-sitter support would happen some
   time soon.
 
-  After some time, I set up a “beta” branch called “tree-sitter” and
+  After some time, I set up a "beta" branch called "tree-sitter" and
   [announced it for testing]. Once the reported bugs slowed to a
-  trickle, I merged it into the “master” branch.
+  trickle, I merged it into the "master" branch.
 
   I believe that tree-sitter grammar for Org could help out other
-  editors to implement their version of Orgmode plugin, but I don’t
+  editors to implement their version of Orgmode plugin, but I don't
   think it would ever be helpful for Emacs. Emacs parser is the one and
-  only that has it all implemented. Also, as much as tree-sitter is
+  only that has it all implemented.  Also, as much as tree-sitter is
   powerful, its main purpose is to parse programming languages, which
-  mostly has “static” patterns to match. Orgmode is by its nature
-  dynamic, which causes a variety of issues for a parser that’s not
+  mostly has "static" patterns to match. Orgmode is by its nature
+  dynamic, which causes a variety of issues for a parser that's not
   meant for that kind of usage.
 
 
@@ -306,11 +306,11 @@ Limitations
 ═══════════
 
   (Neo)Vim is a great editor, but it still cannot compare to Emacs in
-  certain things. Manipulating the “View” part of the editor is tricky
+  certain things. Manipulating the "View" part of the editor is tricky
   or impossible for certain things.
 
   I even [made a label] for reported issues where Neovim support for
-  certain things is a blocker. I’m hoping that at least some of these
+  certain things is a blocker. I'm hoping that at least some of these
   will be available in future Neovim releases.
 
 
@@ -326,9 +326,9 @@ Features
   mention one feature that does not exist as a built/-in feature in the
   Emacs Orgmode: [Notifications].
 
-  This allows getting a “desktop notification” for tasks that are within
+  This allows getting a "desktop notification" for tasks that are within
   the specified threshold for schedule/deadline time. It requires some
-  configuration to set up a cron job, but it’s been working great for me
+  configuration to set up a cron job, but it's been working great for me
   for several months now.
 
 
@@ -342,15 +342,15 @@ Features
 Plans
 ═════
 
-  The current state of the project is very usable for me. I’m not
-  lacking any of the major features, mostly because I’m not used to
-  using them. Nevertheless, there are plans to add more things, and I’m
+  The current state of the project is very usable for me. I'm not
+  lacking any of the major features, mostly because I'm not used to
+  using them. Nevertheless, there are plans to add more things, and I'm
   getting a lot of help from the community. I want to specifically
   mention [levouh] and [lukas-reineke], since they added a lot of value
   to the project, and I want to thank them and everyone else who
   contributed. Their help is much appreciated.
 
-  There are few high priority tasks that I’m hoping to flush out first:
+  There are few high priority tasks that I'm hoping to flush out first:
 
   • Implementing [v1.0.0] release of the tree-sitter parser. This should
     allow for faster and less error-prone parsing.
@@ -393,12 +393,12 @@ Plans
 Closing thoughts
 ════════════════
 
-  When I started working on [nvim-orgmode], I didn’t have a clue what
-  I’m jumping into. Every day I learn about more and more Orgmode
-  features that I wasn’t even aware existed.
+  When I started working on [nvim-orgmode], I didn't have a clue what
+  I'm jumping into. Every day I learn about more and more Orgmode
+  features that I wasn't even aware existed.
 
-  I’m certain that this project will never manage to clone the Orgmode
-  functionality completely, but I’m hoping it will get close enough so
+  I'm certain that this project will never manage to clone the Orgmode
+  functionality completely, but I'm hoping it will get close enough so
   everyone from Neovim community and Emacsers trying out Neovim will be
   able to use it for their needs.
 

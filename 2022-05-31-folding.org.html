@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>2022-05-31-folding.org.html</title>
+    <style>
+      body { background: #fafafa; color: #2a2a2a; }
+      pre {
+        font-size: 1rem;
+        max-width: min(100rem, 100%);
+        width: max-content;
+        white-space: pre-wrap;
+        margin: auto; }
+      .ef-D {
+        color: #2a2a2a; background-color: #fafafa; font-weight: 400; }
+      .ef-b {
+        font-weight: 700; }
+      .ef-i {
+        text-decoration: italic; }
+      .ef-vp {
+         }
+      .ef-h {
+        color: #9e9e9e; }
+      .ef-sc {
+        color: #4f894c; }
+      .ef-w {
+        color: #9a7500; }
+      .ef-e {
+        color: #99324b; }
+      .ef-l {
+        color: #3b6ea8; font-weight: 700; }
+      .ef-lv {
+        color: #8b008b; font-weight: 700; }
+      .ef-hi {
+        color: #fafafa; background-color: #3b6ea8; }
+      .ef-c {
+        color: #b1b1b1; }
+      .ef-cd {
+        color: #b1b1b1; }
+      .ef-s {
+        color: #4f894c; }
+      .ef-d {
+        color: #b6b6b6; }
+      .ef-m {
+        color: #97365b; }
+      .ef-k {
+        color: #3b6ea8; }
+      .ef-bi {
+        color: #29838d; }
+      .ef-f {
+        color: #29838d; }
+      .ef-v {
+        color: #cb9aad; }
+      .ef-t {
+        color: #9a7500; }
+      .ef-o {
+        color: #97365b; }
+      .ef-wr {
+        color: #9a7500; }
+      .ef-nc {
+        color: #3b6ea8; font-weight: 700; }
+      .ef-pp {
+        color: #3b6ea8; font-weight: 700; }
+      .ef-rc {
+        color: #3b6ea8; font-weight: 700; }
+      .ef-rb {
+        color: #3b6ea8; font-weight: 700; }
+      .ef-ob {
+        background-color: #e0e0e0; }
+      .ef-obb {
+        color: #b1b1b1; background-color: #e0e0e0; }
+      .ef-obe {
+        color: #b1b1b1; background-color: #e0e0e0; }
+      .ef-Oa {
+        color: #3b6ea8; font-weight: nil; font-size: 1.25em }
+      .ef-Ob {
+        color: #97365b; font-weight: 700; font-size: 1.15em }
+      .ef-Oc {
+        color: #842879; font-weight: 700; font-size: 1.12em }
+      .ef-Od {
+        color: #6c92bd; font-weight: 600; font-size: 1.09em }
+      .ef-Oe {
+        color: #b16883; font-weight: 600; font-size: 1.06em }
+      .ef-Of {
+        color: #9db6d3; font-weight: 600; font-size: 1.03em }
+      .ef-Og {
+        color: #cb9aad; font-weight: 700; }
+      .ef-Oh {
+        color: #d7e2ed; font-weight: 600; }
+      .ef-hn {
+        color: #97365b; font-weight: 700; }
+      .ef-hq {
+        color: #3b6ea8; }
+      .ef-hs {
+        color: #9a7500; }
+      .ef-rda {
+        color: #3b6ea8; }
+      .ef-rdb {
+        color: #97365b; }
+      .ef-rdc {
+        color: #4f894c; }
+      .ef-rdd {
+        color: #842879; }
+      .ef-rde {
+        color: #29838d; }
+      .ef-rdf {
+        color: #3b6ea8; }
+      .ef-rdg {
+        color: #97365b; }
+      .ef-rdh {
+        color: #4f894c; }
+      .ef-rdi {
+        color: #842879; }
+    </style>
+  </head>
+  <body>
+<pre>
+<span class="ef-c"># -*- org-plot/gnuplot-term-extra: "background rgb '#fafafa' size 800,500 font 'Alegreya Sans, 16'"; -*-</span>
+<span style="color: #9e9e9e;">#+title:</span> <span style="font-weight: 700;">May 2022
+</span><span style="color: #9e9e9e;">#+subtitle:</span> Folding more improvement into Org
+<span style="color: #9e9e9e;">#+author:</span> TEC
+<span style="color: #9e9e9e;">#+date:</span> 2022-05-31
+
+Finding time as of late has been more difficult than I anticipated, and on top
+of that, just as I was thinking of writing last month's post, I got distracted
+by an exciting patchset that has been in the works for over a year finally
+getting sorted out and landing. So, I hope that some of the fun developments in
+this post will make up the absense of the last one 🙂.
+
+Since it's been longer than I thought since the last standard post, we've got a
+fair few commits to catch up on --- about 200. Most of these are miscellaneous
+minor improvements and bugfixes, but a few notable changes have arrived too.
+
+<span style="color: #3b6ea8; font-weight: nil; font-size: 1.25em">* Folding</span>
+
+The fabulous new folding engine (<span style="color: #9e9e9e;">=org-fold-core=</span>) should noticeably improve Org's
+performance with large files. It contains a number of key optimisations to
+improve speed, namely:
++ Deferring fontification of folded regions
++ Using text properties (\(\mathcal{O}(n \log n)\)) instead of overlays (\(\mathcal{O}(n^2)\)) for folded regions
++ A collection of aggressive optimisations available under <span style="color: #9e9e9e;">~org-fold-core--optimise-for-huge-buffers~</span>
++ Convert text properties to overlays for <span style="color: #9e9e9e;">=isearch=</span> (which currently only supports overlays)
+
+How noticeable is the overall performance impact? Well, I poked Ihor and he was
+kind enough to whip up some benchmarks.
+
+<span style="color: #b1b1b1;">#+caption:</span> <span class="ef-ob">The scaling of ~org-shifttab~ showing file contents, as file size increases, with and without org-fold.</span>
+<span style="color: #b1b1b1;">#+attr_html: :class invertible</span>
+<span style="color: #3b6ea8; font-weight: 700;">[[file:figures/org-fold-perf-shifttab-contents.svg]]</span>
+
+<span style="color: #b1b1b1;">#+caption:</span> <span class="ef-ob">The scaling of ~org-shifttab~ showing the entire file, as file size increases, with and without org-fold.</span>
+<span style="color: #b1b1b1;">#+attr_html: :class invertible</span>
+<span style="color: #3b6ea8; font-weight: 700;">[[file:figures/org-fold-perf-shifttab-showall.svg]]</span>
+
+Well this looks very promising[fn::Note the difference in scale, org-fold makes
+the most difference in the graph where the times are an order of magnitude
+more.]! Let's see how much of an improvement this is overall.
+
+<span style="color: #b1b1b1;">#+caption:</span> <span class="ef-ob">Time to run =org-shifttab= twice, cycling through all three display modes (in seconds).</span>
+| File size (Mb) | Headings (thousands) | Bugfix (no org-fold) | Main (with org-fold) | Improvement |
+|----------------+----------------------+----------------------+----------------------+-------------|
+|             18 |                   36 |               115.31 |                 0.89 |         99% |
+|            8.8 |                   24 |                19.03 |                 0.48 |         97% |
+|            4.4 |                    5 |                 3.79 |                 0.13 |         97% |
+|            2.2 |                    2 |                 1.29 |                 0.08 |         94% |
+|            1.1 |                    1 |                 0.50 |                0.045 |         91% |
+<span style="color: #b1b1b1;">#+TBLFM: $5=100*(1 - $4/$3) ; %.0f%%</span>
+
+To be clear, even the smallest file in this data --- a 1.1 Mb Org file with around
+a thousand headings, is fairly large. So, it's unlikely you'll notice much of a
+difference with small--medium files, but if you a few large+ files this should
+be a <span class="ef-i">/fantastic/</span> improvement. Once again, thanks Ihor!
+
+<span class="ef-obb">#+begin_warning
+</span>The change to text properties instead of overlays breaks a number of third party
+packages like <span style="color: #9e9e9e;">=evil-search=</span> and <span style="color: #9e9e9e;">=consult=</span>'s <span style="color: #9e9e9e;">~consult-line~</span>.
+If you are involved in any packages affected by this, you'll either want to
+consider supporting invisible text, or look at <span style="color: #9e9e9e;">~isearch-filter-predicate~</span> and
+<span style="color: #9e9e9e;">~isearch-mode-end-hook~</span>, which <span style="color: #9e9e9e;">=org-fold=</span> now uses.
+If you're an end-user, perhaps politely make an issue on the repo for a project
+<span class="ef-i">/if no issue currently exists/</span>, and either:
++ Stay off Org's bleeding edge till the package ecosystem has adapted to this change
++ Help the packages you use adapt to this change
++ Set <span style="color: #9e9e9e;">~org-fold-core-style~</span> to <span style="color: #9e9e9e;">~overlays~</span> to restore the old behaviour
+<span class="ef-obe">#+end_warning
+</span>
+<span style="color: #97365b; font-weight: 700; font-size: 1.15em">** Benchmark data </span><span style="color: #97365b; font-weight: 700; font-size: 1.15em">:noexport:</span>
+
+<span style="color: #b1b1b1;">#+plot: ind:2 deps:(3 4) with:linespoints file:"figures/org-fold-perf-shifttab-contents.svg"</span>
+<span style="color: #b1b1b1;">#+plot: set:"title '{/*1.6 Running org-shifttab to CONTENTS}'" set:"xlabel '{/*1.2 File size (Mb)}'" set:"ylabel '{/*1.2 Load time (seconds)}'"</span>
+<span style="color: #b1b1b1;">#+plot: set:"logscale x" set:"logscale y" set:"linetype 1 pt 5" set:"linetype 2 pt 7"</span>
+| Headings (k) | File Size (Mb) | Bugfix (no org-fold) | Main (org-fold) |
+|--------------+----------------+----------------------+-----------------|
+|          217 |            150 |               173.28 |           10.73 |
+|           36 |             18 |                 1.97 |            0.92 |
+|           24 |            8.8 |                 0.81 |            0.46 |
+|            5 |            4.4 |                 0.09 |            0.21 |
+|            2 |            2.2 |                 0.03 |            0.07 |
+|            1 |            1.1 |                 0.02 |            0.04 |
+
+<span style="color: #b1b1b1;">#+plot: ind:2 deps:(3 4) with:linespoints file:"figures/org-fold-perf-shifttab-showall.svg"</span>
+<span style="color: #b1b1b1;">#+plot: set:"title '{/*1.6 Running org-shifttab to SHOW-ALL}'" set:"xlabel '{/*1.2 File size (Mb)}'" set:"ylabel '{/*1.2 Load time (seconds)}'"</span>
+<span style="color: #b1b1b1;">#+plot: set:"logscale x" set:"logscale y" set:"linetype 1 pt 5" set:"linetype 2 pt 7"</span>
+| Headings (k) | File Size (Mb) | Bugfix (no org-fold) | Main (org-fold) |
+|--------------+----------------+----------------------+-----------------|
+|          217 |            150 |              8921.02 |            0.09 |
+|           36 |             18 |               100.96 |            0.02 |
+|           24 |            8.8 |                17.35 |            0.01 |
+|            5 |            4.4 |                 3.79 |           0.005 |
+|            2 |            2.2 |                 1.20 |           0.003 |
+|            1 |            1.1 |                 0.49 |           0.003 |
+
+<span style="color: #3b6ea8; font-weight: nil; font-size: 1.25em">* </span><span style="color: #3b6ea8; text-decoration: italic; font-weight: nil; font-size: 1.25em">/Engraved/</span><span style="color: #3b6ea8; font-weight: nil; font-size: 1.25em"> source code blocks in LaTeX</span>
+
+All too often exporting code to LaTeX has been a disappointment, with lovely
+syntax highlighting from Emacs major modes replaced with a markedly inferior
+attempt by pygments (setting <span style="color: #9e9e9e;">~org-latex-listings~</span> to <span style="color: #9e9e9e;">~minted~</span>) in a colour scheme I
+don't really like.
+
+A bit over a year ago, a project called <span style="color: #3b6ea8; font-weight: 700;">[[https://github.com/tecosaur/engrave-faces][engrave-faces]]</span> started with the aim of
+making Emacs' font-lock more exportable, like a generalised <span style="color: #9e9e9e;">=htmlize.el=</span>. This has
+recently been used to provide a new option for inline and block source code
+exports in LaTeX.
+
+<span style="color: #b1b1b1;">#+caption:</span> <span class="ef-ob">A screenshot of an Org code block, exported to a PDF,</span>
+<span style="color: #b1b1b1;">#+caption:</span> <span class="ef-ob">using =engrave-faces= and the =doom-one-light= theme.</span>
+<span style="color: #b1b1b1;">#+attr_html: :class invertible</span>
+<span style="color: #3b6ea8; font-weight: 700;">[[file:figures/engraved-faces-sample.png]]</span>
+
+To use this, simply install the package and set <span style="color: #9e9e9e;">~org-latex-src-block-backend~</span> (a
+rename of <span style="color: #9e9e9e;">~org-latex-listings~</span> to better reflect its usage) to <span style="color: #9e9e9e;">~engraved~</span>.
+
+While this is sufficient to get started, this new backend also allows for some
+new options. The theme used for <span class="ef-i">/engraving/</span> a source block can be set globally
+with the new variable <span style="color: #9e9e9e;">~org-latex-engraved-theme~</span>, or per-file with the
+<span style="color: #9e9e9e;">=#+latex_engraved_theme=</span> keyword. It takes either the name of a theme, or the
+symbol <span style="color: #9e9e9e;">=t=</span> as a stand-in for the current theme.
+
+The theme can also be set on a per-block level using the LaTeX attribute
+<span style="color: #9e9e9e;">=:engraved-theme=</span>.
+
+<span style="color: #b1b1b1;">#+caption:</span> <span class="ef-ob">Seven code blocks exported to LaTeX, each with a different engrave-faces theme.</span>
+<span style="color: #3b6ea8; font-weight: 700;">[[file:figures/engraved-faces-multitheme.png]]</span>
+
+Here's what using these new capabilities looks like in practice.
+
+<span class="ef-obb">#+begin_src org
+</span><span class="ef-ob">,#+title: Engraving source blocks
+,#+latex_engraved_theme: modus-operandi
+
+,#+begin_src emacs-lisp
+(message "look ma, some %s" 'code)
+,#+end_src
+
+,#+attr_latex: :engraved-theme modus-viviandi
+,#+begin_src shell
+echo "This is shell code"
+,#+end_src
+</span><span class="ef-obe">#+end_src
+</span>
+This may well be the best syntax-highlighting solution available for PDFs/LaTeX
+currently available, but I am a tad biased 😛.
+
+<span style="color: #3b6ea8; font-weight: nil; font-size: 1.25em">* TexInfo export improvements</span>
+
+Jonas Bernoulli has been using a custom TexInfo backend for Magit's
+documentation for a while now, and over the past few months he's worked the
+features he was missing into Org's built-in TexInfo exporter.
+
+Upstreaming like this always takes a fair bit of effort, so thank you Jonas for
+going through with this!
+
+<span style="color: #3b6ea8; font-weight: nil; font-size: 1.25em">* Toggle noweb prefix handling</span>
+
+Previously, whenever a noweb reference appeared on a non-empty line, a
+multi-line replacement would duplicate the content before the noweb reference.
+
+Clearly, this is not always desirable, and this behaviour can now be turned of
+by setting the new header argument <span style="color: #9e9e9e;">=:noweb-prefix no=</span>.
+
+<span class="ef-obb">#+begin_src org
+</span><span class="ef-ob">,#+begin_src emacs-lisp :noweb yes :noweb-prefix no
+(setq example-data "</span><span style="color: #9e9e9e; background-color: #e0e0e0;">&lt;&lt;example&gt;&gt;</span><span class="ef-ob">")
+,#+end_src
+
+Will now expand to
+
+,#+begin_src emacs-lisp
+(setq example-data "some
+multi-line
+content")
+,#+end_src
+
+Instead of
+
+,#+begin_src emacs-lisp
+(setq example-data "some
+(setq example-data "multiline
+(setq example-data "content")
+,#+end_src
+</span><span class="ef-obe">#+end_src
+</span>
+<span style="color: #3b6ea8; font-weight: nil; font-size: 1.25em">* Package highlight: org-modern</span>
+I think we've all <span style="color: #3b6ea8; font-weight: 700;">[[https://github.com/integral-dw/org-superstar-mode][seen]]</span> <span style="color: #3b6ea8; font-weight: 700;">[[https://github.com/sabof/org-bullets][plenty]]</span> of <span style="color: #9e9e9e;">=org-mode=</span> <span style="color: #3b6ea8; font-weight: 700;">[[https://github.com/Fuco1/org-pretty-table][prettification]]</span> <span style="color: #3b6ea8; font-weight: 700;">[[https://github.com/harrybournis/org-fancy-priorities][packages]]</span> <span style="color: #3b6ea8; font-weight: 700;">[[https://gitlab.com/marcowahl/org-pretty-tags][before]]</span>, so
+what makes Minad's <span style="color: #3b6ea8; font-weight: 700;">[[https://github.com/minad/org-modern][org-modern]]</span> special? It's actually doing something similar to
+Ihor's org-fold improvements, switching out slower overlay-based approaches for
+text properties. I can confirm that switching out <span style="color: #9e9e9e;">=org-superstar-mode=</span> for
+<span style="color: #9e9e9e;">=org-modern=</span> has made a substantial improvement in my experience, halving the
+first-load time of my <span style="color: #9e9e9e;">=config.org=</span> to around 20 seconds. If you're a fan of Org
+prettification and haven't taken a look at this package, I highly recommend
+giving it a shot.
+
+<span style="color: #b1b1b1;">#+caption:</span> <span class="ef-ob">A demonstration of org-modern taken from the project README.</span>
+<span style="color: #b1b1b1;">#+attr_html: :class invertible</span>
+<span style="color: #3b6ea8; font-weight: 700;">[[file:figures/org-modern-readme-demo.gif]]</span>
+
+<span style="color: #3b6ea8; font-weight: nil; font-size: 1.25em">* Other improvements</span>
++ Clean up some magic numbers in <span style="color: #9e9e9e;">=org-attach=</span> _Marco Wahl_
++ Allow <span class="ef-i">/any/</span> command form in <span style="color: #9e9e9e;">~org-attach-commands~</span> (including keyboard macros)
+  _Marco Wahl_
++ Allow <span style="color: #9e9e9e;">=dest=</span> in <span style="color: #9e9e9e;">~org-list-send-item~</span> to be a buffer position _Sacha Chua_
++ Improve CSL-JSON date handling in <span style="color: #9e9e9e;">=oc-basic=</span> _David Lukes_
++ Add <span style="color: #9e9e9e;">=TOML=</span> and <span style="color: #9e9e9e;">=desktop=</span> language aliases _TEC_
++ Speed up cached bibliography retrieval in <span style="color: #9e9e9e;">=oc-basic=</span> _Ihor Radchenko_
++ Allow setting PlantUML jar arguments _Ihor Radchenko_
++ Allow for customisation of property separators with <span style="color: #9e9e9e;">~org-property-separators~</span>
+  _Tyler Grinn_
++ New <span style="color: #9e9e9e;">=ox-latex=</span> maintainer, Daniel Fleischer
++ More unit tests _Kyle Keyer, Nick Dokos_
++ Documentation improvements _Kyle Meyer, Juan Manuel Macias, Bastien, Karl
+  Fogel, Cody Harris_
+
+<span style="color: #3b6ea8; font-weight: nil; font-size: 1.25em">* Bugfixes</span>
++ An Emacs &lt;28 bug in <span style="color: #9e9e9e;">=org-persist=</span> _Ihor Radchenko_
++ Author extraction in <span style="color: #9e9e9e;">=oc-basic=</span> _Nicolas Goaziou_
++ Fix behaviour of <span style="color: #9e9e9e;">~org-copy-visible~</span> with adjacent tex and
+  <span style="color: #9e9e9e;">~buffer-invisibility-spec~</span> _Kyle Meyer_
++ Parsing of inline footnotes with parentheses _Nicolas Goaziou_
++ Honor <span style="color: #9e9e9e;">~default-directory~</span> in <span style="color: #9e9e9e;">=ob-gnuplot=</span> _Ihor Radchenko_
++ Heading fontification bug _Anders Johansson_
++ Template expansion where one key is a substring of another _Andrew Arensburger_
+
+</pre>
+  <body>
+</html>

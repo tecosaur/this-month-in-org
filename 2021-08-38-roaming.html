@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-03-03 Thu 01:40 -->
+<!-- 2024-01-11 Thu 11:13 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>August 2021</title>
@@ -25,24 +25,24 @@
 <link rel="stylesheet" type="text/css" href="blog.css">
 <script src="org-style.js"></script>
 <script>
-    MathJax = {
-      chtml: {
-        scale: 1
-      },
-      svg: {
-        scale: 1,
-        fontCache: "global"
-      },
-      tex: {
-        tags: "ams",
-        multlineWidth: "85%",
-        tagSide: "right",
-        tagIndent: ".8em"
-      }
-    };
-    </script>
-    <script id="MathJax-script" async
-            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+MathJax = {
+  chtml: {
+    scale: 1
+  },
+  svg: {
+    scale: 1,
+    fontCache: "global"
+  },
+  tex: {
+    tags: "%AUTONUMBER",
+    multlineWidth: "85%",
+    tagSide: "right",
+    tagIndent: ".8em"
+  }
+};
+</script>
+<script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 </head>
 <body>
 <input type='checkbox' id='theme-switch'><div id='page'><label id='switch-label' for='theme-switch'></label><div id="preamble" class="status">
@@ -62,47 +62,45 @@
 <p class="subtitle" role="doc-subtitle">Roaming around</p>
 </header><blockquote>
 <p>
-Dear readers, unfortunately I&rsquo;ve been unusually busy as of late, and will
-continue to be for a bit over a month. As such, it&rsquo;s entirely likely that the
+Dear readers, unfortunately I've been unusually busy as of late, and will
+continue to be for a bit over a month. As such, it's entirely likely that the
 next post or two may <del>be late</del> make use of creative dates too.
 </p>
 </blockquote>
 
 <p>
-In terms of Org development, we&rsquo;ve had a fairly slow month &#x2014; mostly tweaks and
+In terms of Org development, we've had a fairly slow month &#x2014; mostly tweaks and
 fixes, concentrated on the new org-cite functionality. However, there have been
 big developments with Roam as of late.
 </p>
-
 <div id="outline-container-org-roam-v2" class="outline-2">
 <h2 id="org-roam-v2"><a href="https://github.com/org-roam/org-roam">Org-roam v2</a><a aria-hidden="true" href="#org-roam-v2">#</a> </h2>
 <div class="outline-text-2" id="text-org-roam-v2">
 <p>
-Pushed to the sidelines by last month&rsquo;s hugely significant citations
-announcement was the release of Org-roam v2 🎉. The project&rsquo;s author Jethro
-wrote a nice <a href="https://blog.jethro.dev/posts/org_roam_v2/">blog post</a> outlining the major changes and motivations, and so I&rsquo;ll
+Pushed to the sidelines by last month's hugely significant citations
+announcement was the release of Org-roam v2 🎉. The project's author Jethro
+wrote a nice <a href="https://blog.jethro.dev/posts/org_roam_v2/">blog post</a> outlining the major changes and motivations, and so I'll
 leave him to speak on that. Suffice to say, the idea of org-roam has been
 refined into a form that should better server tinkerers looking to build off Org
 roam, and make maintenance easier &#x2014; thus improving the user experience in the
 long term 🙂. Should you be worried that the v1 &#8594; v2 upgrade will be painful,
-read <a href="https://macowners.club/posts/org-roam-v2-doesnt-hurt/">Org-roam v2 doesn&rsquo;t hurt</a>, relax, and try the upgrade wizard.
+read <a href="https://macowners.club/posts/org-roam-v2-doesnt-hurt/">Org-roam v2 doesn't hurt</a>, relax, and try the upgrade wizard.
 </p>
 </div>
 </div>
-
 <div id="outline-container-org-roam-ui" class="outline-2">
 <h2 id="org-roam-ui"><a href="https://github.com/org-roam/org-roam-ui/">Org-roam-ui</a><a aria-hidden="true" href="#org-roam-ui">#</a> </h2>
 <div class="outline-text-2" id="text-org-roam-ui">
 <p>
-Within a month of Roam v2&rsquo;s announcement, we were pleasantly surprised by the
+Within a month of Roam v2's announcement, we were pleasantly surprised by the
 release of <a href="https://github.com/org-roam/org-roam-server">org-roam-server</a> usurper &#x2014; org-roam-ui.
 </p>
 
 
-<figure id="org4251ca7">
+<figure id="org0f2ebc7">
 <img src="figures/org-roam-graph-2d-overview.png" alt="org-roam-graph-2d-overview.png" class="doom-one" width="50%">
 
-<figcaption><span class="figure-number">Figure 1: </span>org-roam-ui&rsquo;s 2D overview.</figcaption>
+<figcaption><span class="figure-number">Figure 1: </span>org-roam-ui's 2D overview.</figcaption>
 </figure>
 
 <p>
@@ -130,7 +128,7 @@ graph view and the currently open roam file in Emacs. Furthermore, with
 </p>
 
 
-<figure id="org1125144">
+<figure id="org598637d">
 <img src="figures/org-roam-ui-in-emacs.png" alt="org-roam-ui-in-emacs.png" class="invertible">
 
 <figcaption><span class="figure-number">Figure 2: </span>Embed org-roam-ui in Emacs using xwidget-webkit.</figcaption>
@@ -147,28 +145,26 @@ filtering and theme syncing, with more in the works. To see more, check out the
 </p>
 </div>
 </div>
-
 <div id="outline-container-new-context-exporter" class="outline-2">
 <h2 id="new-context-exporter">New ConTeXt exporter<a aria-hidden="true" href="#new-context-exporter">#</a> </h2>
 <div class="outline-text-2" id="text-new-context-exporter">
 <p>
-We&rsquo;ve long been able to export to LaTeX files with <kbd>ox-latex</kbd>, but now you can
+We've long been able to export to LaTeX files with <kbd>ox-latex</kbd>, but now you can
 export to ConTeXt too with <a href="https://github.com/Jason-S-Ross/ox-context">ox-context</a>! While only just released, a lot of work
 has already gone into this &#x2014; with development starting almost a year ago by the
 commit history.
 </p>
 
 <p>
-<div class="link-preview"><a href="https://github.com/Jason-S-Ross/ox-context"><img src="https://opengraph.githubassets.com/783cdd0431894c3760fc5685e60ee7a5e27d4152e2dfad9095bef476a66edac5/Jason-S-Ross/ox-context"/><small>github.com</small><p><b>GitHub - Jason-S-Ross/ox-context: An Org Mode export backend for ConTeXt</b></br>An Org Mode export backend for ConTeXt. Contribute to Jason-S-Ross/ox-context development by creating an account on GitHub.</p></a></div>
+<div class="link-preview"><a href="https://github.com/Jason-S-Ross/ox-context"><img src="https://opengraph.githubassets.com/911927be079fa6588bc60b179d8c13df1327e703acf2e0848cb282fb3c739d43/Jason-S-Ross/ox-context"/><small>github.com</small><p><b>GitHub - Jason-S-Ross/ox-context: An Org Mode export backend for ConTeXt</b></br>An Org Mode export backend for ConTeXt. Contribute to Jason-S-Ross/ox-context development by creating an account on GitHub.</p></a></div>
 </p>
 
 <p>
-It&rsquo;s always nice to see more export options for Org, and I wish Jason all the
+It's always nice to see more export options for Org, and I wish Jason all the
 best in developing <kbd>ox-context</kbd>.
 </p>
 </div>
 </div>
-
 <div id="outline-container-other-improvements" class="outline-2">
 <h2 id="other-improvements">Other improvements<a aria-hidden="true" href="#other-improvements">#</a> </h2>
 <div class="outline-text-2" id="text-other-improvements">
@@ -176,7 +172,7 @@ best in developing <kbd>ox-context</kbd>.
 <li>Refactor <kbd>oc-natbib.el</kbd>, <kbd>oc-biblatex</kbd>, <kbd>oc-basic.el</kbd>, <kbd>org-compat.el</kbd> to improve byte
 compilation <span class="underline">Maxim Nikulin</span> <span class="underline">Nicolas Goaziou</span> <span class="underline">Marco Wahl</span></li>
 <li>Allow for selecting cite style with a citation argument <span class="underline">Nicolas Goaziou</span></li>
-<li>Add support for Italian &ldquo;smart quotes&rdquo; <span class="underline">DPDmancul</span></li>
+<li>Add support for Italian "smart quotes" <span class="underline">DPDmancul</span></li>
 <li>Fix Spanish mistranslation in footnote Documentation <span class="underline">Juan Manuel Macias</span></li>
 <li>Define <kbd>\citeprocitem</kbd> in <kbd>oc-csl.el</kbd> for use by <kbd>citeproc-el</kbd> <span class="underline"><span class='acr'>TEC</span></span></li>
 <li>Fix error in <kbd>org-export-define-backend</kbd> docstring <span class="underline">Zachary Kanfer</span> <span class="underline">Nicolas Goaziou</span></li>
@@ -185,7 +181,6 @@ compilation <span class="underline">Maxim Nikulin</span> <span class="underline"
 </ul>
 </div>
 </div>
-
 <div id="outline-container-bugfixes" class="outline-2">
 <h2 id="bugfixes">Bugfixes<a aria-hidden="true" href="#bugfixes">#</a> </h2>
 <div class="outline-text-2" id="text-bugfixes">
@@ -208,8 +203,8 @@ matched <span class="underline"><span class='acr'>DMG</span>, Nicolas Goaziou</s
 
 <div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
 I have found the <kbd>xwidget-webkit</kbd> experience quite unstable until I
-started using Emacs 28 with the pure-<span class='acr'>GTK</span> branch. So, if you&rsquo;re not getting a
-good experience now, there&rsquo;s a good chance you&rsquo;ll have a better experience in
+started using Emacs 28 with the pure-<span class='acr'>GTK</span> branch. So, if you're not getting a
+good experience now, there's a good chance you'll have a better experience in
 the future.
 </p></div></div>
 

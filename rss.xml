@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0"
-	   xmlns:content="http://purl.org/rss/1.0/modules/content/"
-	   xmlns:wfw="http://wellformedweb.org/CommentAPI/"
-	   xmlns:dc="http://purl.org/dc/elements/1.1/"
-	   xmlns:atom="http://www.w3.org/2005/Atom"
-	   xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
-	   xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
-	   xmlns:georss="http://www.georss.org/georss"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+     xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+     xmlns:georss="http://www.georss.org/georss"
      xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
      xmlns:media="http://search.yahoo.com/mrss/"><channel>
   <title>This Month in Org</title>
@@ -14,21 +14,20 @@
   <link>https://blog.tecosaur.net/tmio/</link>
   <description><![CDATA[]]></description>
   <language>en</language>
-  <pubDate>Thu, 02 Jun 2022 00:55:48 +0800</pubDate>
-  <lastBuildDate>Thu, 02 Jun 2022 00:55:48 +0800</lastBuildDate>
-  <generator>Emacs 28.0 Org-mode 9.5</generator>
-  <webMaster>tec@tecosaur.com (TEC)</webMaster>
+  <pubDate>Thu, 11 Jan 2024 14:58:28 +0800</pubDate>
+  <lastBuildDate>Thu, 11 Jan 2024 14:58:28 +0800</lastBuildDate>
+  <generator>Emacs 29.1 Org-mode 9.6</generator>
+  <webMaster>contact.tmio@tecosaur.net (TEC)</webMaster>
   <image>
     <url>https://orgmode.org/img/org-mode-unicorn-logo.png</url>
     <title>This Month in Org</title>
     <link>https://blog.tecosaur.net/tmio/</link>
   </image>
 
-
   <item>
     <title>May 2022</title>
     <link>https://blog.tecosaur.net/tmio/2022-05-31-folding.html</link>
-    <author>tec@tecosaur.com (TEC)</author>
+    <author>contact.tmio@tecosaur.net (TEC)</author>
     <guid isPermaLink="false">https://blog.tecosaur.net/tmio/2022-05-31-folding.html</guid>
     <pubDate>Thu, 02 Jun 2022 00:00:00 +0800</pubDate>
 
@@ -66,14 +65,14 @@
     </p>
 
 
-    <figure id="orga3ad54f">
+    <figure id="orgcde4607">
     <img src="https://blog.tecosaur.net/tmio/figures/org-fold-perf-shifttab-contents.svg" alt="org-fold-perf-shifttab-contents.svg" class="org-svg">
 
     <figcaption><span class="figure-number">Figure 1: </span>The scaling of <code>org-shifttab</code> showing file contents, as file size increases, with and without org-fold.</figcaption>
     </figure>
 
 
-    <figure id="org925299a">
+    <figure id="orgbea5769">
     <img src="https://blog.tecosaur.net/tmio/figures/org-fold-perf-shifttab-showall.svg" alt="org-fold-perf-shifttab-showall.svg" class="org-svg">
 
     <figcaption><span class="figure-number">Figure 2: </span>The scaling of <code>org-shifttab</code> showing the entire file, as file size increases, with and without org-fold.</figcaption>
@@ -158,7 +157,7 @@
     be a <i>fantastic</i> improvement. Once again, thanks Ihor!
     </p>
 
-    <div class="warning" id="org33b7868">
+    <div class="warning" id="orgbef505f">
     <p>
     The change to text properties instead of overlays breaks a number of third party
     packages like <kbd>evil-search</kbd> and <kbd>consult</kbd>'s <code>consult-line</code>.
@@ -178,31 +177,31 @@
 <item>
   <title>Special Announcement</title>
   <link>https://blog.tecosaur.net/tmio/2022-04-01-confluence.html</link>
-  <author>tec@tecosaur.com (TEC)</author>
+  <author>contact.tmio@tecosaur.net (TEC)</author>
   <guid isPermaLink="false">https://blog.tecosaur.net/tmio/2022-04-01-confluence.html</guid>
   <pubDate>Sat, 02 Apr 2022 00:00:00 +0800</pubDate>
 
   <description><![CDATA[<p>
-  It <b>h</b>as become apparent to the Org Mode developers that Org is suffering from a
-  severe lack of enterprise adoption. To r<b>e</b>ctify this, we will be leveraging our
-  collective decades working on holistic human-markup interaction tools to rapid<b>l</b>y
+  It <b>h</b>​as become apparent to the Org Mode developers that Org is suffering from a
+  severe lack of enterprise adoption. To r​<b>e</b>​ctify this, we will be leveraging our
+  collective decades working on holistic human-markup interaction tools to rapid​<b>l</b>​y
   pivot to what we believe to be the <i>true</i> markup format of the future ---
   <a href="https://confluence.atlassian.com/doc/confluence-wiki-markup-251003035.html">Confluence Wiki Markup</a>.
   </p>
 
   <p>
-  With this <b>p</b>aradigm shift, you can look forward to a much more intuitive syntax,
+  With this <b>p</b>​aradigm shift, you can look forward to a much more intuitive syntax,
   empowering you to create next-generation agile documents.
   </p>
 
   <p>
-  To assist you in this <b>t</b>ransition, we'll give you a brief overview of the changes
+  To assist you in this <b>t</b>​ransition, we'll give you a brief overview of the changes
   you can expect. Text formatting is almost unaffected, with a few sensible
-  changes made to the surrounding c<b>h</b>aracters.
+  changes made to the surrounding c​<b>h</b>​aracters.
   </p>
 
 
-  <figure id="orgb690172">
+  <figure id="org6a4f901">
   <img src="https://blog.tecosaur.net/tmio/figures/org-markup-to-confluence.svg" alt="org-markup-to-confluence.svg" class="org-svg">
 
   <figcaption><span class="figure-number">Figure 3: </span>Translation between Org's syntax and our new Confluence overlords's equivalents</figcaption>
@@ -210,25 +209,25 @@
 
   <p>
   We'd like to thank the FSF for giving the Org project the space and support to
-  grow to become a world-class proj<b>e</b>ct. In our new venture, cop<b>y</b>right assignment
-  to t<b>h</b>e FSF is no longer required. Inste<b>a</b>d, copyright must be assigned to
+  grow to become a world-class proj​<b>e</b>​ct. In our new venture, cop​<b>y</b>​right assignment
+  to t​<b>h</b>​e FSF is no longer required. Inste​<b>a</b>​d, copyright must be assigned to
   Atlassian prior to contributing.
   </p>
 
   <p>
   This new partnership enables new and exciting integrations with Atlassian's
-  proprietary technologies. O<b>v</b>er the next f<b>e</b>w months we will <b>b</b>e transforming Org
-  to a cloud-n<b>a</b>tive serverless profes<b>s</b>ional markup offering. Unlike Confluence, we
-  will allow you to bo<b>t</b>h write <i>and edit</i> documents using pla<b>i</b>ntext markup. We
+  proprietary technologies. O​<b>v</b>​er the next f​<b>e</b>​w months we will <b>b</b>​e transforming Org
+  to a cloud-n​<b>a</b>​tive serverless profes​<b>s</b>​ional markup offering. Unlike Confluence, we
+  will allow you to bo​<b>t</b>​h write <i>and edit</i> documents using pla​<b>i</b>​ntext markup. We
   believe that by unlocking the synergy between plaintext and Confluence the Org
-  project will become a thought leader in hyp<b>e</b>r-scale markup solutions.
+  project will become a thought leader in hyp​<b>e</b>​r-scale markup solutions.
   </p>
 
   <p>
   The shift to Confluence wiki markup will come as a surprise to many of you, but
   after doing a deep dive into the scalability of Org we realised that there were
   no low-hanging fruit available --- only out of the box thinking will allow for the
-  in<b>n</b>ovation so many of our users crave.
+  in​<b>n</b>​ovation so many of our users crave.
   </p>
 
   <p>
@@ -240,7 +239,7 @@
 <item>
   <title>February 2022</title>
   <link>https://blog.tecosaur.net/tmio/2022-02-30-orgnvim.html</link>
-  <author>tec@tecosaur.com (TEC)</author>
+  <author>contact.tmio@tecosaur.net (TEC)</author>
   <guid isPermaLink="false">https://blog.tecosaur.net/tmio/2022-02-30-orgnvim.html</guid>
   <pubDate>Fri, 04 Mar 2022 00:00:00 +0800</pubDate>
 
@@ -382,19 +381,17 @@
   <p>
   Besides parsing, I had a few more challenges to overcome:
   </p>
-
   <div id="outline-container-understanding-orgmode-syntax" class="outline-3">
   <h3 id="understanding-orgmode-syntax"><span class="section-number-3">3.1.</span> Understanding the OrgMode syntax and all the functionality</h3>
   <div class="outline-text-3" id="text-3-1">
   <p>
-  This is still the biggest challenge. I didn&rsquo;t have any idea how big and robust
-  OrgMode is. If I would know it at that time, I wouldn&rsquo;t even jump on this train.
-  It&rsquo;s really hard to grasp all of it. Considering I&rsquo;ve only used it for around 8
+  This is still the biggest challenge. I didn't have any idea how big and robust
+  OrgMode is. If I would know it at that time, I wouldn't even jump on this train.
+  It's really hard to grasp all of it. Considering I've only used it for around 8
   months, I think I made some good progress on learning it.
   </p>
   </div>
   </div>
-
   <div id="outline-container-remote-editing" class="outline-3">
   <h3 id="remote-editing"><span class="section-number-3">3.2.</span> Remote editing</h3>
   <div class="outline-text-3" id="text-3-2">
@@ -419,7 +416,6 @@
   </p>
   </div>
   </div>
-
   <div id="outline-container-working-with-dates" class="outline-3">
   <h3 id="working-with-dates"><span class="section-number-3">3.3.</span> Working with dates</h3>
   <div class="outline-text-3" id="text-3-3">
@@ -428,25 +424,24 @@
   so this is not so surprising. There are some Lua plugins for dates, but
   those seemed a bit too basic for my use case, and I wanted to keep
   external plugins to the minimum. I went with a custom solution that uses
-  Lua&rsquo;s native dates, which has certain limitations, but works out for
+  Lua's native dates, which has certain limitations, but works out for
   most of the things.
   </p>
   </div>
   </div>
-
   <div id="outline-container-highlighting-mostly-agenda" class="outline-3">
   <h3 id="highlighting-mostly-agenda"><span class="section-number-3">3.4.</span> Highlighting, mostly in Agenda view</h3>
   <div class="outline-text-3" id="text-3-4">
   <p>
-  Vim&rsquo;s syntax engine is fairly old, but still very much used, especially
+  Vim's syntax engine is fairly old, but still very much used, especially
   in the Vim community. Implementation of tree-sitter slightly improved
-  this experience in Neovim, because &ldquo;Highlight matches&rdquo; are found via
+  this experience in Neovim, because "Highlight matches" are found via
   tree-sitter, instead of a bunch of regexes.
   </p>
 
   <p>
   This helped me out later for the Org file itself, but agenda view is
-  still something that&rsquo;s built as a custom view. Old Syntax highlight engine
+  still something that's built as a custom view. Old Syntax highlight engine
   would be really hard to add, because the content is too dynamic. I went
   with the Neovim highlight API that allows Highlighting things by their
   exact position in the buffer. Tree-sitter implementation does something
@@ -454,7 +449,6 @@
   </p>
   </div>
   </div>
-
   <div id="outline-container-keeping-configuration-simple" class="outline-3">
   <h3 id="keeping-configuration-simple"><span class="section-number-3">3.5.</span> Keeping configuration simple and familiar to Emacs OrgMode</h3>
   <div class="outline-text-3" id="text-3-5">
@@ -466,7 +460,7 @@
   </p>
 
   <p>
-  For example, Here&rsquo;s a comparison of few options between Emacs and
+  For example, Here's a comparison of few options between Emacs and
   Neovim:
   </p>
 
@@ -475,13 +469,13 @@
   </p>
 
   <div class="org-src-container">
-  <pre class="src src-elisp">  (<span class="org-keyword">setq</span> org-agenda-files '(<span class="org-string">"~/orgmodes"</span>))
+  <pre class="src src-elisp">(<span class="org-keyword">setq</span> org-agenda-files '(<span class="org-string">"~/orgmodes"</span>))
   (<span class="org-keyword">setq</span> org-agenda-skip-scheduled-if-done t)
-  (<span class="org-keyword">setq</span> org-agenda-span <span class="org-highlight-numbers-number">7</span>)
+  (<span class="org-keyword">setq</span> org-agenda-span 7)
   (<span class="org-keyword">setq</span> org-hide-leading-stars t)
   (<span class="org-keyword">setq</span> org-capture-templates
   '((<span class="org-string">"t"</span> <span class="org-string">"Todo"</span> entry (file <span class="org-string">"~/orgmodes/todos.org"</span>)
-  <span class="org-string">"* </span><span class="org-string"><span class="org-bold"><span class="org-warning">TODO</span></span></span><span class="org-string"> %?"</span>)
+  <span class="org-string">"* TODO %?"</span>)
   (<span class="org-string">"j"</span> <span class="org-string">"Journal"</span> entry (file <span class="org-string">"~/orgmodes/journal.org"</span>)
   <span class="org-string">"* %?\nEntered on %U\n   %a"</span>)))
   </pre>
@@ -492,21 +486,21 @@
   </p>
 
   <div class="org-src-container">
-  <pre class="src src-lua">  <span class="org-builtin">require</span>(<span class="org-string">'orgmode'</span>).setup({
-  org_agenda_files = { <span class="org-string">'~/orgmodes'</span> },
-  org_agenda_skip_scheduled_if_done = <span class="org-constant">true</span>,
-  org_agenda_span = <span class="org-highlight-numbers-number">7</span>,
-  org_hide_leading_stars = <span class="org-constant">true</span>
+  <pre class="src src-lua">require('orgmode').setup({
+  org_agenda_files = { '~/orgmodes' },
+  org_agenda_skip_scheduled_if_done = true,
+  org_agenda_span = 7,
+  org_hide_leading_stars = true
   org_capture_templates = {
   t = {
-  description = <span class="org-string">'Todo'</span>,
-  target = <span class="org-string">'~/orgmodes/todos.org'</span>,
-  template = <span class="org-string">'* </span><span class="org-string"><span class="org-bold"><span class="org-warning">TODO</span></span></span><span class="org-string"> %?'</span>,
+  description = 'Todo',
+  target = '~/orgmodes/todos.org',
+  template = '* TODO %?',
   },
   j = {
-  description = <span class="org-string">'Journal'</span>,
-  target = <span class="org-string">'~/orgmodes/journal.org'</span>,
-  template = <span class="org-string">'* %?\nEntered on %U\n   %a'</span>,
+  description = 'Journal',
+  target = '~/orgmodes/journal.org',
+  template = '* %?\nEntered on %U\n   %a',
   }
   }
   })
@@ -532,7 +526,7 @@
   </p>
 
   <p>
-  One of the common questions was: <i>&ldquo;Any plans to introduce tree-sitter parser?&rdquo;</i>.
+  One of the common questions was: <i>"Any plans to introduce tree-sitter parser?"</i>.
   </p>
 
   <p>
@@ -544,25 +538,25 @@
 
   <p>
   One day, Emilia (<a href="https://github.com/milisims">milisims</a>) contacted me via email to ask me if I would be
-  willing to try the tree-sitter parser she&rsquo;s been working on for some time. I
+  willing to try the tree-sitter parser she's been working on for some time. I
   gladly accepted. She gave me access to the repository, and I started tinkering
   with it in a separate branch. No one was aware at that point that tree-sitter
   support would happen some time soon.
   </p>
 
   <p>
-  After some time, I set up a &ldquo;beta&rdquo; branch called &ldquo;tree-sitter&rdquo; and <a href="https://www.reddit.com/r/neovim/comments/ph2xqc/orgmodenvim_treesitter_support/">announced it
+  After some time, I set up a "beta" branch called "tree-sitter" and <a href="https://www.reddit.com/r/neovim/comments/ph2xqc/orgmodenvim_treesitter_support/">announced it
   for testing</a>. Once the reported bugs slowed to a trickle, I merged it into the
-  &ldquo;master&rdquo; branch.
+  "master" branch.
   </p>
 
   <p>
   I believe that tree-sitter grammar for Org could help out other editors to
-  implement their version of Orgmode plugin, but I don&rsquo;t think it would ever be
+  implement their version of Orgmode plugin, but I don't think it would ever be
   helpful for Emacs. Emacs parser is the one and only that has it all implemented.
   Also, as much as tree-sitter is powerful, its main purpose is to parse
-  programming languages, which mostly has &ldquo;static&rdquo; patterns to match. Orgmode is
-  by its nature dynamic, which causes a variety of issues for a parser that&rsquo;s not
+  programming languages, which mostly has "static" patterns to match. Orgmode is
+  by its nature dynamic, which causes a variety of issues for a parser that's not
   meant for that kind of usage.
   </p>
 
@@ -572,13 +566,13 @@
 
   <p>
   (Neo)Vim is a great editor, but it still cannot compare to Emacs in certain
-  things. Manipulating the &ldquo;View&rdquo; part of the editor is tricky or impossible for
+  things. Manipulating the "View" part of the editor is tricky or impossible for
   certain things.
   </p>
 
   <p>
   I even <a href="https://github.com/nvim-orgmode/orgmode/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+label%3Aneovim-dependency">made a label</a> for reported issues where Neovim support for certain things
-  is a blocker. I&rsquo;m hoping that at least some of these will be available in future
+  is a blocker. I'm hoping that at least some of these will be available in future
   Neovim releases.
   </p>
 
@@ -593,9 +587,9 @@
   </p>
 
   <p>
-  This allows getting a &ldquo;desktop notification&rdquo; for tasks that are within
+  This allows getting a "desktop notification" for tasks that are within
   the specified threshold for schedule/deadline time. It requires some
-  configuration to set up a cron job, but it&rsquo;s been working great for me
+  configuration to set up a cron job, but it's been working great for me
   for several months now.
   </p>
 
@@ -604,16 +598,16 @@
   </p>
 
   <p>
-  The current state of the project is very usable for me. I&rsquo;m not lacking any of
-  the major features, mostly because I&rsquo;m not used to using them. Nevertheless,
-  there are plans to add more things, and I&rsquo;m getting a lot of help from the
+  The current state of the project is very usable for me. I'm not lacking any of
+  the major features, mostly because I'm not used to using them. Nevertheless,
+  there are plans to add more things, and I'm getting a lot of help from the
   community. I want to specifically mention <a href="https://github.com/levouh">levouh</a> and <a href="https://github.com/lukas-reineke">lukas-reineke</a>, since they
   added a lot of value to the project, and I want to thank them and everyone else
   who contributed. Their help is much appreciated.
   </p>
 
   <p>
-  There are few high priority tasks that I&rsquo;m hoping to flush out first:
+  There are few high priority tasks that I'm hoping to flush out first:
   </p>
 
   <p>
@@ -639,14 +633,14 @@
   </p>
 
   <p>
-  When I started working on <a href="https://github.com/nvim-orgmode/orgmode">nvim-orgmode</a>, I didn&rsquo;t have a clue what I&rsquo;m jumping
-  into. Every day I learn about more and more Orgmode features that I wasn&rsquo;t even
+  When I started working on <a href="https://github.com/nvim-orgmode/orgmode">nvim-orgmode</a>, I didn't have a clue what I'm jumping
+  into. Every day I learn about more and more Orgmode features that I wasn't even
   aware existed.
   </p>
 
   <p>
-  I&rsquo;m certain that this project will never manage to clone the Orgmode
-  functionality completely, but I&rsquo;m hoping it will get close enough so everyone
+  I'm certain that this project will never manage to clone the Orgmode
+  functionality completely, but I'm hoping it will get close enough so everyone
   from Neovim community and Emacsers trying out Neovim will be able to use it for
   their needs.
   </p>
@@ -663,7 +657,7 @@
 <item>
   <title>January 2022</title>
   <link>https://blog.tecosaur.net/tmio/2022-01-31-caching.html</link>
-  <author>tec@tecosaur.com (TEC)</author>
+  <author>contact.tmio@tecosaur.net (TEC)</author>
   <guid isPermaLink="false">https://blog.tecosaur.net/tmio/2022-01-31-caching.html</guid>
   <pubDate>Tue, 01 Feb 2022 00:00:00 +0800</pubDate>
 
@@ -684,7 +678,7 @@
   <p>
   This is no longer the case! We're finally confident enough to flip
   <code>org-element-use-cache</code>'s default from <code>nil</code> to <code>t</code>. I mentioned some of the
-  improvements in <a href="2021-11-30-element.html#orgbfe4849">November</a>, however Ihor has continued to make strides with the
+  improvements in <a href="https://blog.tecosaur.net/tmio/2021-11-30-element.html#org5ee96ff">November</a>, however Ihor has continued to make strides with the
   cache.
   </p>
 
@@ -694,7 +688,7 @@
   only take one thing away from the post, I'd like it to be this:
   </p>
 
-  <div class="info" id="org2fe6a7c">
+  <div class="info" id="org10a59c3">
   <div style="text-align: left; margin-left: 1rem;">
   <p>
   The cache is actively being developed now, for the first time in years, so:
@@ -707,7 +701,7 @@
   <p>
   Cache warnings look something like this:
   </p>
-  <pre class="example" id="org0dc0889">
+  <pre class="example" id="org1d32da3">
   Warning (org-element-cache): org-element--cache: Unregistered buffer modifications detected. Resetting.
   If this warning appears regularly, please report the warning text to Org mode mailing list (M-x org-submit-bug-report).
   The buffer is: config.org
@@ -779,7 +773,7 @@
   </p>
 
 
-  <figure id="org4c89641">
+  <figure id="org967b2b5">
   <img src="https://blog.tecosaur.net/tmio/figures/ox-latex-image-link-localisation-demo.png" alt="ox-latex-image-link-localisation-demo.png">
 
   <figcaption><span class="figure-number">Figure 4: </span>A screenshot of a (compiled to PDF) LaTeX export, with an HTTPS and tramp images.</figcaption>
@@ -802,7 +796,7 @@
   Produce less native-comp warnings <span class="underline">Ihor Radchenko</span>
   Add a header to the clock report table <span class="underline">Samim Pezeshki</span>
   More verbose test failure summary <span class="underline">Max Nikulin</span>
-  Parallelise <kbd>make</kbd>ing the docs <span class="underline">Marco Wahl</span>
+  Parallelise <kbd>make</kbd>​ing the docs <span class="underline">Marco Wahl</span>
   More org-element tests <span class="underline">Ihor Radchenko</span>
   Bugfixes
   Fix formatting in elisp-link prompt <span class="underline">TEC</span>
@@ -816,13 +810,13 @@
 <item>
   <title>December 2021</title>
   <link>https://blog.tecosaur.net/tmio/2021-12-31-retrospection.html</link>
-  <author>tec@tecosaur.com (TEC)</author>
+  <author>contact.tmio@tecosaur.net (TEC)</author>
   <guid isPermaLink="false">https://blog.tecosaur.net/tmio/2021-12-31-retrospection.html</guid>
   <pubDate>Sun, 02 Jan 2022 00:00:00 +0800</pubDate>
 
   <description><![CDATA[<p>
   Just over eight months ago, I kicked off <i>This Month in Org</i> with an emphatic
-  announcement of the blog's in the form of a <a href="2021-04-26-Welcome.html">Welcome</a> post. If you haven't
+  announcement of the blog's in the form of a <a href="https://blog.tecosaur.net/tmio/2021-04-26-Welcome.html">Welcome</a> post. If you haven't
   guessed, this is the first "blog post" I've ever written. In that <i>welcome</i> post,
   I gave my motivation for starting the blog --- essentially to bridge a perceived
   gap in information sources between a subscription to the Org project mailing
@@ -898,7 +892,7 @@
 <item>
   <title>November 2021</title>
   <link>https://blog.tecosaur.net/tmio/2021-11-30-element.html</link>
-  <author>tec@tecosaur.com (TEC)</author>
+  <author>contact.tmio@tecosaur.net (TEC)</author>
   <guid isPermaLink="false">https://blog.tecosaur.net/tmio/2021-11-30-element.html</guid>
   <pubDate>Thu, 02 Dec 2021 00:00:00 +0800</pubDate>
 
@@ -986,7 +980,7 @@
   <p>
   Now, if you have a line like:
   </p>
-  <pre class="example" id="org6fe7edd">
+  <pre class="example" id="orge364d21">
   #+cite_export: FORMAT ...
   </pre>
   <p>
@@ -1020,7 +1014,7 @@
   <p>
   This means the following forms are now all equivalent:
   </p>
-  <pre class="example" id="orgdf49068">
+  <pre class="example" id="org4757f3e">
   :tangle-mode (identity #o755)
   :tangle-mode o755
   :tangle-mode a=rx,u+w
@@ -1080,7 +1074,7 @@
   </p>
 
 
-  <figure id="orgaf14b63">
+  <figure id="org333e404">
   <img src="https://blog.tecosaur.net/tmio/figures/inline-src-block-fontified-vs-code.png" alt="inline-src-block-fontified-vs-code.png">
 
   <figcaption><span class="figure-number">Figure 5: </span>Side-by-side comparison of a identical paragraphs using code (<code>~</code>) markup and inline source blocks (<code>src_</code>).</figcaption>
@@ -1095,7 +1089,7 @@
   </p>
 
 
-  <figure id="orgc4ca8fe">
+  <figure id="orgbee9f94">
   <img src="https://blog.tecosaur.net/tmio/figures/inline-src-block-julia-demo.png" alt="inline-src-block-julia-demo.png">
 
   <figcaption><span class="figure-number">Figure 6: </span>A paragraph making use of <i>evaluated</i> inline source blocks. Note that the <kbd>⟨11⟩</kbd> is a prettified results macro (using a potential future org-mode patch).</figcaption>
@@ -1116,10 +1110,10 @@
   with Babel:
   </p>
   <div class="org-src-container">
-  <pre class="src src-org"><span class="org-org-block-begin-line">  #+begin_src R :results graphics file :file myimage.svg</span>
-  <span class="org-org-block">  </span><span class="org-org-block"><span class="org-ess-modifiers">library</span></span><span class="org-org-block"><span class="org-ess-paren">(</span></span><span class="org-org-block">ggplot2</span><span class="org-org-block"><span class="org-ess-paren">)</span></span>
-  <span class="org-org-block">  </span><span class="org-org-block"><span class="org-ess-function-call">ggplot</span></span><span class="org-org-block"><span class="org-ess-paren">(</span></span><span class="org-org-block">mpg, </span><span class="org-org-block"><span class="org-ess-function-call">aes</span></span><span class="org-org-block"><span class="org-ess-paren">(</span></span><span class="org-org-block">displ, hwy, colour </span><span class="org-org-block"><span class="org-ess-operator">=</span></span><span class="org-org-block"> class</span><span class="org-org-block"><span class="org-ess-paren">))</span></span><span class="org-org-block"> </span><span class="org-org-block"><span class="org-ess-operator">+</span></span><span class="org-org-block"> </span><span class="org-org-block"><span class="org-ess-function-call">geom_point</span></span><span class="org-org-block"><span class="org-ess-paren">()</span></span>
-  <span class="org-org-block-end-line">  #+end_src</span>
+  <pre class="src src-org"><span class="org-org-block-begin-line">#+begin_src R :results graphics file :file myimage.svg</span>
+  <span class="org-org-block">library(ggplot2)</span>
+  <span class="org-org-block">ggplot(mpg, aes(displ, hwy, colour = class)) + geom_point()</span>
+  <span class="org-org-block-end-line">#+end_src</span>
   </pre>
   </div>
 
@@ -1135,11 +1129,11 @@
   </p>
 
   <div class="org-src-container">
-  <pre class="src src-emacs-lisp">  (<span class="org-keyword">defun</span> <span class="org-function-name">my/org-src-sha-to-image</span> ()
+  <pre class="src src-emacs-lisp">(<span class="org-keyword">defun</span> <span class="org-function-name">my/org-src-sha-to-image</span> ()
   (concat <span class="org-string">"generated-"</span>
   (substring
   (sha1 (org-element-property <span class="org-builtin">:value</span> (org-element-at-point)))
-  <span class="org-highlight-numbers-number">0</span> <span class="org-highlight-numbers-number">8</span>)
+  0 8)
   <span class="org-string">".svg"</span>))
   </pre>
   </div>
@@ -1150,7 +1144,7 @@
   </p>
 
   <div class="org-src-container">
-  <pre class="src src-emacs-lisp">  (<span class="org-keyword">defun</span> <span class="org-function-name">my/org-src-guess-results-type</span> ()
+  <pre class="src src-emacs-lisp">(<span class="org-keyword">defun</span> <span class="org-function-name">my/org-src-guess-results-type</span> ()
   (<span class="org-keyword">if</span> (string-match-p <span class="org-string">"^ *</span><span class="org-string"><span class="org-regexp-grouping-backslash">\\</span></span><span class="org-string"><span class="org-regexp-grouping-construct">(?:</span></span><span class="org-string">plot</span><span class="org-string"><span class="org-regexp-grouping-backslash">\\</span></span><span class="org-string"><span class="org-regexp-grouping-construct">|</span></span><span class="org-string">ggplot</span><span class="org-string"><span class="org-regexp-grouping-backslash">\\</span></span><span class="org-string"><span class="org-regexp-grouping-construct">)</span></span><span class="org-string">([</span><span class="org-string"><span class="org-negation-char">^</span></span><span class="org-string">\n]+\n?\\'"</span>
   (org-element-property <span class="org-builtin">:value</span> (org-element-at-point)))
   <span class="org-string">"graphics file"</span> <span class="org-string">"replace"</span>))
@@ -1163,7 +1157,7 @@
   </p>
 
   <div class="org-src-container">
-  <pre class="src src-emacs-lisp">  (<span class="org-keyword">setq</span> org-babel-default-header-args:R
+  <pre class="src src-emacs-lisp">(<span class="org-keyword">setq</span> org-babel-default-header-args:R
   '((<span class="org-builtin">:results</span> . my/org-src-guess-results-type)
   (<span class="org-builtin">:file</span> . my/org-src-sha-to-image)))
   </pre>
@@ -1174,10 +1168,10 @@
   </p>
 
   <div class="org-src-container">
-  <pre class="src src-org"><span class="org-org-block-begin-line">  #+begin_src R</span>
-  <span class="org-org-block">  </span><span class="org-org-block"><span class="org-ess-modifiers">library</span></span><span class="org-org-block"><span class="org-ess-paren">(</span></span><span class="org-org-block">ggplot2</span><span class="org-org-block"><span class="org-ess-paren">)</span></span>
-  <span class="org-org-block">  </span><span class="org-org-block"><span class="org-ess-function-call">ggplot</span></span><span class="org-org-block"><span class="org-ess-paren">(</span></span><span class="org-org-block">mpg, </span><span class="org-org-block"><span class="org-ess-function-call">aes</span></span><span class="org-org-block"><span class="org-ess-paren">(</span></span><span class="org-org-block">displ, hwy, colour </span><span class="org-org-block"><span class="org-ess-operator">=</span></span><span class="org-org-block"> class</span><span class="org-org-block"><span class="org-ess-paren">))</span></span><span class="org-org-block"> </span><span class="org-org-block"><span class="org-ess-operator">+</span></span><span class="org-org-block"> </span><span class="org-org-block"><span class="org-ess-function-call">geom_point</span></span><span class="org-org-block"><span class="org-ess-paren">()</span></span>
-  <span class="org-org-block-end-line">  #+end_src</span>
+  <pre class="src src-org"><span class="org-org-block-begin-line">#+begin_src R</span>
+  <span class="org-org-block">library(ggplot2)</span>
+  <span class="org-org-block">ggplot(mpg, aes(displ, hwy, colour = class)) + geom_point()</span>
+  <span class="org-org-block-end-line">#+end_src</span>
   </pre>
   </div>
 
@@ -1205,7 +1199,7 @@
   </p>
 
 
-  <figure id="org639ab3a">
+  <figure id="orgf602d0c">
   <img src="https://blog.tecosaur.net/tmio/figures/proportional-image-width.png" alt="proportional-image-width.png">
 
   <figcaption><span class="figure-number">Figure 7: </span>A containing with an image set to half of the accesible text width</figcaption>
@@ -1291,7 +1285,7 @@
 <item>
   <title>May 2021</title>
   <link>https://blog.tecosaur.net/tmio/2021-05-31-async.html</link>
-  <author>tec@tecosaur.com (TEC)</author>
+  <author>contact.tmio@tecosaur.net (TEC)</author>
   <guid isPermaLink="false">https://blog.tecosaur.net/tmio/2021-05-31-async.html</guid>
   <pubDate>Wed, 01 Dec 2021 00:00:00 +0800</pubDate>
 
@@ -1312,7 +1306,7 @@
   property, i.e.
   </p>
   <div class="org-src-container">
-  <pre class="src src-org"><span class="org-org-meta-line">  #+property: header-args:lang :session foo</span>
+  <pre class="src src-org"><span class="org-org-meta-line">#+property: header-args:lang :session foo</span>
   </pre>
   </div>
 
@@ -1352,21 +1346,21 @@
   </p>
 
   <div class="org-src-container">
-  <pre class="src src-org">  I love using Org to export to <span class="org-comment">@@</span><span class="org-org-tag">html:</span>&lt;abbr title="Hyper Text Markup Language"&gt;HTML&lt;/abbr&gt;<span class="org-comment">@@</span> <span class="org-comment">@@</span><span class="org-org-tag">latex:</span>\LaTeX{}<span class="org-comment">@@</span> documents.
+  <pre class="src src-org">I love using Org to export to <span class="org-comment">@@</span><span class="org-org-tag">html:</span>&lt;abbr title="Hyper Text Markup Language"&gt;HTML&lt;/abbr&gt;<span class="org-comment">@@</span> <span class="org-comment">@@</span><span class="org-org-tag">latex:</span>\LaTeX{}<span class="org-comment">@@</span> documents.
   </pre>
   </div>
   <p>
   which will export to HTML as,
   </p>
   <div class="org-src-container">
-  <pre class="src src-html">  I love using Org to export to &lt;<span class="org-function-name">abbr</span> <span class="org-variable-name">title</span>=<span class="org-string">"Hyper Text Markup Language"</span>&gt;HTML&lt;/<span class="org-function-name">abbr</span>&gt; documents.
+  <pre class="src src-html">I love using Org to export to &lt;<span class="org-function-name">abbr</span> <span class="org-variable-name">title</span>=<span class="org-string">"Hyper Text Markup Language"</span>&gt;HTML&lt;/<span class="org-function-name">abbr</span>&gt; documents.
   </pre>
   </div>
   <p>
   and then in LaTeX will be,
   </p>
   <div class="org-src-container">
-  <pre class="src src-LaTeX">  I love using Org to export to <span class="org-font-latex-sedate"><span class="org-keyword">\LaTeX</span></span>{} documents.
+  <pre class="src src-LaTeX">I love using Org to export to <span class="org-keyword">\LaTeX</span>{} documents.
   </pre>
   </div>
   <p>
@@ -1387,7 +1381,7 @@
   </p>
 
   <p>
-  Org-plot has been getting some more love as of late (see <a href="2021-04-30-export-plot.html">last month's post</a>), and
+  Org-plot has been getting some more love as of late (see <a href="https://blog.tecosaur.net/tmio/2021-04-30-export-plot.html">last month's post</a>), and
   that hasn't stopped yet. This month there's been a fairly minor change that I'm
   quite a fan of. If you have a source block that produces a table of <kbd>#+results</kbd>, you
   can now put a <kbd>#+plot</kbd> statement immediately above to get a visualisation of those
@@ -1395,13 +1389,13 @@
   </p>
 
   <div class="org-src-container">
-  <pre class="src src-org"><span class="org-org-block-begin-line">  #+begin_src python</span>
-  <span class="org-org-block">  </span><span class="org-org-block"><span class="org-comment-delimiter"># </span></span><span class="org-org-block"><span class="org-comment">pretend this is some profound source of information</span></span>
-  <span class="org-org-block">  </span><span class="org-org-block"><span class="org-keyword">return</span></span><span class="org-org-block"> [[i, i^</span><span class="org-org-block"><span class="org-highlight-numbers-number">3</span></span><span class="org-org-block"> - </span><span class="org-org-block"><span class="org-highlight-numbers-number">4</span></span><span class="org-org-block">*i^</span><span class="org-org-block"><span class="org-highlight-numbers-number">2</span></span><span class="org-org-block"> - </span><span class="org-org-block"><span class="org-highlight-numbers-number">2</span></span><span class="org-org-block">*i] </span><span class="org-org-block"><span class="org-keyword">for</span></span><span class="org-org-block"> i </span><span class="org-org-block"><span class="org-keyword">in</span></span><span class="org-org-block"> </span><span class="org-org-block"><span class="org-builtin">range</span></span><span class="org-org-block">(</span><span class="org-org-block"><span class="org-highlight-numbers-number">5</span></span><span class="org-org-block">)]</span>
-  <span class="org-org-block-end-line">  #+end_src</span>
+  <pre class="src src-org"><span class="org-org-block-begin-line">#+begin_src python</span>
+  <span class="org-org-block"><span class="org-comment-delimiter"># </span></span><span class="org-org-block"><span class="org-comment">pretend this is some profound source of information</span></span>
+  <span class="org-org-block"><span class="org-keyword">return</span></span><span class="org-org-block"> [[i, i</span><span class="org-org-block"><span class="org-operator">^</span></span><span class="org-org-block">3 </span><span class="org-org-block"><span class="org-operator">-</span></span><span class="org-org-block"> 4</span><span class="org-org-block"><span class="org-operator">*</span></span><span class="org-org-block">i</span><span class="org-org-block"><span class="org-operator">^</span></span><span class="org-org-block">2 </span><span class="org-org-block"><span class="org-operator">-</span></span><span class="org-org-block"> 2</span><span class="org-org-block"><span class="org-operator">*</span></span><span class="org-org-block">i] </span><span class="org-org-block"><span class="org-keyword">for</span></span><span class="org-org-block"> i </span><span class="org-org-block"><span class="org-keyword">in</span></span><span class="org-org-block"> </span><span class="org-org-block"><span class="org-builtin">range</span></span><span class="org-org-block">(5)]</span>
+  <span class="org-org-block-end-line">#+end_src</span>
 
-  <span class="org-org-meta-line">  #+plot: ind:1</span>
-  <span class="org-org-meta-line">  #+RESULTS:</span>
+  <span class="org-org-meta-line">#+plot: ind:1</span>
+  <span class="org-org-meta-line">#+RESULTS:</span>
   <span class="org-org-table">| 0 |  1 |</span>
   <span class="org-org-table">| 1 | -2 |</span>
   <span class="org-org-table">| 2 |  7 |</span>
@@ -1429,43 +1423,43 @@
   </p>
 
   <div class="org-src-container">
-  <pre class="src src-org"><span class="org-org-meta-line">  #+latex_header: \usepackage{verse}</span>
+  <pre class="src src-org"><span class="org-org-meta-line">#+latex_header: \usepackage{verse}</span>
 
-  <span class="org-org-meta-line">  #+latex: \poemtitle{A Dream Within a Dream}</span>
-  <span class="org-org-meta-line">  #+attr_latex: :lines 3 :center t</span>
-  <span class="org-org-meta-line">  #+attr_latex: :versewidth Through my fingers to the deep,</span>
-  <span class="org-org-block-begin-line">  #+begin_verse</span>
-  <span class="org-org-verse">  Take this kiss upon the brow!</span>
-  <span class="org-org-verse">  And, in parting from you now,</span>
-  <span class="org-org-verse">  Thus much let me avow &#8212;</span>
-  <span class="org-org-verse">  You are not wrong, who deem</span>
-  <span class="org-org-verse">  That my days have been a dream;</span>
-  <span class="org-org-verse">  Yet if hope has flown away</span>
-  <span class="org-org-verse">  In a night, or in a day,</span>
-  <span class="org-org-verse">  In a vision, or in none,</span>
-  <span class="org-org-verse">  Is it therefore the less </span><span class="org-org-verse"><span class="org-italic">gone?</span></span>
-  <span class="org-org-verse">  </span><span class="org-org-verse"><span class="org-italic">All</span></span><span class="org-org-verse"> that we see or seem</span>
-  <span class="org-org-verse">  Is but a dream within a dream.</span>
+  <span class="org-org-meta-line">#+latex: \poemtitle{A Dream Within a Dream}</span>
+  <span class="org-org-meta-line">#+attr_latex: :lines 3 :center t</span>
+  <span class="org-org-meta-line">#+attr_latex: :versewidth Through my fingers to the deep,</span>
+  <span class="org-org-block-begin-line">#+begin_verse</span>
+  Take this kiss upon the brow!
+  And, in parting from you now,
+  Thus much let me avow &#8212;
+  You are not wrong, who deem
+  That my days have been a dream;
+  Yet if hope has flown away
+  In a night, or in a day,
+  In a vision, or in none,
+  Is it therefore the less <span class="org-italic">/gone?/</span>
+  <span class="org-italic">/All/</span> that we see or seem
+  Is but a dream within a dream.
 
-  <span class="org-org-verse">  I stand amid the roar</span>
-  <span class="org-org-verse">  Of a surf-tormented shore,</span>
-  <span class="org-org-verse">  And I hold within my hand</span>
-  <span class="org-org-verse">  Grains of the golden sand &#8212;</span>
-  <span class="org-org-verse">  How few! yet how they creep</span>
-  <span class="org-org-verse">  Through my fingers to the deep,</span>
-  <span class="org-org-verse">  While I weep &#8212; while I weep!</span>
-  <span class="org-org-verse">  O God! Can I not grasp</span>
-  <span class="org-org-verse">  Them with a tighter clasp?</span>
-  <span class="org-org-verse">  O God! can I not save</span>
-  <span class="org-org-verse">  </span><span class="org-org-verse"><span class="org-italic">One</span></span><span class="org-org-verse"> from the pitiless wave?</span>
-  <span class="org-org-verse">  Is </span><span class="org-org-verse"><span class="org-italic">all</span></span><span class="org-org-verse"> that we see or seem</span>
-  <span class="org-org-verse">  But a dream within a dream?</span>
-  <span class="org-org-block-end-line">  #+end_verse</span>
+  I stand amid the roar
+  Of a surf-tormented shore,
+  And I hold within my hand
+  Grains of the golden sand &#8212;
+  How few! yet how they creep
+  Through my fingers to the deep,
+  While I weep &#8212; while I weep!
+  O God! Can I not grasp
+  Them with a tighter clasp?
+  O God! can I not save
+  <span class="org-italic">/One/</span> from the pitiless wave?
+  Is <span class="org-italic">/all/</span> that we see or seem
+  But a dream within a dream?
+  <span class="org-org-block-end-line">#+end_verse</span>
   </pre>
   </div>
 
 
-  <figure id="orgf9a85fc">
+  <figure id="orga9366dd">
   <img src="https://blog.tecosaur.net/tmio/figures/org-verses-example-poem-dream-within-dream.png" alt="org-verses-example-poem-dream-within-dream.png">
 
   <figcaption><span class="figure-number">Figure 8: </span>A short Poe-em</figcaption>
@@ -1477,7 +1471,7 @@
 
   <p>
   Occasionally you may run into annoyances when you wish to have two different Org
-  elements right next to each other (no space) --- for example, <b>emph</b>asising part of
+  elements right next to each other (no space) --- for example, <b>emph</b>​asising part of
   a word or putting a currency symbol immediately before an inline source block.
   </p>
 
@@ -1488,7 +1482,7 @@
   </p>
 
   <div class="org-src-container">
-  <pre class="src src-emacs-lisp">  (define-key org-mode-map (kbd <span class="org-string">"M-SPC M-SPC"</span>)
+  <pre class="src src-emacs-lisp">(define-key org-mode-map (kbd <span class="org-string">"M-SPC M-SPC"</span>)
   (<span class="org-keyword">lambda</span> () (<span class="org-keyword">interactive</span>) (insert <span class="org-string">"\u200b"</span>)))
   </pre>
   </div>
@@ -1499,7 +1493,7 @@
   </p>
 
   <div class="org-src-container">
-  <pre class="src src-emacs-lisp">  (<span class="org-keyword">defun</span> <span class="org-function-name">+org-export-remove-zero-width-space</span> (text _backend _info)
+  <pre class="src src-emacs-lisp">(<span class="org-keyword">defun</span> <span class="org-function-name">+org-export-remove-zero-width-space</span> (text _backend _info)
   <span class="org-doc">"Remove zero width spaces from TEXT."</span>
   (<span class="org-keyword">unless</span> (org-export-derived-backend-p 'org)
   (replace-regexp-in-string <span class="org-string">"\u200b"</span> <span class="org-string">""</span> text)))
@@ -1588,7 +1582,7 @@
 <item>
   <title>October 2021</title>
   <link>https://blog.tecosaur.net/tmio/2021-10-31-release.html</link>
-  <author>tec@tecosaur.com (TEC)</author>
+  <author>contact.tmio@tecosaur.net (TEC)</author>
   <guid isPermaLink="false">https://blog.tecosaur.net/tmio/2021-10-31-release.html</guid>
   <pubDate>Mon, 01 Nov 2021 00:00:00 +0800</pubDate>
 
@@ -1613,7 +1607,7 @@
 
   <p>
   As tempted as I am to wax lyrical about the lovely new citation engine, I've
-  already dedicated <a href="2021-07-31-citations.html">July's post</a> to it, and so will simply highlight how versatile
+  already dedicated <a href="https://blog.tecosaur.net/tmio/2021-07-31-citations.html">July's post</a> to it, and so will simply highlight how versatile
   the syntax is. Combined with the ability to swap out the default backends
   (basic, CSL, natbib, and bib(la)tex) for a 3rd party backend (for example,
   provided by a package) it is capable of meeting your citation and technical
@@ -1621,7 +1615,7 @@
   </p>
 
 
-  <figure id="org13b9f43">
+  <figure id="orgb8a0254">
   <img src="https://blog.tecosaur.net/tmio/figures/citation-structure-full.svg" alt="citation-structure-full.svg" class="org-svg">
 
   <figcaption><span class="figure-number">Figure 9: </span>The full citation syntax</figcaption>
@@ -1635,7 +1629,7 @@
   </p>
 
 
-  <figure id="orga6b6156">
+  <figure id="orgbe06549">
   <img src="https://blog.tecosaur.net/tmio/figures/org-citar-insertion.png" alt="org-citar-insertion.png">
 
   <figcaption><span class="figure-number">Figure 10: </span>Inserting a citation with the <i>citar</i> package</figcaption>
@@ -1646,7 +1640,7 @@
   </p>
 
   <p>
-  Since being featured in <a href="2021-05-31-async.html">May's post</a>, we've had the initial python support
+  Since being featured in <a href="https://blog.tecosaur.net/tmio/2021-05-31-async.html">May's post</a>, we've had the initial python support
   expanded with support for R too. I have good reason to believe that more
   backends will join this list in the future.
   </p>
@@ -1661,7 +1655,7 @@
   </p>
 
   <p>
-  LaTeX environments (i.e. <code class="src src-LaTeX"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{} ... <span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{}</code> blocks) have been added
+  LaTeX environments (i.e. <code class="src src-LaTeX"><span class="org-keyword">\begin</span>{} ... <span class="org-keyword">\end</span>{}</code> blocks) have been added
   to the list of <kbd>#+results</kbd> types that will be removed. This is bigger news than
   one might think, as it means that raw LaTeX environments are now a viable output
   for org-babel backends. This possesses a distinct advantage over <kbd>:results latex</kbd>
@@ -1677,7 +1671,7 @@
   </p>
 
 
-  <figure id="org937ebae">
+  <figure id="org6ba6175">
   <img src="https://blog.tecosaur.net/tmio/figures/ob-julia-latexify-rendered.png" alt="ob-julia-latexify-rendered.png">
 
   <figcaption><span class="figure-number">Figure 11: </span>Rendered LaTeX representations of some Julia values</figcaption>
@@ -1751,7 +1745,7 @@
 <item>
   <title>April 2021</title>
   <link>https://blog.tecosaur.net/tmio/2021-04-30-export-plot.html</link>
-  <author>tec@tecosaur.com (TEC)</author>
+  <author>contact.tmio@tecosaur.net (TEC)</author>
   <guid isPermaLink="false">https://blog.tecosaur.net/tmio/2021-04-30-export-plot.html</guid>
   <pubDate>Mon, 27 Sep 2021 00:00:00 +0800</pubDate>
 
@@ -1783,7 +1777,7 @@
   give it a shot!
   </p>
 
-  <div class="info" id="orge6f44db">
+  <div class="info" id="org5863410">
   <p>
   <b>Ways you can contribute to the project</b>
   </p>
@@ -1806,23 +1800,23 @@
 
   <p>
   Thanks to Nicolas Goaziou, when exporting to HTML, LaTeX, Ascii, and texinfo
-  DOI<small>s</small> are turned into links, for example becomes:
+  DOI<small>s</small> are turned into links, for example <a href="https://doi.org/10.18637/jss.v046.i03">https://doi.org/10.18637/jss.v046.i03</a> becomes:
   </p>
 
   <div class="org-src-container">
-  <pre class="src src-html">  &lt;<span class="org-function-name">a</span> <span class="org-variable-name">href</span>=<span class="org-string">"https://doi.org/10.18637/jss.v046.i03"</span>&gt;doi:10.18637/jss.v046.i03&lt;/<span class="org-function-name">a</span>&gt;
+  <pre class="src src-html">&lt;<span class="org-function-name">a</span> <span class="org-variable-name">href</span>=<span class="org-string">"https://doi.org/10.18637/jss.v046.i03"</span>&gt;doi:10.18637/jss.v046.i03&lt;/<span class="org-function-name">a</span>&gt;
   </pre>
   </div>
   <div class="org-src-container">
-  <pre class="src src-LaTeX">  <span class="org-font-latex-sedate">\href</span>{https://doi.org/10.18637/jss.v046.i03}{doi:10.18637/jss.v046.i03}
+  <pre class="src src-LaTeX"><span class="org-keyword">\href</span>{<span class="org-tex-verbatim">https://doi.org/10.18637/jss.v046.i03</span>}{doi:10.18637/jss.v046.i03}
   </pre>
   </div>
   <div class="org-src-container">
-  <pre class="src src-text">  <a href="https://doi.org/10.18637/jss.v046.i03">&lt;https://doi.org/10.18637/jss.v046.i03&gt;</a>
+  <pre class="src src-text"><a href="https://doi.org/10.18637/jss.v046.i03">&lt;https://doi.org/10.18637/jss.v046.i03&gt;</a>
   </pre>
   </div>
   <div class="org-src-container">
-  <pre class="src src-texinfo">  @<span class="org-keyword">uref</span>{<span class="org-string">https://doi.org/10.18637/jss.v046.i03</span>}
+  <pre class="src src-texinfo">@<span class="org-keyword">uref</span>{<span class="org-string">https://doi.org/10.18637/jss.v046.i03</span>}
   </pre>
   </div>
 
@@ -1880,7 +1874,7 @@
   You can see these parameters set in the figure above,
   </p>
   <div class="org-src-container">
-  <pre class="src src-org"><span class="org-org-meta-line">  #+plot: type:2d ind:1 deps:(2 3 4)</span>
+  <pre class="src src-org"><span class="org-org-meta-line">#+plot: type:2d ind:1 deps:(2 3 4)</span>
   <span class="org-org-table">| Xval | Red | Blue | Green |</span>
   <span class="org-org-table">|------+-----+------+-------|</span>
   <span class="org-org-table">|    0 |   1 |    2 |     3 |</span>
@@ -1953,7 +1947,7 @@
 <item>
   <title>July 2021</title>
   <link>https://blog.tecosaur.net/tmio/2021-07-31-citations.html</link>
-  <author>tec@tecosaur.com (TEC)</author>
+  <author>contact.tmio@tecosaur.net (TEC)</author>
   <guid isPermaLink="false">https://blog.tecosaur.net/tmio/2021-07-31-citations.html</guid>
   <pubDate>Mon, 27 Sep 2021 00:00:00 +0800</pubDate>
 
@@ -1964,7 +1958,7 @@
   </p>
 
 
-  <figure id="org8219632">
+  <figure id="org63df673">
   <img src="https://blog.tecosaur.net/tmio/figures/celebrate-citations.svg" alt="celebrate-citations.svg" class="org-svg">
 
   </figure>
@@ -1989,7 +1983,6 @@
   CSL library <code>Citeproc.el</code>, which while not directly included in Org is crucial to
   providing robust CSL support, and integrates with <kbd>oc-csl.el</kbd>.
   </p>
-
   <div id="outline-container-outline" class="outline-3">
   <h3 id="outline"><span class="section-number-3">10.1.</span> Outline</h3>
   <div class="outline-text-3" id="text-10-1">
@@ -2035,7 +2028,6 @@
   </p>
   </div>
   </div>
-
   <div id="outline-container-basic-usage" class="outline-3">
   <h3 id="basic-usage"><span class="section-number-3">10.2.</span> Basic usage</h3>
   <div class="outline-text-3" id="text-10-2">
@@ -2048,7 +2040,7 @@
   As an example, say we have a file <kbd>orgcite.bib</kbd> containing the following
   </p>
   <div class="org-src-container">
-  <pre class="src src-bibtex">  <span class="org-function-name">@article</span>{<span class="org-constant">OrgCitations</span>,
+  <pre class="src src-bibtex"><span class="org-function-name">@article</span>{<span class="org-constant">OrgCitations</span>,
   <span class="org-variable-name">author</span>={org, mode and Syntax, Citation and List, Mailing and Effort, Time},
   <span class="org-variable-name">journal</span>={Journal of Plain Text Formats},
   <span class="org-variable-name">title</span>={Elegant Citations with Org-Mode},
@@ -2065,17 +2057,17 @@
   <kbd>.bib</kbd>, <kbd>.bibtex</kbd>, or <kbd>.json</kbd> extension), which we do either via the <kbd>#+bibliography</kbd>
   keyword, or the variable <code>org-cite-global-bibliography</code>.
   </p>
-  <pre class="example" id="org1f01f0f">
+  <pre class="example" id="orgf6cc135">
   #+bibliography: orgcite.bib
   </pre>
 
   <p>
-  Once you have a bibliography source, you can start referencing to your heart&rsquo;s
+  Once you have a bibliography source, you can start referencing to your heart's
   content! The basic citation syntax is as follows:
   </p>
 
 
-  <figure id="org40858b1">
+  <figure id="orgd425d14">
   <img src="https://blog.tecosaur.net/tmio/figures/citation-structure-basic.svg" alt="citation-structure-basic.svg" class="org-svg">
 
   <figcaption><span class="figure-number">Figure 12: </span>The new citation syntax, for simple citations</figcaption>
@@ -2091,11 +2083,11 @@
   <kbd>#+print_bibliography</kbd> keyword, like so:
   </p>
 
-  <pre class="example" id="org34ce4e9">
+  <pre class="example" id="orgb7491d3">
   #+print_bibliography:
   </pre>
 
-  <div class="info" id="org0da40c2">
+  <div class="info" id="orgdfbc55a">
   <style>.csl-entry{text-indent: -1.5em; margin-left: 1.5em;}</style><div class="csl-bib-body">
   </div>
 
@@ -2104,28 +2096,27 @@
   <p>
   So, to summarise, all one needs to get started is:
   </p>
-  <pre class="example" id="org6768389">
+  <pre class="example" id="orgc99c4c7">
   #+bibliography: references.bib
   [cite:@key]
   #+print_bibliography:
   </pre>
   <p>
-  That&rsquo;s it! 🎉
+  That's it! 🎉
   </p>
   </div>
   </div>
-
   <div id="outline-container-cite-syntax" class="outline-3">
   <h3 id="cite-syntax"><span class="section-number-3">10.3.</span> The cite syntax</h3>
   <div class="outline-text-3" id="text-10-3">
   <p>
-  Don&rsquo;t let the simplicity in the examples above fool you, the new syntax is quite
-  capable of expressing more complex forms. Here&rsquo;s the <i>full</i> version of the new
+  Don't let the simplicity in the examples above fool you, the new syntax is quite
+  capable of expressing more complex forms. Here's the <i>full</i> version of the new
   cite syntax:
   </p>
 
 
-  <figure id="org2fe6973">
+  <figure id="org565d659">
   <img src="https://blog.tecosaur.net/tmio/figures/citation-structure-full.svg" alt="citation-structure-full.svg" class="org-svg">
 
   <figcaption><span class="figure-number">Figure 13: </span>The new citations syntax, in full</figcaption>
@@ -2149,7 +2140,7 @@
 
   <p>
   The citation styles and variants, and recognised locators are handled by the
-  citation processors. Org cite&rsquo;s bundled processors currently supports the
+  citation processors. Org cite's bundled processors currently supports the
   following citation styles.
   </p>
 
@@ -2413,7 +2404,6 @@
   </p>
   </div>
   </div>
-
   <div id="outline-container-more-exporting" class="outline-3">
   <h3 id="more-exporting"><span class="section-number-3">10.4.</span> More on exporting</h3>
   <div class="outline-text-3" id="text-10-4">
@@ -2430,7 +2420,7 @@
   on a per-document basis via the <kbd>#+cite_export</kbd> keyword. Here, I shall use the <kbd>csl</kbd>
   processor,
   </p>
-  <pre class="example" id="org78fa72b">
+  <pre class="example" id="org8eb4c7b">
   #+cite_export: csl
   </pre>
 
@@ -2439,7 +2429,7 @@
   style by giving a triplet of parameters <code class="src src-elisp">(PROCESSOR BIBLIOGRAPHY-STYLE CITATION-STYLE)</code> instead of just the processor. You can also use this triplet of
   values with the <kbd>#+cite_export</kbd> keyword
   </p>
-  <pre class="example" id="org8b6e36b">
+  <pre class="example" id="org5ebbfda">
   #+cite_export: processor bibliography-style citation-style
   </pre>
 
@@ -2447,16 +2437,15 @@
   There are also some more options about how the bibliography is produced. These
   options are handled by the active citation processor. For example, while the CSL
   processor does not currently support any options, the BibLaTeX processor passes
-  options to a <code class="src src-LaTeX"><span class="org-font-latex-sedate"><span class="org-keyword"><span class="org-font-latex-warning"><span class="org-keyword">\</span></span></span></span><span class="org-font-latex-sedate"><span class="org-keyword"><span class="org-keyword">printbibliography</span></span></span></code> command, allowing for the
+  options to a <code class="src src-LaTeX"><span class="org-keyword">\printbibliography</span></code> command, allowing for the
   following:
   </p>
-  <pre class="example" id="orgcf2895c">
+  <pre class="example" id="org2e559f3">
   #+print_bibliography: :section 2 :heading subbibliography
   #+print_bibliography: :keyword abc,xyz :title "Primary Sources"
   </pre>
   </div>
   </div>
-
   <div id="outline-container-using-csl" class="outline-3">
   <h3 id="using-csl"><span class="section-number-3">10.5.</span> Using <span class='acr'>CSL</span></h3>
   <div class="outline-text-3" id="text-10-5">
@@ -2497,7 +2486,7 @@
   either absolute or relative to <code>org-cite-csl-styles-dir</code>. For example, if I
   download <kbd>apa.csl</kbd> I can use it like so:
   </p>
-  <pre class="example" id="orgbb81d41">
+  <pre class="example" id="org85d3e0c">
   #+cite_export: csl ~/Downloads/apa.csl
   </pre>
 
@@ -2507,7 +2496,6 @@
   </p>
   </div>
   </div>
-
   <div id="outline-container-working-with-zotero" class="outline-3">
   <h3 id="working-with-zotero"><span class="section-number-3">10.6.</span> Working with Zotero</h3>
   <div class="outline-text-3" id="text-10-6">
@@ -2520,21 +2508,21 @@
   </p>
 
   <p>
-  <a href="https://www.zotero.org/">Zotero</a> is a good option, and if you&rsquo;re using it it&rsquo;s quite easy to use it with
+  <a href="https://www.zotero.org/">Zotero</a> is a good option, and if you're using it it's quite easy to use it with
   Org Cite. Out of the box, you can tell it to export your library, or parts of it,
-  to a <kbd>.bib</kbd> file and automatically keep it in sync. I&rsquo;d recommend installing the
+  to a <kbd>.bib</kbd> file and automatically keep it in sync. I'd recommend installing the
   <a href="https://retorque.re/zotero-better-bibtex/">Better BibTeX</a> extension though.
   </p>
 
 
-  <figure id="orgfbc5693">
+  <figure id="orgf67316e">
   <img src="https://blog.tecosaur.net/tmio/figures/zotero-export-library.png" alt="zotero-export-library.png">
 
   <figcaption><span class="figure-number">Figure 14: </span>Zotero library right click context menu, showing the export option</figcaption>
   </figure>
 
 
-  <figure id="org45937c9">
+  <figure id="org99c846a">
   <img src="https://blog.tecosaur.net/tmio/figures/zotero-export-options-prompt.png" alt="zotero-export-options-prompt.png">
 
   <figcaption><span class="figure-number">Figure 15: </span>Zotero collection export dialog</figcaption>
@@ -2546,7 +2534,7 @@
   </p>
 
 
-  <figure id="org4ce3450">
+  <figure id="org4827996">
   <img src="https://blog.tecosaur.net/tmio/figures/zotero-cite-styles-menu.png" alt="zotero-cite-styles-menu.png">
 
   <figcaption><span class="figure-number">Figure 16: </span>Zotero CSL style management within preferences</figcaption>
@@ -2558,7 +2546,7 @@
   directory.
   </p>
   <div class="org-src-container">
-  <pre class="src src-emacs-lisp">  (<span class="org-keyword">setq</span> org-cite-csl-styles-dir <span class="org-string">"~/Zotero/styles"</span>)
+  <pre class="src src-emacs-lisp">(<span class="org-keyword">setq</span> org-cite-csl-styles-dir <span class="org-string">"~/Zotero/styles"</span>)
   </pre>
   </div>
 
@@ -2566,20 +2554,19 @@
   To then use the citation style defined by <kbd>~/Zotero/styles/apa.csl</kbd> one can then
   simply refer to <kbd>apa.csl</kbd> when using the <kbd>#+cite_export</kbd> keyword.
   </p>
-  <pre class="example" id="orgd564b9f">
+  <pre class="example" id="org6f23d37">
   #+cite_export: csl apa.csl
   </pre>
   </div>
   </div>
-
   <div id="outline-container-bright-future" class="outline-3">
   <h3 id="bright-future"><span class="section-number-3">10.7.</span> A bright future</h3>
   <div class="outline-text-3" id="text-10-7">
   <p>
   Org Cite has only just been merged in the past month, and is yet to be included
-  in an Org release, but we&rsquo;re seeing a tremendous degree of community interest.
+  in an Org release, but we're seeing a tremendous degree of community interest.
   There are <i>already</i> promising developments with third-party packages, such as
-  <a href="https://github.com/bdarcus/bibtex-actions">bibtex-actions</a> and <a href="https://github.com/jkitchin/org-ref-cite">org-ref-cite</a>. I can&rsquo;t wait to see how the ecosystem continues
+  <a href="https://github.com/bdarcus/bibtex-actions">bibtex-actions</a> and <a href="https://github.com/jkitchin/org-ref-cite">org-ref-cite</a>. I can't wait to see how the ecosystem continues
   to develop 😃.
   </p>
 
@@ -2598,13 +2585,13 @@
   </p>
 
   <p>
-  [fn3] I&rsquo;m talking about a certain company <a href="https://moneyweek.com/505757/great-frauds-in-history-robert-maxwell">created by a British Fraudster</a> that
+  [fn3] I'm talking about a certain company <a href="https://moneyweek.com/505757/great-frauds-in-history-robert-maxwell">created by a British Fraudster</a> that
   has a <a href="https://www.theguardian.com/science/2017/jun/27/profitable-business-scientific-publishing-bad-for-science">40% profit margin, engages in blackmail-like practices with universities</a>,
   prompted <a href="http://thecostofknowledge.com/">19,000 researchers</a> to boycott them, <a href="https://www.the-scientist.com/the-nutshell/elsevier-published-6-fake-journals-44160">published six fake journals</a>,
   vigorously <a href="https://web.archive.org/web/20200129202353/http://legacy.earlham.edu/~peters/fos/2007/08/publishers-launch-anti-oa-lobbying.html">lobbys against Open Access</a>, <a href="https://rossmounce.co.uk/2017/02/14/elsevier-selling-access-to-open-access-again/">charged for Open Acess articles</a>
   (repeatedly), made <a href="https://www.michaeleisen.org/blog/?p=807">financial contributions to politicians who then tried to
   prevent publicly accesible reaserch</a>, and whose reference manager <a href="https://www.zotero.org/support/kb/mendeley_import#mendeley_database_encryption">encrypted
-  reaserchers&rsquo; <i>own</i> databases</a> &ldquo;to comply with GDPR&rdquo;.
+  reaserchers' <i>own</i> databases</a> "to comply with GDPR".
   </p>
   </div>
   </div>
@@ -2613,7 +2600,7 @@
 <item>
   <title>August 2021</title>
   <link>https://blog.tecosaur.net/tmio/2021-08-38-roaming.html</link>
-  <author>tec@tecosaur.com (TEC)</author>
+  <author>contact.tmio@tecosaur.net (TEC)</author>
   <guid isPermaLink="false">https://blog.tecosaur.net/tmio/2021-08-38-roaming.html</guid>
   <pubDate>Wed, 08 Sep 2021 00:00:00 +0800</pubDate>
 
@@ -2656,7 +2643,7 @@
   </p>
 
 
-  <figure id="org95fc4b9">
+  <figure id="orge02d862">
   <img src="https://blog.tecosaur.net/tmio/figures/org-roam-graph-2d-overview.png" alt="org-roam-graph-2d-overview.png">
 
   <figcaption><span class="figure-number">Figure 17: </span>org-roam-ui's 2D overview.</figcaption>
@@ -2677,7 +2664,7 @@
   </p>
 
 
-  <figure id="orgb7ac582">
+  <figure id="org71abeb7">
   <img src="https://blog.tecosaur.net/tmio/figures/org-roam-ui-in-emacs.png" alt="org-roam-ui-in-emacs.png">
 
   <figcaption><span class="figure-number">Figure 18: </span>Embed org-roam-ui in Emacs using xwidget-webkit.</figcaption>
@@ -2748,7 +2735,7 @@
 <item>
   <title>June 2021</title>
   <link>https://blog.tecosaur.net/tmio/2021-06-34-relaxed.html</link>
-  <author>tec@tecosaur.com (TEC)</author>
+  <author>contact.tmio@tecosaur.net (TEC)</author>
   <guid isPermaLink="false">https://blog.tecosaur.net/tmio/2021-06-34-relaxed.html</guid>
   <pubDate>Mon, 02 Aug 2021 00:00:00 +0800</pubDate>
 
@@ -2762,7 +2749,7 @@
   </p>
 
 
-  <figure id="orgddf564a">
+  <figure id="org5f99ef8">
   <img src="https://blog.tecosaur.net/tmio/figures/dilbert-zenos-paradox.jpg" alt="dilbert-zenos-paradox.jpg">
 
   <figcaption><span class="figure-number">Figure 19: </span>It's right around the corner, I swear!</figcaption>
@@ -2779,7 +2766,7 @@
   </p>
 
 
-  <figure id="orgf1b9db7">
+  <figure id="orgaf79b56">
   <img src="https://blog.tecosaur.net/tmio/figures/org-latex-default-reference-to-sec.png" alt="org-latex-default-reference-to-sec.png">
 
   <figcaption><span class="figure-number">Figure 20: </span>A LaTeX export of a simple document with a reference to both the first and second section. "2" what? Section 2, Table 2, Figure 2, ...</figcaption>
@@ -2792,7 +2779,7 @@
   </p>
 
 
-  <figure id="org7bc806b">
+  <figure id="org3e9e74b">
   <img src="https://blog.tecosaur.net/tmio/figures/org-latex-cref-reference-to-sec.png" alt="org-latex-cref-reference-to-sec.png">
 
   <figcaption><span class="figure-number">Figure 21: </span>A LaTeX export of the same document, but now using <code>cleveref</code>. Note the change from "1" and "2" to "Section 1" and "Section 2".</figcaption>
@@ -2813,12 +2800,11 @@
   documents, but in fact it's possible to reproduce any LaTeX structure in Org
   with no more difficulty (often less) than in LaTeX.
   </p>
-
   <div id="outline-container-simple-elements" class="outline-3">
   <h3 id="simple-elements"><span class="section-number-3">12.1.</span> Simple elements</h3>
   <div class="outline-text-3" id="text-12-1">
   <p>
-  The &ldquo;basic&rdquo; Org elements are simply translated to their LaTeX counterparts.
+  The "basic" Org elements are simply translated to their LaTeX counterparts.
   Markup like <b>bold</b>, <i>italic</i>, etc. are simply translated through
   <code>org-latex-text-markup-alist</code>.
   </p>
@@ -2826,13 +2812,12 @@
   <p>
   For those of us who dabble with equations, Org is <a href="https://orgmode.org/manual/LaTeX-fragments.html">very accomodating</a>. You can
   type (LaTeX-style) inline and display equations in exactly the same way (<kbd>\( \)</kbd>
-  and <kbd>\[ \]</kbd>), and what&rsquo;s more, if you have a LaTeX environment statement
+  and <kbd>\[ \]</kbd>), and what's more, if you have a LaTeX environment statement
   <kbd>\begin{...}</kbd> on its own line, Org will recognise it and pass it into the
   generated LaTeX.
   </p>
   </div>
   </div>
-
   <div id="outline-container-figures-tables" class="outline-3">
   <h3 id="figures-tables"><span class="section-number-3">12.2.</span> Figures and tables</h3>
   <div class="outline-text-3" id="text-12-2">
@@ -2842,14 +2827,14 @@
   sufficient.
   </p>
   <div class="org-src-container">
-  <pre class="src src-org">  <span class="org-org-link"><a href="https://blog.tecosaur.net/tmio/figures/salvador-dali-persistence-of-memory.jpg">https://blog.tecosaur.net/tmio/figures/salvador-dali-persistence-of-memory.jpg</a></span>
+  <pre class="src src-org"><span class="org-org-link"><a href="https://blog.tecosaur.net/tmio/figures/salvador-dali-persistence-of-memory.jpg">https://blog.tecosaur.net/tmio/figures/salvador-dali-persistence-of-memory.jpg</a></span>
   </pre>
   </div>
   <p>
   When exported to LaTeX this will be expanded to
   </p>
   <div class="org-src-container">
-  <pre class="src src-LaTeX">  <span class="org-font-latex-sedate">\includegraphics</span>[width=.9<span class="org-font-latex-sedate">\linewidth</span>]{figures/salvador-dali-persistence-of-memory.jpg}
+  <pre class="src src-LaTeX"><span class="org-keyword">\includegraphics</span>[width=.9<span class="org-keyword">\linewidth</span>]{<span class="org-builtin">figures/salvador-dali-persistence-of-memory.jpg</span>}
   </pre>
   </div>
 
@@ -2858,16 +2843,16 @@
   generates a <i>proper</i> figure.
   </p>
   <div class="org-src-container">
-  <pre class="src src-org"><span class="org-org-meta-line">  #+caption:</span> <span class="org-org-block">A famous surrealist painting</span>
+  <pre class="src src-org"><span class="org-org-meta-line">#+caption:</span> <span class="org-org-block">A famous surrealist painting</span>
   <span class="org-org-link"><a href="https://blog.tecosaur.net/tmio/figures/salvador-dali-persistence-of-memory.jpg">https://blog.tecosaur.net/tmio/figures/salvador-dali-persistence-of-memory.jpg</a></span>
   </pre>
   </div>
   <div class="org-src-container">
-  <pre class="src src-LaTeX">  <span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">figure</span>}[htbp]
-  <span class="org-font-latex-sedate"><span class="org-keyword">\centering</span></span>
-  <span class="org-font-latex-sedate">\includegraphics</span>[width=.9<span class="org-font-latex-sedate">\linewidth</span>]{figures/salvador-dali-persistence-of-memory.jpg}
-  <span class="org-font-latex-sedate"><span class="org-keyword">\caption</span></span>{<span class="org-type">A famous surrealist painting</span>}
-  <span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">figure</span>}
+  <pre class="src src-LaTeX"><span class="org-keyword">\begin</span>{<span class="org-function-name">figure</span>}[htbp]
+  <span class="org-keyword">\centering</span>
+  <span class="org-keyword">\includegraphics</span>[width=.9<span class="org-keyword">\linewidth</span>]{<span class="org-builtin">figures/salvador-dali-persistence-of-memory.jpg</span>}
+  <span class="org-keyword">\caption</span>{A famous surrealist painting}
+  <span class="org-keyword">\end</span>{<span class="org-function-name">figure</span>}
   </pre>
   </div>
 
@@ -2876,7 +2861,7 @@
   keyword, this works nicely in HTML too 🙂.
   </p>
 
-  <figure id="org0c0bedc">
+  <figure id="org12b3ab5">
   <img src="https://blog.tecosaur.net/tmio/figures/salvador-dali-persistence-of-memory.jpg" alt="salvador-dali-persistence-of-memory.jpg">
 
   <figcaption><span class="figure-number">Figure 22: </span>A famous surrealist painting</figcaption>
@@ -2887,7 +2872,7 @@
   example, to set the image width I can simply add
   </p>
   <div class="org-src-container">
-  <pre class="src src-org"><span class="org-org-meta-line">  #+attr_latex: :width 0.4\linewidth</span>
+  <pre class="src src-org"><span class="org-org-meta-line">#+attr_latex: :width 0.4\linewidth</span>
   </pre>
   </div>
   <p>
@@ -2898,7 +2883,7 @@
   You can do the same with tables:
   </p>
   <div class="org-src-container">
-  <pre class="src src-org"><span class="org-org-meta-line">  #+caption:</span> <span class="org-org-block">A selection of famous paintings by Salvador Dal&#237;</span>
+  <pre class="src src-org"><span class="org-org-meta-line">#+caption:</span> <span class="org-org-block">A selection of famous paintings by Salvador Dal&#237;</span>
   <span class="org-org-table">| Year | Painting                   |</span>
   <span class="org-org-table">|------+----------------------------|</span>
   <span class="org-org-table">| 1931 | The persistence of memory  |</span>
@@ -2916,21 +2901,21 @@
   </p>
 
   <div class="org-src-container">
-  <pre class="src src-LaTeX">  <span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">table</span>}[htbp]
-  <span class="org-font-latex-sedate"><span class="org-keyword">\caption</span></span>{<span class="org-type">A selection of famous paintings by Salvador Dal&#237;</span>}
-  <span class="org-font-latex-sedate"><span class="org-keyword">\centering</span></span>
-  <span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tabular</span>}{rl}
-  <span class="org-font-latex-sedate">\toprule</span>
-  Year <span class="org-font-latex-warning">&amp;</span> Painting<span class="org-font-latex-warning">\\</span>
-  <span class="org-font-latex-sedate">\midrule</span>
-  1931 <span class="org-font-latex-warning">&amp;</span> The persistence of memory<span class="org-font-latex-warning">\\</span>
-  1937 <span class="org-font-latex-warning">&amp;</span> Swans reflecting elephants<span class="org-font-latex-warning">\\</span>
-  1837 <span class="org-font-latex-warning">&amp;</span> Metamorphosis of narcissus<span class="org-font-latex-warning">\\</span>
-  1952 <span class="org-font-latex-warning">&amp;</span> Galatea of the spheres<span class="org-font-latex-warning">\\</span>
-  1966 <span class="org-font-latex-warning">&amp;</span> Tuna fishing<span class="org-font-latex-warning">\\</span>
-  <span class="org-font-latex-sedate">\bottomrule</span>
-  <span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">tabular</span>}
-  <span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">table</span>}
+  <pre class="src src-LaTeX"><span class="org-keyword">\begin</span>{<span class="org-function-name">table</span>}[htbp]
+  <span class="org-keyword">\caption</span>{A selection of famous paintings by Salvador Dal&#237;}
+  <span class="org-keyword">\centering</span>
+  <span class="org-keyword">\begin</span>{<span class="org-function-name">tabular</span>}{rl}
+  <span class="org-keyword">\toprule</span>
+  Year &amp; Painting<span class="org-warning">\\</span>
+  <span class="org-keyword">\midrule</span>
+  1931 &amp; The persistence of memory<span class="org-warning">\\</span>
+  1937 &amp; Swans reflecting elephants<span class="org-warning">\\</span>
+  1837 &amp; Metamorphosis of narcissus<span class="org-warning">\\</span>
+  1952 &amp; Galatea of the spheres<span class="org-warning">\\</span>
+  1966 &amp; Tuna fishing<span class="org-warning">\\</span>
+  <span class="org-keyword">\bottomrule</span>
+  <span class="org-keyword">\end</span>{<span class="org-function-name">tabular</span>}
+  <span class="org-keyword">\end</span>{<span class="org-function-name">table</span>}
   </pre>
   </div>
 
@@ -2938,7 +2923,7 @@
   Org is nice and does the right thing<sup>TM</sup> by including the caption at the top.
   </p>
 
-  <figure id="orgceb5b17">
+  <figure id="org17bce8d">
   <img src="https://blog.tecosaur.net/tmio/figures/org-table-to-latex-example.png" alt="org-table-to-latex-example.png">
 
   <figcaption><span class="figure-number">Figure 23: </span>Look ma, I put the caption in the right place.</figcaption>
@@ -2947,17 +2932,16 @@
   <p>
   There are also some <a href="https://orgmode.org/manual/Images-in-LaTeX-export.html">more attributes</a> you can supply to tables. Should I want the
   table to spread out I could use <kbd>#+attr_latex: :environment tabularx</kbd> (as long as
-  I&rsquo;ve loaded the <kbd>tabularx</kbd> package) and then set the columns with <kbd>:align lX</kbd>.
+  I've loaded the <kbd>tabularx</kbd> package) and then set the columns with <kbd>:align lX</kbd>.
   </p>
   </div>
   </div>
-
   <div id="outline-container-code-blocks" class="outline-3">
   <h3 id="code-blocks"><span class="section-number-3">12.3.</span> Code blocks</h3>
   <div class="outline-text-3" id="text-12-3">
   <p>
   By default, source code blocks are translated verbatim. We can do better than
-  that however. We can tell Org to use <a href="https://ctan.org/pkg/listings">listings</a>, but I&rsquo;d recommend going one step
+  that however. We can tell Org to use <a href="https://ctan.org/pkg/listings">listings</a>, but I'd recommend going one step
   further and using <a href="https://ctan.org/pkg/minted">minted</a>. For this to work we need to perform three actions:
   Tell Org we want to use <kbd>minted</kbd> environments for source code
   Load the <kbd>minted</kbd> package by default
@@ -2968,7 +2952,7 @@
   This can easily be accomplished via the following snippet:
   </p>
   <div class="org-src-container">
-  <pre class="src src-emacs-lisp">  (<span class="org-keyword">setq</span> org-latex-listings 'minted
+  <pre class="src src-emacs-lisp">(<span class="org-keyword">setq</span> org-latex-listings 'minted
   <span class="org-comment-delimiter">;; </span><span class="org-comment">as long as you have latexmk installed</span>
   org-latex-pdf-process
   '(<span class="org-string">"latexmk -f -pdf -%latex -shell-escape -interaction=nonstopmode -output-directory=%o %f"</span>))
@@ -2983,7 +2967,6 @@
   </p>
   </div>
   </div>
-
   <div id="outline-container-custom-environments" class="outline-3">
   <h3 id="custom-environments"><span class="section-number-3">12.4.</span> Custom environments</h3>
   <div class="outline-text-3" id="text-12-4">
@@ -2991,7 +2974,7 @@
   Org has a number of <a href="https://orgmode.org/manual/Blocks.html">blocks</a> which are treated specially, like <kbd>#+begin_src</kbd> for
   source code, and <kbd>#+begin_centre</kbd> for centred text. When exporting this same
   syntax allows you to wrap Org content in any LaTeX environments (as long as it
-  doesn&rsquo;t match one of Org&rsquo;s recognised environments).
+  doesn't match one of Org's recognised environments).
   </p>
 
   <p>
@@ -2999,9 +2982,9 @@
   text, to wrap some Org content in it one simply needs to write:
   </p>
   <div class="org-src-container">
-  <pre class="src src-org"><span class="org-org-block-begin-line">  #+begin_warning</span>
+  <pre class="src src-org"><span class="org-org-block-begin-line">#+begin_warning</span>
   Pay close attention! This is very important.
-  <span class="org-org-block-end-line">  #+end_warning</span>
+  <span class="org-org-block-end-line">#+end_warning</span>
   </pre>
   </div>
   <p>
@@ -3009,7 +2992,6 @@
   </p>
   </div>
   </div>
-
   <div id="outline-container-latex-escape-hatches" class="outline-3">
   <h3 id="latex-escape-hatches"><span class="section-number-3">12.5.</span> The LaTeX escape hatches</h3>
   <div class="outline-text-3" id="text-12-5">
@@ -3019,26 +3001,25 @@
   transferred to the generated LaTeX (this works with other formats too).
   </p>
   <div class="org-src-container">
-  <pre class="src src-org"><span class="org-org-meta-line">  #+latex: \newpage</span>
+  <pre class="src src-org"><span class="org-org-meta-line">#+latex: \newpage</span>
   </pre>
   </div>
 
   <p>
-  For larger snippets of LaTeX, there&rsquo;s always the export block.
+  For larger snippets of LaTeX, there's always the export block.
   </p>
   <div class="org-src-container">
-  <pre class="src src-org"><span class="org-org-block-begin-line">  #+begin_export latex</span>
-  <span class="org-org-block"><span class="custom">  </span></span><span class="org-org-block"><span class="custom"><span class="org-font-latex-sedate"><span class="org-font-latex-warning">\cleardoublepage</span></span></span></span>
-  <span class="org-org-block"><span class="custom">  </span></span><span class="org-org-block"><span class="custom"><span class="org-font-latex-sedate">\vfil</span></span></span>
-  <span class="org-org-block"><span class="custom">  </span></span><span class="org-org-block"><span class="custom"><span class="org-font-latex-sedate">\hfil</span></span></span><span class="org-org-block"><span class="custom"> This page is intentionally left blank </span></span><span class="org-org-block"><span class="custom"><span class="org-font-latex-sedate">\hfil</span></span></span>
-  <span class="org-org-block"><span class="custom">  </span></span><span class="org-org-block"><span class="custom"><span class="org-font-latex-sedate">\vfil</span></span></span>
-  <span class="org-org-block"><span class="custom">  </span></span><span class="org-org-block"><span class="custom"><span class="org-font-latex-sedate"><span class="org-font-latex-warning">\newpage</span></span></span></span>
-  <span class="org-org-block-end-line">  #+end_export</span>
+  <pre class="src src-org"><span class="org-org-block-begin-line">#+begin_export latex</span>
+  <span class="custom">\cleardoublepage</span>
+  <span class="custom">\vfil</span>
+  <span class="custom">\hfil This page is intentionally left blank \hfil</span>
+  <span class="custom">\vfil</span>
+  <span class="custom">\newpage</span>
+  <span class="org-org-block-end-line">#+end_export</span>
   </pre>
   </div>
   </div>
   </div>
-
   <div id="outline-container-preamble-content" class="outline-3">
   <h3 id="preamble-content"><span class="section-number-3">12.6.</span> Preamble content</h3>
   <div class="outline-text-3" id="text-12-6">
@@ -3047,8 +3028,8 @@
   then all you need to do is use <kbd>#+latex_header:</kbd>.
   </p>
   <div class="org-src-container">
-  <pre class="src src-org"><span class="org-org-meta-line">  #+latex_header: \newcommand{\RR}{\mathbb{R}}</span>
-  <span class="org-org-meta-line">  #+latex_header: \usepackage{svg} % so that <a href="file:*.svg">file:*.svg</a> works nicely</span>
+  <pre class="src src-org"><span class="org-org-meta-line">#+latex_header: \newcommand{\RR}{\mathbb{R}}</span>
+  <span class="org-org-meta-line">#+latex_header: \usepackage{svg} % so that <a href="file:*.svg">file:*.svg</a> works nicely</span>
   </pre>
   </div>
   <p>
@@ -3062,7 +3043,7 @@
   <p>
   Should you want to use a certain preset preamble, you can make use of the
   <kbd>#+latex_class</kbd> keyword. This is used to set the base preamble template used when
-  generating the LaTeX. See <code>org-latex-classes</code> for what&rsquo;s available by default. You
+  generating the LaTeX. See <code>org-latex-classes</code> for what's available by default. You
   should see entries for:
   article
   report
@@ -3076,7 +3057,7 @@
   </p>
 
   <p>
-  What&rsquo;s great about this is that is makes it really easy to add your own
+  What's great about this is that is makes it really easy to add your own
   templates. Each template simply takes three components:
   A name
   A preamble template
@@ -3084,12 +3065,12 @@
   </p>
 
   <p>
-  For example, I&rsquo;m quite a fan of the <a href="https://ctan.org/pkg/koma-script">KOMA-script</a> family. Should I want to add a
-  <kbd>kart</kbd> class (for: <b>k</b>oma <b>art</b>icle), I simply need to do something like the
+  For example, I'm quite a fan of the <a href="https://ctan.org/pkg/koma-script">KOMA-script</a> family. Should I want to add a
+  <kbd>kart</kbd> class (for: <b>k</b>​oma <b>art</b>​icle), I simply need to do something like the
   following:
   </p>
   <div class="org-src-container">
-  <pre class="src src-emacs-lisp">  (add-to-list 'org-latex-classes
+  <pre class="src src-emacs-lisp">(add-to-list 'org-latex-classes
   '(<span class="org-string">"kart"</span> <span class="org-comment-delimiter">; </span><span class="org-comment">class name</span>
   <span class="org-string">"\\documentclass{scrartcl}"</span> <span class="org-comment-delimiter">; </span><span class="org-comment">preamble template</span>
   (<span class="org-string">"\\section{%s}"</span> . <span class="org-string">"\\section*{%s}"</span>) <span class="org-comment-delimiter">; </span><span class="org-comment">H1 translation</span>
@@ -3107,22 +3088,22 @@
 
   <p>
   Other improvements
-  <kbd>ox-koma-letter.el</kbd> has been brought into Org&rsquo;s main directory from the ) <kbd>contrib/</kbd> repo <span class="underline">Bastien Guerry</span>
+  <kbd>ox-koma-letter.el</kbd> has been brought into Org's main directory from the ) <kbd>contrib/</kbd> repo <span class="underline">Bastien Guerry</span>
   Speed up publishing by using delayed hooks and temp buffers instead of finding
   files <span class="underline">Gustav Wikström</span>
   Improve generated HTML quality: prevent W3C warning and add some accessibility
   labels <span class="underline">TEC</span>
-  Make the behaviour of the &ldquo;goto variant&rdquo; of <code>org-refile</code> (<code>org-speed-commands</code>)
+  Make the behaviour of the "goto variant" of <code>org-refile</code> (<code>org-speed-commands</code>)
   less confusing <span class="underline">Marco Wahl</span>
   Backport an update to the OpenDocument schema <span class="underline">Kyle Meyer</span>
   Bugfixes
   Off by one error in texinfo menu generation <span class="underline">Nicolas Goaziou</span>
   Error in entry/conversion of non-24h times in the agenda <span class="underline">Nicolas Goaziou</span>
   Only use <code>replace-buffer-contents</code> with Emacs 27+ when saving src blocks, as the
-  behaviour isn&rsquo;t consistent until then <span class="underline">Nicolas Goaziou</span>
-  Prevent &ldquo;before first headline&rdquo; error in <kbd>org-clock</kbd> when clocking out <span class="underline">Nicolas Goaziou</span>
+  behaviour isn't consistent until then <span class="underline">Nicolas Goaziou</span>
+  Prevent "before first headline" error in <kbd>org-clock</kbd> when clocking out <span class="underline">Nicolas Goaziou</span>
   Avoid setting the global agenda name when following a timestamp link <span class="underline">Ingo Lohmar</span>
-  Don&rsquo;t bind <kbd>&lt;tab&gt;</kbd> in <code>org-mode-map</code> <span class="underline">Nicolas Goaziou</span>
+  Don't bind <kbd>&lt;tab&gt;</kbd> in <code>org-mode-map</code> <span class="underline">Nicolas Goaziou</span>
   Erroneous tangling of source block with <kbd>:tangle no</kbd> to a file <kbd>no</kbd> when the
   tangle command is called with a single universal argument <span class="underline">Jacopo De Simoi</span>
   Footnotes
@@ -3138,8 +3119,8 @@
   </p>
 
   <p>
-  [fn3] I&rsquo;m rather a fan of the <kbd>capitalize</kbd> option because (1) technically the
-  reference to a named object is a proper noun, and (2) this means you don&rsquo;t have
+  [fn3] I'm rather a fan of the <kbd>capitalize</kbd> option because (1) technically the
+  reference to a named object is a proper noun, and (2) this means you don't have
   to worry about references not being capitalized when appearing at the start of a
   sentence.
   </p>
@@ -3150,7 +3131,7 @@
 <item>
   <title>Welcome</title>
   <link>https://blog.tecosaur.net/tmio/2021-04-26-Welcome.html</link>
-  <author>tec@tecosaur.com (TEC)</author>
+  <author>contact.tmio@tecosaur.net (TEC)</author>
   <guid isPermaLink="false">https://blog.tecosaur.net/tmio/2021-04-26-Welcome.html</guid>
   <pubDate>Tue, 27 Apr 2021 00:00:00 +0800</pubDate>
 
@@ -3209,7 +3190,6 @@
   I'm not going to do 12 months of work for just this one post, but I'd like to
   give you a sample of what's changed over the last year.
   </p>
-
   <div id="outline-container-new-discussion-tracker" class="outline-3">
   <h3 id="new-discussion-tracker"><span class="section-number-3">13.1.</span> A new discussion tracker &#x2014; <a href="https://updates.orgmode.org/">updates.orgmode.org</a></h3>
   <div class="outline-text-3" id="text-13-1">
@@ -3226,14 +3206,14 @@
   </p>
 
 
-  <figure id="org17e1c03">
+  <figure id="orgbe2c92e">
   <img src="https://blog.tecosaur.net/tmio/figures/screenshot-of-updates-orgmode-org.png" alt="screenshot-of-updates-orgmode-org.png">
 
   <figcaption><span class="figure-number">Figure 24: </span>A screenshot of <a href="https://updates.orgmode.org/">updates.orgmode.org</a></figcaption>
   </figure>
 
   <p>
-  It&rsquo;s very slick, and Bastien built a <a href="https://github.com/bzg/woof">mailbox monitor</a> just for it &#x2014; so be sure
+  It's very slick, and Bastien built a <a href="https://github.com/bzg/woof">mailbox monitor</a> just for it &#x2014; so be sure
   to check it out. This should make it easier to see what needs doing. If you feel
   inclined to help out with Org check out the <i>Help requests</i> section in particular.
   </p>
@@ -3245,7 +3225,6 @@
   </p>
   </div>
   </div>
-
   <div id="outline-container-inline-display-remote" class="outline-3">
   <h3 id="inline-display-remote"><span class="section-number-3">13.2.</span> Inline display of remote images</h3>
   <div class="outline-text-3" id="text-13-2">
@@ -3261,7 +3240,7 @@
   </p>
 
 
-  <figure id="orgc053d37">
+  <figure id="orgd5283f0">
   <img src="https://github.com/larsmagne/meme/raw/master/images/Grandma-Finds-The-Internet.jpg" alt="Grandma-Finds-The-Internet.jpg">
 
   <figcaption><span class="figure-number">Figure 25: </span>Org mode discovers the internet</figcaption>
@@ -3273,86 +3252,81 @@
   </p>
   </div>
   </div>
-
   <div id="outline-container-use-org-edit" class="outline-3">
   <h3 id="use-org-edit"><span class="section-number-3">13.3.</span> Use <code>org-edit-special</code> (<kbd>C-c '</kbd>) with LaTeX fragments</h3>
   <div class="outline-text-3" id="text-13-3">
   <p>
-  It&rsquo;s great how in Org you can jump into a LaTeX-mode minibuffer for LaTeX
-  environments, but why leave inline LaTeX fragments out? We&rsquo;ll, they&rsquo;re now in.
+  It's great how in Org you can jump into a LaTeX-mode minibuffer for LaTeX
+  environments, but why leave inline LaTeX fragments out? We'll, they're now in.
   </p>
 
 
-  <figure id="org75ae980">
+  <figure id="org25e0649">
   <img src="https://blog.tecosaur.net/tmio/figures/org-edit-special-latex-fragment.png" alt="org-edit-special-latex-fragment.png">
 
   <figcaption><span class="figure-number">Figure 26: </span>Running <code>org-edit-special</code> on an inline LaTeX fragment</figcaption>
   </figure>
   </div>
   </div>
-
   <div id="outline-container-control-heading-display" class="outline-3">
   <h3 id="control-heading-display"><span class="section-number-3">13.4.</span> Control heading display on startup</h3>
   <div class="outline-text-3" id="text-13-4">
   <p>
-  <kbd>org-num-mode</kbd> is great for when you&rsquo;re keeping an eye on section numbers, but
-  it&rsquo;s not fun to find yourself enabling it every time you open a file where you
+  <kbd>org-num-mode</kbd> is great for when you're keeping an eye on section numbers, but
+  it's not fun to find yourself enabling it every time you open a file where you
   want it. With the new option <kbd>#+startup: num</kbd> by Bastien, you can set and forget
   at last.
   </p>
 
 
-  <figure id="orgc262328">
+  <figure id="org4421f16">
   <img src="https://blog.tecosaur.net/tmio/figures/org-startup-num-and-levels.png" alt="org-startup-num-and-levels.png">
 
   <figcaption><span class="figure-number">Figure 27: </span>Opening a buffer with the new <kbd>num</kbd> and <kbd>show2levels</kbd> startup options</figcaption>
   </figure>
 
   <p>
-  Should you want to set the number of levels you see on opening a file, there&rsquo;s
+  Should you want to set the number of levels you see on opening a file, there's
   now an option for that too. Gustav Wikström has added <i>another</i> new option
   <kbd>#+startup: show&lt;n&gt;levels</kbd> (where <kbd>&lt;n&gt;</kbd> is between 2 and 5, inclusive).
   <i>NB: This is part of the upcoming 9.5 release</i>
   </p>
   </div>
   </div>
-
   <div id="outline-container-set-permissions-tangled" class="outline-3">
   <h3 id="set-permissions-tangled"><span class="section-number-3">13.5.</span> Set permissions of tangled files</h3>
   <div class="outline-text-3" id="text-13-5">
   <p>
-  Are you particular about your file permissions? If so you&rsquo;ll likely like John
-  Herrlin&rsquo;s new source block header argument <kbd>:file-mode</kbd> pertinent. The easiest way
+  Are you particular about your file permissions? If so you'll likely like John
+  Herrlin's new source block header argument <kbd>:file-mode</kbd> pertinent. The easiest way
   to set a permission is with an <a href="https://docs.nersc.gov/filesystems/unix-file-permissions/">octal value</a>, like so:
   </p>
   <div class="org-src-container">
-  <pre class="src src-org"><span class="org-org-block-begin-line">  #+begin_src shell :results file :file script.sh :file-mode (identity #o755)</span>
-  <span class="org-org-block">  </span><span class="org-org-block"><span class="org-type">echo</span></span><span class="org-org-block"> </span><span class="org-org-block"><span class="org-string">"#!/bin/bash"</span></span>
-  <span class="org-org-block">  </span><span class="org-org-block"><span class="org-type">echo</span></span><span class="org-org-block"> </span><span class="org-org-block"><span class="org-string">"</span></span><span class="org-org-block"><span class="org-type"><span class="org-string">echo</span></span></span><span class="org-org-block"><span class="org-string"> Hello World"</span></span>
-  <span class="org-org-block-end-line">  #+end_src</span>
+  <pre class="src src-org"><span class="org-org-block-begin-line">#+begin_src shell :results file :file script.sh :file-mode (identity #o755)</span>
+  <span class="org-org-block"><span class="org-builtin">echo</span></span><span class="org-org-block"> </span><span class="org-org-block"><span class="org-string">"#!/bin/bash"</span></span>
+  <span class="org-org-block"><span class="org-builtin">echo</span></span><span class="org-org-block"> </span><span class="org-org-block"><span class="org-string">"echo Hello World"</span></span>
+  <span class="org-org-block-end-line">#+end_src</span>
   </pre>
   </div>
   </div>
   </div>
-
   <div id="outline-container-collection-improvements-source" class="outline-3">
   <h3 id="collection-improvements-source"><span class="section-number-3">13.6.</span> A collection of improvements to source block header arguments</h3>
   <div class="outline-text-3" id="text-13-6">
   <p>
-  These&rsquo;s been a whole set of these, so I&rsquo;ll just list them off.
+  These's been a whole set of these, so I'll just list them off.
   python, improved <kbd>:return</kbd> Now works with sessions and the <kbd>:epilogue</kbd>
   argument (Jack Kamm)
   Java, new argument <kbd>:cmdargs</kbd> Add some command line arguments to be passed to
   <code>java</code> (Jarmo Hurri)
-  C/C++, non-system headers with <kbd>:includes</kbd> values that don&rsquo;t start with <kbd>&lt;</kbd>
+  C/C++, non-system headers with <kbd>:includes</kbd> values that don't start with <kbd>&lt;</kbd>
   will now be formatted as double-quoted <code class="src src-C"><span class="org-preprocessor">#include</span></code> statements (Brandon
   Guttersohn)
-  Screen, new argument <kbd>:screenrc</kbd> For those of you who still haven&rsquo;t moved to
+  Screen, new argument <kbd>:screenrc</kbd> For those of you who still haven't moved to
   <kbd>tmux</kbd> (Kenneth D. Mankoff)
   </p>
   </div>
   </div>
-
   <div id="outline-container-seven-year-old" class="outline-3">
   <h3 id="seven-year-old"><span class="section-number-3">13.7.</span> A seven year old bug was fixed</h3>
   <div class="outline-text-3" id="text-13-7">
@@ -3370,7 +3344,7 @@
   structures, Org also has the advantage of not having <a href="https://github.com/commonmark/commonmark-spec/wiki/markdown-flavors">40 functionally distinct
   specifications</a>. There is only one Org. <br>
   NB: If you attempt to be pedantic you may say that there are multiple Orgs
-  because, for example, GitHub uses <a href="https://github.com/wallyqs/org-ruby">org-ruby</a>. However, that&rsquo;s just an incomplete
+  because, for example, GitHub uses <a href="https://github.com/wallyqs/org-ruby">org-ruby</a>. However, that's just an incomplete
   implementation &#x2014; not a <a href="https://orgmode.org/worg/dev/org-syntax.html">specification</a>.
   </p>
 
@@ -3381,7 +3355,7 @@
   </p>
 
   <p>
-  [fn3] There is <a href="https://code.orgmode.org/bzg/org-mode/src/master/etc/ORG-NEWS">ORG-NEWS</a>, but do you <i>really</i> check that? Besides, it doesn&rsquo;t even
+  [fn3] There is <a href="https://code.orgmode.org/bzg/org-mode/src/master/etc/ORG-NEWS">ORG-NEWS</a>, but do you <i>really</i> check that? Besides, it doesn't even
   have pictures.
   </p>
   </div>

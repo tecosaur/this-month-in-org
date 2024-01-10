@@ -1,4 +1,4 @@
-# Created 2022-03-03 Thu 01:40
+# Created 2024-01-11 Thu 11:13
 #+title: December 2021
 #+date: 2021-12-31
 #+author: TEC
@@ -51,6 +51,3 @@ be in the Reddit comments section, or by Email (=tec@= this domain), to direct
 - If there's anything you'd be interested in this blog doing differently in 2022?
 
 That's all for now! Thank you for reading, and have a great new year 🙂
-
-[fn:1] Both the org-mode codebase, and also the ecosystem that's sprung up
-around it

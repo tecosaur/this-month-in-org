@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-06-02 Thu 00:55 -->
+<!-- 2024-01-11 Thu 11:13 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>May 2022</title>
@@ -25,24 +25,24 @@
 <link rel="stylesheet" type="text/css" href="blog.css">
 <script src="org-style.js"></script>
 <script>
-    MathJax = {
-      chtml: {
-        scale: 1
-      },
-      svg: {
-        scale: 1,
-        fontCache: "global"
-      },
-      tex: {
-        tags: "ams",
-        multlineWidth: "85%",
-        tagSide: "right",
-        tagIndent: ".8em"
-      }
-    };
-    </script>
-    <script id="MathJax-script" async
-            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+MathJax = {
+  chtml: {
+    scale: 1
+  },
+  svg: {
+    scale: 1,
+    fontCache: "global"
+  },
+  tex: {
+    tags: "%AUTONUMBER",
+    multlineWidth: "85%",
+    tagSide: "right",
+    tagIndent: ".8em"
+  }
+};
+</script>
+<script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 </head>
 <body>
 <input type='checkbox' id='theme-switch'><div id='page'><label id='switch-label' for='theme-switch'></label><div id="preamble" class="status">
@@ -62,23 +62,22 @@
 <p class="subtitle" role="doc-subtitle">Folding more improvement into Org</p>
 </header><p>
 Finding time as of late has been more difficult than I anticipated, and on top
-of that, just as I was thinking of writing last month&rsquo;s post, I got distracted
+of that, just as I was thinking of writing last month's post, I got distracted
 by an exciting patchset that has been in the works for over a year finally
 getting sorted out and landing. So, I hope that some of the fun developments in
 this post will make up the absense of the last one 🙂.
 </p>
 
 <p>
-Since it&rsquo;s been longer than I thought since the last standard post, we&rsquo;ve got a
+Since it's been longer than I thought since the last standard post, we've got a
 fair few commits to catch up on &#x2014; about 200. Most of these are miscellaneous
 minor improvements and bugfixes, but a few notable changes have arrived too.
 </p>
-
 <div id="outline-container-folding" class="outline-2">
 <h2 id="folding">Folding<a aria-hidden="true" href="#folding">#</a> </h2>
 <div class="outline-text-2" id="text-folding">
 <p>
-The fabulous new folding engine (<kbd>org-fold-core</kbd>) should noticeably improve Org&rsquo;s
+The fabulous new folding engine (<kbd>org-fold-core</kbd>) should noticeably improve Org's
 performance with large files. It contains a number of key optimisations to
 improve speed, namely:
 </p>
@@ -95,27 +94,27 @@ kind enough to whip up some benchmarks.
 </p>
 
 
-<figure id="orgc666d02">
+<figure id="orga8902d1">
 <img src="figures/org-fold-perf-shifttab-contents.svg" alt="org-fold-perf-shifttab-contents.svg" class="invertible">
 
 <figcaption><span class="figure-number">Figure 1: </span>The scaling of <code>org-shifttab</code> showing file contents, as file size increases, with and without org-fold.</figcaption>
 </figure>
 
 
-<figure id="orgbca6e66">
+<figure id="org13985e7">
 <img src="figures/org-fold-perf-shifttab-showall.svg" alt="org-fold-perf-shifttab-showall.svg" class="invertible">
 
 <figcaption><span class="figure-number">Figure 2: </span>The scaling of <code>org-shifttab</code> showing the entire file, as file size increases, with and without org-fold.</figcaption>
 </figure>
 
 <p>
-Well this looks very promising<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>! Let&rsquo;s see how much of an improvement this is overall.
+Well this looks very promising<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>! Let's see how much of an improvement this is overall.
 </p>
 
 <div id='folding,table--1' class='table'>
-    <div class='gutter'><a href='#folding,table--1'>#</a></div>
-    <div class='tabular'>
-    <table>
+<div class='gutter'><a href='#folding,table--1'>#</a></div>
+<div class='tabular'>
+<table>
 <caption class="t-above"><span class="table-number">Table 1:</span> Time to run <kbd>org-shifttab</kbd> twice, cycling through all three display modes (in seconds).</caption>
 
 <colgroup>
@@ -180,27 +179,27 @@ Well this looks very promising<sup><a id="fnr.1" class="footref" href="#fn.1" ro
 </tr>
 </tbody>
 </table>
-    </div>    </div>
+</div></div>
 
 <p>
 To be clear, even the smallest file in this data &#x2014; a 1.1 Mb Org file with around
-a thousand headings, is fairly large. So, it&rsquo;s unlikely you&rsquo;ll notice much of a
+a thousand headings, is fairly large. So, it's unlikely you'll notice much of a
 difference with small&#x2013;medium files, but if you a few large+ files this should
 be a <i>fantastic</i> improvement. Once again, thanks Ihor!
 </p>
 
-<div class="warning" id="org3648df0">
+<div class="warning" id="org4c99280">
 <p>
 The change to text properties instead of overlays breaks a number of third party
-packages like <kbd>evil-search</kbd> and <kbd>consult</kbd>&rsquo;s <code>consult-line</code>.
-If you are involved in any packages affected by this, you&rsquo;ll either want to
+packages like <kbd>evil-search</kbd> and <kbd>consult</kbd>'s <code>consult-line</code>.
+If you are involved in any packages affected by this, you'll either want to
 consider supporting invisible text, or look at <code>isearch-filter-predicate</code> and
 <code>isearch-mode-end-hook</code>, which <kbd>org-fold</kbd> now uses.
-If you&rsquo;re an end-user, perhaps politely make an issue on the repo for a project
+If you're an end-user, perhaps politely make an issue on the repo for a project
 <i>if no issue currently exists</i>, and either:
 </p>
 <ul class="org-ul">
-<li>Stay off Org&rsquo;s bleeding edge till the package ecosystem has adapted to this change</li>
+<li>Stay off Org's bleeding edge till the package ecosystem has adapted to this change</li>
 <li>Help the packages you use adapt to this change</li>
 <li>Set <code>org-fold-core-style</code> to <code>overlays</code> to restore the old behaviour</li>
 </ul>
@@ -208,7 +207,6 @@ If you&rsquo;re an end-user, perhaps politely make an issue on the repo for a pr
 </div>
 </div>
 </div>
-
 <div id="outline-container--engraved-source" class="outline-2">
 <h2 id="-engraved-source"><i>Engraved</i> source code blocks in LaTeX<a aria-hidden="true" href="#-engraved-source">#</a> </h2>
 <div class="outline-text-2" id="text--engraved-source">
@@ -216,18 +214,18 @@ If you&rsquo;re an end-user, perhaps politely make an issue on the repo for a pr
 All too often exporting code to LaTeX has been a disappointment, with lovely
 syntax highlighting from Emacs major modes replaced with a markedly inferior
 attempt by pygments (setting <code>org-latex-listings</code> to <code>minted</code>) in a colour scheme I
-don&rsquo;t really like.
+don't really like.
 </p>
 
 <p>
 A bit over a year ago, a project called <a href="https://github.com/tecosaur/engrave-faces">engrave-faces</a> started with the aim of
-making Emacs&rsquo; font-lock more exportable, like a generalised <kbd>htmlize.el</kbd>. This has
+making Emacs' font-lock more exportable, like a generalised <kbd>htmlize.el</kbd>. This has
 recently been used to provide a new option for inline and block source code
 exports in LaTeX.
 </p>
 
 
-<figure id="orgcb1e4e0">
+<figure id="orga0edd31">
 <img src="figures/engraved-faces-sample.png" alt="engraved-faces-sample.png" class="invertible">
 
 <figcaption><span class="figure-number">Figure 3: </span>A screenshot of an Org code block, exported to a <span class='acr'>PDF</span>, using <kbd>engrave-faces</kbd> and the <kbd>doom-one-light</kbd> theme.</figcaption>
@@ -252,21 +250,21 @@ The theme can also be set on a per-block level using the LaTeX attribute
 </p>
 
 
-<figure id="org0adf255">
+<figure id="orgbefe8d3">
 <img src="figures/engraved-faces-multitheme.png" alt="engraved-faces-multitheme.png">
 
 <figcaption><span class="figure-number">Figure 4: </span>Seven code blocks exported to LaTeX, each with a different engrave-faces theme.</figcaption>
 </figure>
 
 <p>
-Here&rsquo;s what using these new capabilities looks like in practice.
+Here's what using these new capabilities looks like in practice.
 </p>
 
 <details id='-engraved-source,code--1' class='code' open><summary><span class="lang">Org mode</span></summary>
-    <div class='gutter'>
-    <a href='#-engraved-source,code--1'>#</a>
-    <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>    </div>
-    <div class="org-src-container">
+<div class='gutter'>
+<a href='#-engraved-source,code--1'>#</a>
+<button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
+<div class="org-src-container">
 <pre class="src src-org"><span class="org-org-document-info-keyword">#+title:</span> <span class="org-org-document-title">Engraving source blocks</span>
 <span class="org-org-meta-line">#+latex_engraved_theme: modus-operandi</span>
 
@@ -276,11 +274,11 @@ Here&rsquo;s what using these new capabilities looks like in practice.
 
 <span class="org-org-meta-line">#+attr_latex: :engraved-theme modus-viviandi</span>
 <span class="org-org-block-begin-line">#+begin_src shell</span>
-<span class="org-org-block"><span class="org-type">echo</span></span><span class="org-org-block"> </span><span class="org-org-block"><span class="org-string">"This is shell code"</span></span>
+<span class="org-org-block"><span class="org-builtin">echo</span></span><span class="org-org-block"> </span><span class="org-org-block"><span class="org-string">"This is shell code"</span></span>
 <span class="org-org-block-end-line">#+end_src</span>
 </pre>
 </div>
-    </details>
+</details>
 
 <p>
 This may well be the best syntax-highlighting solution available for <span class='acr'>PDF</span><small>s</small>/LaTeX
@@ -288,14 +286,13 @@ currently available, but I am a tad biased 😛.
 </p>
 </div>
 </div>
-
 <div id="outline-container-texinfo-export-improvements" class="outline-2">
 <h2 id="texinfo-export-improvements">TexInfo export improvements<a aria-hidden="true" href="#texinfo-export-improvements">#</a> </h2>
 <div class="outline-text-2" id="text-texinfo-export-improvements">
 <p>
-Jonas Bernoulli has been using a custom TexInfo backend for Magit&rsquo;s
-documentation for a while now, and over the past few months he&rsquo;s worked the
-features he was missing into Org&rsquo;s built-in TexInfo exporter.
+Jonas Bernoulli has been using a custom TexInfo backend for Magit's
+documentation for a while now, and over the past few months he's worked the
+features he was missing into Org's built-in TexInfo exporter.
 </p>
 
 <p>
@@ -304,7 +301,6 @@ going through with this!
 </p>
 </div>
 </div>
-
 <div id="outline-container-toggle-noweb-prefix" class="outline-2">
 <h2 id="toggle-noweb-prefix">Toggle noweb prefix handling<a aria-hidden="true" href="#toggle-noweb-prefix">#</a> </h2>
 <div class="outline-text-2" id="text-toggle-noweb-prefix">
@@ -319,10 +315,10 @@ by setting the new header argument <kbd>:noweb-prefix no</kbd>.
 </p>
 
 <details id='toggle-noweb-prefix,code--1' class='code' open><summary><span class="lang">Org mode</span></summary>
-    <div class='gutter'>
-    <a href='#toggle-noweb-prefix,code--1'>#</a>
-    <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button>    </div>
-    <div class="org-src-container">
+<div class='gutter'>
+<a href='#toggle-noweb-prefix,code--1'>#</a>
+<button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
+<div class="org-src-container">
 <pre class="src src-org"><span class="org-org-block-begin-line">#+begin_src emacs-lisp :noweb yes :noweb-prefix no</span>
 <span class="org-org-block">(</span><span class="org-org-block"><span class="org-keyword">setq</span></span><span class="org-org-block"> example-data </span><span class="org-org-block"><span class="org-string">"&lt;&lt;example&gt;&gt;"</span></span><span class="org-org-block">)</span>
 <span class="org-org-block-end-line">#+end_src</span>
@@ -344,33 +340,31 @@ Instead of
 <span class="org-org-block-end-line">#+end_src</span>
 </pre>
 </div>
-    </details>
+</details>
 </div>
 </div>
-
 <div id="outline-container-package-highlight-org" class="outline-2">
 <h2 id="package-highlight-org">Package highlight: org-modern<a aria-hidden="true" href="#package-highlight-org">#</a> </h2>
 <div class="outline-text-2" id="text-package-highlight-org">
 <p>
-I think we&rsquo;ve all <a href="https://github.com/integral-dw/org-superstar-mode">seen</a> <a href="https://github.com/sabof/org-bullets">plenty</a> of <kbd>org-mode</kbd> <a href="https://github.com/Fuco1/org-pretty-table">prettification</a> <a href="https://github.com/harrybournis/org-fancy-priorities">packages</a> <a href="https://gitlab.com/marcowahl/org-pretty-tags">before</a>, so
-what makes Minad&rsquo;s <a href="https://github.com/minad/org-modern">org-modern</a> special? It&rsquo;s actually doing something similar to
-Ihor&rsquo;s org-fold improvements, switching out slower overlay-based approaches for
+I think we've all <a href="https://github.com/integral-dw/org-superstar-mode">seen</a> <a href="https://github.com/sabof/org-bullets">plenty</a> of <kbd>org-mode</kbd> <a href="https://github.com/Fuco1/org-pretty-table">prettification</a> <a href="https://github.com/harrybournis/org-fancy-priorities">packages</a> <a href="https://gitlab.com/marcowahl/org-pretty-tags">before</a>, so
+what makes Minad's <a href="https://github.com/minad/org-modern">org-modern</a> special? It's actually doing something similar to
+Ihor's org-fold improvements, switching out slower overlay-based approaches for
 text properties. I can confirm that switching out <kbd>org-superstar-mode</kbd> for
 <kbd>org-modern</kbd> has made a substantial improvement in my experience, halving the
-first-load time of my <kbd>config.org</kbd> to around 20 seconds. If you&rsquo;re a fan of Org
-prettification and haven&rsquo;t taken a look at this package, I highly recommend
+first-load time of my <kbd>config.org</kbd> to around 20 seconds. If you're a fan of Org
+prettification and haven't taken a look at this package, I highly recommend
 giving it a shot.
 </p>
 
 
-<figure id="orgcf53a17">
+<figure id="org1fc8d88">
 <img src="figures/org-modern-readme-demo.gif" alt="org-modern-readme-demo.gif" class="invertible">
 
 <figcaption><span class="figure-number">Figure 5: </span>A demonstration of org-modern taken from the project <span class='acr'>README</span>.</figcaption>
 </figure>
 </div>
 </div>
-
 <div id="outline-container-other-improvements" class="outline-2">
 <h2 id="other-improvements">Other improvements<a aria-hidden="true" href="#other-improvements">#</a> </h2>
 <div class="outline-text-2" id="text-other-improvements">
@@ -392,7 +386,6 @@ Fogel, Cody Harris</span></li>
 </ul>
 </div>
 </div>
-
 <div id="outline-container-bugfixes" class="outline-2">
 <h2 id="bugfixes">Bugfixes<a aria-hidden="true" href="#bugfixes">#</a> </h2>
 <div class="outline-text-2" id="text-bugfixes">

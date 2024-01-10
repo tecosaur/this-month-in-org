@@ -1,9 +1,8 @@
-# Created 2022-03-03 Thu 01:39
+# Created 2024-01-11 Thu 11:13
 #+title: May 2021
 #+date: 2021-05-31
 #+author: TEC
 #+subtitle: Asynchronous code execution
-
 * Async Babel sessions have landed
 
 Jack Kamm has made a fantastic contribution to Org: =ob-comint.el= now supports
@@ -15,7 +14,7 @@ be reused for any other code blocks that specify the =foo= session. To do this f
 a certain language across the entire document, you can set the header argument
 property, i.e.
 #+begin_src org
-,#+property: header-args:lang :session foo
+  ,#+property: header-args:lang :session foo
 #+end_src
 
 Along with the asynchronous process communication in =ob-comint.el=, we have an
@@ -29,7 +28,6 @@ replaced by the result when it is ready.
 [[https://github.com/nnicandro/emacs-jupyter][emacs-jupyter]] allowed for asynchronous code execution (with sessions), but it's
 great to have a solution that doesn't require Jupyter kernels, and is part of
 Org.
-
 * Font lock for inline export snippets
 
 Now, this isn't necessarily a significant change, but I don't think many people
@@ -42,15 +40,15 @@ though --- but never fear, Org has /inline/ export snippets which simply follow 
 form src_org{@@format:content@@}. For example:
 
 #+begin_src org
-I love using Org to export to @@html:<abbr title="Hyper Text Markup Language">HTML</abbr>@@ @@latex:\LaTeX{}@@ documents.
+  I love using Org to export to @@html:<abbr title="Hyper Text Markup Language">HTML</abbr>@@ @@latex:\LaTeX{}@@ documents.
 #+end_src
 which will export to HTML as,
 #+begin_src html
-I love using Org to export to <abbr title="Hyper Text Markup Language">HTML</abbr> documents.
+  I love using Org to export to <abbr title="Hyper Text Markup Language">HTML</abbr> documents.
 #+end_src
 and then in LaTeX will be,
 #+begin_src LaTeX
-I love using Org to export to \LaTeX{} documents.
+  I love using Org to export to \LaTeX{} documents.
 #+end_src
 isn't that neat!
 
@@ -58,7 +56,6 @@ Now you'll find the =@@= parts using the comment face and the =format:= bit usin
 Org tag's face. It's a small change, but it makes it easier to see what's going on.
 
 No mode-specific syntax highlighting yet, but that may come in the future 😉.
-
 * =#+plot= your =#+results=
 
 Org-plot has been getting some more love as of late (see [[file:2021-04-30-export-plot.org][last month's post]]), and
@@ -68,23 +65,22 @@ can now put a =#+plot= statement immediately above to get a visualisation of tho
 results!
 
 #+begin_src org
-,#+begin_src python
-# pretend this is some profound source of information
-return [[i, i^3 - 4*i^2 - 2*i] for i in range(5)]
-,#+end_src
+  ,#+begin_src python
+  # pretend this is some profound source of information
+  return [[i, i^3 - 4*i^2 - 2*i] for i in range(5)]
+  ,#+end_src
 
-,#+plot: ind:1
-,#+RESULTS:
-| 0 |  1 |
-| 1 | -2 |
-| 2 |  7 |
-| 3 |  8 |
-| 4 | 13 |
+  ,#+plot: ind:1
+  ,#+RESULTS:
+  | 0 |  1 |
+  | 1 | -2 |
+  | 2 |  7 |
+  | 3 |  8 |
+  | 4 | 13 |
 #+end_src
 
 As usual, this relies on =gnuplot= being present. You can read more
 about it in the [[https://orgmode.org/manual/Org-Plot.html][manual]].
-
 * Fancier LaTeX verses
 
 With the use of =verse.sty= you can now export fancier verses from Org, as verse
@@ -95,47 +91,46 @@ blocks now support four new attributes:
 - You can also easily add arbitrary LaTeX code to be included with =:latexcode=.
 
 #+begin_src org
-,#+latex_header: \usepackage{verse}
+  ,#+latex_header: \usepackage{verse}
 
-,#+latex: \poemtitle{A Dream Within a Dream}
-,#+attr_latex: :lines 3 :center t
-,#+attr_latex: :versewidth Through my fingers to the deep,
-,#+begin_verse
-Take this kiss upon the brow!
-And, in parting from you now,
-Thus much let me avow —
-You are not wrong, who deem
-That my days have been a dream;
-Yet if hope has flown away
-In a night, or in a day,
-In a vision, or in none,
-Is it therefore the less /gone?/
-/All/ that we see or seem
-Is but a dream within a dream.
+  ,#+latex: \poemtitle{A Dream Within a Dream}
+  ,#+attr_latex: :lines 3 :center t
+  ,#+attr_latex: :versewidth Through my fingers to the deep,
+  ,#+begin_verse
+  Take this kiss upon the brow!
+  And, in parting from you now,
+  Thus much let me avow —
+  You are not wrong, who deem
+  That my days have been a dream;
+  Yet if hope has flown away
+  In a night, or in a day,
+  In a vision, or in none,
+  Is it therefore the less /gone?/
+  /All/ that we see or seem
+  Is but a dream within a dream.
 
-I stand amid the roar
-Of a surf-tormented shore,
-And I hold within my hand
-Grains of the golden sand —
-How few! yet how they creep
-Through my fingers to the deep,
-While I weep — while I weep!
-O God! Can I not grasp
-Them with a tighter clasp?
-O God! can I not save
-/One/ from the pitiless wave?
-Is /all/ that we see or seem
-But a dream within a dream?
-,#+end_verse
+  I stand amid the roar
+  Of a surf-tormented shore,
+  And I hold within my hand
+  Grains of the golden sand —
+  How few! yet how they creep
+  Through my fingers to the deep,
+  While I weep — while I weep!
+  O God! Can I not grasp
+  Them with a tighter clasp?
+  O God! can I not save
+  /One/ from the pitiless wave?
+  Is /all/ that we see or seem
+  But a dream within a dream?
+  ,#+end_verse
 #+end_src
 
 #+caption: A short Poe-em
 [[file:figures/org-verses-example-poem-dream-within-dream.png]]
-
 * Easy zero-width spaces with Org
 
 Occasionally you may run into annoyances when you wish to have two different Org
-elements right next to each other (no space) --- for example, *emph*asising part of
+elements right next to each other (no space) --- for example, *emph*​asising part of
 a word or putting a currency symbol immediately before an inline source block.
 
 The best solution to this in Org is zero-width spaces. As such, I've found it
@@ -143,28 +138,26 @@ rather nice adding insertion of a zero-width space to the ~org-mode-map~ in my
 config. Perhaps some of you might find this solution useful too 🙂.
 
 #+begin_src emacs-lisp
-(define-key org-mode-map (kbd "M-SPC M-SPC")
-  (lambda () (interactive) (insert "\u200b")))
+  (define-key org-mode-map (kbd "M-SPC M-SPC")
+    (lambda () (interactive) (insert "\u200b")))
 #+end_src
 
 Should you want to keep zero-width spaces out of exports, that's easy enough to
 accomplish with an [[https://orgmode.org/manual/Advanced-Export-Configuration.html][export filter]].
 
 #+begin_src emacs-lisp
-(defun +org-export-remove-zero-width-space (text _backend _info)
-  "Remove zero width spaces from TEXT."
-  (unless (org-export-derived-backend-p 'org)
-    (replace-regexp-in-string "\u200b" "" text)))
+  (defun +org-export-remove-zero-width-space (text _backend _info)
+    "Remove zero width spaces from TEXT."
+    (unless (org-export-derived-backend-p 'org)
+      (replace-regexp-in-string "\u200b" "" text)))
 
-(add-to-list 'org-export-filter-final-output-functions #'+org-export-remove-zero-width-space t)
+  (add-to-list 'org-export-filter-final-output-functions #'+org-export-remove-zero-width-space t)
 #+end_src
-
 * Org's repos have moved
 - =contrib/= is now at https://git.sr.ht/~bzg/org-contrib for Org 9.5, and it will
   be available on Non-GNU ELPA.
 - Worg is now at https://git.sr.ht/~bzg/worg
 - Org itself is moving to Savannah
-
 * Other improvements
 - Add support for =HHhMM= date formats (e.g. =13h20=) _Gustavo Barros_
 - Make tangling faster /and/ more robust _Sébastien Miquel_
@@ -204,7 +197,6 @@ accomplish with an [[https://orgmode.org/manual/Advanced-Export-Configuration.ht
 - General code cleanup _Bastien Guerry_
 - Documentation improvements _Bastien Guerry, Eric S Fraga, Samim Pezeshki,
   Nicolar Goaziou_
-
 * Bugfixes
 - Make =ob-gnuplot= work on remote systems _Ihor Radchenko_
 - Stop =M-x org-toggle-link-display= from affecting emphasis markers _Bastien Guerry_

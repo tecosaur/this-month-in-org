@@ -9,42 +9,43 @@
                                2021-08-38
 
 
-      Dear readers, unfortunately I’ve been unusually busy as of
+      Dear readers, unfortunately I've been unusually busy as of
       late, and will continue to be for a bit over a month. As
-      such, it’s entirely likely that the next post or two may +be
+      such, it's entirely likely that the next post or two may +be
       late+ make use of creative dates too.
 
-In terms of Org development, we’ve had a fairly slow month — mostly
-tweaks and fixes, concentrated on the new org-cite functionality.
-However, there have been big developments with Roam as of late.
+In terms of Org development, we've had a fairly slow month — mostly
+tweaks and fixes, concentrated on the new org-cite
+functionality. However, there have been big developments with Roam as of
+late.
 
 
 [Org-roam v2]
 ═════════════
 
-  Pushed to the sidelines by last month’s hugely significant citations
-  announcement was the release of Org-roam v2 🎉. The project’s author
+  Pushed to the sidelines by last month's hugely significant citations
+  announcement was the release of Org-roam v2 🎉. The project's author
   Jethro wrote a nice [blog post] outlining the major changes and
-  motivations, and so I’ll leave him to speak on that. Suffice to say,
+  motivations, and so I'll leave him to speak on that. Suffice to say,
   the idea of org-roam has been refined into a form that should better
   server tinkerers looking to build off Org roam, and make maintenance
-  easier — thus improving the user experience in the long term 🙂.
-  Should you be worried that the v1 -> v2 upgrade will be painful, read
-  [Org-roam v2 doesn’t hurt], relax, and try the upgrade wizard.
+  easier — thus improving the user experience in the long term
+  🙂. Should you be worried that the v1 -> v2 upgrade will be painful,
+  read [Org-roam v2 doesn't hurt], relax, and try the upgrade wizard.
 
 
 [Org-roam v2] <https://github.com/org-roam/org-roam>
 
 [blog post] <https://blog.jethro.dev/posts/org_roam_v2/>
 
-[Org-roam v2 doesn’t hurt]
+[Org-roam v2 doesn't hurt]
 <https://macowners.club/posts/org-roam-v2-doesnt-hurt/>
 
 
 [Org-roam-ui]
 ═════════════
 
-  Within a month of Roam v2’s announcement, we were pleasantly surprised
+  Within a month of Roam v2's announcement, we were pleasantly surprised
   by the release of [org-roam-server] usurper — org-roam-ui.
 
   <file:figures/org-roam-graph-2d-overview.png>
@@ -64,8 +65,8 @@ However, there have been big developments with Roam as of late.
   <file:figures/org-roam-ui-in-emacs.png>
 
   Beyond this, org-roam-ui also provides a number of other nice
-  features, such as filtering and theme syncing, with more in the works.
-  To see more, check out the `README' published on GitHub.
+  features, such as filtering and theme syncing, with more in the
+  works. To see more, check out the `README' published on GitHub.
 
   //github.com/org-roam/org-roam-ui/
 
@@ -82,14 +83,14 @@ However, there have been big developments with Roam as of late.
 New ConTeXt exporter
 ════════════════════
 
-  We’ve long been able to export to LaTeX files with `ox-latex', but now
+  We've long been able to export to LaTeX files with `ox-latex', but now
   you can export to ConTeXt too with [ox-context]! While only just
   released, a lot of work has already gone into this — with development
   starting almost a year ago by the commit history.
 
   //github.com/Jason-S-Ross/ox-context
 
-  It’s always nice to see more export options for Org, and I wish Jason
+  It's always nice to see more export options for Org, and I wish Jason
   all the best in developing `ox-context'.
 
 
@@ -104,7 +105,7 @@ Other improvements
     Goaziou_ _Marco Wahl_
   ⁃ Allow for selecting cite style with a citation argument _Nicolas
     Goaziou_
-  ⁃ Add support for Italian “smart quotes” _DPDmancul_
+  ⁃ Add support for Italian "smart quotes" _DPDmancul_
   ⁃ Fix Spanish mistranslation in footnote Documentation _Juan Manuel
     Macias_
   ⁃ Define `\citeprocitem' in `oc-csl.el' for use by `citeproc-el' _TEC_
@@ -137,6 +138,6 @@ Footnotes
 ─────────
 
 [1] I have found the `xwidget-webkit' experience quite unstable until
-I started using Emacs 28 with the pure-GTK branch. So, if you’re not
-getting a good experience now, there’s a good chance you’ll have a
+I started using Emacs 28 with the pure-GTK branch. So, if you're not
+getting a good experience now, there's a good chance you'll have a
 better experience in the future.

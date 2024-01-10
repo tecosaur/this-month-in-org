@@ -1,4 +1,4 @@
-# Created 2022-03-03 Thu 01:40
+# Created 2024-01-11 Thu 11:13
 #+title: October 2021
 #+date: 2021-10-31
 #+author: TEC
@@ -13,7 +13,6 @@ but you'll have to learn about those is next month's edition as /Org 9.5 has bee
 released/ 🎉. So, let's go over some of the changes I'm most excited about, in no
 particular order. To get a more complete picture of the latest changes, see
 [[https://git.savannah.gnu.org/cgit/emacs/org-mode.git/tree/etc/ORG-NEWS?h=release_9.5#n14][ORG-NEWS]].
-
 * The new citation engine
 
 As tempted as I am to wax lyrical about the lovely new citation engine, I've
@@ -33,7 +32,6 @@ insertion experience.
 
 #+caption: Inserting a citation with the /citar/ package
 [[file:figures/org-citar-insertion.png]]
-
 * Asynchronous session evaluation
 
 Since being featured in [[file:2021-05-31-async.org][May's post]], we've had the initial python support
@@ -42,7 +40,6 @@ backends will join this list in the future.
 
 To get started, just add =:async= to the header arguments of Python or R source
 blocks with a =:session=.
-
 * LaTeX environment =#+results= are now removed
 
 LaTeX environments (i.e. src_LaTeX{\begin{} ... \end{}} blocks) have been added
@@ -59,7 +56,6 @@ and more.
 
 #+caption: Rendered LaTeX representations of some Julia values
 [[file:figures/ob-julia-latexify-rendered.png]]
-
 * More fontification
 
 A number of new faces have been introduced to allow for improved theming
@@ -69,12 +65,10 @@ capability, and better contextual hints in the agenda, namely:
 
 Inline export snippets are now also fontified using the ~org-tag~ and
 ~font-lock-comment-face~ faces, to better stand out from surrounding text.
-
 * More link formatting options with org-capture
 
 A new formatting directive, ~%L~ has been introduced which provides the bare link
 target. This allows for links with automatically generated descriptions 🙂.
-
 * Export improvements
 
 The HTML and LaTeX backends have both been given some love in this release of
@@ -94,7 +88,6 @@ The LaTeX backend (=ox-latex=) no longer has obsolete LaTeX packages in
 It also now supports arbitrary =:float= argument values, and accepts a six new
 arguments (in total) for verse (=:lines=, =:center=, =:versewidth=, and =:latexcode=)
 and quote blocks (=:environment= and =:options=).
-
 * Project changes
 
 To reduce the maintainer burden, the =contrib/= folder and a collection of

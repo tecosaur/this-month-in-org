@@ -10,8 +10,8 @@
 
 
 With a 9.5 release highlight post last month, and the month before
-skipped, it’s now /three months/ since the last regular instalment of
-TMIO. Let’s get back up to date on some of the latest happenings with
+skipped, it's now /three months/ since the last regular instalment of
+TMIO. Let's get back up to date on some of the latest happenings with
 Org.
 
 
@@ -21,8 +21,8 @@ Org as markup
   Looking at the wider ecosystem, it certainly appears that there is a
   growing appetite for Org markup outside org-mode. More projects like
   [Hugo] and [Logseq] seem to be interested in supporting Org markup,
-  and there has been a recent growth in editor extensions like Neovim’s
-  [orgmode.nvim] (started in March this year) and Sublime Text’s
+  and there has been a recent growth in editor extensions like Neovim's
+  [orgmode.nvim] (started in March this year) and Sublime Text's
   [OrgExtended] (started in June this year).
 
   Interest in Org as a general-usage markup format can also be seen
@@ -31,7 +31,7 @@ Org as markup
   the Worg document [Org Syntax (draft)]. Other members of the Org
   mailing list have directed their effort to creating non-elisp parsers
   for Org, both to help Org tools be created in other languages, and as
-  put in the README for Tom Gillespie’s [laundry] parser
+  put in the README for Tom Gillespie's [laundry] parser
         The long term goal of this work is to provide a reference
         that can be used to standardize Org syntax and behavior
         and to specify various levels of compliance for an
@@ -41,13 +41,13 @@ Org as markup
   document [Org Mode Is One of the Most Reasonable Markup Languages to
   Use for Text], surprised the mailing list by announcing his
   independent creation of a multi-leveled standard for Org syntax
-  subsets called “Orgdown” (the name is a blend of “Org-mode” and
-  “markdown”, but the standard is only a subset of Org). Each level
+  subsets called "Orgdown" (the name is a blend of "Org-mode" and
+  "markdown", but the standard is only a subset of Org). Each level
   defines a compliance score given by a mix of parsing and editing
   support, with example compliance scores for the first (and currently
   only) level of the standard given for common tools.
 
-  At this stage, it isn’t clear exactly how the Org-outside-Emacs
+  At this stage, it isn't clear exactly how the Org-outside-Emacs
   landscape will evolve, but the swelling interest is very encouraging.
 
 
@@ -70,13 +70,13 @@ Text] <https://karl-voit.at/2017/09/23/orgmode-as-markup-only/>
 An Org parser in Julia
 ══════════════════════
 
-  Speaking of parsers, I may be somewhat biased but I’m quite happy that
+  Speaking of parsers, I may be somewhat biased but I'm quite happy that
   a Org parser for [Julia] now exists 🎉.
 
   //github.com/tecosaur/OrgMode.jl
 
   OrgMode.jl is a parser, but also intended as a general-purpose Org
-  library for Julia. It’s only been a week since development started,
+  library for Julia. It's only been a week since development started,
   but it currently supports most of the [Org Syntax] draft
   specification, along with the rendering of a parsed Org AST to a TTY
   or back to Org text. A few utility functions are also included, such
@@ -91,9 +91,9 @@ An Org parser in Julia
 Autoloading citation backends
 ═════════════════════════════
 
-  One small but impactful change is autoloading of citation backends.
-  Until recently before say using the `csl' backend, one needed to
-  `(require 'oc-csl)' or face error messages.
+  One small but impactful change is autoloading of citation
+  backends. Until recently before say using the `csl' backend, one
+  needed to `(require 'oc-csl)' or face error messages.
 
   Now, if you have a line like:
   ┌────
@@ -110,9 +110,9 @@ A nicer `:tangle-mode' syntax
 ═════════════════════════════
 
   The standard way of setting a `:tangle-mode' has typically been by
-  providing a closure that makes use of Elisp’s octal syntax, such as
+  providing a closure that makes use of Elisp's octal syntax, such as
   `(identity #o755)'. This is unnecessarily verbose, and certainly
-  doesn’t feel natural.
+  doesn't feel natural.
 
   With the addition of a small mode-interpreting function
   (`org-babel-interpret-file-mode') It is now possible to specify
@@ -137,7 +137,7 @@ A nicer `:tangle-mode' syntax
 
   It has also been noted on the mailing list that the `:tangle-mode
   (identity #o755)' form works by being transformed to `:tangle-mode
-  493' during parsing. Similarly `:tangle-mode 755' is equivalent to
+  493' during parsing.  Similarly `:tangle-mode 755' is equivalent to
   `:tangle-mode (identity #o1363)'. For some values the decimal and
   octal interpretation are /both/ valid file modes. Due to the clear
   potential for confusion, and since file permissions are an important
@@ -151,15 +151,15 @@ Org element parser cache
 
   Ihor Radchenko has done some fantastic work over the past few months
   by overhauling parts of `org-element.el' to introduce extensive
-  caching. `org-element' is /the/ Org markup parser inside org-mode.
-  This allows for a huge jump in speed, and also provides a few
-  functions which fetch information without updating the cache —
+  caching. `org-element' is /the/ Org markup parser inside
+  org-mode. This allows for a huge jump in speed, and also provides a
+  few functions which fetch information without updating the cache —
   allowing for particularly speedy lookups with a small sacrifice to
   correctness guarantees on one or two properties in particular cases.
 
   Several org-mode APIs now make use of the cache to dramatically
-  improve speed. Aside from improvements to typically slow operations,
-  this is ideal for situations involving frequent buffer edits. It’s no
+  improve speed.  Aside from improvements to typically slow operations,
+  this is ideal for situations involving frequent buffer edits.  It's no
   understatement to say that this work is transformative.
 
   One potential beneficiary from this work is actually fontification. It
@@ -175,19 +175,20 @@ Inline source block fontification
 ═════════════════════════════════
 
   I think [inline source code blocks] are an underappreciated feature of
-  Org. I don’t think it’s helped that they have not been visually
+  Org. I don't think it's helped that they have not been visually
   treated at all differently from plain text. Now though, they have a
   new dedicated face (`org-inline-src-block') /and/ in the same manner
   as source blocks, based on `org-src-fontify-natively' can be fontified
-  using the language’s major mode.
+  using the language's major mode.
 
   <file:figures/inline-src-block-fontified-vs-code.png>
 
-  If you aren’t familiar with inline source blocks, you’re missing out.
-  They are very much the inline cousin of source blocks, and so support
-  all your favourite Babel features like code execution and header
-  arguments. This provides a fantastic capacity to inline dynamically
-  computed expressions, and optionally show the code that produces them.
+  If you aren't familiar with inline source blocks, you're missing
+  out. They are very much the inline cousin of source blocks, and so
+  support all your favourite Babel features like code execution and
+  header arguments. This provides a fantastic capacity to inline
+  dynamically computed expressions, and optionally show the code that
+  produces them.
 
   <file:figures/inline-src-block-julia-demo.png>
 
@@ -213,7 +214,7 @@ Functions as default heading arguments
   │ #+end_src
   └────
 
-  In a Jupyter-style (`.ipynb') or throwaway document, we likely don’t
+  In a Jupyter-style (`.ipynb') or throwaway document, we likely don't
   care about the file name at all. With these new capabilities, we can
   provide a file name dynamically as a default argument!
 
@@ -229,8 +230,8 @@ Functions as default heading arguments
   │           ".svg"))
   └────
 
-  Let’s also write a function to guess whether the source block produces
-  a plot by checking if there’s a plot command on the last line.
+  Let's also write a function to guess whether the source block produces
+  a plot by checking if there's a plot command on the last line.
 
   ┌────
   │ (defun my/org-src-guess-results-type ()
@@ -240,7 +241,7 @@ Functions as default heading arguments
   └────
 
   Then we can just use these function in place of a static value in the
-  default header arguments variable — that’s all it takes.
+  default header arguments variable — that's all it takes.
 
   ┌────
   │ (setq org-babel-default-header-args:R
@@ -258,7 +259,7 @@ Functions as default heading arguments
   │ #+end_src
   └────
 
-  It’s always lovely to see more ways of reducing boilerplate.
+  It's always lovely to see more ways of reducing boilerplate.
 
 
 Proportional image widths
@@ -281,9 +282,9 @@ Proportional image widths
 
   This means that a width parameter like `#+attr_latex: :width
   0.7\linewidth' the image will displayed as 70% of the buffer text
-  width. This also supports percentage value, like `#+attr_html: :width
+  width.  This also supports percentage value, like `#+attr_html: :width
   80%' by dividing the number before the `%' by 100 as a floating-point
-  value. As always, if you don’t like the way display width is inferred
+  value.  As always, if you don't like the way display width is inferred
   here you can override it by putting a `#+attr_org: :width X' statement
   first.
 
@@ -337,7 +338,7 @@ Other improvements
   ⁃ Fix display error with `ob-plantuml' and html export _Su Lin_
   ⁃ More tests! _Ihor Radchenko_
   ⁃ Documentation improvements! _Marco Wahl_ _Stefan Kangas_ _Daniel
-    Fleischer_ _Wiliam Denton_ _Thomas Dye_ _Bastien_ _Bruce D’Arcus_
+    Fleischer_ _Wiliam Denton_ _Thomas Dye_ _Bastien_ _Bruce D'Arcus_
     _Kyle Meyer_ _Nicolas Goaziou_
 
 
@@ -355,7 +356,7 @@ Bugfixes
     Radchenko_
   ⁃ A headline fontification edge case _Sébastien Miquel_
   ⁃ Refactor code that needed Emacs 28 _Kyle Meyer_
-  ⁃ Make sure a terminating emphasis marker can’t be used as a beginning
+  ⁃ Make sure a terminating emphasis marker can't be used as a beginning
     emphasis marker in fontification _Ihor Radchenko_
   ⁃ Allow footnotes at footnote definition start _Nicholas Goaziou_
 
