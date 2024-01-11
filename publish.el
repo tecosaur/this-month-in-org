@@ -1,35 +1,109 @@
 #!/usr/bin/env sh
 ":"; exec emacs --quick --script "$0" -- "$@" # -*- mode: emacs-lisp; lexical-binding: t; -*-
 
-(message "Publising")
+(if load-file-name
+    (message "Publising")
+  (error "This is designed to be run as a script file, not within Emacs"))
+
+(defvar force nil)         ; -f --force
+(defvar update-commit nil) ; -u --update
+(defvar update-draft nil)  ; -d --draft
 
 (pop argv) ; $0
-(setq force (string= "-f" (pop argv)))
 
-;;; Doom initialisation
+(while argv
+  (pcase (pop argv)
+    ((or "-f" "--force")
+     (setq force t))
+    ((or "-u" "--update")
+     (setq update-commit t))
+    ((or "-d" "--draft")
+     (setq update-draft t))))
 
-(unless (bound-and-true-p doom-init-p)
-  (setq gc-cons-threshold 16777216
-        gcmh-high-cons-threshold 16777216)
-  (setq doom-disabled-packages '(doom-themes))
-  (load (expand-file-name "core/core.el" user-emacs-directory) nil t)
-  (require 'core-cli)
-  (doom-initialize))
+(when (and update-commit update-draft)
+  (warn! "--update and --draft are mutually exclusive, --draft will take priority"))
 
-(advice-add 'undo-tree-mode :override #'ignore) ; Undo tree is a pain
+(setq gc-cons-threshold (* 4 1024 1024)
+      gcmh-high-cons-threshold (* 4 1024 1024))
+
+;;; Package initialisation
+
+(unless (file-directory-p "~/.config/doom")
+  (error "This publishing script currently assumes a Doom emacs install exists."))
+
+;; Assumes that the doom install is already fully-functional.
+(push "~/.config/emacs/lisp" load-path)
+(push "~/.config/emacs/lisp/lib" load-path)
+(require 'doom-lib)
+(require 'doom)
+(doom-require 'doom-lib 'files)
+(require 'doom-modules)
+(require 'doom-packages)
+(doom-initialize-packages)
+
+;;I don't like this, but it works.
+(dolist (subdir (directory-files (file-name-concat straight-base-dir "straight" straight-build-dir) t))
+  (push subdir load-path))
+
+(require 'doom-cli)
+(doom-require 'doom-cli 'doctor)
+
+(doom-module-context-with '(:config . use-package)
+  (doom-load (abbreviate-file-name
+              (file-name-sans-extension
+               (doom-module-locate-path :config 'use-package doom-module-init-file)))))
+
+(defun doom-shut-up-a (fn &rest args)
+  ;;`quiet!' is defined in doom-lib.el
+  (quiet! (apply fn args)))
+
+(push "~/.config/doom/subconf" load-path)
 
 ;;; General publishing setup
 
 (section! "Initialising")
 
+(require 'org)
 (require 'ox-publish)
+(require 'ox-html)
+(require 'ox-latex)
+(require 'ox-ascii)
+(require 'ox-org) ; For the word count
+(require 'org-persist)
+(remove-hook 'kill-emacs-hook #'org-persist-gc)
 
-(setq site-root "https://blog.tecosaur.com/tmio/")
+(require 's) ; Needed for my config
 
-(let ((css-src (expand-file-name "misc/org-css/main.css" doom-private-dir))
-      (css-dest (expand-file-name "assets/org-style.css" (file-name-directory load-file-name)))
-      (js-src (expand-file-name "misc/org-css/main.js" doom-private-dir))
-      (js-dest (expand-file-name "assets/org-style.js" (file-name-directory load-file-name))))
+(provide 'config-org-behaviour) ; We *don't* want this
+(require 'config-org-exports)
+(require 'config-ox-html)
+(require 'config-ox-latex)
+(require 'config-ox-ascii)
+
+(require 'engrave-faces-html)
+(load (expand-file-name "engraved-theme.el" (file-name-directory load-file-name)))
+(engrave-faces-use-theme 'doom-opera-light)
+
+;; For faces
+(require 'highlight-quoted)
+(require 'highlight-numbers)
+(require 'rainbow-delimiters)
+
+;; Setup
+
+(setq site-root "https://blog.tecosaur.net/tmio/"
+      publish-root (file-name-directory load-file-name)
+      content-dir (file-name-concat publish-root "content")
+      html-dir (file-name-concat publish-root "html")
+      assets-dir (file-name-concat publish-root "assets")
+      git-publish-branch "html")
+
+(setq default-directory publish-root)
+
+(let ((css-src (expand-file-name "misc/org-css/main.css" doom-user-dir))
+      (css-dest (file-name-concat assets-dir "org-style.css"))
+      (js-src (expand-file-name "misc/org-css/main.js" doom-user-dir))
+      (js-dest (file-name-concat assets-dir "org-style.js")))
   (when (file-newer-than-file-p css-src css-dest)
     (copy-file css-src css-dest t))
   (when (file-newer-than-file-p js-src js-dest)
@@ -48,12 +122,17 @@
         :width "464"
         :height "512"
         :alt "Org unicorn logo")
+      org-export-with-broken-links t
       org-id-locations-file (expand-file-name ".orgids")
-      org-babel-default-inline-header-args '((:eval . "no") (:exports . "code")))
+      org-babel-default-inline-header-args '((:eval . "no") (:exports . "code"))
+      org-confirm-babel-evaluate nil
+      org-resource-download-policy t
+      user-full-name "TEC"
+      user-mail-address "contact.tmio@tecosaur.net")
 
 ;;; For some reason emoji detection doesn't seem to work, so let's just turn it on
 
-(setcar (rassoc 'emoji org-latex-conditional-features) t)
+;; (setcar (rassoc 'emoji org-latex-conditional-features) t)
 
 ;;; Remove generated .tex/.pdf files from the base directory
 
@@ -136,7 +215,7 @@ Return output file name."
 
 ;;; Htmlized file publishing
 
-(defun org-publish-to-htmlized (_plist filename pub-dir)
+(defun org-publish-to-engraved (_plist filename pub-dir)
   "Publish a file with no change other than maybe optimisation.
 
 FILENAME is the filename of the Org file to be published.  PLIST
@@ -146,7 +225,7 @@ publishing directory.
 Return output file name."
   (unless (file-directory-p pub-dir)
     (make-directory pub-dir t))
-  (call-process (expand-file-name "./htmlize-file.el") nil nil nil filename (expand-file-name (concat (file-name-base filename) ".org.html") pub-dir)))
+  (engrave-faces-html-file filename (expand-file-name (concat (file-name-base filename) ".org.html") pub-dir)))
 
 ;;; RSS
 
@@ -176,6 +255,7 @@ PROJECT is the current project."
                 (date (format-time-string "%Y-%m-%d" (org-publish-find-date entry project)))
                 (link (concat (file-name-sans-extension entry) ".html")))
            (with-temp-buffer
+             (org-mode)
              (insert (format "* [[file:%s][%s]]\n" file title))
              (org-set-property "RSS_TITLE" title)
              (org-set-property "RSS_PERMALINK" link)
@@ -233,17 +313,18 @@ PROJECT is the current project."
                       "This Month in Org - Assets"
                       "This Month in Org - RSS"))
         ("This Month in Org - Pages"
-         :base-directory "./content"
+         :base-directory ,content-dir
          :base-extension "org"
-         :publishing-directory "./html"
+         :publishing-directory ,html-dir
          :exclude "rss\\.org"
          :recursive t
          :publishing-function
          (org-html-publish-to-html
           org-org-publish-to-org
-          org-publish-to-htmlized
+          org-publish-to-engraved
           org-ascii-publish-to-utf8
-          org-latex-publish-to-pdf)
+          ;; org-latex-publish-to-pdf
+          )
          :headline-levels 4
          :section-numbers nil
          :with-toc nil
@@ -252,9 +333,9 @@ PROJECT is the current project."
          :html-postamble t
          :html-postamble-format (("en" ,html-postamble)))
         ("This Month in Org - Index"
-         :base-directory "./assets"
+         :base-directory ,assets-dir
          :base-extension "org"
-         :publishing-directory "./html"
+         :publishing-directory ,html-dir
          :exclude ".*"
          :include ("index.org")
          :recursive nil
@@ -262,14 +343,14 @@ PROJECT is the current project."
          :headline-levels 4
          :section-numbers nil
          :with-toc nil
-         :html-head-extra ,(file-contents "assets/index-head-extra.html")
+         :html-head-extra ,(file-contents (file-name-concat assets-dir "index-head-extra.html"))
          :html-preamble nil
          :html-postamble t
          :html-postamble-format (("en" ,html-postamble)))
         ("This Month in Org - Archive,404"
-         :base-directory "./assets"
+         :base-directory ,assets-dir
          :base-extension "org"
-         :publishing-directory "./html"
+         :publishing-directory ,html-dir
          :exclude ".*"
          :include ("archive.org" "404.org")
          :recursive nil
@@ -282,19 +363,19 @@ PROJECT is the current project."
          :html-postamble t
          :html-postamble-format (("en" ,html-postamble)))
         ("This Month in Org - Assets"
-         :base-directory "./assets"
+         :base-directory ,assets-dir
          :base-extension any
          :exclude "\\.html$" ; template files
-         :publishing-directory "./html"
+         :publishing-directory ,html-dir
          :recursive t
          :publishing-function org-publish-attachment-optimised)
         ("This Month in Org - RSS"
-         :base-directory "./content"
+         :base-directory ,content-dir
          :base-extension "org"
          :recursive nil
          :exclude ,(rx (or "rss.org" (regexp "DRAFT.*\\.org")))
          :publishing-function org-rss-publish-to-rss-only
-         :publishing-directory "./html"
+         :publishing-directory ,html-dir
          :rss-extension "xml"
          :html-link-home ,site-root
          :html-link-use-abs-url t
@@ -309,21 +390,110 @@ PROJECT is the current project."
         ))
 
 (section! "Publishing files")
+
 (when force
   (warn! "Force flag set"))
 
-(when force
-  (delete-directory "./html" t))
+(when (and force (file-directory-p html-dir))
+  (call-process "git" nil nil nil "worktree" "remove" "-f" git-publish-branch)
+  (call-process "git" nil nil nil "worktree" "prune")
+  (delete-directory html-dir t)
+  (call-process "git" nil nil nil "worktree" "add" html-dir git-publish-branch)
+  (if (file-directory-p html-dir)
+      (dolist (child (directory-files html-dir))
+        (unless (member child '("." ".." ".git"))
+          (if (file-directory-p child)
+              (delete-directory child t)
+            (delete-file child))))
+    (warn! "Failed to create html worktree")))
+
+(unless (file-directory-p html-dir)
+  (call-process "git" nil nil nil "worktree" "add" html-dir git-publish-branch)
+  (unless (file-directory-p html-dir)
+    (warn! "Failed to create html worktree")))
 
 (org-publish "This Month in Org" force)
 
-(section! "Uploading")
-(let ((rsync-status
-       (with-temp-buffer
-         (cons (call-process "rsync" nil t nil "-avzL" "--delete"
-                             (expand-file-name "html/" (file-name-directory load-file-name))
-                             "imh:/home/thedia18/public_html/tecosaur.com/blog/tmio/")
-               (message "\033[0;33m%s\033[0m" (buffer-string))))))
-  (if (= (car rsync-status) 0)
-      (success! "Content uploaded")
-    (error! "Content failed to upload, rsync exited with code %d" rsync-code)))
+(section! "Pushing")
+
+;; To make somewhat nice git history in the HTML branch, we'll want to collect
+;; information on the current state off affairs and commit accordingly.
+;;
+;; We start by checking to see if we should make a "publish" style commit or a
+;; "draft" style commit. This is determied by seeing if there are any
+;; =content/...= lines in the git status, the assumption being that at each
+;; publish point everything under =content/= has been comitted.
+;;
+;; Then we check to see if the last commit in the html branch is a "publish"
+;; style commit or a "draft" style commit. We make this easy for ourselves by
+;; prepending draft commits messages with the keyword "DRAFT". Should the last
+;; commit be a draft, we replace it. Otherwise, a new commit is created.
+;;
+;; Lastly, we actually push the HTML branch.
+
+(defun last-commit-log (fmt &optional branch)
+  "Get the log line for the last commit in FMT (optionally for BRANCH)."
+  (with-temp-buffer
+    (apply #'call-process "git" nil t nil "log"
+           (delq nil (list (and branch (format "refs/heads/%s" branch)) "-1"
+                           (format "--pretty=format:%s" fmt))))
+    (buffer-string)))
+
+(defun last-commit-subject (&optional branch)
+  "Get the commit subject line."
+  (last-commit-log "%s" branch))
+
+(defun last-commit-hash (&optional branch)
+  "Get the commit subject line."
+  (last-commit-log "%h" branch))
+
+(defun get-unstaged-changes ()
+  (with-temp-buffer
+    (call-process "git" nil t nil "status" "--porcelain=v1")
+    (goto-char (point-min))
+    (let (changes)
+      (while (re-search-forward "^\\(..\\) +" nil t)
+        (push (cons (match-string 1)
+                    (and (re-search-forward "[^\n]+" nil t)
+                         (match-string 0)))
+              changes))
+      changes)))
+
+(defun git-try-command (&rest args)
+  (with-temp-buffer
+    (setq args (delq nil args))
+    (let ((exit-code (apply #'call-process "git" nil t nil args)))
+      (or (eq exit-code 0)
+          (progn
+            (error! "Failed to %s" (car args))
+            (message "  Git command: git %s" (mapconcat #'shell-quote-argument args " "))
+            (message "  Error: %s" (mapconcat #'identity (split-string (buffer-string) "\n") "\n         "))
+            nil)))))
+
+(let* ((source-draft-p (and (or update-draft (not update-commit))
+                            (member (file-name-base content-dir)
+                                    (mapcar
+                                     (lambda (change) (car (file-name-split (cdr change))))
+                                     (get-unstaged-changes)))))
+       (html-draft-p (string-prefix-p "DRAFT " (last-commit-subject git-publish-branch)))
+       (html-changed-files (length (let ((default-directory html-dir)) (get-unstaged-changes))))
+       (commit-message
+        (if source-draft-p
+            (format "DRAFT update (%s files changed)\nLast source commit: %s\nLocal time: %s"
+                    html-changed-files
+                    (last-commit-hash)
+                    (format-time-string "%F %T (UTC%z)"))
+          (format "Publish update based on %s" (last-commit-hash)))))
+  (if (= html-changed-files 0)
+      (warn! "No changes to push")
+    (let ((default-directory html-dir))
+      (unless source-draft-p
+        (dolist (file (mapcar #'cdr (get-unstaged-changes)))
+          (when (and (file-exists-p file)
+                     (string-prefix-p "DRAFT-" (file-name-base file)))
+            (delete-file file))))
+      (and (git-try-command "add" "-A")
+           (git-try-command "commit" (and html-draft-p "--amend") "--message" commit-message)
+           (git-try-command "push" (and html-draft-p "--force-with-lease"))))))
+
+(section! "Finished")
