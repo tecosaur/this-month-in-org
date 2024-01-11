@@ -487,13 +487,15 @@ PROJECT is the current project."
   (if (= html-changed-files 0)
       (warn! "No changes to push")
     (let ((default-directory html-dir))
-      (unless source-draft-p
-        (dolist (file (mapcar #'cdr (get-unstaged-changes)))
-          (when (and (file-exists-p file)
-                     (string-prefix-p "DRAFT-" (file-name-base file)))
-            (delete-file file))))
-      (and (git-try-command "add" "-A")
-           (git-try-command "commit" (and html-draft-p "--amend") "--message" commit-message)
+      (and (or source-draft-p
+               (prog1 (or (not html-draft-p)
+                          (git-try-command "reset" "--soft" "HEAD~1"))
+                 (dolist (file (mapcar #'cdr (get-unstaged-changes)))
+                   (when (and (file-exists-p file)
+                              (string-prefix-p "DRAFT-" (file-name-base file)))
+                     (delete-file file)))))
+           (git-try-command "add" "-A")
+           (git-try-command "commit" "--message" commit-message)
            (git-try-command "push" (and html-draft-p "--force-with-lease"))))))
 
 (section! "Finished")
