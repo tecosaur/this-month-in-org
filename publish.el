@@ -1,27 +1,50 @@
 #!/usr/bin/env sh
 ":"; exec emacs --quick --script "$0" -- "$@" # -*- mode: emacs-lisp; lexical-binding: t; -*-
 
-(if load-file-name
-    (message "Publising")
+(unless load-file-name
   (error "This is designed to be run as a script file, not within Emacs"))
 
-(defvar force nil)         ; -f --force
-(defvar update-commit nil) ; -u --update
-(defvar update-draft nil)  ; -d --draft
+(defvar cli-mode-force nil)    ; -f, --force
+(defvar cli-mode-draft nil)    ; -d, --draft
+(defvar cli-mode-publish nil)  ; -p, --publish
+(defvar cli-mode-nopush nil)   ; -n, --nopush
+(defvar cli-mode-onlypush nil) ; -o, --onlypush
 
 (pop argv) ; $0
+
+(when (or (member "-h" argv) (member "--help" argv))
+  (setq argv nil)
+  (message "
+    publish.el [switches]
+
+Switches:
+  -f, --force      Force publishing all files
+  -d, --draft      Publish a draft update, including DRAFT-* files
+  -p, --publish    Explicitly publish an update (default), negates --draft
+  -n, --nopush     Skip the push step, perform a dry-run
+  -o, --onlypush   Skip file generation, just push (intended for use after a dry-run)
+
+When neither --draft or --publish are provided, the mode will be picked based on
+the presence of unstaged files.  This primarily affects the publication commit.")
+  (kill-emacs 0))
 
 (while argv
   (pcase (pop argv)
     ((or "-f" "--force")
-     (setq force t))
-    ((or "-u" "--update")
-     (setq update-commit t))
+     (setq cli-mode-force t))
     ((or "-d" "--draft")
-     (setq update-draft t))))
+     (setq cli-mode-draft t))
+    ((or "-p" "--publish")
+     (setq cli-mode-publish t))
+    ((or "-n" "--nopush")
+     (setq cli-mode-nopush t))
+    ((or "-o" "--onlypush")
+     (setq cli-mode-onlypush t))))
 
-(when (and update-commit update-draft)
-  (warn! "--update and --draft are mutually exclusive, --draft will take priority"))
+(when (and cli-mode-draft cli-mode-publish)
+  (error "--publish and --draft are mutually exclusive, pick one"))
+(when (and cli-mode-draft cli-mode-onlypush)
+  (error "--nopush and --onlypush are mutually exclusive, pick one"))
 
 (setq gc-cons-threshold (* 4 1024 1024)
       gcmh-high-cons-threshold (* 4 1024 1024))
@@ -91,7 +114,10 @@
 
 ;; Setup
 
-(setq site-root "https://blog.tecosaur.net/tmio/"
+(setq blog-name "This Month in Org"
+      site-root "https://blog.tecosaur.net/tmio/"
+      user-full-name "TEC"
+      user-mail-address "contact.tmio@tecosaur.net"
       publish-root (file-name-directory load-file-name)
       content-dir (file-name-concat publish-root "content")
       html-dir (file-name-concat publish-root "html")
@@ -123,12 +149,11 @@
         :height "512"
         :alt "Org unicorn logo")
       org-export-with-broken-links t
-      org-id-locations-file (expand-file-name ".orgids")
+      org-id-locations-file (file-name-concat html-dir ".orgids")
       org-babel-default-inline-header-args '((:eval . "no") (:exports . "code"))
       org-confirm-babel-evaluate nil
       org-resource-download-policy t
-      user-full-name "TEC"
-      user-mail-address "contact.tmio@tecosaur.net")
+      org-publish-list-skipped-files nil)
 
 (setf (alist-get :eval org-babel-default-header-args) "no")
 
@@ -193,7 +218,13 @@ Return output file name."
   (let ((rtn (if (not org-publish-use-timestamps-flag) t
                (org-publish-cache-file-needs-publishing
                 filename pub-dir pub-func base-dir))))
-    (if rtn (message "Publishing file \033[0;34m%s\033[0m using \033[0;36m%s\033[0m" (file-name-nondirectory filename) pub-func)
+    (if rtn
+        (message "Publishing file (\033[0;36m%s\033[0m) \033[0;34m%s\033[0m"
+                 (replace-regexp-in-string
+                  "\\`org-\\(.+?\\)-publish.*\\'" "\\1"
+                  (symbol-name pub-func))
+                 (file-name-nondirectory filename)
+                 pub-func)
       (when org-publish-list-skipped-files
         (message "\033[0;90mSkipping unmodified file %s\033[0m" filename)))
     rtn))
@@ -208,6 +239,8 @@ Return output file name."
 (advice-add 'indent-region :around #'doom-shut-up-a)
 (advice-add 'rng-what-schema :around #'doom-shut-up-a)
 (advice-add 'ispell-init-process :around #'doom-shut-up-a)
+(advice-add 'org-babel-check-evaluate :around #'doom-shut-up-a)
+(advice-add 'org-babel-exp-results :around #'doom-shut-up-a)
 
 ;;; No recentf please
 
@@ -285,140 +318,143 @@ PROJECT is the current project."
       (replace-match "\\1"))
     (write-file file)))
 
-;; Headers 'n footers
-
-(setq html-preamble (file-contents "assets/header.html")
-      html-postamble (file-contents "assets/footer.html"))
-
-;;; Some cache files are unwanted
-
-(let ((index-cache-file (expand-file-name "This Month in Org - Index.cache" org-publish-timestamp-directory))
-      (archive-cache-file (expand-file-name "This Month in Org - Archive,404.cache" org-publish-timestamp-directory))
-      (rss-cache-file (expand-file-name "This Month in Org - RSS.cache" org-publish-timestamp-directory)))
-  (when (file-exists-p index-cache-file)
-    (warn! "Removing Index cache file to force regeneration")
-    (delete-file index-cache-file))
-  (when (file-exists-p archive-cache-file)
-    (warn! "Removing Archive cache file to force regeneration")
-    (delete-file archive-cache-file))
-  (when (file-exists-p rss-cache-file)
-    (warn! "Removing problematic RSS cache file")
-    (delete-file rss-cache-file)))
-
 ;;; Putting it all together
 
-(setq org-publish-project-alist
-      `(("This Month in Org"
-         :components ("This Month in Org - Pages"
-                      "This Month in Org - Index"
-                      "This Month in Org - Archive,404"
-                      "This Month in Org - Assets"
-                      "This Month in Org - RSS"))
-        ("This Month in Org - Pages"
-         :base-directory ,content-dir
-         :base-extension "org"
-         :publishing-directory ,html-dir
-         :exclude "rss\\.org"
-         :recursive t
-         :publishing-function
-         (org-html-publish-to-html
-          org-org-publish-to-org
-          org-publish-to-engraved
-          org-ascii-publish-to-utf8
-          ;; org-latex-publish-to-pdf
-          )
-         :headline-levels 4
-         :section-numbers nil
-         :with-toc nil
-         :html-preamble t
-         :html-preamble-format (("en" ,html-preamble))
-         :html-postamble t
-         :html-postamble-format (("en" ,html-postamble)))
-        ("This Month in Org - Index"
-         :base-directory ,assets-dir
-         :base-extension "org"
-         :publishing-directory ,html-dir
-         :exclude ".*"
-         :include ("index.org")
-         :recursive nil
-         :publishing-function org-html-publish-to-html
-         :time-stamp-file nil
-         :headline-levels 4
-         :section-numbers nil
-         :with-toc nil
-         :html-head-extra ,(file-contents (file-name-concat assets-dir "index-head-extra.html"))
-         :html-preamble nil
-         :html-postamble t
-         :html-postamble-format (("en" ,html-postamble)))
-        ("This Month in Org - Archive,404"
-         :base-directory ,assets-dir
-         :base-extension "org"
-         :publishing-directory ,html-dir
-         :exclude ".*"
-         :include ("archive.org" "404.org")
-         :recursive nil
-         :publishing-function org-html-publish-to-html
-         :time-stamp-file nil
-         :headline-levels 4
-         :section-numbers nil
-         :with-toc nil
-         :html-preamble t
-         :html-preamble-format (("en" ,html-preamble))
-         :html-postamble t
-         :html-postamble-format (("en" ,html-postamble)))
-        ("This Month in Org - Assets"
-         :base-directory ,assets-dir
-         :base-extension any
-         :exclude "\\.html$" ; template files
-         :publishing-directory ,html-dir
-         :recursive t
-         :publishing-function org-publish-attachment-optimised)
-        ("This Month in Org - RSS"
-         :base-directory ,content-dir
-         :base-extension "org"
-         :recursive nil
-         :exclude ,(rx (or "rss.org" (regexp "DRAFT.*\\.org")))
-         :publishing-function org-rss-publish-to-rss-only
-         :publishing-directory ,html-dir
-         :rss-extension "xml"
-         :html-link-home ,site-root
-         :html-link-use-abs-url t
-         :html-link-org-files-as-html t
-         :auto-sitemap t
-         :sitemap-filename "rss.org"
-         :sitemap-title "This Month in Org"
-         :sitemap-style list
-         :sitemap-sort-files anti-chronologically
-         :sitemap-function format-rss-feed
-         :sitemap-format-entry format-rss-feed-entry)
-        ))
+(defun do-publish ()
+  "Publish the blog into `html-dir'."
+  (let ((blog-component-pages       (format "%s - Pages" blog-name))
+        (blog-component-index       (format "%s - Index" blog-name))
+        (blog-component-archive&404 (format "%s - Archive,404" blog-name))
+        (blog-component-assets      (format "%s - Assets" blog-name))
+        (blog-component-rss         (format "%s - RSS" blog-name))
+        (html-header (file-contents "assets/header.html"))
+        (html-footer (file-contents "assets/footer.html")))
+    ;; Get rid of unwanted cache files
+    (let ((index-cache-file
+           (file-name-concat org-publish-timestamp-directory (concat blog-component-index ".cache")))
+          (archive-cache-file
+           (file-name-concat org-publish-timestamp-directory (concat blog-component-archive&404 ".cache")))
+          (rss-cache-file
+           (file-name-concat org-publish-timestamp-directory (concat blog-component-rss ".cache"))))
+      (when (file-exists-p index-cache-file)
+        (warn! "Removing Index cache file to force regeneration")
+        (delete-file index-cache-file))
+      (when (file-exists-p archive-cache-file)
+        (warn! "Removing Archive cache file to force regeneration")
+        (delete-file archive-cache-file))
+      (when (file-exists-p rss-cache-file)
+        (warn! "Removing problematic RSS cache file")
+        (delete-file rss-cache-file)))
+    ;;Set up the publish alist
+    (setq org-publish-project-alist
+          `((,blog-name
+             :components (,blog-component-pages
+                          ,blog-component-index
+                          ,blog-component-archive&404
+                          ,blog-component-assets
+                          ,blog-component-rss))
+            (,blog-component-pages
+             :base-directory ,content-dir
+             :base-extension "org"
+             :publishing-directory ,html-dir
+             :exclude "rss\\.org"
+             :recursive t
+             :publishing-function
+             (org-html-publish-to-html
+              org-org-publish-to-org
+              org-publish-to-engraved
+              org-ascii-publish-to-utf8
+              ;; org-latex-publish-to-pdf
+              )
+             :headline-levels 4
+             :section-numbers nil
+             :with-toc nil
+             :html-preamble t
+             :html-preamble-format (("en" ,html-header))
+             :html-postamble t
+             :html-postamble-format (("en" ,html-footer)))
+            (,blog-component-index
+             :base-directory ,assets-dir
+             :base-extension "org"
+             :publishing-directory ,html-dir
+             :exclude ".*"
+             :include ("index.org")
+             :recursive nil
+             :publishing-function org-html-publish-to-html
+             :time-stamp-file nil
+             :headline-levels 4
+             :section-numbers nil
+             :with-toc nil
+             :html-head-extra ,(file-contents (file-name-concat assets-dir "index-head-extra.html"))
+             :html-preamble nil
+             :html-postamble t
+             :html-postamble-format (("en" ,html-footer)))
+            (,blog-component-archive&404
+             :base-directory ,assets-dir
+             :base-extension "org"
+             :publishing-directory ,html-dir
+             :exclude ".*"
+             :include ("archive.org" "404.org")
+             :recursive nil
+             :publishing-function org-html-publish-to-html
+             :time-stamp-file nil
+             :headline-levels 4
+             :section-numbers nil
+             :with-toc nil
+             :html-preamble t
+             :html-preamble-format (("en" ,html-header))
+             :html-postamble t
+             :html-postamble-format (("en" ,html-footer)))
+            (,blog-component-assets
+             :base-directory ,assets-dir
+             :base-extension any
+             :exclude "\\.html$" ; template files
+             :publishing-directory ,html-dir
+             :recursive t
+             :publishing-function org-publish-attachment-optimised)
+            (,blog-component-rss
+             :base-directory ,content-dir
+             :base-extension "org"
+             :recursive nil
+             :exclude ,(rx (or "rss.org" (regexp "DRAFT.*\\.org")))
+             :publishing-function org-rss-publish-to-rss-only
+             :publishing-directory ,html-dir
+             :rss-extension "xml"
+             :html-link-home ,site-root
+             :html-link-use-abs-url t
+             :html-link-org-files-as-html t
+             :auto-sitemap t
+             :sitemap-filename "rss.org"
+             :sitemap-title ,blog-name
+             :sitemap-style list
+             :sitemap-sort-files anti-chronologically
+             :sitemap-function format-rss-feed
+             :sitemap-format-entry format-rss-feed-entry)))
 
-(section! "Publishing files")
+    (section! "Publishing files")
 
-(when force
-  (warn! "Force flag set"))
+    (when cli-mode-force
+      (warn! "Force flag set"))
 
-(when (and force (file-directory-p html-dir))
-  (call-process "git" nil nil nil "worktree" "remove" "-f" git-publish-branch)
-  (call-process "git" nil nil nil "worktree" "prune")
-  (delete-directory html-dir t)
-  (call-process "git" nil nil nil "worktree" "add" html-dir git-publish-branch)
-  (if (file-directory-p html-dir)
-      (dolist (child (directory-files html-dir))
-        (unless (member child '("." ".." ".git"))
-          (if (file-directory-p child)
-              (delete-directory child t)
-            (delete-file child))))
-    (warn! "Failed to create html worktree")))
+    (when (and cli-mode-force (file-directory-p html-dir))
+      (call-process "git" nil nil nil "worktree" "remove" "-f" git-publish-branch)
+      (call-process "git" nil nil nil "worktree" "prune")
+      (delete-directory html-dir t)
+      (call-process "git" nil nil nil "worktree" "add" html-dir git-publish-branch)
+      (if (file-directory-p html-dir)
+          (dolist (child (directory-files html-dir))
+            (unless (member child '("." ".." ".git"))
+              (if (file-directory-p child)
+                  (delete-directory child t)
+                (delete-file child))))
+        (warn! "Failed to create html worktree")))
 
-(unless (file-directory-p html-dir)
-  (call-process "git" nil nil nil "worktree" "add" html-dir git-publish-branch)
-  (unless (file-directory-p html-dir)
-    (warn! "Failed to create html worktree")))
+    (unless (file-directory-p html-dir)
+      (call-process "git" nil nil nil "worktree" "add" html-dir git-publish-branch)
+      (unless (file-directory-p html-dir)
+        (warn! "Failed to create html worktree")))
 
-(org-publish "This Month in Org" force)
-
-(section! "Pushing")
+    (org-publish blog-name cli-mode-force)))
 
 ;; To make somewhat nice git history in the HTML branch, we'll want to collect
 ;; information on the current state off affairs and commit accordingly.
@@ -452,6 +488,7 @@ PROJECT is the current project."
   (last-commit-log "%h" branch))
 
 (defun get-unstaged-changes ()
+  "List all unstaged changes in the form ((status . filepath)...)."
   (with-temp-buffer
     (call-process "git" nil t nil "status" "--porcelain=v1")
     (goto-char (point-min))
@@ -464,6 +501,8 @@ PROJECT is the current project."
       changes)))
 
 (defun git-try-command (&rest args)
+  "Try to run git with ARGS, returning t on success, nil on error.
+Should an error occur, an informative message is printed."
   (with-temp-buffer
     (setq args (delq nil args))
     (let ((exit-code (apply #'call-process "git" nil t nil args)))
@@ -474,32 +513,51 @@ PROJECT is the current project."
             (message "  Error: %s" (mapconcat #'identity (split-string (buffer-string) "\n") "\n         "))
             nil)))))
 
-(let* ((source-draft-p (and (or update-draft (not update-commit))
-                            (member (file-name-base content-dir)
-                                    (mapcar
-                                     (lambda (change) (car (file-name-split (cdr change))))
-                                     (get-unstaged-changes)))))
-       (html-draft-p (string-prefix-p "DRAFT " (last-commit-subject git-publish-branch)))
-       (html-changed-files (length (let ((default-directory html-dir)) (get-unstaged-changes))))
-       (commit-message
-        (if source-draft-p
-            (format "DRAFT update (%s files changed)\nLast source commit: %s\nLocal time: %s"
-                    html-changed-files
-                    (last-commit-hash)
-                    (format-time-string "%F %T (UTC%z)"))
-          (format "Publish update based on %s" (last-commit-hash)))))
-  (if (= html-changed-files 0)
-      (warn! "No changes to push")
-    (let ((default-directory html-dir))
-      (and (prog1 (or (not html-draft-p)
-                      (git-try-command "reset" "--soft" "HEAD~1"))
-             (unless source-draft-p
-               (dolist (file (mapcar #'cdr (get-unstaged-changes)))
-                 (when (and (file-exists-p file)
-                            (string-prefix-p "DRAFT-" (file-name-base file)))
-                   (delete-file file)))))
-           (git-try-command "add" "-A")
-           (git-try-command "commit" "--message" commit-message)
-           (git-try-command "push" (and html-draft-p "--force-with-lease"))))))
+(defun do-push ()
+  "Perform the push step."
+  (let* ((draft-mode-p
+          (or cli-mode-draft
+              (and (not cli-mode-publish)
+                   (member (file-name-base content-dir)
+                           (mapcar
+                            (lambda (change) (car (file-name-split (cdr change))))
+                            (get-unstaged-changes))))))
+         (html-draft-p (string-prefix-p "DRAFT " (last-commit-subject git-publish-branch)))
+         (html-changed-files (length (let ((default-directory html-dir)) (get-unstaged-changes))))
+         (commit-message
+          (if draft-mode-p
+              (format "DRAFT update (%s files changed)\nLast source commit: %s\nLocal time: %s"
+                      html-changed-files
+                      (last-commit-hash)
+                      (format-time-string "%F %T (UTC%z)"))
+            (format "Publish update based on %s" (last-commit-hash)))))
+    (if draft-mode-p
+        (section! "Pushing (draft)")
+      (section! "Pushing"))
+    (if (= html-changed-files 0)
+        (warn! "No changes to push")
+      (let ((default-directory html-dir))
+        (and (prog1 (or (not html-draft-p)
+                        (git-try-command "reset" "--soft" "HEAD~1"))
+               (unless draft-mode-p
+                 (dolist (file (mapcar #'cdr (get-unstaged-changes)))
+                   (when (and (file-exists-p file)
+                              (string-prefix-p "DRAFT-" (file-name-base file)))
+                     (warn! "Skipping draft file %s" file)
+                     (delete-file file)))))
+             (git-try-command "add" "-A")
+             (git-try-command "commit" "--message" commit-message)
+             (git-try-command "push" (and html-draft-p "--force-with-lease")))))))
+
+(cond
+ (cli-mode-nopush
+  (do-publish)
+  (warn! "Skipping push step"))
+ (cli-mode-onlypush
+  (warn! "Skipping publish step")
+  (do-push))
+ (t ; Default behaviour
+  (do-publish)
+  (do-push)))
 
 (section! "Finished")
