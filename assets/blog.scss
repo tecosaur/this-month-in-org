@@ -1,6 +1,5 @@
 header {
     position: relative;
-    margin: 0 auto -2rem;
     & > h4 > a {
         text-decoration: none;
         color: inherit;
@@ -28,10 +27,16 @@ header {
     #content {
         margin: auto;
     }
-    header > h4 > a.orgicorn img {
-        position: absolute;
-        top: -0.3em;
-        transform: translateX(-100%) translateX(-0.8rem);
+    header {
+        margin: 0 auto -2rem;
+        h4 > a.orgicorn {
+            display: inherit; // I have no idea why this is needed, but it seems to be
+            img {
+                position: absolute;
+                top: -0.3em;
+                transform: translateX(-100%) translateX(-0.8rem);
+            }
+        }
     }
 }
 #postamble {
