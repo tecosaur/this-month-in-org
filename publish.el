@@ -130,6 +130,8 @@
       user-full-name "TEC"
       user-mail-address "contact.tmio@tecosaur.net")
 
+(setf (alist-get :eval org-babel-default-header-args) "no")
+
 ;;; For some reason emoji detection doesn't seem to work, so let's just turn it on
 
 ;; (setcar (rassoc 'emoji org-latex-conditional-features) t)

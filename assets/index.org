@@ -26,7 +26,7 @@ First we need to get all the posts. To get a recent-first ordering we just need
 to reverse the sorted directory listing.
 
 #+name: collect-posts
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :eval yes
 (setq posts (nreverse
              (directory-files (expand-file-name "../content" default-directory)
                               t "^[0-9]\\{4\\}-[0-9][0-9]-[0-9][0-9]-.+\\.org")))
@@ -36,7 +36,7 @@ Then we want to format the content for inclusion. Each file can be visited and
 modified for inclusion.
 
 #+name: post-formatting
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :eval yes
 (defun format-post (file &optional truncate-length)
   (with-temp-buffer
     (insert-file-contents file)
@@ -68,7 +68,7 @@ modified for inclusion.
 
 * Output :ignore:
 
-#+begin_src emacs-lisp :noweb yes :results raw :exports results
+#+begin_src emacs-lisp :noweb yes :eval yes :results raw :exports results
 <<collect-posts>>
 <<post-formatting>>
 (concat
