@@ -340,6 +340,7 @@ PROJECT is the current project."
          :include ("index.org")
          :recursive nil
          :publishing-function org-html-publish-to-html
+         :time-stamp-file nil
          :headline-levels 4
          :section-numbers nil
          :with-toc nil
@@ -355,6 +356,7 @@ PROJECT is the current project."
          :include ("archive.org" "404.org")
          :recursive nil
          :publishing-function org-html-publish-to-html
+         :time-stamp-file nil
          :headline-levels 4
          :section-numbers nil
          :with-toc nil
