@@ -57,7 +57,7 @@ content from being entirely re-parsed (see
 information). This improvement is particularly noticeable when refiling and
 archiving headings.
 
-#+begin_src julia
+#+begin_src julia :exports none
 using StatsBase, Dates
 
 timestamps = read(setenv(`git log --format='%ad' --date=format:'%Y-%m-%dT%H:%M:%S' --author="Ihor Radchenko <yantar92@gmail.com>" --grep=cache`,
