@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2024-01-12 Fri 13:05 -->
+<!-- 2024-01-12 Fri 13:39 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>November 2021</title>
@@ -42,8 +42,8 @@
 <h1 class="title">November 2021</h1>
 <p class="subtitle" role="doc-subtitle">Elementary improvements</p>
 </header><p>
-With a 9.5 release highlight post last month, and the month before skipped, it's
-now <i>three months</i> since the last regular instalment of <span class='acr'>TMIO</span>. Let's get back up
+With a 9.5 release highlight post last month, and the month before skipped, it&rsquo;s
+now <i>three months</i> since the last regular instalment of <span class='acr'>TMIO</span>. Let&rsquo;s get back up
 to date on some of the latest happenings with Org.
 </p>
 <div id="outline-container-org-as-markup" class="outline-2">
@@ -53,8 +53,8 @@ to date on some of the latest happenings with Org.
 Looking at the wider ecosystem, it certainly appears that there is a growing
 appetite for Org markup outside org-mode. More projects like <a href="https://gohugo.io/">Hugo</a> and <a href="https://logseq.com/">Logseq</a>
 seem to be interested in supporting Org markup, and there has been a recent
-growth in editor extensions like Neovim's <a href="https://github.com/nvim-orgmode/orgmode/">orgmode.nvim</a> (started in March this
-year) and Sublime Text's <a href="https://packagecontrol.io/packages/OrgExtended">OrgExtended</a> (started in June this year).
+growth in editor extensions like Neovim&rsquo;s <a href="https://github.com/nvim-orgmode/orgmode/">orgmode.nvim</a> (started in March this
+year) and Sublime Text&rsquo;s <a href="https://packagecontrol.io/packages/OrgExtended">OrgExtended</a> (started in June this year).
 </p>
 
 <p>
@@ -63,7 +63,7 @@ project. Primarily lead by Nicolas Goaziou, there is an ongoing attempt to
 codify the Org syntax in a formal specification in the Worg document <a href="https://orgmode.org/worg/dev/org-syntax.html">Org Syntax
 (draft)</a>. Other members of the Org mailing list have directed their effort to
 creating non-elisp parsers for Org, both to help Org tools be created in other
-languages, and as put in the <span class='acr'>README</span> for Tom Gillespie's <a href="https://github.com/tgbugs/laundry">laundry</a> parser
+languages, and as put in the <span class='acr'>README</span> for Tom Gillespie&rsquo;s <a href="https://github.com/tgbugs/laundry">laundry</a> parser
 </p>
 <blockquote>
 <p>
@@ -77,15 +77,15 @@ for an implementation of Org mode.
 Earlier this week Karl Voit, the author of the rather well-known document <a href="https://karl-voit.at/2017/09/23/orgmode-as-markup-only/">Org
 Mode Is One of the Most Reasonable Markup Languages to Use for Text</a>, surprised
 the mailing list by announcing his independent creation of a multi-leveled
-standard for Org syntax subsets called "Orgdown" (the name is a blend of
-"Org-mode" and "markdown", but the standard is only a subset of Org). Each level
+standard for Org syntax subsets called &ldquo;Orgdown&rdquo; (the name is a blend of
+&ldquo;Org-mode&rdquo; and &ldquo;markdown&rdquo;, but the standard is only a subset of Org). Each level
 defines a compliance score given by a mix of parsing and editing support, with
 example compliance scores for the first (and currently only) level of the
 standard given for common tools.
 </p>
 
 <p>
-At this stage, it isn't clear exactly how the Org-outside-Emacs landscape will
+At this stage, it isn&rsquo;t clear exactly how the Org-outside-Emacs landscape will
 evolve, but the swelling interest is very encouraging.
 </p>
 </div>
@@ -94,7 +94,7 @@ evolve, but the swelling interest is very encouraging.
 <h2 id="an-org-parser">An Org parser in Julia<a aria-hidden="true" href="#an-org-parser">#</a> </h2>
 <div class="outline-text-2" id="text-an-org-parser">
 <p>
-Speaking of parsers, I may be somewhat biased but I'm quite happy that a Org
+Speaking of parsers, I may be somewhat biased but I&rsquo;m quite happy that a Org
 parser for <a href="https://julialang.org/">Julia</a> now exists 🎉.
 </p>
 
@@ -104,7 +104,7 @@ parser for <a href="https://julialang.org/">Julia</a> now exists 🎉.
 
 <p>
 OrgMode.jl is a parser, but also intended as a general-purpose Org library for
-Julia. It's only been a week since development started, but it currently
+Julia. It&rsquo;s only been a week since development started, but it currently
 supports most of the <a href="https://orgmode.org/worg/dev/org-syntax.html">Org Syntax</a> draft specification, along with the rendering of
 a parsed Org <span class='acr'>AST</span> to a <span class='acr'>TTY</span> or back to Org text. A few utility functions are also
 included, such as <code>filtermap</code> which operates similarly to <code>org-element-map</code>.
@@ -123,11 +123,11 @@ recently before say using the <kbd>csl</kbd> backend, one needed to
 <p>
 Now, if you have a line like:
 </p>
-<details id='orgc8750fb' class='code' open>
+<details id='org3915936' class='code' open>
 <summary></summary>
-<div class='gutter'><a href='#orgc8750fb'>#</a>
+<div class='gutter'><a href='#org3915936'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
-<pre class="example" id="orgc8750fb">
+<pre class="example" id="org3915936">
 #+cite_export: FORMAT ...
 </pre>
 
@@ -146,8 +146,8 @@ This should make getting started with citations in Org just a bit easier.
 <div class="outline-text-2" id="text-nicer-tangle-mode">
 <p>
 The standard way of setting a <kbd>:tangle-mode</kbd> has typically been by providing a
-closure that makes use of Elisp's octal syntax, such as <kbd>(identity #o755)</kbd>. This
-is unnecessarily verbose, and certainly doesn't feel natural.
+closure that makes use of Elisp&rsquo;s octal syntax, such as <kbd>(identity #o755)</kbd>. This
+is unnecessarily verbose, and certainly doesn&rsquo;t feel natural.
 </p>
 
 <p>
@@ -165,11 +165,11 @@ the base/default mode set by <code>org-babel-tangle-default-file-mode</code>.</d
 <p>
 This means the following forms are now all equivalent:
 </p>
-<details id='orgfa29bb3' class='code' open>
+<details id='org248fb38' class='code' open>
 <summary></summary>
-<div class='gutter'><a href='#orgfa29bb3'>#</a>
+<div class='gutter'><a href='#org248fb38'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
-<pre class="example" id="orgfa29bb3">
+<pre class="example" id="org248fb38">
 :tangle-mode (identity #o755)
 :tangle-mode o755
 :tangle-mode a=rx,u+w
@@ -190,9 +190,9 @@ made yet though.
 </p>
 </div>
 </div>
-<div id="outline-container-90227103" class="outline-2">
-<h2 id="90227103">Org element parser cache<a aria-hidden="true" href="#90227103">#</a> </h2>
-<div class="outline-text-2" id="text-90227103">
+<div id="outline-container-113526722" class="outline-2">
+<h2 id="113526722">Org element parser cache<a aria-hidden="true" href="#113526722">#</a> </h2>
+<div class="outline-text-2" id="text-113526722">
 <p>
 Ihor Radchenko has done some fantastic work over the past few months by
 overhauling parts of <kbd>org-element.el</kbd> to introduce extensive caching. <kbd>org-element</kbd>
@@ -206,7 +206,7 @@ correctness guarantees on one or two properties in particular cases.
 Several org-mode <span class='acr'>API</span><small>s</small> now make use of the cache to dramatically improve speed.
 Aside from improvements to typically slow operations, this is ideal for
 situations involving frequent buffer edits.
-It's no understatement to say that this work is transformative.
+It&rsquo;s no understatement to say that this work is transformative.
 </p>
 
 <p>
@@ -224,21 +224,21 @@ to be built on <kbd>org-element</kbd> instead.
 <div class="outline-text-2" id="text-inline-source-block">
 <p>
 I think <a href="https://orgmode.org/manual/Structure-of-Code-Blocks.html">inline source code blocks</a> are an underappreciated feature of Org. I
-don't think it's helped that they have not been visually treated at all
+don&rsquo;t think it&rsquo;s helped that they have not been visually treated at all
 differently from plain text. Now though, they have a new dedicated face
 (<code>org-inline-src-block</code>) <i>and</i> in the same manner as source blocks, based on
-<code>org-src-fontify-natively</code> can be fontified using the language's major mode.
+<code>org-src-fontify-natively</code> can be fontified using the language&rsquo;s major mode.
 </p>
 
 
-<figure id="org2816665">
+<figure id="orgbac6797">
 <img src="figures/inline-src-block-fontified-vs-code.png" alt="inline-src-block-fontified-vs-code.png" class="doom-one">
 
 <figcaption><span class="figure-number">Figure 1: </span>Side-by-side comparison of a identical paragraphs using code (<code>~</code>) markup and inline source blocks (<code>src_</code>).</figcaption>
 </figure>
 
 <p>
-If you aren't familiar with inline source blocks, you're missing out. They are
+If you aren&rsquo;t familiar with inline source blocks, you&rsquo;re missing out. They are
 very much the inline cousin of source blocks, and so support all your favourite
 Babel features like code execution and header arguments. This provides a
 fantastic capacity to inline dynamically computed expressions, and optionally
@@ -246,7 +246,7 @@ show the code that produces them.
 </p>
 
 
-<figure id="orgcb0073f">
+<figure id="org039e913">
 <img src="figures/inline-src-block-julia-demo.png" alt="inline-src-block-julia-demo.png" class="doom-one">
 
 <figcaption><span class="figure-number">Figure 2: </span>A paragraph making use of <i>evaluated</i> inline source blocks. Note that the <kbd>⟨11⟩</kbd> is a prettified results macro (using a potential future org-mode patch).</figcaption>
@@ -280,7 +280,7 @@ with Babel:
 </details>
 
 <p>
-In a Jupyter-style (<kbd>.ipynb</kbd>) or throwaway document, we likely don't care about
+In a Jupyter-style (<kbd>.ipynb</kbd>) or throwaway document, we likely don&rsquo;t care about
 the file name at all. With these new capabilities, we can provide a file name
 dynamically as a default argument!
 </p>
@@ -306,8 +306,8 @@ suitable file name, like so
 </details>
 
 <p>
-Let's also write a function to guess whether the source block produces a plot by
-checking if there's a plot command on the last line.
+Let&rsquo;s also write a function to guess whether the source block produces a plot by
+checking if there&rsquo;s a plot command on the last line.
 </p>
 
 <details id='functions-as-default,code--3' class='code' open><summary><span class="lang">Emacs Lisp</span></summary>
@@ -325,7 +325,7 @@ checking if there's a plot command on the last line.
 
 <p>
 Then we can just use these function in place of a static value in the default
-header arguments variable &#x2014; that's all it takes.
+header arguments variable &#x2014; that&rsquo;s all it takes.
 </p>
 
 <details id='functions-as-default,code--4' class='code' open><summary><span class="lang">Emacs Lisp</span></summary>
@@ -358,7 +358,7 @@ This means for most cases we can now get away without any header arguments at al
 </details>
 
 <p>
-It's always lovely to see more ways of reducing boilerplate.
+It&rsquo;s always lovely to see more ways of reducing boilerplate.
 </p>
 </div>
 </div>
@@ -381,7 +381,7 @@ accessible text width in the buffer.
 </p>
 
 
-<figure id="orgbd6df71">
+<figure id="orgfb0a353">
 <img src="figures/proportional-image-width.png" alt="proportional-image-width.png" class="doom-one">
 
 <figcaption><span class="figure-number">Figure 3: </span>A containing with an image set to half of the accesible text width</figcaption>
@@ -392,7 +392,7 @@ This means that a width parameter like <kbd>#+attr_latex: :width 0.7\linewidth</
 image will displayed as 70% of the buffer text width.
 This also supports percentage value, like <kbd>#+attr_html: :width 80%</kbd> by dividing
 the number before the <kbd>%</kbd> by 100 as a floating-point value.
-As always, if you don't like the way display width is inferred here you can
+As always, if you don&rsquo;t like the way display width is inferred here you can
 override it by putting a <kbd>#+attr_org: :width X</kbd> statement first.
 </p>
 
@@ -445,7 +445,7 @@ the maintainer burden <span class="underline">Bastien</span></li>
 <li>Fix display error with <kbd>ob-plantuml</kbd> and html export <span class="underline">Su Lin</span></li>
 <li>More tests! <span class="underline">Ihor Radchenko</span></li>
 <li>Documentation improvements! <span class="underline">Marco Wahl</span> <span class="underline">Stefan Kangas</span> <span class="underline">Daniel Fleischer</span> <span class="underline">Wiliam
-Denton</span> <span class="underline">Thomas Dye</span> <span class="underline">Bastien</span> <span class="underline">Bruce D'Arcus</span> <span class="underline">Kyle Meyer</span> <span class="underline">Nicolas Goaziou</span></li>
+Denton</span> <span class="underline">Thomas Dye</span> <span class="underline">Bastien</span> <span class="underline">Bruce D&rsquo;Arcus</span> <span class="underline">Kyle Meyer</span> <span class="underline">Nicolas Goaziou</span></li>
 </ul>
 </div>
 </div>
@@ -461,7 +461,7 @@ Denton</span> <span class="underline">Thomas Dye</span> <span class="underline">
 <li>No more duplicated logbook entries for repeated tasks <span class="underline">Ihor Radchenko</span></li>
 <li>A headline fontification edge case <span class="underline">Sébastien Miquel</span></li>
 <li>Refactor code that needed Emacs 28 <span class="underline">Kyle Meyer</span></li>
-<li>Make sure a terminating emphasis marker can't be used as a beginning emphasis
+<li>Make sure a terminating emphasis marker can&rsquo;t be used as a beginning emphasis
 marker in fontification <span class="underline">Ihor Radchenko</span></li>
 <li>Allow footnotes at footnote definition start <span class="underline">Nicholas Goaziou</span></li>
 </ul>

@@ -10,14 +10,14 @@
 
 
 Finding time as of late has been more difficult than I anticipated, and
-on top of that, just as I was thinking of writing last month's post, I
+on top of that, just as I was thinking of writing last month’s post, I
 got distracted by an exciting patchset that has been in the works for
 over a year finally getting sorted out and landing. So, I hope that some
 of the fun developments in this post will make up the absense of the
 last one 🙂.
 
-Since it's been longer than I thought since the last standard post,
-we've got a fair few commits to catch up on — about 200. Most of these
+Since it’s been longer than I thought since the last standard post,
+we’ve got a fair few commits to catch up on — about 200. Most of these
 are miscellaneous minor improvements and bugfixes, but a few notable
 changes have arrived too.
 
@@ -26,7 +26,7 @@ Folding
 ═══════
 
   The fabulous new folding engine (`org-fold-core') should noticeably
-  improve Org's performance with large files. It contains a number of
+  improve Org’s performance with large files. It contains a number of
   key optimisations to improve speed, namely:
   ⁃ Deferring fontification of folded regions
   ⁃ Using text properties (𝒪(n log n)) instead of overlays (𝒪(n^2)) for
@@ -43,7 +43,7 @@ Folding
 
   <file:figures/org-fold-perf-shifttab-showall.svg>
 
-  Well this looks very promising[1]! Let's see how much of an
+  Well this looks very promising[1]! Let’s see how much of an
   improvement this is overall.
 
   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -59,20 +59,20 @@ Folding
   display modes (in seconds).
 
   To be clear, even the smallest file in this data — a 1.1 Mb Org file
-  with around a thousand headings, is fairly large. So, it's unlikely
-  you'll notice much of a difference with small–medium files, but if you
+  with around a thousand headings, is fairly large. So, it’s unlikely
+  you’ll notice much of a difference with small–medium files, but if you
   a few large+ files this should be a /fantastic/ improvement. Once
   again, thanks Ihor!
 
   The change to text properties instead of overlays breaks a number of
-  third party packages like `evil-search' and `consult''s
+  third party packages like `evil-search' and `consult'’s
   `consult-line'.  If you are involved in any packages affected by this,
-  you'll either want to consider supporting invisible text, or look at
+  you’ll either want to consider supporting invisible text, or look at
   `isearch-filter-predicate' and `isearch-mode-end-hook', which
-  `org-fold' now uses.  If you're an end-user, perhaps politely make an
+  `org-fold' now uses.  If you’re an end-user, perhaps politely make an
   issue on the repo for a project /if no issue currently exists/, and
   either:
-  ⁃ Stay off Org's bleeding edge till the package ecosystem has adapted
+  ⁃ Stay off Org’s bleeding edge till the package ecosystem has adapted
     to this change
   ⁃ Help the packages you use adapt to this change
   ⁃ Set `org-fold-core-style' to `overlays' to restore the old behaviour
@@ -84,10 +84,10 @@ Folding
   All too often exporting code to LaTeX has been a disappointment, with
   lovely syntax highlighting from Emacs major modes replaced with a
   markedly inferior attempt by pygments (setting `org-latex-listings' to
-  `minted') in a colour scheme I don't really like.
+  `minted') in a colour scheme I don’t really like.
 
   A bit over a year ago, a project called [engrave-faces] started with
-  the aim of making Emacs' font-lock more exportable, like a generalised
+  the aim of making Emacs’ font-lock more exportable, like a generalised
   `htmlize.el'. This has recently been used to provide a new option for
   inline and block source code exports in LaTeX.
 
@@ -109,7 +109,7 @@ Folding
 
   <file:figures/engraved-faces-multitheme.png>
 
-  Here's what using these new capabilities looks like in practice.
+  Here’s what using these new capabilities looks like in practice.
 
   ┌────
   │ #+title: Engraving source blocks
@@ -135,9 +135,9 @@ Folding
 TexInfo export improvements
 ═══════════════════════════
 
-  Jonas Bernoulli has been using a custom TexInfo backend for Magit's
-  documentation for a while now, and over the past few months he's
-  worked the features he was missing into Org's built-in TexInfo
+  Jonas Bernoulli has been using a custom TexInfo backend for Magit’s
+  documentation for a while now, and over the past few months he’s
+  worked the features he was missing into Org’s built-in TexInfo
   exporter.
 
   Upstreaming like this always takes a fair bit of effort, so thank you
@@ -180,14 +180,14 @@ Toggle noweb prefix handling
 Package highlight: org-modern
 ═════════════════════════════
 
-  I think we've all [seen] [plenty] of `org-mode' [prettification]
-  [packages] [before], so what makes Minad's [org-modern] special? It's
-  actually doing something similar to Ihor's org-fold improvements,
+  I think we’ve all [seen] [plenty] of `org-mode' [prettification]
+  [packages] [before], so what makes Minad’s [org-modern] special? It’s
+  actually doing something similar to Ihor’s org-fold improvements,
   switching out slower overlay-based approaches for text properties. I
   can confirm that switching out `org-superstar-mode' for `org-modern'
   has made a substantial improvement in my experience, halving the
-  first-load time of my `config.org' to around 20 seconds. If you're a
-  fan of Org prettification and haven't taken a look at this package, I
+  first-load time of my `config.org' to around 20 seconds. If you’re a
+  fan of Org prettification and haven’t taken a look at this package, I
   highly recommend giving it a shot.
 
   <file:figures/org-modern-readme-demo.gif>

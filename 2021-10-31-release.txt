@@ -10,13 +10,13 @@
 
 
       Turns out that life became busy enough that instead of
-      delaying, last month's post had to be cancelled. We're now
+      delaying, last month’s post had to be cancelled. We’re now
       back to business as usual though 🙂.
 
 There have been some cool recent developments in Org over the past two
-months, but you'll have to learn about those is next month's edition as
-/Org 9.5 has been released/ 🎉. So, let's go over some of the changes
-I'm most excited about, in no particular order. To get a more complete
+months, but you’ll have to learn about those is next month’s edition as
+/Org 9.5 has been released/ 🎉. So, let’s go over some of the changes
+I’m most excited about, in no particular order. To get a more complete
 picture of the latest changes, see [ORG-NEWS].
 
 
@@ -28,7 +28,7 @@ The new citation engine
 ═══════════════════════
 
   As tempted as I am to wax lyrical about the lovely new citation
-  engine, I've already dedicated [July's post] to it, and so will simply
+  engine, I’ve already dedicated [July’s post] to it, and so will simply
   highlight how versatile the syntax is. Combined with the ability to
   swap out the default backends (basic, CSL, natbib, and bib(la)tex) for
   a 3rd party backend (for example, provided by a package) it is capable
@@ -38,14 +38,14 @@ The new citation engine
   <file:figures/citation-structure-full.svg>
 
   Since the announcement of org-cite, the ecosystem has continued to
-  expand with a number of promising packages like Bruce D'Arcus' [citar]
+  expand with a number of promising packages like Bruce D’Arcus’ [citar]
   (previously /bibtex-actions/), which currently provides what is
   arguably the best citation insertion experience.
 
   <file:figures/org-citar-insertion.png>
 
 
-[July's post] <file:2021-07-31-citations.org>
+[July’s post] <file:2021-07-31-citations.org>
 
 [citar] <https://github.com/bdarcus/citar>
 
@@ -53,7 +53,7 @@ The new citation engine
 Asynchronous session evaluation
 ═══════════════════════════════
 
-  Since being featured in [May's post], we've had the initial python
+  Since being featured in [May’s post], we’ve had the initial python
   support expanded with support for R too. I have good reason to believe
   that more backends will join this list in the future.
 
@@ -61,7 +61,7 @@ Asynchronous session evaluation
   R source blocks with a `:session'.
 
 
-[May's post] <file:2021-05-31-async.org>
+[May’s post] <file:2021-05-31-async.org>
 
 
 LaTeX environment `#+results' are now removed

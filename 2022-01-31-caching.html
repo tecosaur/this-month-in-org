@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2024-01-12 Fri 13:05 -->
+<!-- 2024-01-12 Fri 13:39 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>January 2022</title>
@@ -42,7 +42,7 @@
 <h1 class="title">January 2022</h1>
 <p class="subtitle" role="doc-subtitle">Caching</p>
 </header><p>
-There are less "obvious user-facing changes" this month, but a lot of good work
+There are less &ldquo;obvious user-facing changes&rdquo; this month, but a lot of good work
 has been happening 🙂.
 </p>
 <div id="outline-container-cache-continues-make" class="outline-2">
@@ -54,19 +54,19 @@ existed for a while now, but it used to be too buggy to be useful.
 </p>
 
 <p>
-This is no longer the case! We're finally confident enough to flip
-<code>org-element-use-cache</code>'s default from <code>nil</code> to <code>t</code>. I mentioned some of the
-improvements in <a href="2021-11-30-element.html#org6c447c2">November</a>, however Ihor has continued to make strides with the
+This is no longer the case! We&rsquo;re finally confident enough to flip
+<code>org-element-use-cache</code>&rsquo;s default from <code>nil</code> to <code>t</code>. I mentioned some of the
+improvements in <a href="2021-11-30-element.html#orgff73293">November</a>, however Ihor has continued to make strides with the
 cache.
 </p>
 
 <p>
 Getting the cache right is tough though, and so while the situation is much
 improved there are still lingering bugs which need to be chased down. If you
-only take one thing away from the post, I'd like it to be this:
+only take one thing away from the post, I&rsquo;d like it to be this:
 </p>
 
-<div class="info" id="orgfc1b754">
+<div class="info" id="orgb17f9b2">
 <div style="text-align: left; margin-left: 1rem;">
 <p>
 The cache is actively being developed now, for the first time in years, so:
@@ -83,11 +83,11 @@ The cache is actively being developed now, for the first time in years, so:
 <p>
 Cache warnings look something like this:
 </p>
-<details id='org70e1330' class='code' open>
+<details id='org8ad0fdd' class='code' open>
 <summary></summary>
-<div class='gutter'><a href='#org70e1330'>#</a>
+<div class='gutter'><a href='#org8ad0fdd'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
-<pre class="example" id="org70e1330">
+<pre class="example" id="org8ad0fdd">
 Warning (org-element-cache): org-element--cache: Unregistered buffer modifications detected. Resetting.
 If this warning appears regularly, please report the warning text to Org mode mailing list (M-x org-submit-bug-report).
 The buffer is: config.org
@@ -102,17 +102,17 @@ The buffer is: config.org
 
 <p>
 A good way to start is by copying this to your clipboard and then trying <kbd>M-x
-org-submit-bug-report</kbd>. Regardless of whether you're using an Emacs mail client,
+org-submit-bug-report</kbd>. Regardless of whether you&rsquo;re using an Emacs mail client,
 this will collect all the important information (org-mode version, etc.) and
 populate a buffer with it. Add the warning text, and that will be a great help!
-After all, it's quite hard to fix bugs we don't know about 😆.
+After all, it&rsquo;s quite hard to fix bugs we don&rsquo;t know about 😆.
 </p>
 </div>
 
 </div>
 
 <p>
-As of October 2021, "bulk" heading promotion/demotion operations are now faster
+As of October 2021, &ldquo;bulk&rdquo; heading promotion/demotion operations are now faster
 thanks to the cache, and there have now been further improvements relating to
 headings. It used to be the case that every time heading properties changed the
 entire heading (and contents) were re-parsed. Now, cache heuristics prevent the
@@ -151,7 +151,7 @@ Ever linked to an online image like
 <kbd>https://orgmode.org/resources/img/org-mode-unicorn.svg</kbd> in an Org document, seen
 it look nice in the <span class='acr'>HTML</span> export and then be disappointed to just see a link in
 LaTeX? Well I have. Thankfully this is no longer the case though, thanks to a
-helper function <code>org-export-link-localise</code> that's just been added to <kbd>ox.el</kbd>.
+helper function <code>org-export-link-localise</code> that&rsquo;s just been added to <kbd>ox.el</kbd>.
 </p>
 
 <p>
@@ -161,7 +161,7 @@ to provide support for not just <span class='acr'>HTTPS</span> links but also tr
 </p>
 
 
-<figure id="org288b81f">
+<figure id="org75c72b5">
 <img src="figures/ox-latex-image-link-localisation-demo.png" alt="ox-latex-image-link-localisation-demo.png" class="invertible">
 
 <figcaption><span class="figure-number">Figure 1: </span>A screenshot of a (compiled to <span class='acr'>PDF</span>) LaTeX export, with an <span class='acr'>HTTPS</span> and tramp images.</figcaption>
@@ -169,7 +169,7 @@ to provide support for not just <span class='acr'>HTTPS</span> links but also tr
 
 <p>
 While this is currently only implemented for <kbd>ox-latex</kbd>, this can be applied
-generally, and so there's a good chance you'll hear more about this in the future.
+generally, and so there&rsquo;s a good chance you&rsquo;ll hear more about this in the future.
 </p>
 
 <p>

@@ -20,19 +20,19 @@ With this *p*aradigm shift, you can look forward to a much more
 intuitive syntax, empowering you to create next-generation agile
 documents.
 
-To assist you in this *t*ransition, we'll give you a brief overview of
+To assist you in this *t*ransition, we’ll give you a brief overview of
 the changes you can expect. Text formatting is almost unaffected, with a
 few sensible changes made to the surrounding c*h*aracters.
 
 <file:figures/org-markup-to-confluence.svg>
 
-We'd like to thank the FSF for giving the Org project the space and
+We’d like to thank the FSF for giving the Org project the space and
 support to grow to become a world-class proj*e*ct. In our new venture,
 cop*y*right assignment to t*h*e FSF is no longer required. Inste*a*d,
 copyright must be assigned to Atlassian prior to contributing.
 
 This new partnership enables new and exciting integrations with
-Atlassian's proprietary technologies. O*v*er the next f*e*w months we
+Atlassian’s proprietary technologies. O*v*er the next f*e*w months we
 will *b*e transforming Org to a cloud-n*a*tive serverless profes*s*ional
 markup offering. Unlike Confluence, we will allow you to bo*t*h write
 /and edit/ documents using pla*i*ntext markup. We believe that by

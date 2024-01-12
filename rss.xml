@@ -14,8 +14,8 @@
   <link>https://blog.tecosaur.net/tmio/</link>
   <description><![CDATA[]]></description>
   <language>en</language>
-  <pubDate>Fri, 12 Jan 2024 13:07:35 +0800</pubDate>
-  <lastBuildDate>Fri, 12 Jan 2024 13:07:35 +0800</lastBuildDate>
+  <pubDate>Fri, 12 Jan 2024 13:39:50 +0800</pubDate>
+  <lastBuildDate>Fri, 12 Jan 2024 13:39:50 +0800</lastBuildDate>
   <generator>Emacs 29.1 Org-mode 9.6</generator>
   <webMaster>contact.tmio@tecosaur.net (TEC)</webMaster>
   <image>
@@ -48,7 +48,7 @@
     <p>
     This is no longer the case! We're finally confident enough to flip
     <code>org-element-use-cache</code>'s default from <code>nil</code> to <code>t</code>. I mentioned some of the
-    improvements in <a href="https://blog.tecosaur.net/tmio/2021-11-30-element.html#orgf4b49e3">November</a>, however Ihor has continued to make strides with the
+    improvements in <a href="https://blog.tecosaur.net/tmio/2021-11-30-element.html#orgec8e566">November</a>, however Ihor has continued to make strides with the
     cache.
     </p>
 
@@ -58,7 +58,7 @@
     only take one thing away from the post, I'd like it to be this:
     </p>
 
-    <div class="info" id="orgcc126eb">
+    <div class="info" id="org39a57e1">
     <div style="text-align: left; margin-left: 1rem;">
     <p>
     The cache is actively being developed now, for the first time in years, so:
@@ -71,7 +71,7 @@
     <p>
     Cache warnings look something like this:
     </p>
-    <pre class="example" id="org75bef27">
+    <pre class="example" id="orgcafcbf2">
     Warning (org-element-cache): org-element--cache: Unregistered buffer modifications detected. Resetting.
     If this warning appears regularly, please report the warning text to Org mode mailing list (M-x org-submit-bug-report).
     The buffer is: config.org
@@ -143,7 +143,7 @@
     </p>
 
 
-    <figure id="org9423af2">
+    <figure id="org6f50599">
     <img src="https://blog.tecosaur.net/tmio/figures/ox-latex-image-link-localisation-demo.png" alt="ox-latex-image-link-localisation-demo.png">
 
     <figcaption><span class="figure-number">Figure 1: </span>A screenshot of a (compiled to PDF) LaTeX export, with an HTTPS and tramp images.</figcaption>
@@ -218,14 +218,14 @@
   </p>
 
 
-  <figure id="org9f7a5bb">
+  <figure id="orgd99fc4f">
   <img src="https://blog.tecosaur.net/tmio/figures/org-fold-perf-shifttab-contents.svg" alt="org-fold-perf-shifttab-contents.svg" class="org-svg">
 
   <figcaption><span class="figure-number">Figure 2: </span>The scaling of <code>org-shifttab</code> showing file contents, as file size increases, with and without org-fold.</figcaption>
   </figure>
 
 
-  <figure id="org6f6ed94">
+  <figure id="org5b274b2">
   <img src="https://blog.tecosaur.net/tmio/figures/org-fold-perf-shifttab-showall.svg" alt="org-fold-perf-shifttab-showall.svg" class="org-svg">
 
   <figcaption><span class="figure-number">Figure 3: </span>The scaling of <code>org-shifttab</code> showing the entire file, as file size increases, with and without org-fold.</figcaption>
@@ -310,7 +310,7 @@
   be a <i>fantastic</i> improvement. Once again, thanks Ihor!
   </p>
 
-  <div class="warning" id="orge7922ee">
+  <div class="warning" id="org95471ce">
   <p>
   The change to text properties instead of overlays breaks a number of third party
   packages like <kbd>evil-search</kbd> and <kbd>consult</kbd>'s <code>consult-line</code>.
@@ -354,7 +354,7 @@
   </p>
 
 
-  <figure id="orgbe36c8a">
+  <figure id="org7b01426">
   <img src="https://blog.tecosaur.net/tmio/figures/org-markup-to-confluence.svg" alt="org-markup-to-confluence.svg" class="org-svg">
 
   <figcaption><span class="figure-number">Figure 4: </span>Translation between Org's syntax and our new Confluence overlords's equivalents</figcaption>
@@ -538,9 +538,9 @@
   <h3 id="understanding-orgmode-syntax"><span class="section-number-3">4.1.</span> Understanding the OrgMode syntax and all the functionality</h3>
   <div class="outline-text-3" id="text-4-1">
   <p>
-  This is still the biggest challenge. I didn't have any idea how big and robust
-  OrgMode is. If I would know it at that time, I wouldn't even jump on this train.
-  It's really hard to grasp all of it. Considering I've only used it for around 8
+  This is still the biggest challenge. I didn&rsquo;t have any idea how big and robust
+  OrgMode is. If I would know it at that time, I wouldn&rsquo;t even jump on this train.
+  It&rsquo;s really hard to grasp all of it. Considering I&rsquo;ve only used it for around 8
   months, I think I made some good progress on learning it.
   </p>
   </div>
@@ -577,7 +577,7 @@
   so this is not so surprising. There are some Lua plugins for dates, but
   those seemed a bit too basic for my use case, and I wanted to keep
   external plugins to the minimum. I went with a custom solution that uses
-  Lua's native dates, which has certain limitations, but works out for
+  Lua&rsquo;s native dates, which has certain limitations, but works out for
   most of the things.
   </p>
   </div>
@@ -586,15 +586,15 @@
   <h3 id="highlighting-mostly-agenda"><span class="section-number-3">4.4.</span> Highlighting, mostly in Agenda view</h3>
   <div class="outline-text-3" id="text-4-4">
   <p>
-  Vim's syntax engine is fairly old, but still very much used, especially
+  Vim&rsquo;s syntax engine is fairly old, but still very much used, especially
   in the Vim community. Implementation of tree-sitter slightly improved
-  this experience in Neovim, because "Highlight matches" are found via
+  this experience in Neovim, because &ldquo;Highlight matches&rdquo; are found via
   tree-sitter, instead of a bunch of regexes.
   </p>
 
   <p>
   This helped me out later for the Org file itself, but agenda view is
-  still something that's built as a custom view. Old Syntax highlight engine
+  still something that&rsquo;s built as a custom view. Old Syntax highlight engine
   would be really hard to add, because the content is too dynamic. I went
   with the Neovim highlight API that allows Highlighting things by their
   exact position in the buffer. Tree-sitter implementation does something
@@ -613,7 +613,7 @@
   </p>
 
   <p>
-  For example, Here's a comparison of few options between Emacs and
+  For example, Here&rsquo;s a comparison of few options between Emacs and
   Neovim:
   </p>
 
@@ -679,7 +679,7 @@
   </p>
 
   <p>
-  One of the common questions was: <i>"Any plans to introduce tree-sitter parser?"</i>.
+  One of the common questions was: <i>&ldquo;Any plans to introduce tree-sitter parser?&rdquo;</i>.
   </p>
 
   <p>
@@ -691,25 +691,25 @@
 
   <p>
   One day, Emilia (<a href="https://github.com/milisims">milisims</a>) contacted me via email to ask me if I would be
-  willing to try the tree-sitter parser she's been working on for some time. I
+  willing to try the tree-sitter parser she&rsquo;s been working on for some time. I
   gladly accepted. She gave me access to the repository, and I started tinkering
   with it in a separate branch. No one was aware at that point that tree-sitter
   support would happen some time soon.
   </p>
 
   <p>
-  After some time, I set up a "beta" branch called "tree-sitter" and <a href="https://www.reddit.com/r/neovim/comments/ph2xqc/orgmodenvim_treesitter_support/">announced it
+  After some time, I set up a &ldquo;beta&rdquo; branch called &ldquo;tree-sitter&rdquo; and <a href="https://www.reddit.com/r/neovim/comments/ph2xqc/orgmodenvim_treesitter_support/">announced it
   for testing</a>. Once the reported bugs slowed to a trickle, I merged it into the
-  "master" branch.
+  &ldquo;master&rdquo; branch.
   </p>
 
   <p>
   I believe that tree-sitter grammar for Org could help out other editors to
-  implement their version of Orgmode plugin, but I don't think it would ever be
+  implement their version of Orgmode plugin, but I don&rsquo;t think it would ever be
   helpful for Emacs. Emacs parser is the one and only that has it all implemented.
   Also, as much as tree-sitter is powerful, its main purpose is to parse
-  programming languages, which mostly has "static" patterns to match. Orgmode is
-  by its nature dynamic, which causes a variety of issues for a parser that's not
+  programming languages, which mostly has &ldquo;static&rdquo; patterns to match. Orgmode is
+  by its nature dynamic, which causes a variety of issues for a parser that&rsquo;s not
   meant for that kind of usage.
   </p>
 
@@ -719,13 +719,13 @@
 
   <p>
   (Neo)Vim is a great editor, but it still cannot compare to Emacs in certain
-  things. Manipulating the "View" part of the editor is tricky or impossible for
+  things. Manipulating the &ldquo;View&rdquo; part of the editor is tricky or impossible for
   certain things.
   </p>
 
   <p>
   I even <a href="https://github.com/nvim-orgmode/orgmode/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+label%3Aneovim-dependency">made a label</a> for reported issues where Neovim support for certain things
-  is a blocker. I'm hoping that at least some of these will be available in future
+  is a blocker. I&rsquo;m hoping that at least some of these will be available in future
   Neovim releases.
   </p>
 
@@ -740,9 +740,9 @@
   </p>
 
   <p>
-  This allows getting a "desktop notification" for tasks that are within
+  This allows getting a &ldquo;desktop notification&rdquo; for tasks that are within
   the specified threshold for schedule/deadline time. It requires some
-  configuration to set up a cron job, but it's been working great for me
+  configuration to set up a cron job, but it&rsquo;s been working great for me
   for several months now.
   </p>
 
@@ -751,16 +751,16 @@
   </p>
 
   <p>
-  The current state of the project is very usable for me. I'm not lacking any of
-  the major features, mostly because I'm not used to using them. Nevertheless,
-  there are plans to add more things, and I'm getting a lot of help from the
+  The current state of the project is very usable for me. I&rsquo;m not lacking any of
+  the major features, mostly because I&rsquo;m not used to using them. Nevertheless,
+  there are plans to add more things, and I&rsquo;m getting a lot of help from the
   community. I want to specifically mention <a href="https://github.com/levouh">levouh</a> and <a href="https://github.com/lukas-reineke">lukas-reineke</a>, since they
   added a lot of value to the project, and I want to thank them and everyone else
   who contributed. Their help is much appreciated.
   </p>
 
   <p>
-  There are few high priority tasks that I'm hoping to flush out first:
+  There are few high priority tasks that I&rsquo;m hoping to flush out first:
   </p>
 
   <p>
@@ -786,14 +786,14 @@
   </p>
 
   <p>
-  When I started working on <a href="https://github.com/nvim-orgmode/orgmode">nvim-orgmode</a>, I didn't have a clue what I'm jumping
-  into. Every day I learn about more and more Orgmode features that I wasn't even
+  When I started working on <a href="https://github.com/nvim-orgmode/orgmode">nvim-orgmode</a>, I didn&rsquo;t have a clue what I&rsquo;m jumping
+  into. Every day I learn about more and more Orgmode features that I wasn&rsquo;t even
   aware existed.
   </p>
 
   <p>
-  I'm certain that this project will never manage to clone the Orgmode
-  functionality completely, but I'm hoping it will get close enough so everyone
+  I&rsquo;m certain that this project will never manage to clone the Orgmode
+  functionality completely, but I&rsquo;m hoping it will get close enough so everyone
   from Neovim community and Emacsers trying out Neovim will be able to use it for
   their needs.
   </p>
@@ -980,7 +980,7 @@
   <p>
   Now, if you have a line like:
   </p>
-  <pre class="example" id="orgb5adb53">
+  <pre class="example" id="org95c6892">
   #+cite_export: FORMAT ...
   </pre>
   <p>
@@ -1014,7 +1014,7 @@
   <p>
   This means the following forms are now all equivalent:
   </p>
-  <pre class="example" id="org63e5501">
+  <pre class="example" id="orgc264332">
   :tangle-mode (identity #o755)
   :tangle-mode o755
   :tangle-mode a=rx,u+w
@@ -1074,7 +1074,7 @@
   </p>
 
 
-  <figure id="org163b65b">
+  <figure id="orgadbdd38">
   <img src="https://blog.tecosaur.net/tmio/figures/inline-src-block-fontified-vs-code.png" alt="inline-src-block-fontified-vs-code.png">
 
   <figcaption><span class="figure-number">Figure 5: </span>Side-by-side comparison of a identical paragraphs using code (<code>~</code>) markup and inline source blocks (<code>src_</code>).</figcaption>
@@ -1089,7 +1089,7 @@
   </p>
 
 
-  <figure id="orgee7a6c4">
+  <figure id="org87fd167">
   <img src="https://blog.tecosaur.net/tmio/figures/inline-src-block-julia-demo.png" alt="inline-src-block-julia-demo.png">
 
   <figcaption><span class="figure-number">Figure 6: </span>A paragraph making use of <i>evaluated</i> inline source blocks. Note that the <kbd>⟨11⟩</kbd> is a prettified results macro (using a potential future org-mode patch).</figcaption>
@@ -1199,7 +1199,7 @@
   </p>
 
 
-  <figure id="orgc75d165">
+  <figure id="org42118b3">
   <img src="https://blog.tecosaur.net/tmio/figures/proportional-image-width.png" alt="proportional-image-width.png">
 
   <figcaption><span class="figure-number">Figure 7: </span>A containing with an image set to half of the accesible text width</figcaption>
@@ -1459,7 +1459,7 @@
   </div>
 
 
-  <figure id="org9d6cbb9">
+  <figure id="org873eb33">
   <img src="https://blog.tecosaur.net/tmio/figures/org-verses-example-poem-dream-within-dream.png" alt="org-verses-example-poem-dream-within-dream.png">
 
   <figcaption><span class="figure-number">Figure 8: </span>A short Poe-em</figcaption>
@@ -1615,7 +1615,7 @@
   </p>
 
 
-  <figure id="orgf27c9bd">
+  <figure id="org87c9955">
   <img src="https://blog.tecosaur.net/tmio/figures/citation-structure-full.svg" alt="citation-structure-full.svg" class="org-svg">
 
   <figcaption><span class="figure-number">Figure 9: </span>The full citation syntax</figcaption>
@@ -1629,7 +1629,7 @@
   </p>
 
 
-  <figure id="org8628c32">
+  <figure id="orgf49e93a">
   <img src="https://blog.tecosaur.net/tmio/figures/org-citar-insertion.png" alt="org-citar-insertion.png">
 
   <figcaption><span class="figure-number">Figure 10: </span>Inserting a citation with the <i>citar</i> package</figcaption>
@@ -1671,7 +1671,7 @@
   </p>
 
 
-  <figure id="orgef00c46">
+  <figure id="orge52da01">
   <img src="https://blog.tecosaur.net/tmio/figures/ob-julia-latexify-rendered.png" alt="ob-julia-latexify-rendered.png">
 
   <figcaption><span class="figure-number">Figure 11: </span>Rendered LaTeX representations of some Julia values</figcaption>
@@ -1777,7 +1777,7 @@
   give it a shot!
   </p>
 
-  <div class="info" id="org1d62981">
+  <div class="info" id="orgf6a899f">
   <p>
   <b>Ways you can contribute to the project</b>
   </p>
@@ -1958,7 +1958,7 @@
   </p>
 
 
-  <figure id="org835ce20">
+  <figure id="orgf8aa190">
   <img src="https://blog.tecosaur.net/tmio/figures/celebrate-citations.svg" alt="celebrate-citations.svg" class="org-svg">
 
   </figure>
@@ -2057,17 +2057,17 @@
   <kbd>.bib</kbd>, <kbd>.bibtex</kbd>, or <kbd>.json</kbd> extension), which we do either via the <kbd>#+bibliography</kbd>
   keyword, or the variable <code>org-cite-global-bibliography</code>.
   </p>
-  <pre class="example" id="orgc4635b9">
+  <pre class="example" id="org39f3c91">
   #+bibliography: orgcite.bib
   </pre>
 
   <p>
-  Once you have a bibliography source, you can start referencing to your heart's
+  Once you have a bibliography source, you can start referencing to your heart&rsquo;s
   content! The basic citation syntax is as follows:
   </p>
 
 
-  <figure id="org8b523f5">
+  <figure id="orgfe4afed">
   <img src="https://blog.tecosaur.net/tmio/figures/citation-structure-basic.svg" alt="citation-structure-basic.svg" class="org-svg">
 
   <figcaption><span class="figure-number">Figure 12: </span>The new citation syntax, for simple citations</figcaption>
@@ -2083,11 +2083,11 @@
   <kbd>#+print_bibliography</kbd> keyword, like so:
   </p>
 
-  <pre class="example" id="org96f8ada">
+  <pre class="example" id="org98e73ee">
   #+print_bibliography:
   </pre>
 
-  <div class="info" id="org6fb2faa">
+  <div class="info" id="org49c8994">
   <style>.csl-entry{text-indent: -1.5em; margin-left: 1.5em;}</style><div class="csl-bib-body">
   </div>
 
@@ -2096,13 +2096,13 @@
   <p>
   So, to summarise, all one needs to get started is:
   </p>
-  <pre class="example" id="org7a46bad">
+  <pre class="example" id="org3922a66">
   #+bibliography: references.bib
   [cite:@key]
   #+print_bibliography:
   </pre>
   <p>
-  That's it! 🎉
+  That&rsquo;s it! 🎉
   </p>
   </div>
   </div>
@@ -2110,13 +2110,13 @@
   <h3 id="cite-syntax"><span class="section-number-3">10.3.</span> The cite syntax</h3>
   <div class="outline-text-3" id="text-10-3">
   <p>
-  Don't let the simplicity in the examples above fool you, the new syntax is quite
-  capable of expressing more complex forms. Here's the <i>full</i> version of the new
+  Don&rsquo;t let the simplicity in the examples above fool you, the new syntax is quite
+  capable of expressing more complex forms. Here&rsquo;s the <i>full</i> version of the new
   cite syntax:
   </p>
 
 
-  <figure id="org9462168">
+  <figure id="orgac2460e">
   <img src="https://blog.tecosaur.net/tmio/figures/citation-structure-full.svg" alt="citation-structure-full.svg" class="org-svg">
 
   <figcaption><span class="figure-number">Figure 13: </span>The new citations syntax, in full</figcaption>
@@ -2140,7 +2140,7 @@
 
   <p>
   The citation styles and variants, and recognised locators are handled by the
-  citation processors. Org cite's bundled processors currently supports the
+  citation processors. Org cite&rsquo;s bundled processors currently supports the
   following citation styles.
   </p>
 
@@ -2420,7 +2420,7 @@
   on a per-document basis via the <kbd>#+cite_export</kbd> keyword. Here, I shall use the <kbd>csl</kbd>
   processor,
   </p>
-  <pre class="example" id="org0d415b1">
+  <pre class="example" id="org1e994a8">
   #+cite_export: csl
   </pre>
 
@@ -2429,7 +2429,7 @@
   style by giving a triplet of parameters <code class="src src-elisp">(PROCESSOR BIBLIOGRAPHY-STYLE CITATION-STYLE)</code> instead of just the processor. You can also use this triplet of
   values with the <kbd>#+cite_export</kbd> keyword
   </p>
-  <pre class="example" id="org725e95e">
+  <pre class="example" id="org8b6d689">
   #+cite_export: processor bibliography-style citation-style
   </pre>
 
@@ -2440,7 +2440,7 @@
   options to a <code class="src src-LaTeX"><span class="org-keyword">\printbibliography</span></code> command, allowing for the
   following:
   </p>
-  <pre class="example" id="orgd359f15">
+  <pre class="example" id="org3e8a3e6">
   #+print_bibliography: :section 2 :heading subbibliography
   #+print_bibliography: :keyword abc,xyz :title "Primary Sources"
   </pre>
@@ -2486,7 +2486,7 @@
   either absolute or relative to <code>org-cite-csl-styles-dir</code>. For example, if I
   download <kbd>apa.csl</kbd> I can use it like so:
   </p>
-  <pre class="example" id="org734efba">
+  <pre class="example" id="orgd167eac">
   #+cite_export: csl ~/Downloads/apa.csl
   </pre>
 
@@ -2508,21 +2508,21 @@
   </p>
 
   <p>
-  <a href="https://www.zotero.org/">Zotero</a> is a good option, and if you're using it it's quite easy to use it with
+  <a href="https://www.zotero.org/">Zotero</a> is a good option, and if you&rsquo;re using it it&rsquo;s quite easy to use it with
   Org Cite. Out of the box, you can tell it to export your library, or parts of it,
-  to a <kbd>.bib</kbd> file and automatically keep it in sync. I'd recommend installing the
+  to a <kbd>.bib</kbd> file and automatically keep it in sync. I&rsquo;d recommend installing the
   <a href="https://retorque.re/zotero-better-bibtex/">Better BibTeX</a> extension though.
   </p>
 
 
-  <figure id="orgc22f107">
+  <figure id="org3ac50b6">
   <img src="https://blog.tecosaur.net/tmio/figures/zotero-export-library.png" alt="zotero-export-library.png">
 
   <figcaption><span class="figure-number">Figure 14: </span>Zotero library right click context menu, showing the export option</figcaption>
   </figure>
 
 
-  <figure id="org3ce83fb">
+  <figure id="org3ea0c81">
   <img src="https://blog.tecosaur.net/tmio/figures/zotero-export-options-prompt.png" alt="zotero-export-options-prompt.png">
 
   <figcaption><span class="figure-number">Figure 15: </span>Zotero collection export dialog</figcaption>
@@ -2534,7 +2534,7 @@
   </p>
 
 
-  <figure id="orgf35b296">
+  <figure id="orgd277016">
   <img src="https://blog.tecosaur.net/tmio/figures/zotero-cite-styles-menu.png" alt="zotero-cite-styles-menu.png">
 
   <figcaption><span class="figure-number">Figure 16: </span>Zotero CSL style management within preferences</figcaption>
@@ -2554,7 +2554,7 @@
   To then use the citation style defined by <kbd>~/Zotero/styles/apa.csl</kbd> one can then
   simply refer to <kbd>apa.csl</kbd> when using the <kbd>#+cite_export</kbd> keyword.
   </p>
-  <pre class="example" id="orgb94c0c3">
+  <pre class="example" id="org75c7bed">
   #+cite_export: csl apa.csl
   </pre>
   </div>
@@ -2564,9 +2564,9 @@
   <div class="outline-text-3" id="text-10-7">
   <p>
   Org Cite has only just been merged in the past month, and is yet to be included
-  in an Org release, but we're seeing a tremendous degree of community interest.
+  in an Org release, but we&rsquo;re seeing a tremendous degree of community interest.
   There are <i>already</i> promising developments with third-party packages, such as
-  <a href="https://github.com/bdarcus/bibtex-actions">bibtex-actions</a> and <a href="https://github.com/jkitchin/org-ref-cite">org-ref-cite</a>. I can't wait to see how the ecosystem continues
+  <a href="https://github.com/bdarcus/bibtex-actions">bibtex-actions</a> and <a href="https://github.com/jkitchin/org-ref-cite">org-ref-cite</a>. I can&rsquo;t wait to see how the ecosystem continues
   to develop 😃.
   </p>
 
@@ -2585,13 +2585,13 @@
   </p>
 
   <p>
-  [fn3] I'm talking about a certain company <a href="https://moneyweek.com/505757/great-frauds-in-history-robert-maxwell">created by a British Fraudster</a> that
+  [fn3] I&rsquo;m talking about a certain company <a href="https://moneyweek.com/505757/great-frauds-in-history-robert-maxwell">created by a British Fraudster</a> that
   has a <a href="https://www.theguardian.com/science/2017/jun/27/profitable-business-scientific-publishing-bad-for-science">40% profit margin, engages in blackmail-like practices with universities</a>,
   prompted <a href="http://thecostofknowledge.com/">19,000 researchers</a> to boycott them, <a href="https://www.the-scientist.com/the-nutshell/elsevier-published-6-fake-journals-44160">published six fake journals</a>,
   vigorously <a href="https://web.archive.org/web/20200129202353/http://legacy.earlham.edu/~peters/fos/2007/08/publishers-launch-anti-oa-lobbying.html">lobbys against Open Access</a>, <a href="https://rossmounce.co.uk/2017/02/14/elsevier-selling-access-to-open-access-again/">charged for Open Acess articles</a>
   (repeatedly), made <a href="https://www.michaeleisen.org/blog/?p=807">financial contributions to politicians who then tried to
   prevent publicly accesible reaserch</a>, and whose reference manager <a href="https://www.zotero.org/support/kb/mendeley_import#mendeley_database_encryption">encrypted
-  reaserchers' <i>own</i> databases</a> "to comply with GDPR".
+  reaserchers&rsquo; <i>own</i> databases</a> &ldquo;to comply with GDPR&rdquo;.
   </p>
   </div>
   </div>
@@ -2643,7 +2643,7 @@
   </p>
 
 
-  <figure id="org07dce1d">
+  <figure id="orgc91819d">
   <img src="https://blog.tecosaur.net/tmio/figures/org-roam-graph-2d-overview.png" alt="org-roam-graph-2d-overview.png">
 
   <figcaption><span class="figure-number">Figure 17: </span>org-roam-ui's 2D overview.</figcaption>
@@ -2664,7 +2664,7 @@
   </p>
 
 
-  <figure id="org62b4001">
+  <figure id="orgb578e31">
   <img src="https://blog.tecosaur.net/tmio/figures/org-roam-ui-in-emacs.png" alt="org-roam-ui-in-emacs.png">
 
   <figcaption><span class="figure-number">Figure 18: </span>Embed org-roam-ui in Emacs using xwidget-webkit.</figcaption>
@@ -2749,7 +2749,7 @@
   </p>
 
 
-  <figure id="org584a1d2">
+  <figure id="org803cb9b">
   <img src="https://blog.tecosaur.net/tmio/figures/dilbert-zenos-paradox.jpg" alt="dilbert-zenos-paradox.jpg">
 
   <figcaption><span class="figure-number">Figure 19: </span>It's right around the corner, I swear!</figcaption>
@@ -2766,7 +2766,7 @@
   </p>
 
 
-  <figure id="org683a6fd">
+  <figure id="orgfe56243">
   <img src="https://blog.tecosaur.net/tmio/figures/org-latex-default-reference-to-sec.png" alt="org-latex-default-reference-to-sec.png">
 
   <figcaption><span class="figure-number">Figure 20: </span>A LaTeX export of a simple document with a reference to both the first and second section. "2" what? Section 2, Table 2, Figure 2, ...</figcaption>
@@ -2779,7 +2779,7 @@
   </p>
 
 
-  <figure id="org1df8331">
+  <figure id="orgd62de58">
   <img src="https://blog.tecosaur.net/tmio/figures/org-latex-cref-reference-to-sec.png" alt="org-latex-cref-reference-to-sec.png">
 
   <figcaption><span class="figure-number">Figure 21: </span>A LaTeX export of the same document, but now using <code>cleveref</code>. Note the change from "1" and "2" to "Section 1" and "Section 2".</figcaption>
@@ -2804,7 +2804,7 @@
   <h3 id="simple-elements"><span class="section-number-3">12.1.</span> Simple elements</h3>
   <div class="outline-text-3" id="text-12-1">
   <p>
-  The "basic" Org elements are simply translated to their LaTeX counterparts.
+  The &ldquo;basic&rdquo; Org elements are simply translated to their LaTeX counterparts.
   Markup like <b>bold</b>, <i>italic</i>, etc. are simply translated through
   <code>org-latex-text-markup-alist</code>.
   </p>
@@ -2812,7 +2812,7 @@
   <p>
   For those of us who dabble with equations, Org is <a href="https://orgmode.org/manual/LaTeX-fragments.html">very accomodating</a>. You can
   type (LaTeX-style) inline and display equations in exactly the same way (<kbd>\( \)</kbd>
-  and <kbd>\[ \]</kbd>), and what's more, if you have a LaTeX environment statement
+  and <kbd>\[ \]</kbd>), and what&rsquo;s more, if you have a LaTeX environment statement
   <kbd>\begin{...}</kbd> on its own line, Org will recognise it and pass it into the
   generated LaTeX.
   </p>
@@ -2861,7 +2861,7 @@
   keyword, this works nicely in HTML too 🙂.
   </p>
 
-  <figure id="orgbb09719">
+  <figure id="org9868867">
   <img src="https://blog.tecosaur.net/tmio/figures/salvador-dali-persistence-of-memory.jpg" alt="salvador-dali-persistence-of-memory.jpg">
 
   <figcaption><span class="figure-number">Figure 22: </span>A famous surrealist painting</figcaption>
@@ -2923,7 +2923,7 @@
   Org is nice and does the right thing<sup>TM</sup> by including the caption at the top.
   </p>
 
-  <figure id="org3aa9563">
+  <figure id="org4fcba8c">
   <img src="https://blog.tecosaur.net/tmio/figures/org-table-to-latex-example.png" alt="org-table-to-latex-example.png">
 
   <figcaption><span class="figure-number">Figure 23: </span>Look ma, I put the caption in the right place.</figcaption>
@@ -2932,7 +2932,7 @@
   <p>
   There are also some <a href="https://orgmode.org/manual/Images-in-LaTeX-export.html">more attributes</a> you can supply to tables. Should I want the
   table to spread out I could use <kbd>#+attr_latex: :environment tabularx</kbd> (as long as
-  I've loaded the <kbd>tabularx</kbd> package) and then set the columns with <kbd>:align lX</kbd>.
+  I&rsquo;ve loaded the <kbd>tabularx</kbd> package) and then set the columns with <kbd>:align lX</kbd>.
   </p>
   </div>
   </div>
@@ -2941,7 +2941,7 @@
   <div class="outline-text-3" id="text-12-3">
   <p>
   By default, source code blocks are translated verbatim. We can do better than
-  that however. We can tell Org to use <a href="https://ctan.org/pkg/listings">listings</a>, but I'd recommend going one step
+  that however. We can tell Org to use <a href="https://ctan.org/pkg/listings">listings</a>, but I&rsquo;d recommend going one step
   further and using <a href="https://ctan.org/pkg/minted">minted</a>. For this to work we need to perform three actions:
   Tell Org we want to use <kbd>minted</kbd> environments for source code
   Load the <kbd>minted</kbd> package by default
@@ -2974,7 +2974,7 @@
   Org has a number of <a href="https://orgmode.org/manual/Blocks.html">blocks</a> which are treated specially, like <kbd>#+begin_src</kbd> for
   source code, and <kbd>#+begin_centre</kbd> for centred text. When exporting this same
   syntax allows you to wrap Org content in any LaTeX environments (as long as it
-  doesn't match one of Org's recognised environments).
+  doesn&rsquo;t match one of Org&rsquo;s recognised environments).
   </p>
 
   <p>
@@ -3006,7 +3006,7 @@
   </div>
 
   <p>
-  For larger snippets of LaTeX, there's always the export block.
+  For larger snippets of LaTeX, there&rsquo;s always the export block.
   </p>
   <div class="org-src-container">
   <pre class="src src-org"><span class="org-org-block-begin-line">#+begin_export latex</span>
@@ -3043,7 +3043,7 @@
   <p>
   Should you want to use a certain preset preamble, you can make use of the
   <kbd>#+latex_class</kbd> keyword. This is used to set the base preamble template used when
-  generating the LaTeX. See <code>org-latex-classes</code> for what's available by default. You
+  generating the LaTeX. See <code>org-latex-classes</code> for what&rsquo;s available by default. You
   should see entries for:
   article
   report
@@ -3057,7 +3057,7 @@
   </p>
 
   <p>
-  What's great about this is that is makes it really easy to add your own
+  What&rsquo;s great about this is that is makes it really easy to add your own
   templates. Each template simply takes three components:
   A name
   A preamble template
@@ -3065,7 +3065,7 @@
   </p>
 
   <p>
-  For example, I'm quite a fan of the <a href="https://ctan.org/pkg/koma-script">KOMA-script</a> family. Should I want to add a
+  For example, I&rsquo;m quite a fan of the <a href="https://ctan.org/pkg/koma-script">KOMA-script</a> family. Should I want to add a
   <kbd>kart</kbd> class (for: <b>k</b>oma <b>art</b>icle), I simply need to do something like the
   following:
   </p>
@@ -3088,22 +3088,22 @@
 
   <p>
   Other improvements
-  <kbd>ox-koma-letter.el</kbd> has been brought into Org's main directory from the ) <kbd>contrib/</kbd> repo <span class="underline">Bastien Guerry</span>
+  <kbd>ox-koma-letter.el</kbd> has been brought into Org&rsquo;s main directory from the ) <kbd>contrib/</kbd> repo <span class="underline">Bastien Guerry</span>
   Speed up publishing by using delayed hooks and temp buffers instead of finding
   files <span class="underline">Gustav Wikström</span>
   Improve generated HTML quality: prevent W3C warning and add some accessibility
   labels <span class="underline">TEC</span>
-  Make the behaviour of the "goto variant" of <code>org-refile</code> (<code>org-speed-commands</code>)
+  Make the behaviour of the &ldquo;goto variant&rdquo; of <code>org-refile</code> (<code>org-speed-commands</code>)
   less confusing <span class="underline">Marco Wahl</span>
   Backport an update to the OpenDocument schema <span class="underline">Kyle Meyer</span>
   Bugfixes
   Off by one error in texinfo menu generation <span class="underline">Nicolas Goaziou</span>
   Error in entry/conversion of non-24h times in the agenda <span class="underline">Nicolas Goaziou</span>
   Only use <code>replace-buffer-contents</code> with Emacs 27+ when saving src blocks, as the
-  behaviour isn't consistent until then <span class="underline">Nicolas Goaziou</span>
-  Prevent "before first headline" error in <kbd>org-clock</kbd> when clocking out <span class="underline">Nicolas Goaziou</span>
+  behaviour isn&rsquo;t consistent until then <span class="underline">Nicolas Goaziou</span>
+  Prevent &ldquo;before first headline&rdquo; error in <kbd>org-clock</kbd> when clocking out <span class="underline">Nicolas Goaziou</span>
   Avoid setting the global agenda name when following a timestamp link <span class="underline">Ingo Lohmar</span>
-  Don't bind <kbd>&lt;tab&gt;</kbd> in <code>org-mode-map</code> <span class="underline">Nicolas Goaziou</span>
+  Don&rsquo;t bind <kbd>&lt;tab&gt;</kbd> in <code>org-mode-map</code> <span class="underline">Nicolas Goaziou</span>
   Erroneous tangling of source block with <kbd>:tangle no</kbd> to a file <kbd>no</kbd> when the
   tangle command is called with a single universal argument <span class="underline">Jacopo De Simoi</span>
   Footnotes
@@ -3119,8 +3119,8 @@
   </p>
 
   <p>
-  [fn3] I'm rather a fan of the <kbd>capitalize</kbd> option because (1) technically the
-  reference to a named object is a proper noun, and (2) this means you don't have
+  [fn3] I&rsquo;m rather a fan of the <kbd>capitalize</kbd> option because (1) technically the
+  reference to a named object is a proper noun, and (2) this means you don&rsquo;t have
   to worry about references not being capitalized when appearing at the start of a
   sentence.
   </p>
@@ -3206,14 +3206,14 @@
   </p>
 
 
-  <figure id="org7a2e29c">
+  <figure id="org02ea3b5">
   <img src="https://blog.tecosaur.net/tmio/figures/screenshot-of-updates-orgmode-org.png" alt="screenshot-of-updates-orgmode-org.png">
 
   <figcaption><span class="figure-number">Figure 24: </span>A screenshot of <a href="https://updates.orgmode.org/">updates.orgmode.org</a></figcaption>
   </figure>
 
   <p>
-  It's very slick, and Bastien built a <a href="https://github.com/bzg/woof">mailbox monitor</a> just for it &#x2014; so be sure
+  It&rsquo;s very slick, and Bastien built a <a href="https://github.com/bzg/woof">mailbox monitor</a> just for it &#x2014; so be sure
   to check it out. This should make it easier to see what needs doing. If you feel
   inclined to help out with Org check out the <i>Help requests</i> section in particular.
   </p>
@@ -3240,7 +3240,7 @@
   </p>
 
 
-  <figure id="org00406c4">
+  <figure id="org511b8ff">
   <img src="https://github.com/larsmagne/meme/raw/master/images/Grandma-Finds-The-Internet.jpg" alt="Grandma-Finds-The-Internet.jpg">
 
   <figcaption><span class="figure-number">Figure 25: </span>Org mode discovers the internet</figcaption>
@@ -3256,12 +3256,12 @@
   <h3 id="use-org-edit"><span class="section-number-3">13.3.</span> Use <code>org-edit-special</code> (<kbd>C-c '</kbd>) with LaTeX fragments</h3>
   <div class="outline-text-3" id="text-13-3">
   <p>
-  It's great how in Org you can jump into a LaTeX-mode minibuffer for LaTeX
-  environments, but why leave inline LaTeX fragments out? We'll, they're now in.
+  It&rsquo;s great how in Org you can jump into a LaTeX-mode minibuffer for LaTeX
+  environments, but why leave inline LaTeX fragments out? We&rsquo;ll, they&rsquo;re now in.
   </p>
 
 
-  <figure id="orgd11dfa5">
+  <figure id="org2b44cd9">
   <img src="https://blog.tecosaur.net/tmio/figures/org-edit-special-latex-fragment.png" alt="org-edit-special-latex-fragment.png">
 
   <figcaption><span class="figure-number">Figure 26: </span>Running <code>org-edit-special</code> on an inline LaTeX fragment</figcaption>
@@ -3272,21 +3272,21 @@
   <h3 id="control-heading-display"><span class="section-number-3">13.4.</span> Control heading display on startup</h3>
   <div class="outline-text-3" id="text-13-4">
   <p>
-  <kbd>org-num-mode</kbd> is great for when you're keeping an eye on section numbers, but
-  it's not fun to find yourself enabling it every time you open a file where you
+  <kbd>org-num-mode</kbd> is great for when you&rsquo;re keeping an eye on section numbers, but
+  it&rsquo;s not fun to find yourself enabling it every time you open a file where you
   want it. With the new option <kbd>#+startup: num</kbd> by Bastien, you can set and forget
   at last.
   </p>
 
 
-  <figure id="org60c1d2a">
+  <figure id="org2674cb9">
   <img src="https://blog.tecosaur.net/tmio/figures/org-startup-num-and-levels.png" alt="org-startup-num-and-levels.png">
 
   <figcaption><span class="figure-number">Figure 27: </span>Opening a buffer with the new <kbd>num</kbd> and <kbd>show2levels</kbd> startup options</figcaption>
   </figure>
 
   <p>
-  Should you want to set the number of levels you see on opening a file, there's
+  Should you want to set the number of levels you see on opening a file, there&rsquo;s
   now an option for that too. Gustav Wikström has added <i>another</i> new option
   <kbd>#+startup: show&lt;n&gt;levels</kbd> (where <kbd>&lt;n&gt;</kbd> is between 2 and 5, inclusive).
   <i>NB: This is part of the upcoming 9.5 release</i>
@@ -3297,8 +3297,8 @@
   <h3 id="set-permissions-tangled"><span class="section-number-3">13.5.</span> Set permissions of tangled files</h3>
   <div class="outline-text-3" id="text-13-5">
   <p>
-  Are you particular about your file permissions? If so you'll likely like John
-  Herrlin's new source block header argument <kbd>:file-mode</kbd> pertinent. The easiest way
+  Are you particular about your file permissions? If so you&rsquo;ll likely like John
+  Herrlin&rsquo;s new source block header argument <kbd>:file-mode</kbd> pertinent. The easiest way
   to set a permission is with an <a href="https://docs.nersc.gov/filesystems/unix-file-permissions/">octal value</a>, like so:
   </p>
   <div class="org-src-container">
@@ -3314,15 +3314,15 @@
   <h3 id="collection-improvements-source"><span class="section-number-3">13.6.</span> A collection of improvements to source block header arguments</h3>
   <div class="outline-text-3" id="text-13-6">
   <p>
-  These's been a whole set of these, so I'll just list them off.
+  These&rsquo;s been a whole set of these, so I&rsquo;ll just list them off.
   python, improved <kbd>:return</kbd> Now works with sessions and the <kbd>:epilogue</kbd>
   argument (Jack Kamm)
   Java, new argument <kbd>:cmdargs</kbd> Add some command line arguments to be passed to
   <code>java</code> (Jarmo Hurri)
-  C/C++, non-system headers with <kbd>:includes</kbd> values that don't start with <kbd>&lt;</kbd>
+  C/C++, non-system headers with <kbd>:includes</kbd> values that don&rsquo;t start with <kbd>&lt;</kbd>
   will now be formatted as double-quoted <code class="src src-C"><span class="org-preprocessor">#include</span></code> statements (Brandon
   Guttersohn)
-  Screen, new argument <kbd>:screenrc</kbd> For those of you who still haven't moved to
+  Screen, new argument <kbd>:screenrc</kbd> For those of you who still haven&rsquo;t moved to
   <kbd>tmux</kbd> (Kenneth D. Mankoff)
   </p>
   </div>
@@ -3344,7 +3344,7 @@
   structures, Org also has the advantage of not having <a href="https://github.com/commonmark/commonmark-spec/wiki/markdown-flavors">40 functionally distinct
   specifications</a>. There is only one Org. <br>
   NB: If you attempt to be pedantic you may say that there are multiple Orgs
-  because, for example, GitHub uses <a href="https://github.com/wallyqs/org-ruby">org-ruby</a>. However, that's just an incomplete
+  because, for example, GitHub uses <a href="https://github.com/wallyqs/org-ruby">org-ruby</a>. However, that&rsquo;s just an incomplete
   implementation &#x2014; not a <a href="https://orgmode.org/worg/dev/org-syntax.html">specification</a>.
   </p>
 
@@ -3355,7 +3355,7 @@
   </p>
 
   <p>
-  [fn3] There is <a href="https://code.orgmode.org/bzg/org-mode/src/master/etc/ORG-NEWS">ORG-NEWS</a>, but do you <i>really</i> check that? Besides, it doesn't even
+  [fn3] There is <a href="https://code.orgmode.org/bzg/org-mode/src/master/etc/ORG-NEWS">ORG-NEWS</a>, but do you <i>really</i> check that? Besides, it doesn&rsquo;t even
   have pictures.
   </p>
   </div>

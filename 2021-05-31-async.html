@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2024-01-12 Fri 13:05 -->
+<!-- 2024-01-12 Fri 13:39 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>May 2021</title>
@@ -50,7 +50,7 @@ asynchronous output from source blocks <i>with full support for sessions</i> �
 </p>
 
 <p>
-If you haven't used sessions before, you're in for a treat! By simply assigning
+If you haven&rsquo;t used sessions before, you&rsquo;re in for a treat! By simply assigning
 a named session to a source code block, e.g. <kbd>:session foo</kbd>, the same process will
 be reused for any other code blocks that specify the <kbd>foo</kbd> session. To do this for
 a certain language across the entire document, you can set the header argument
@@ -74,7 +74,7 @@ not-too-distant future 😍.
 
 <p>
 To use this, just add the <kbd>:async</kbd> parameter to a python block. Instead of Emacs
-freezing until it completes execution, you'll see a placeholder inserted which is
+freezing until it completes execution, you&rsquo;ll see a placeholder inserted which is
 replaced by the result when it is ready.
 </p>
 
@@ -89,8 +89,8 @@ replaced by the result when it is ready.
 </figure>
 
 <p>
-<a href="https://github.com/nnicandro/emacs-jupyter">emacs-jupyter</a> allowed for asynchronous code execution (with sessions), but it's
-great to have a solution that doesn't require Jupyter kernels, and is part of
+<a href="https://github.com/nnicandro/emacs-jupyter">emacs-jupyter</a> allowed for asynchronous code execution (with sessions), but it&rsquo;s
+great to have a solution that doesn&rsquo;t require Jupyter kernels, and is part of
 Org.
 </p>
 </div>
@@ -99,14 +99,14 @@ Org.
 <h2 id="font-lock-inline">Font lock for inline export snippets<a aria-hidden="true" href="#font-lock-inline">#</a> </h2>
 <div class="outline-text-2" id="text-font-lock-inline">
 <p>
-Now, this isn't necessarily a significant change, but I don't think many people
-know about this feature so I'll take the opportunity to go over it 🙂.
+Now, this isn&rsquo;t necessarily a significant change, but I don&rsquo;t think many people
+know about this feature so I&rsquo;ll take the opportunity to go over it 🙂.
 </p>
 
 <p>
 If you want to include a snippet of <span class='acr'>HTML</span>/LaTeX etc. when exporting to that
 format, you can use a <kbd>#+begin_export html</kbd> block which simply includes the
-enclosed content verbatim. This doesn't really work for small inline snippets
+enclosed content verbatim. This doesn&rsquo;t really work for small inline snippets
 though &#x2014; but never fear, Org has <i>inline</i> export snippets which simply follow the
 form <code class="src src-org"><span class="org-comment">@@</span><span class="org-org-tag">format:</span>content<span class="org-comment">@@</span></code>. For example:
 </p>
@@ -145,12 +145,12 @@ and then in LaTeX will be,
 </div>
 </details>
 <p>
-isn't that neat!
+isn&rsquo;t that neat!
 </p>
 
 <p>
-Now you'll find the <kbd>@@</kbd> parts using the comment face and the <kbd>format:</kbd> bit using the
-Org tag's face. It's a small change, but it makes it easier to see what's going on.
+Now you&rsquo;ll find the <kbd>@@</kbd> parts using the comment face and the <kbd>format:</kbd> bit using the
+Org tag&rsquo;s face. It&rsquo;s a small change, but it makes it easier to see what&rsquo;s going on.
 </p>
 
 <p>
@@ -162,8 +162,8 @@ No mode-specific syntax highlighting yet, but that may come in the future 😉.
 <h2 id="plot-your-results"><kbd>#+plot</kbd> your <kbd>#+results</kbd><a aria-hidden="true" href="#plot-your-results">#</a> </h2>
 <div class="outline-text-2" id="text-plot-your-results">
 <p>
-Org-plot has been getting some more love as of late (see <a href="2021-04-30-export-plot.html">last month's post</a>), and
-that hasn't stopped yet. This month there's been a fairly minor change that I'm
+Org-plot has been getting some more love as of late (see <a href="2021-04-30-export-plot.html">last month&rsquo;s post</a>), and
+that hasn&rsquo;t stopped yet. This month there&rsquo;s been a fairly minor change that I&rsquo;m
 quite a fan of. If you have a source block that produces a table of <kbd>#+results</kbd>, you
 can now put a <kbd>#+plot</kbd> statement immediately above to get a visualisation of those
 results!
@@ -254,7 +254,7 @@ But a dream within a dream?
 </details>
 
 
-<figure id="org9f879d9">
+<figure id="org4ac285e">
 <img src="figures/org-verses-example-poem-dream-within-dream.png" alt="org-verses-example-poem-dream-within-dream.png" class="invertible">
 
 <figcaption><span class="figure-number">Figure 1: </span>A short Poe-em</figcaption>
@@ -271,7 +271,7 @@ a word or putting a currency symbol immediately before an inline source block.
 </p>
 
 <p>
-The best solution to this in Org is zero-width spaces. As such, I've found it
+The best solution to this in Org is zero-width spaces. As such, I&rsquo;ve found it
 rather nice adding insertion of a zero-width space to the <code>org-mode-map</code> in my
 config. Perhaps some of you might find this solution useful too 🙂.
 </p>
@@ -288,7 +288,7 @@ config. Perhaps some of you might find this solution useful too 🙂.
 </details>
 
 <p>
-Should you want to keep zero-width spaces out of exports, that's easy enough to
+Should you want to keep zero-width spaces out of exports, that&rsquo;s easy enough to
 accomplish with an <a href="https://orgmode.org/manual/Advanced-Export-Configuration.html">export filter</a>.
 </p>
 
@@ -309,7 +309,7 @@ accomplish with an <a href="https://orgmode.org/manual/Advanced-Export-Configura
 </div>
 </div>
 <div id="outline-container-orgs-repos-have" class="outline-2">
-<h2 id="orgs-repos-have">Org's repos have moved<a aria-hidden="true" href="#orgs-repos-have">#</a> </h2>
+<h2 id="orgs-repos-have">Org&rsquo;s repos have moved<a aria-hidden="true" href="#orgs-repos-have">#</a> </h2>
 <div class="outline-text-2" id="text-orgs-repos-have">
 <ul class="org-ul">
 <li><kbd>contrib/</kbd> is now at <a href="https://git.sr.ht/~bzg/org-contrib">https://git.sr.ht/~bzg/org-contrib</a> for Org 9.5, and it will
@@ -325,7 +325,7 @@ be available on Non-<span class='acr'>GNU</span> <span class='acr'>ELPA</span>.<
 <ul class="org-ul">
 <li>Add support for <kbd>HHhMM</kbd> date formats (e.g. <kbd>13h20</kbd>) <span class="underline">Gustavo Barros</span></li>
 <li>Make tangling faster <i>and</i> more robust <span class="underline">Sébastien Miquel</span></li>
-<li>Allow importing tables from files that <i>don't</i> end in <kbd>.txt</kbd>, <kbd>.tsv</kbd>, or <kbd>.csv</kbd>
+<li>Allow importing tables from files that <i>don&rsquo;t</i> end in <kbd>.txt</kbd>, <kbd>.tsv</kbd>, or <kbd>.csv</kbd>
 <span class="underline">Utkarsh Singh</span></li>
 <li>Add an <span class='acr'>SVG</span>-specific post-export <kbd>ob-plantuml</kbd> step:
 <code>org-babel-plantuml-svg-text-to-path</code> for running Inkscape text-to-path
@@ -375,7 +375,7 @@ Nicolar Goaziou</span></li>
 <li>Inserting a heading before a headline <span class="underline">Bastien Guerry</span></li>
 <li>Perform <code>org-entry-put</code> in a read-only buffer <span class="underline">Ihor Radchenko</span></li>
 <li>Emacs 24 compatibility for <kbd>ob-C</kbd> and <code>org-agenda-show-new-time</code> <span class="underline">Kyle Meyer</span></li>
-<li>Maintain Org's keybindings when <code>visual-line-mode</code> active <span class="underline">Bastien Guerry</span></li>
+<li>Maintain Org&rsquo;s keybindings when <code>visual-line-mode</code> active <span class="underline">Bastien Guerry</span></li>
 <li>Keep track of start of region beginning in <code>org-table-wrap-region</code> <span class="underline">Bastien Guerry</span></li>
 <li>Ensure correct visibility when unfolding subtree <span class="underline">Bastien Guerry</span></li>
 <li>Corner case in <code>org--backwards-paragaph-once</code> <span class="underline">Bastien Guerry</span></li>
@@ -387,7 +387,7 @@ instead of column <span class="underline"><span class='acr'>TEC</span></span></l
 <li>Prevent <kbd>ob-sql</kbd> from getting stuck on an error <span class="underline">Ivan Sokolov</span></li>
 <li>Make <kbd>org-columns</kbd> respect <code>global-visual-line-mode</code>, and simplify tag scanning
 <span class="underline">Nick Savage</span></li>
-<li>Don't fontify <kbd>::</kbd> in headlines as description item <span class="underline">Ihor Radchenko</span></li>
+<li>Don&rsquo;t fontify <kbd>::</kbd> in headlines as description item <span class="underline">Ihor Radchenko</span></li>
 <li>Handle a few corner-cases in <kbd>ob-R</kbd> <span class="underline">Jeremie Juste</span></li>
 <li>Many fixes to <code>org-indent-line</code> <span class="underline">Bastien Guerry</span></li>
 <li>Make headline numbering consistent with <span class='acr'>TOC</span> <span class="underline">Mingkai Dong</span></li>
@@ -395,8 +395,8 @@ instead of column <span class="underline"><span class='acr'>TEC</span></span></l
 <li>Fix edge case when converting durations to minutes <span class="underline">Nicolas Goaziou</span></li>
 <li>Make org-refile work in non-file-visiting buffers <span class="underline">Bastien Guerry</span></li>
 <li>Be more rigorous in <code>org-sort-remove-invisible</code> <span class="underline">Nicolas Goaziou</span></li>
-<li>Don't update checkbox stats when heading has <kbd>todo</kbd> <kbd>COOKIE_DATA</kbd> <span class="underline">Bastien Guerry</span></li>
-<li>Don't recognise a lone <kbd>:END:</kbd> to be forming a drawer <span class="underline">Nicolas Goaziou</span></li>
+<li>Don&rsquo;t update checkbox stats when heading has <kbd>todo</kbd> <kbd>COOKIE_DATA</kbd> <span class="underline">Bastien Guerry</span></li>
+<li>Don&rsquo;t recognise a lone <kbd>:END:</kbd> to be forming a drawer <span class="underline">Nicolas Goaziou</span></li>
 <li>Allow new footnotes in empty table cells <span class="underline">Nicolas Goaziou</span></li>
 </ul>
 </div>

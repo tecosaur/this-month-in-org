@@ -12,7 +12,7 @@
 A discussion on contributor support
 ═══════════════════════════════════
 
-  Concerns [were raised][1] about some contributors' patches
+  Concerns [were raised][1] about some contributors’ patches
   languishing, and it not being made clear how long it might take to get
   a response from someone.
 
@@ -27,7 +27,7 @@ A discussion on contributor support
   ⁃ Tim Cross
   ⁃ John Corless
 
-  If you've been thinking about [getting involved with Org], now is a
+  If you’ve been thinking about [getting involved with Org], now is a
   great time to give it a shot!
 
   *Ways you can contribute to the project*
@@ -51,7 +51,7 @@ DOI link exporting
 ══════════════════
 
   [Digital Document Identifiers] (DOIs) are an ISO-standardised way of
-  robustly linking to a particular online resource. You'll see these a
+  robustly linking to a particular online resource. You’ll see these a
   lot with academic papers, for example.
 
   Thanks to Nicolas Goaziou, when exporting to HTML, LaTeX, Ascii, and
@@ -71,7 +71,7 @@ DOI link exporting
   │ @uref{https://doi.org/10.18637/jss.v046.i03}
   └────
 
-  This is a minor change, but I think DOIs are great, so I'm
+  This is a minor change, but I think DOIs are great, so I’m
   highlighting it.
 
 
@@ -88,9 +88,9 @@ Org plot improvements
   ⁃ When an image is regenerated, all instances of the image in the
     buffer are refreshed _TEC_
 
-  Other than a few minor tweaks and bug fixes, that's it for
+  Other than a few minor tweaks and bug fixes, that’s it for
   April. However, over the last year there have been some rather nice
-  improvements that I didn't mention in the initial blog post, so let's
+  improvements that I didn’t mention in the initial blog post, so let’s
   go over them now.
 
   ⁃ The inbuilt plot types have been abstracted out into a new
@@ -114,7 +114,7 @@ Org plot improvements
       plots to your liking. For example, [I use this] to set line and
       background colours based on my current Emacs theme.
 
-  If you haven't used Org plot before, I think it's a great way to
+  If you haven’t used Org plot before, I think it’s a great way to
   quickly visualise data in a table. To get started, all you need is a
   `#+plot' line above the table, with a certain `type' specified
   (e.g. `type:2d' for a 2d line plot).  Then, if you can specify a
