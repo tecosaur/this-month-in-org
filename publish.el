@@ -153,6 +153,7 @@ the presence of unstaged files.  This primarily affects the publication commit."
       org-babel-default-inline-header-args '((:eval . "no") (:exports . "code"))
       org-confirm-babel-evaluate nil
       org-resource-download-policy t
+      org-export-with-smart-quotes t
       org-publish-list-skipped-files nil)
 
 (setf (alist-get :eval org-babel-default-header-args) "no")
