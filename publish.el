@@ -19,8 +19,8 @@
 
 Switches:
   -f, --force      Force publishing all files
-  -d, --draft      Publish a draft update, including DRAFT-* files
-  -p, --publish    Explicitly publish an update (default), negates --draft
+  -d, --draft      Explicitly publish a draft update (force re-publishes all DRAFT-* files)
+  -p, --publish    Explicitly publish an update (ignores all DRAFT-* files)
   -n, --nopush     Skip the push step, perform a dry-run
   -o, --onlypush   Skip file generation, just push (intended for use after a dry-run)
 
@@ -549,6 +549,12 @@ Should an error occur, an informative message is printed."
              (git-try-command "add" "-A")
              (git-try-command "commit" "--message" commit-message)
              (git-try-command "push" (and html-draft-p "--force-with-lease")))))))
+
+(when cli-mode-draft
+  (dolist (file (mapcar #'cdr (get-unstaged-changes)))
+    (when (and (file-exists-p file)
+               (string-prefix-p "DRAFT-" (file-name-base file)))
+      (set-file-times file))))
 
 (cond
  (cli-mode-nopush
