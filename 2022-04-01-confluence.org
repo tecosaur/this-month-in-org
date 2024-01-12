@@ -1,40 +1,40 @@
-# Created 2024-01-11 Thu 11:13
+# Created 2024-01-12 Fri 13:05
 #+title: Special Announcement
 #+date: 2022-04-01
 #+author: TEC
 #+subtitle: Throwing in the towel and jumping on the bandwagon
-It *h*​as become apparent to the Org Mode developers that Org is suffering from a
-severe lack of enterprise adoption. To r​*e*​ctify this, we will be leveraging our
-collective decades working on holistic human-markup interaction tools to rapid​*l*​y
+It *h*as become apparent to the Org Mode developers that Org is suffering from a
+severe lack of enterprise adoption. To r*e*ctify this, we will be leveraging our
+collective decades working on holistic human-markup interaction tools to rapid*l*y
 pivot to what we believe to be the /true/ markup format of the future ---
 [[https://confluence.atlassian.com/doc/confluence-wiki-markup-251003035.html][Confluence Wiki Markup]].
 
-With this *p*​aradigm shift, you can look forward to a much more intuitive syntax,
+With this *p*aradigm shift, you can look forward to a much more intuitive syntax,
 empowering you to create next-generation agile documents.
 
-To assist you in this *t*​ransition, we'll give you a brief overview of the changes
+To assist you in this *t*ransition, we'll give you a brief overview of the changes
 you can expect. Text formatting is almost unaffected, with a few sensible
-changes made to the surrounding c​*h*​aracters.
+changes made to the surrounding c*h*aracters.
 
 #+caption: Translation between Org's syntax and our new Confluence overlords's equivalents
 [[file:figures/org-markup-to-confluence.svg]]
 
 We'd like to thank the FSF for giving the Org project the space and support to
-grow to become a world-class proj​*e*​ct. In our new venture, cop​*y*​right assignment
-to t​*h*​e FSF is no longer required. Inste​*a*​d, copyright must be assigned to
+grow to become a world-class proj*e*ct. In our new venture, cop*y*right assignment
+to t*h*e FSF is no longer required. Inste*a*d, copyright must be assigned to
 Atlassian prior to contributing.
 
 This new partnership enables new and exciting integrations with Atlassian's
-proprietary technologies. O​*v*​er the next f​*e*​w months we will *b*​e transforming Org
-to a cloud-n​*a*​tive serverless profes​*s*​ional markup offering. Unlike Confluence, we
-will allow you to bo​*t*​h write /and edit/ documents using pla​*i*​ntext markup. We
+proprietary technologies. O*v*er the next f*e*w months we will *b*e transforming Org
+to a cloud-n*a*tive serverless profes*s*ional markup offering. Unlike Confluence, we
+will allow you to bo*t*h write /and edit/ documents using pla*i*ntext markup. We
 believe that by unlocking the synergy between plaintext and Confluence the Org
-project will become a thought leader in hyp​*e*​r-scale markup solutions.
+project will become a thought leader in hyp*e*r-scale markup solutions.
 
 The shift to Confluence wiki markup will come as a surprise to many of you, but
 after doing a deep dive into the scalability of Org we realised that there were
 no low-hanging fruit available --- only out of the box thinking will allow for the
-in​*n*​ovation so many of our users crave.
+in*n*ovation so many of our users crave.
 
 We hope this change will not just disrupt your documents, but the entire markup
 industry.

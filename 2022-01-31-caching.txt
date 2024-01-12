@@ -124,7 +124,7 @@ Other improvements
   ⁃ Produce less native-comp warnings _Ihor Radchenko_
   ⁃ Add a header to the clock report table _Samim Pezeshki_
   ⁃ More verbose test failure summary _Max Nikulin_
-  ⁃ Parallelise `make'​ing the docs _Marco Wahl_
+  ⁃ Parallelise `make'ing the docs _Marco Wahl_
   ⁃ More org-element tests _Ihor Radchenko_
 
 

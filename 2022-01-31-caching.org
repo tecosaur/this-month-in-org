@@ -1,4 +1,4 @@
-# Created 2024-01-11 Thu 15:58
+# Created 2024-01-12 Fri 13:05
 #+title: January 2022
 #+date: 2022-01-31
 #+author: TEC
@@ -94,7 +94,7 @@ custom link types).
 - Produce less native-comp warnings _Ihor Radchenko_
 - Add a header to the clock report table _Samim Pezeshki_
 - More verbose test failure summary _Max Nikulin_
-- Parallelise =make=​ing the docs _Marco Wahl_
+- Parallelise =make=ing the docs _Marco Wahl_
 - More org-element tests _Ihor Radchenko_
 * Bugfixes
 - Fix formatting in elisp-link prompt _TEC_

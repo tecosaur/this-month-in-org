@@ -283,7 +283,7 @@ Preamble content
      without numbering
 
   For example, I'm quite a fan of the [KOMA-script] family. Should I
-  want to add a `kart' class (for: *k*​oma *art*​icle), I simply need to
+  want to add a `kart' class (for: *k*oma *art*icle), I simply need to
   do something like the following:
   ┌────
   │ (add-to-list 'org-latex-classes

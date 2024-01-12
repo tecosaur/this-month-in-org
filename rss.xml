@@ -14,8 +14,8 @@
   <link>https://blog.tecosaur.net/tmio/</link>
   <description><![CDATA[]]></description>
   <language>en</language>
-  <pubDate>Thu, 11 Jan 2024 16:07:37 +0800</pubDate>
-  <lastBuildDate>Thu, 11 Jan 2024 16:07:37 +0800</lastBuildDate>
+  <pubDate>Fri, 12 Jan 2024 13:07:35 +0800</pubDate>
+  <lastBuildDate>Fri, 12 Jan 2024 13:07:35 +0800</lastBuildDate>
   <generator>Emacs 29.1 Org-mode 9.6</generator>
   <webMaster>contact.tmio@tecosaur.net (TEC)</webMaster>
   <image>
@@ -48,7 +48,7 @@
     <p>
     This is no longer the case! We're finally confident enough to flip
     <code>org-element-use-cache</code>'s default from <code>nil</code> to <code>t</code>. I mentioned some of the
-    improvements in <a href="https://blog.tecosaur.net/tmio/2021-11-30-element.html#org8271516">November</a>, however Ihor has continued to make strides with the
+    improvements in <a href="https://blog.tecosaur.net/tmio/2021-11-30-element.html#orgf4b49e3">November</a>, however Ihor has continued to make strides with the
     cache.
     </p>
 
@@ -58,7 +58,7 @@
     only take one thing away from the post, I'd like it to be this:
     </p>
 
-    <div class="info" id="orgc939446">
+    <div class="info" id="orgcc126eb">
     <div style="text-align: left; margin-left: 1rem;">
     <p>
     The cache is actively being developed now, for the first time in years, so:
@@ -71,7 +71,7 @@
     <p>
     Cache warnings look something like this:
     </p>
-    <pre class="example" id="org46291dd">
+    <pre class="example" id="org75bef27">
     Warning (org-element-cache): org-element--cache: Unregistered buffer modifications detected. Resetting.
     If this warning appears regularly, please report the warning text to Org mode mailing list (M-x org-submit-bug-report).
     The buffer is: config.org
@@ -143,7 +143,7 @@
     </p>
 
 
-    <figure id="org9159abe">
+    <figure id="org9423af2">
     <img src="https://blog.tecosaur.net/tmio/figures/ox-latex-image-link-localisation-demo.png" alt="ox-latex-image-link-localisation-demo.png">
 
     <figcaption><span class="figure-number">Figure 1: </span>A screenshot of a (compiled to PDF) LaTeX export, with an HTTPS and tramp images.</figcaption>
@@ -166,7 +166,7 @@
     Produce less native-comp warnings <span class="underline">Ihor Radchenko</span>
     Add a header to the clock report table <span class="underline">Samim Pezeshki</span>
     More verbose test failure summary <span class="underline">Max Nikulin</span>
-    Parallelise <kbd>make</kbd>​ing the docs <span class="underline">Marco Wahl</span>
+    Parallelise <kbd>make</kbd>ing the docs <span class="underline">Marco Wahl</span>
     More org-element tests <span class="underline">Ihor Radchenko</span>
     Bugfixes
     Fix formatting in elisp-link prompt <span class="underline">TEC</span>
@@ -218,14 +218,14 @@
   </p>
 
 
-  <figure id="org08a2dd4">
+  <figure id="org9f7a5bb">
   <img src="https://blog.tecosaur.net/tmio/figures/org-fold-perf-shifttab-contents.svg" alt="org-fold-perf-shifttab-contents.svg" class="org-svg">
 
   <figcaption><span class="figure-number">Figure 2: </span>The scaling of <code>org-shifttab</code> showing file contents, as file size increases, with and without org-fold.</figcaption>
   </figure>
 
 
-  <figure id="org1157409">
+  <figure id="org6f6ed94">
   <img src="https://blog.tecosaur.net/tmio/figures/org-fold-perf-shifttab-showall.svg" alt="org-fold-perf-shifttab-showall.svg" class="org-svg">
 
   <figcaption><span class="figure-number">Figure 3: </span>The scaling of <code>org-shifttab</code> showing the entire file, as file size increases, with and without org-fold.</figcaption>
@@ -310,7 +310,7 @@
   be a <i>fantastic</i> improvement. Once again, thanks Ihor!
   </p>
 
-  <div class="warning" id="org0a0af58">
+  <div class="warning" id="orge7922ee">
   <p>
   The change to text properties instead of overlays breaks a number of third party
   packages like <kbd>evil-search</kbd> and <kbd>consult</kbd>'s <code>consult-line</code>.
@@ -335,26 +335,26 @@
   <pubDate>Sat, 02 Apr 2022 00:00:00 +0800</pubDate>
 
   <description><![CDATA[<p>
-  It <b>h</b>​as become apparent to the Org Mode developers that Org is suffering from a
-  severe lack of enterprise adoption. To r​<b>e</b>​ctify this, we will be leveraging our
-  collective decades working on holistic human-markup interaction tools to rapid​<b>l</b>​y
+  It <b>h</b>as become apparent to the Org Mode developers that Org is suffering from a
+  severe lack of enterprise adoption. To r<b>e</b>ctify this, we will be leveraging our
+  collective decades working on holistic human-markup interaction tools to rapid<b>l</b>y
   pivot to what we believe to be the <i>true</i> markup format of the future ---
   <a href="https://confluence.atlassian.com/doc/confluence-wiki-markup-251003035.html">Confluence Wiki Markup</a>.
   </p>
 
   <p>
-  With this <b>p</b>​aradigm shift, you can look forward to a much more intuitive syntax,
+  With this <b>p</b>aradigm shift, you can look forward to a much more intuitive syntax,
   empowering you to create next-generation agile documents.
   </p>
 
   <p>
-  To assist you in this <b>t</b>​ransition, we'll give you a brief overview of the changes
+  To assist you in this <b>t</b>ransition, we'll give you a brief overview of the changes
   you can expect. Text formatting is almost unaffected, with a few sensible
-  changes made to the surrounding c​<b>h</b>​aracters.
+  changes made to the surrounding c<b>h</b>aracters.
   </p>
 
 
-  <figure id="orga5ac6c2">
+  <figure id="orgbe36c8a">
   <img src="https://blog.tecosaur.net/tmio/figures/org-markup-to-confluence.svg" alt="org-markup-to-confluence.svg" class="org-svg">
 
   <figcaption><span class="figure-number">Figure 4: </span>Translation between Org's syntax and our new Confluence overlords's equivalents</figcaption>
@@ -362,25 +362,25 @@
 
   <p>
   We'd like to thank the FSF for giving the Org project the space and support to
-  grow to become a world-class proj​<b>e</b>​ct. In our new venture, cop​<b>y</b>​right assignment
-  to t​<b>h</b>​e FSF is no longer required. Inste​<b>a</b>​d, copyright must be assigned to
+  grow to become a world-class proj<b>e</b>ct. In our new venture, cop<b>y</b>right assignment
+  to t<b>h</b>e FSF is no longer required. Inste<b>a</b>d, copyright must be assigned to
   Atlassian prior to contributing.
   </p>
 
   <p>
   This new partnership enables new and exciting integrations with Atlassian's
-  proprietary technologies. O​<b>v</b>​er the next f​<b>e</b>​w months we will <b>b</b>​e transforming Org
-  to a cloud-n​<b>a</b>​tive serverless profes​<b>s</b>​ional markup offering. Unlike Confluence, we
-  will allow you to bo​<b>t</b>​h write <i>and edit</i> documents using pla​<b>i</b>​ntext markup. We
+  proprietary technologies. O<b>v</b>er the next f<b>e</b>w months we will <b>b</b>e transforming Org
+  to a cloud-n<b>a</b>tive serverless profes<b>s</b>ional markup offering. Unlike Confluence, we
+  will allow you to bo<b>t</b>h write <i>and edit</i> documents using pla<b>i</b>ntext markup. We
   believe that by unlocking the synergy between plaintext and Confluence the Org
-  project will become a thought leader in hyp​<b>e</b>​r-scale markup solutions.
+  project will become a thought leader in hyp<b>e</b>r-scale markup solutions.
   </p>
 
   <p>
   The shift to Confluence wiki markup will come as a surprise to many of you, but
   after doing a deep dive into the scalability of Org we realised that there were
   no low-hanging fruit available --- only out of the box thinking will allow for the
-  in​<b>n</b>​ovation so many of our users crave.
+  in<b>n</b>ovation so many of our users crave.
   </p>
 
   <p>
@@ -980,7 +980,7 @@
   <p>
   Now, if you have a line like:
   </p>
-  <pre class="example" id="orga669c32">
+  <pre class="example" id="orgb5adb53">
   #+cite_export: FORMAT ...
   </pre>
   <p>
@@ -1014,7 +1014,7 @@
   <p>
   This means the following forms are now all equivalent:
   </p>
-  <pre class="example" id="org600178b">
+  <pre class="example" id="org63e5501">
   :tangle-mode (identity #o755)
   :tangle-mode o755
   :tangle-mode a=rx,u+w
@@ -1074,7 +1074,7 @@
   </p>
 
 
-  <figure id="org5049549">
+  <figure id="org163b65b">
   <img src="https://blog.tecosaur.net/tmio/figures/inline-src-block-fontified-vs-code.png" alt="inline-src-block-fontified-vs-code.png">
 
   <figcaption><span class="figure-number">Figure 5: </span>Side-by-side comparison of a identical paragraphs using code (<code>~</code>) markup and inline source blocks (<code>src_</code>).</figcaption>
@@ -1089,7 +1089,7 @@
   </p>
 
 
-  <figure id="orge9925a6">
+  <figure id="orgee7a6c4">
   <img src="https://blog.tecosaur.net/tmio/figures/inline-src-block-julia-demo.png" alt="inline-src-block-julia-demo.png">
 
   <figcaption><span class="figure-number">Figure 6: </span>A paragraph making use of <i>evaluated</i> inline source blocks. Note that the <kbd>⟨11⟩</kbd> is a prettified results macro (using a potential future org-mode patch).</figcaption>
@@ -1199,7 +1199,7 @@
   </p>
 
 
-  <figure id="org8d7fac1">
+  <figure id="orgc75d165">
   <img src="https://blog.tecosaur.net/tmio/figures/proportional-image-width.png" alt="proportional-image-width.png">
 
   <figcaption><span class="figure-number">Figure 7: </span>A containing with an image set to half of the accesible text width</figcaption>
@@ -1459,7 +1459,7 @@
   </div>
 
 
-  <figure id="org3e171f1">
+  <figure id="org9d6cbb9">
   <img src="https://blog.tecosaur.net/tmio/figures/org-verses-example-poem-dream-within-dream.png" alt="org-verses-example-poem-dream-within-dream.png">
 
   <figcaption><span class="figure-number">Figure 8: </span>A short Poe-em</figcaption>
@@ -1471,7 +1471,7 @@
 
   <p>
   Occasionally you may run into annoyances when you wish to have two different Org
-  elements right next to each other (no space) --- for example, <b>emph</b>​asising part of
+  elements right next to each other (no space) --- for example, <b>emph</b>asising part of
   a word or putting a currency symbol immediately before an inline source block.
   </p>
 
@@ -1615,7 +1615,7 @@
   </p>
 
 
-  <figure id="org152a478">
+  <figure id="orgf27c9bd">
   <img src="https://blog.tecosaur.net/tmio/figures/citation-structure-full.svg" alt="citation-structure-full.svg" class="org-svg">
 
   <figcaption><span class="figure-number">Figure 9: </span>The full citation syntax</figcaption>
@@ -1629,7 +1629,7 @@
   </p>
 
 
-  <figure id="orgfd9fb0e">
+  <figure id="org8628c32">
   <img src="https://blog.tecosaur.net/tmio/figures/org-citar-insertion.png" alt="org-citar-insertion.png">
 
   <figcaption><span class="figure-number">Figure 10: </span>Inserting a citation with the <i>citar</i> package</figcaption>
@@ -1671,7 +1671,7 @@
   </p>
 
 
-  <figure id="orga2159df">
+  <figure id="orgef00c46">
   <img src="https://blog.tecosaur.net/tmio/figures/ob-julia-latexify-rendered.png" alt="ob-julia-latexify-rendered.png">
 
   <figcaption><span class="figure-number">Figure 11: </span>Rendered LaTeX representations of some Julia values</figcaption>
@@ -1777,7 +1777,7 @@
   give it a shot!
   </p>
 
-  <div class="info" id="orgd6909fa">
+  <div class="info" id="org1d62981">
   <p>
   <b>Ways you can contribute to the project</b>
   </p>
@@ -1958,7 +1958,7 @@
   </p>
 
 
-  <figure id="org4ce13f0">
+  <figure id="org835ce20">
   <img src="https://blog.tecosaur.net/tmio/figures/celebrate-citations.svg" alt="celebrate-citations.svg" class="org-svg">
 
   </figure>
@@ -2057,7 +2057,7 @@
   <kbd>.bib</kbd>, <kbd>.bibtex</kbd>, or <kbd>.json</kbd> extension), which we do either via the <kbd>#+bibliography</kbd>
   keyword, or the variable <code>org-cite-global-bibliography</code>.
   </p>
-  <pre class="example" id="org1289f44">
+  <pre class="example" id="orgc4635b9">
   #+bibliography: orgcite.bib
   </pre>
 
@@ -2067,7 +2067,7 @@
   </p>
 
 
-  <figure id="orgf519e84">
+  <figure id="org8b523f5">
   <img src="https://blog.tecosaur.net/tmio/figures/citation-structure-basic.svg" alt="citation-structure-basic.svg" class="org-svg">
 
   <figcaption><span class="figure-number">Figure 12: </span>The new citation syntax, for simple citations</figcaption>
@@ -2083,11 +2083,11 @@
   <kbd>#+print_bibliography</kbd> keyword, like so:
   </p>
 
-  <pre class="example" id="org43ff7db">
+  <pre class="example" id="org96f8ada">
   #+print_bibliography:
   </pre>
 
-  <div class="info" id="org9243a4d">
+  <div class="info" id="org6fb2faa">
   <style>.csl-entry{text-indent: -1.5em; margin-left: 1.5em;}</style><div class="csl-bib-body">
   </div>
 
@@ -2096,7 +2096,7 @@
   <p>
   So, to summarise, all one needs to get started is:
   </p>
-  <pre class="example" id="org665d03d">
+  <pre class="example" id="org7a46bad">
   #+bibliography: references.bib
   [cite:@key]
   #+print_bibliography:
@@ -2116,7 +2116,7 @@
   </p>
 
 
-  <figure id="org00b1508">
+  <figure id="org9462168">
   <img src="https://blog.tecosaur.net/tmio/figures/citation-structure-full.svg" alt="citation-structure-full.svg" class="org-svg">
 
   <figcaption><span class="figure-number">Figure 13: </span>The new citations syntax, in full</figcaption>
@@ -2420,7 +2420,7 @@
   on a per-document basis via the <kbd>#+cite_export</kbd> keyword. Here, I shall use the <kbd>csl</kbd>
   processor,
   </p>
-  <pre class="example" id="orgccb1e6c">
+  <pre class="example" id="org0d415b1">
   #+cite_export: csl
   </pre>
 
@@ -2429,7 +2429,7 @@
   style by giving a triplet of parameters <code class="src src-elisp">(PROCESSOR BIBLIOGRAPHY-STYLE CITATION-STYLE)</code> instead of just the processor. You can also use this triplet of
   values with the <kbd>#+cite_export</kbd> keyword
   </p>
-  <pre class="example" id="org2049ddf">
+  <pre class="example" id="org725e95e">
   #+cite_export: processor bibliography-style citation-style
   </pre>
 
@@ -2440,7 +2440,7 @@
   options to a <code class="src src-LaTeX"><span class="org-keyword">\printbibliography</span></code> command, allowing for the
   following:
   </p>
-  <pre class="example" id="org6e290eb">
+  <pre class="example" id="orgd359f15">
   #+print_bibliography: :section 2 :heading subbibliography
   #+print_bibliography: :keyword abc,xyz :title "Primary Sources"
   </pre>
@@ -2486,7 +2486,7 @@
   either absolute or relative to <code>org-cite-csl-styles-dir</code>. For example, if I
   download <kbd>apa.csl</kbd> I can use it like so:
   </p>
-  <pre class="example" id="org2bd0f17">
+  <pre class="example" id="org734efba">
   #+cite_export: csl ~/Downloads/apa.csl
   </pre>
 
@@ -2515,14 +2515,14 @@
   </p>
 
 
-  <figure id="org921c8a4">
+  <figure id="orgc22f107">
   <img src="https://blog.tecosaur.net/tmio/figures/zotero-export-library.png" alt="zotero-export-library.png">
 
   <figcaption><span class="figure-number">Figure 14: </span>Zotero library right click context menu, showing the export option</figcaption>
   </figure>
 
 
-  <figure id="org62c57d5">
+  <figure id="org3ce83fb">
   <img src="https://blog.tecosaur.net/tmio/figures/zotero-export-options-prompt.png" alt="zotero-export-options-prompt.png">
 
   <figcaption><span class="figure-number">Figure 15: </span>Zotero collection export dialog</figcaption>
@@ -2534,7 +2534,7 @@
   </p>
 
 
-  <figure id="orgd080ff4">
+  <figure id="orgf35b296">
   <img src="https://blog.tecosaur.net/tmio/figures/zotero-cite-styles-menu.png" alt="zotero-cite-styles-menu.png">
 
   <figcaption><span class="figure-number">Figure 16: </span>Zotero CSL style management within preferences</figcaption>
@@ -2554,7 +2554,7 @@
   To then use the citation style defined by <kbd>~/Zotero/styles/apa.csl</kbd> one can then
   simply refer to <kbd>apa.csl</kbd> when using the <kbd>#+cite_export</kbd> keyword.
   </p>
-  <pre class="example" id="org7cc7ea2">
+  <pre class="example" id="orgb94c0c3">
   #+cite_export: csl apa.csl
   </pre>
   </div>
@@ -2643,7 +2643,7 @@
   </p>
 
 
-  <figure id="orgbfed9c3">
+  <figure id="org07dce1d">
   <img src="https://blog.tecosaur.net/tmio/figures/org-roam-graph-2d-overview.png" alt="org-roam-graph-2d-overview.png">
 
   <figcaption><span class="figure-number">Figure 17: </span>org-roam-ui's 2D overview.</figcaption>
@@ -2664,7 +2664,7 @@
   </p>
 
 
-  <figure id="org57709a6">
+  <figure id="org62b4001">
   <img src="https://blog.tecosaur.net/tmio/figures/org-roam-ui-in-emacs.png" alt="org-roam-ui-in-emacs.png">
 
   <figcaption><span class="figure-number">Figure 18: </span>Embed org-roam-ui in Emacs using xwidget-webkit.</figcaption>
@@ -2749,7 +2749,7 @@
   </p>
 
 
-  <figure id="org9b040a2">
+  <figure id="org584a1d2">
   <img src="https://blog.tecosaur.net/tmio/figures/dilbert-zenos-paradox.jpg" alt="dilbert-zenos-paradox.jpg">
 
   <figcaption><span class="figure-number">Figure 19: </span>It's right around the corner, I swear!</figcaption>
@@ -2766,7 +2766,7 @@
   </p>
 
 
-  <figure id="orgca40214">
+  <figure id="org683a6fd">
   <img src="https://blog.tecosaur.net/tmio/figures/org-latex-default-reference-to-sec.png" alt="org-latex-default-reference-to-sec.png">
 
   <figcaption><span class="figure-number">Figure 20: </span>A LaTeX export of a simple document with a reference to both the first and second section. "2" what? Section 2, Table 2, Figure 2, ...</figcaption>
@@ -2779,7 +2779,7 @@
   </p>
 
 
-  <figure id="org3c92465">
+  <figure id="org1df8331">
   <img src="https://blog.tecosaur.net/tmio/figures/org-latex-cref-reference-to-sec.png" alt="org-latex-cref-reference-to-sec.png">
 
   <figcaption><span class="figure-number">Figure 21: </span>A LaTeX export of the same document, but now using <code>cleveref</code>. Note the change from "1" and "2" to "Section 1" and "Section 2".</figcaption>
@@ -2861,7 +2861,7 @@
   keyword, this works nicely in HTML too 🙂.
   </p>
 
-  <figure id="orgaea6235">
+  <figure id="orgbb09719">
   <img src="https://blog.tecosaur.net/tmio/figures/salvador-dali-persistence-of-memory.jpg" alt="salvador-dali-persistence-of-memory.jpg">
 
   <figcaption><span class="figure-number">Figure 22: </span>A famous surrealist painting</figcaption>
@@ -2923,7 +2923,7 @@
   Org is nice and does the right thing<sup>TM</sup> by including the caption at the top.
   </p>
 
-  <figure id="org9d2e956">
+  <figure id="org3aa9563">
   <img src="https://blog.tecosaur.net/tmio/figures/org-table-to-latex-example.png" alt="org-table-to-latex-example.png">
 
   <figcaption><span class="figure-number">Figure 23: </span>Look ma, I put the caption in the right place.</figcaption>
@@ -3066,7 +3066,7 @@
 
   <p>
   For example, I'm quite a fan of the <a href="https://ctan.org/pkg/koma-script">KOMA-script</a> family. Should I want to add a
-  <kbd>kart</kbd> class (for: <b>k</b>​oma <b>art</b>​icle), I simply need to do something like the
+  <kbd>kart</kbd> class (for: <b>k</b>oma <b>art</b>icle), I simply need to do something like the
   following:
   </p>
   <div class="org-src-container">
@@ -3206,7 +3206,7 @@
   </p>
 
 
-  <figure id="org72a991a">
+  <figure id="org7a2e29c">
   <img src="https://blog.tecosaur.net/tmio/figures/screenshot-of-updates-orgmode-org.png" alt="screenshot-of-updates-orgmode-org.png">
 
   <figcaption><span class="figure-number">Figure 24: </span>A screenshot of <a href="https://updates.orgmode.org/">updates.orgmode.org</a></figcaption>
@@ -3240,7 +3240,7 @@
   </p>
 
 
-  <figure id="org2eb911f">
+  <figure id="org00406c4">
   <img src="https://github.com/larsmagne/meme/raw/master/images/Grandma-Finds-The-Internet.jpg" alt="Grandma-Finds-The-Internet.jpg">
 
   <figcaption><span class="figure-number">Figure 25: </span>Org mode discovers the internet</figcaption>
@@ -3261,7 +3261,7 @@
   </p>
 
 
-  <figure id="org2870424">
+  <figure id="orgd11dfa5">
   <img src="https://blog.tecosaur.net/tmio/figures/org-edit-special-latex-fragment.png" alt="org-edit-special-latex-fragment.png">
 
   <figcaption><span class="figure-number">Figure 26: </span>Running <code>org-edit-special</code> on an inline LaTeX fragment</figcaption>
@@ -3279,7 +3279,7 @@
   </p>
 
 
-  <figure id="orga201c9b">
+  <figure id="org60c1d2a">
   <img src="https://blog.tecosaur.net/tmio/figures/org-startup-num-and-levels.png" alt="org-startup-num-and-levels.png">
 
   <figcaption><span class="figure-number">Figure 27: </span>Opening a buffer with the new <kbd>num</kbd> and <kbd>show2levels</kbd> startup options</figcaption>

@@ -1,4 +1,4 @@
-# Created 2024-01-11 Thu 11:13
+# Created 2024-01-12 Fri 13:05
 #+title: May 2021
 #+date: 2021-05-31
 #+author: TEC
@@ -130,7 +130,7 @@ blocks now support four new attributes:
 * Easy zero-width spaces with Org
 
 Occasionally you may run into annoyances when you wish to have two different Org
-elements right next to each other (no space) --- for example, *emph*​asising part of
+elements right next to each other (no space) --- for example, *emph*asising part of
 a word or putting a currency symbol immediately before an inline source block.
 
 The best solution to this in Org is zero-width spaces. As such, I've found it

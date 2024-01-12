@@ -1,4 +1,4 @@
-# Created 2024-01-11 Thu 11:13
+# Created 2024-01-12 Fri 13:05
 #+title: June 2021
 #+date: 2021-06-34
 #+author: TEC
@@ -221,7 +221,7 @@ templates. Each template simply takes three components:
 3. A series of format strings to translate headings to LaTeX, with and without numbering
 
 For example, I'm quite a fan of the [[https://ctan.org/pkg/koma-script][KOMA-script]] family. Should I want to add a
-=kart= class (for: *k*​oma *art*​icle), I simply need to do something like the
+=kart= class (for: *k*oma *art*icle), I simply need to do something like the
 following:
 #+begin_src emacs-lisp
   (add-to-list 'org-latex-classes

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2024-01-11 Thu 11:13 -->
+<!-- 2024-01-12 Fri 13:05 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>July 2021</title>
@@ -48,7 +48,7 @@ this post.
 </p>
 
 
-<figure id="orgcca163b">
+<figure id="org6898ad8">
 <img src="figures/celebrate-citations.svg" alt="celebrate-citations.svg" class="org-svg">
 
 </figure>
@@ -157,11 +157,11 @@ First we need to let Org know about this bibliography file (which must have a
 <kbd>.bib</kbd>, <kbd>.bibtex</kbd>, or <kbd>.json</kbd> extension), which we do either via the <kbd>#+bibliography</kbd>
 keyword, or the variable <code>org-cite-global-bibliography</code>.
 </p>
-<details id='org0ecc492' class='code' open>
+<details id='org7282dd6' class='code' open>
 <summary></summary>
-<div class='gutter'><a href='#org0ecc492'>#</a>
+<div class='gutter'><a href='#org7282dd6'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
-<pre class="example" id="org0ecc492">
+<pre class="example" id="org7282dd6">
 #+bibliography: orgcite.bib
 </pre>
 
@@ -173,7 +173,7 @@ content! The basic citation syntax is as follows:
 </p>
 
 
-<figure id="orgca65a3c">
+<figure id="orge96e856">
 <img src="figures/citation-structure-basic.svg" alt="citation-structure-basic.svg" class="org-svg">
 
 <figcaption><span class="figure-number">Figure 1: </span>The new citation syntax, for simple citations</figcaption>
@@ -189,17 +189,17 @@ Finally, to insert a bibliography somewhere, we just need to insert the
 <kbd>#+print_bibliography</kbd> keyword, like so:
 </p>
 
-<details id='org0dbc7b0' class='code' open>
+<details id='org9348862' class='code' open>
 <summary></summary>
-<div class='gutter'><a href='#org0dbc7b0'>#</a>
+<div class='gutter'><a href='#org9348862'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
-<pre class="example" id="org0dbc7b0">
+<pre class="example" id="org9348862">
 #+print_bibliography:
 </pre>
 
 </details>
 
-<div class="info" id="orgfd33b20">
+<div class="info" id="orgf35d8be">
 <style>.csl-entry{text-indent: -1.5em; margin-left: 1.5em;}</style><div class="csl-bib-body">
   <div class="csl-entry"><a id="citeproc_bib_item_1"></a>org, mode, Citation Syntax, Mailing List, and Time Effort. 2021. “Elegant Citations with Org-Mode.” <i>Journal of Plain Text Formats</i> 42 (1): 2–3.</div>
 </div>
@@ -209,11 +209,11 @@ Finally, to insert a bibliography somewhere, we just need to insert the
 <p>
 So, to summarise, all one needs to get started is:
 </p>
-<details id='orgb188c35' class='code' open>
+<details id='org13233ab' class='code' open>
 <summary></summary>
-<div class='gutter'><a href='#orgb188c35'>#</a>
+<div class='gutter'><a href='#org13233ab'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
-<pre class="example" id="orgb188c35">
+<pre class="example" id="org13233ab">
 #+bibliography: references.bib
 [cite:@key]
 #+print_bibliography:
@@ -235,7 +235,7 @@ cite syntax:
 </p>
 
 
-<figure id="org9d1b0a1">
+<figure id="org9f717cf">
 <img src="figures/citation-structure-full.svg" alt="citation-structure-full.svg" class="org-svg">
 
 <figcaption><span class="figure-number">Figure 2: </span>The new citations syntax, in full</figcaption>
@@ -549,11 +549,11 @@ The citation processor is automatically selected based on
 on a per-document basis via the <kbd>#+cite_export</kbd> keyword. Here, I shall use the <kbd>csl</kbd>
 processor,
 </p>
-<details id='orgef702e6' class='code' open>
+<details id='orgc3254e9' class='code' open>
 <summary></summary>
-<div class='gutter'><a href='#orgef702e6'>#</a>
+<div class='gutter'><a href='#orgc3254e9'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
-<pre class="example" id="orgef702e6">
+<pre class="example" id="orgc3254e9">
 #+cite_export: csl
 </pre>
 
@@ -564,11 +564,11 @@ With <code>org-cite-export-processors</code>, you can also set the bibliography 
 style by giving a triplet of parameters <code class="src src-elisp">(PROCESSOR BIBLIOGRAPHY-STYLE CITATION-STYLE)</code> instead of just the processor. You can also use this triplet of
 values with the <kbd>#+cite_export</kbd> keyword
 </p>
-<details id='org27d1686' class='code' open>
+<details id='orgcdfba21' class='code' open>
 <summary></summary>
-<div class='gutter'><a href='#org27d1686'>#</a>
+<div class='gutter'><a href='#orgcdfba21'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
-<pre class="example" id="org27d1686">
+<pre class="example" id="orgcdfba21">
 #+cite_export: processor bibliography-style citation-style
 </pre>
 
@@ -581,11 +581,11 @@ processor does not currently support any options, the BibLaTeX processor passes
 options to a <code class="src src-LaTeX"><span class="org-keyword">\printbibliography</span></code> command, allowing for the
 following:
 </p>
-<details id='orgfcd1a36' class='code' open>
+<details id='org8e8611d' class='code' open>
 <summary></summary>
-<div class='gutter'><a href='#orgfcd1a36'>#</a>
+<div class='gutter'><a href='#org8e8611d'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
-<pre class="example" id="orgfcd1a36">
+<pre class="example" id="org8e8611d">
 #+print_bibliography: :section 2 :heading subbibliography
 #+print_bibliography: :keyword abc,xyz :title "Primary Sources"
 </pre>
@@ -637,11 +637,11 @@ When exporting, you can set the style by providing a path to <span class='acr'>C
 either absolute or relative to <code>org-cite-csl-styles-dir</code>. For example, if I
 download <kbd>apa.csl</kbd> I can use it like so:
 </p>
-<details id='orgf358fb8' class='code' open>
+<details id='orgb8c48a4' class='code' open>
 <summary></summary>
-<div class='gutter'><a href='#orgf358fb8'>#</a>
+<div class='gutter'><a href='#orgb8c48a4'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
-<pre class="example" id="orgf358fb8">
+<pre class="example" id="orgb8c48a4">
 #+cite_export: csl ~/Downloads/apa.csl
 </pre>
 
@@ -674,14 +674,14 @@ to a <kbd>.bib</kbd> file and automatically keep it in sync. I'd recommend insta
 </p>
 
 
-<figure id="org921e9a3">
+<figure id="orge6b34f3">
 <img src="figures/zotero-export-library.png" alt="zotero-export-library.png" class="invertible">
 
 <figcaption><span class="figure-number">Figure 3: </span>Zotero library right click context menu, showing the export option</figcaption>
 </figure>
 
 
-<figure id="orgb2b8a82">
+<figure id="org13fe646">
 <img src="figures/zotero-export-options-prompt.png" alt="zotero-export-options-prompt.png" class="invertible">
 
 <figcaption><span class="figure-number">Figure 4: </span>Zotero collection export dialog</figcaption>
@@ -693,7 +693,7 @@ Zotero also features an easy way to install <span class='acr'>CSL</span> styles 
 </p>
 
 
-<figure id="org8b26b0e">
+<figure id="orgaff19e1">
 <img src="figures/zotero-cite-styles-menu.png" alt="zotero-cite-styles-menu.png" class="invertible">
 
 <figcaption><span class="figure-number">Figure 5: </span>Zotero <span class='acr'>CSL</span> style management within preferences</figcaption>
@@ -718,11 +718,11 @@ directory.
 To then use the citation style defined by <kbd>~/Zotero/styles/apa.csl</kbd> one can then
 simply refer to <kbd>apa.csl</kbd> when using the <kbd>#+cite_export</kbd> keyword.
 </p>
-<details id='orgcf0ffb4' class='code' open>
+<details id='org7322f9e' class='code' open>
 <summary></summary>
-<div class='gutter'><a href='#orgcf0ffb4'>#</a>
+<div class='gutter'><a href='#org7322f9e'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
-<pre class="example" id="orgcf0ffb4">
+<pre class="example" id="org7322f9e">
 #+cite_export: csl apa.csl
 </pre>
 
