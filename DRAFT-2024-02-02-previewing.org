@@ -1,0 +1,22 @@
+# Created 2024-01-16 Tue 00:23
+#+title: February 2023: Part 2
+#+date: 2024-02-02
+#+author: TEC
+#+subtitle: Fabulously Fancy Fragments
+In [[file:2021-07-31-citations.org][July 2021]] I was thrilled to announce the long-awaited feature of citation
+syntax. Today I get to announce a feature a bit closer to my heart, a dramatic
+improvement (actually a complete overhaul of) Org's system for generating LaTeX
+previews!
+
+<fancy image here>
+
+In late 2021, Karthik and I embarked on a project to improve the status quo by
+ripping out the entire LaTeX preview implementation, and then building something
+better in its place. After hundreds of hours (each), and just over a year, I
+think it's fair to say we've succeeded.
+* The Status Quo
+* Major features of the overhaul
+
+* Making the most of the new library
+
+* The broad strokes of the implementation

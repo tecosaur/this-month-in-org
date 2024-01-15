@@ -1,0 +1,13 @@
+# Created 2024-01-16 Tue 00:23
+#+title: February 2023: Part 1
+#+date: 2024-02-01
+#+author: TEC
+#+subtitle: Long time, no see
+* Foreword on the T/M/iO schedule
+
+* Org on LiberaPay
+
+* LaTeX fragments overhaul
+
+Put this in a separate post
+* Other stuff

@@ -14,8 +14,8 @@
   <link>https://blog.tecosaur.net/tmio/</link>
   <description><![CDATA[]]></description>
   <language>en</language>
-  <pubDate>Fri, 12 Jan 2024 13:39:50 +0800</pubDate>
-  <lastBuildDate>Fri, 12 Jan 2024 13:39:50 +0800</lastBuildDate>
+  <pubDate>Tue, 16 Jan 2024 00:23:23 +0800</pubDate>
+  <lastBuildDate>Tue, 16 Jan 2024 00:23:23 +0800</lastBuildDate>
   <generator>Emacs 29.1 Org-mode 9.6</generator>
   <webMaster>contact.tmio@tecosaur.net (TEC)</webMaster>
   <image>
@@ -48,7 +48,7 @@
     <p>
     This is no longer the case! We're finally confident enough to flip
     <code>org-element-use-cache</code>'s default from <code>nil</code> to <code>t</code>. I mentioned some of the
-    improvements in <a href="https://blog.tecosaur.net/tmio/2021-11-30-element.html#orgec8e566">November</a>, however Ihor has continued to make strides with the
+    improvements in <a href="https://blog.tecosaur.net/tmio/2021-11-30-element.html#org6d71467">November</a>, however Ihor has continued to make strides with the
     cache.
     </p>
 
@@ -58,7 +58,7 @@
     only take one thing away from the post, I'd like it to be this:
     </p>
 
-    <div class="info" id="org39a57e1">
+    <div class="info" id="org079b03e">
     <div style="text-align: left; margin-left: 1rem;">
     <p>
     The cache is actively being developed now, for the first time in years, so:
@@ -71,7 +71,7 @@
     <p>
     Cache warnings look something like this:
     </p>
-    <pre class="example" id="orgcafcbf2">
+    <pre class="example" id="org76d64d7">
     Warning (org-element-cache): org-element--cache: Unregistered buffer modifications detected. Resetting.
     If this warning appears regularly, please report the warning text to Org mode mailing list (M-x org-submit-bug-report).
     The buffer is: config.org
@@ -143,7 +143,7 @@
     </p>
 
 
-    <figure id="org6f50599">
+    <figure id="org048e942">
     <img src="https://blog.tecosaur.net/tmio/figures/ox-latex-image-link-localisation-demo.png" alt="ox-latex-image-link-localisation-demo.png">
 
     <figcaption><span class="figure-number">Figure 1: </span>A screenshot of a (compiled to PDF) LaTeX export, with an HTTPS and tramp images.</figcaption>
@@ -218,14 +218,14 @@
   </p>
 
 
-  <figure id="orgd99fc4f">
+  <figure id="org5e87ed9">
   <img src="https://blog.tecosaur.net/tmio/figures/org-fold-perf-shifttab-contents.svg" alt="org-fold-perf-shifttab-contents.svg" class="org-svg">
 
   <figcaption><span class="figure-number">Figure 2: </span>The scaling of <code>org-shifttab</code> showing file contents, as file size increases, with and without org-fold.</figcaption>
   </figure>
 
 
-  <figure id="org5b274b2">
+  <figure id="orgfed76c5">
   <img src="https://blog.tecosaur.net/tmio/figures/org-fold-perf-shifttab-showall.svg" alt="org-fold-perf-shifttab-showall.svg" class="org-svg">
 
   <figcaption><span class="figure-number">Figure 3: </span>The scaling of <code>org-shifttab</code> showing the entire file, as file size increases, with and without org-fold.</figcaption>
@@ -310,7 +310,7 @@
   be a <i>fantastic</i> improvement. Once again, thanks Ihor!
   </p>
 
-  <div class="warning" id="org95471ce">
+  <div class="warning" id="org53db144">
   <p>
   The change to text properties instead of overlays breaks a number of third party
   packages like <kbd>evil-search</kbd> and <kbd>consult</kbd>'s <code>consult-line</code>.
@@ -354,7 +354,7 @@
   </p>
 
 
-  <figure id="org7b01426">
+  <figure id="org5eb87af">
   <img src="https://blog.tecosaur.net/tmio/figures/org-markup-to-confluence.svg" alt="org-markup-to-confluence.svg" class="org-svg">
 
   <figcaption><span class="figure-number">Figure 4: </span>Translation between Org's syntax and our new Confluence overlords's equivalents</figcaption>
@@ -980,7 +980,7 @@
   <p>
   Now, if you have a line like:
   </p>
-  <pre class="example" id="org95c6892">
+  <pre class="example" id="org47efbe9">
   #+cite_export: FORMAT ...
   </pre>
   <p>
@@ -1014,7 +1014,7 @@
   <p>
   This means the following forms are now all equivalent:
   </p>
-  <pre class="example" id="orgc264332">
+  <pre class="example" id="org243ca23">
   :tangle-mode (identity #o755)
   :tangle-mode o755
   :tangle-mode a=rx,u+w
@@ -1074,7 +1074,7 @@
   </p>
 
 
-  <figure id="orgadbdd38">
+  <figure id="org197fae3">
   <img src="https://blog.tecosaur.net/tmio/figures/inline-src-block-fontified-vs-code.png" alt="inline-src-block-fontified-vs-code.png">
 
   <figcaption><span class="figure-number">Figure 5: </span>Side-by-side comparison of a identical paragraphs using code (<code>~</code>) markup and inline source blocks (<code>src_</code>).</figcaption>
@@ -1089,7 +1089,7 @@
   </p>
 
 
-  <figure id="org87fd167">
+  <figure id="org04ec93b">
   <img src="https://blog.tecosaur.net/tmio/figures/inline-src-block-julia-demo.png" alt="inline-src-block-julia-demo.png">
 
   <figcaption><span class="figure-number">Figure 6: </span>A paragraph making use of <i>evaluated</i> inline source blocks. Note that the <kbd>⟨11⟩</kbd> is a prettified results macro (using a potential future org-mode patch).</figcaption>
@@ -1199,7 +1199,7 @@
   </p>
 
 
-  <figure id="org42118b3">
+  <figure id="orgb062856">
   <img src="https://blog.tecosaur.net/tmio/figures/proportional-image-width.png" alt="proportional-image-width.png">
 
   <figcaption><span class="figure-number">Figure 7: </span>A containing with an image set to half of the accesible text width</figcaption>
@@ -1459,7 +1459,7 @@
   </div>
 
 
-  <figure id="org873eb33">
+  <figure id="org81ffbea">
   <img src="https://blog.tecosaur.net/tmio/figures/org-verses-example-poem-dream-within-dream.png" alt="org-verses-example-poem-dream-within-dream.png">
 
   <figcaption><span class="figure-number">Figure 8: </span>A short Poe-em</figcaption>
@@ -1615,7 +1615,7 @@
   </p>
 
 
-  <figure id="org87c9955">
+  <figure id="org5156e26">
   <img src="https://blog.tecosaur.net/tmio/figures/citation-structure-full.svg" alt="citation-structure-full.svg" class="org-svg">
 
   <figcaption><span class="figure-number">Figure 9: </span>The full citation syntax</figcaption>
@@ -1629,7 +1629,7 @@
   </p>
 
 
-  <figure id="orgf49e93a">
+  <figure id="orgea8e37e">
   <img src="https://blog.tecosaur.net/tmio/figures/org-citar-insertion.png" alt="org-citar-insertion.png">
 
   <figcaption><span class="figure-number">Figure 10: </span>Inserting a citation with the <i>citar</i> package</figcaption>
@@ -1671,7 +1671,7 @@
   </p>
 
 
-  <figure id="orge52da01">
+  <figure id="orgcd84011">
   <img src="https://blog.tecosaur.net/tmio/figures/ob-julia-latexify-rendered.png" alt="ob-julia-latexify-rendered.png">
 
   <figcaption><span class="figure-number">Figure 11: </span>Rendered LaTeX representations of some Julia values</figcaption>
@@ -1777,7 +1777,7 @@
   give it a shot!
   </p>
 
-  <div class="info" id="orgf6a899f">
+  <div class="info" id="orgb5a7c6c">
   <p>
   <b>Ways you can contribute to the project</b>
   </p>
@@ -1958,7 +1958,7 @@
   </p>
 
 
-  <figure id="orgf8aa190">
+  <figure id="org0523d70">
   <img src="https://blog.tecosaur.net/tmio/figures/celebrate-citations.svg" alt="celebrate-citations.svg" class="org-svg">
 
   </figure>
@@ -2057,7 +2057,7 @@
   <kbd>.bib</kbd>, <kbd>.bibtex</kbd>, or <kbd>.json</kbd> extension), which we do either via the <kbd>#+bibliography</kbd>
   keyword, or the variable <code>org-cite-global-bibliography</code>.
   </p>
-  <pre class="example" id="org39f3c91">
+  <pre class="example" id="orgc074d36">
   #+bibliography: orgcite.bib
   </pre>
 
@@ -2067,7 +2067,7 @@
   </p>
 
 
-  <figure id="orgfe4afed">
+  <figure id="orgf25b88c">
   <img src="https://blog.tecosaur.net/tmio/figures/citation-structure-basic.svg" alt="citation-structure-basic.svg" class="org-svg">
 
   <figcaption><span class="figure-number">Figure 12: </span>The new citation syntax, for simple citations</figcaption>
@@ -2083,11 +2083,11 @@
   <kbd>#+print_bibliography</kbd> keyword, like so:
   </p>
 
-  <pre class="example" id="org98e73ee">
+  <pre class="example" id="org2918439">
   #+print_bibliography:
   </pre>
 
-  <div class="info" id="org49c8994">
+  <div class="info" id="org26407ed">
   <style>.csl-entry{text-indent: -1.5em; margin-left: 1.5em;}</style><div class="csl-bib-body">
   </div>
 
@@ -2096,7 +2096,7 @@
   <p>
   So, to summarise, all one needs to get started is:
   </p>
-  <pre class="example" id="org3922a66">
+  <pre class="example" id="org4e5511d">
   #+bibliography: references.bib
   [cite:@key]
   #+print_bibliography:
@@ -2116,7 +2116,7 @@
   </p>
 
 
-  <figure id="orgac2460e">
+  <figure id="orge608d9b">
   <img src="https://blog.tecosaur.net/tmio/figures/citation-structure-full.svg" alt="citation-structure-full.svg" class="org-svg">
 
   <figcaption><span class="figure-number">Figure 13: </span>The new citations syntax, in full</figcaption>
@@ -2420,7 +2420,7 @@
   on a per-document basis via the <kbd>#+cite_export</kbd> keyword. Here, I shall use the <kbd>csl</kbd>
   processor,
   </p>
-  <pre class="example" id="org1e994a8">
+  <pre class="example" id="org57f485e">
   #+cite_export: csl
   </pre>
 
@@ -2429,7 +2429,7 @@
   style by giving a triplet of parameters <code class="src src-elisp">(PROCESSOR BIBLIOGRAPHY-STYLE CITATION-STYLE)</code> instead of just the processor. You can also use this triplet of
   values with the <kbd>#+cite_export</kbd> keyword
   </p>
-  <pre class="example" id="org8b6d689">
+  <pre class="example" id="orgf8c20b4">
   #+cite_export: processor bibliography-style citation-style
   </pre>
 
@@ -2440,7 +2440,7 @@
   options to a <code class="src src-LaTeX"><span class="org-keyword">\printbibliography</span></code> command, allowing for the
   following:
   </p>
-  <pre class="example" id="org3e8a3e6">
+  <pre class="example" id="orgf5472ea">
   #+print_bibliography: :section 2 :heading subbibliography
   #+print_bibliography: :keyword abc,xyz :title "Primary Sources"
   </pre>
@@ -2486,7 +2486,7 @@
   either absolute or relative to <code>org-cite-csl-styles-dir</code>. For example, if I
   download <kbd>apa.csl</kbd> I can use it like so:
   </p>
-  <pre class="example" id="orgd167eac">
+  <pre class="example" id="orgc4d85a3">
   #+cite_export: csl ~/Downloads/apa.csl
   </pre>
 
@@ -2515,14 +2515,14 @@
   </p>
 
 
-  <figure id="org3ac50b6">
+  <figure id="orgb8d642e">
   <img src="https://blog.tecosaur.net/tmio/figures/zotero-export-library.png" alt="zotero-export-library.png">
 
   <figcaption><span class="figure-number">Figure 14: </span>Zotero library right click context menu, showing the export option</figcaption>
   </figure>
 
 
-  <figure id="org3ea0c81">
+  <figure id="orgcc399fe">
   <img src="https://blog.tecosaur.net/tmio/figures/zotero-export-options-prompt.png" alt="zotero-export-options-prompt.png">
 
   <figcaption><span class="figure-number">Figure 15: </span>Zotero collection export dialog</figcaption>
@@ -2534,7 +2534,7 @@
   </p>
 
 
-  <figure id="orgd277016">
+  <figure id="org92417e1">
   <img src="https://blog.tecosaur.net/tmio/figures/zotero-cite-styles-menu.png" alt="zotero-cite-styles-menu.png">
 
   <figcaption><span class="figure-number">Figure 16: </span>Zotero CSL style management within preferences</figcaption>
@@ -2554,7 +2554,7 @@
   To then use the citation style defined by <kbd>~/Zotero/styles/apa.csl</kbd> one can then
   simply refer to <kbd>apa.csl</kbd> when using the <kbd>#+cite_export</kbd> keyword.
   </p>
-  <pre class="example" id="org75c7bed">
+  <pre class="example" id="org73e6705">
   #+cite_export: csl apa.csl
   </pre>
   </div>
@@ -2643,7 +2643,7 @@
   </p>
 
 
-  <figure id="orgc91819d">
+  <figure id="org23b2dd5">
   <img src="https://blog.tecosaur.net/tmio/figures/org-roam-graph-2d-overview.png" alt="org-roam-graph-2d-overview.png">
 
   <figcaption><span class="figure-number">Figure 17: </span>org-roam-ui's 2D overview.</figcaption>
@@ -2664,7 +2664,7 @@
   </p>
 
 
-  <figure id="orgb578e31">
+  <figure id="orgca2314e">
   <img src="https://blog.tecosaur.net/tmio/figures/org-roam-ui-in-emacs.png" alt="org-roam-ui-in-emacs.png">
 
   <figcaption><span class="figure-number">Figure 18: </span>Embed org-roam-ui in Emacs using xwidget-webkit.</figcaption>
@@ -2749,7 +2749,7 @@
   </p>
 
 
-  <figure id="org803cb9b">
+  <figure id="org3f2002e">
   <img src="https://blog.tecosaur.net/tmio/figures/dilbert-zenos-paradox.jpg" alt="dilbert-zenos-paradox.jpg">
 
   <figcaption><span class="figure-number">Figure 19: </span>It's right around the corner, I swear!</figcaption>
@@ -2766,7 +2766,7 @@
   </p>
 
 
-  <figure id="orgfe56243">
+  <figure id="org5795454">
   <img src="https://blog.tecosaur.net/tmio/figures/org-latex-default-reference-to-sec.png" alt="org-latex-default-reference-to-sec.png">
 
   <figcaption><span class="figure-number">Figure 20: </span>A LaTeX export of a simple document with a reference to both the first and second section. "2" what? Section 2, Table 2, Figure 2, ...</figcaption>
@@ -2779,7 +2779,7 @@
   </p>
 
 
-  <figure id="orgd62de58">
+  <figure id="orgb8f8eb8">
   <img src="https://blog.tecosaur.net/tmio/figures/org-latex-cref-reference-to-sec.png" alt="org-latex-cref-reference-to-sec.png">
 
   <figcaption><span class="figure-number">Figure 21: </span>A LaTeX export of the same document, but now using <code>cleveref</code>. Note the change from "1" and "2" to "Section 1" and "Section 2".</figcaption>
@@ -2861,7 +2861,7 @@
   keyword, this works nicely in HTML too 🙂.
   </p>
 
-  <figure id="org9868867">
+  <figure id="orgd158f9f">
   <img src="https://blog.tecosaur.net/tmio/figures/salvador-dali-persistence-of-memory.jpg" alt="salvador-dali-persistence-of-memory.jpg">
 
   <figcaption><span class="figure-number">Figure 22: </span>A famous surrealist painting</figcaption>
@@ -2923,7 +2923,7 @@
   Org is nice and does the right thing<sup>TM</sup> by including the caption at the top.
   </p>
 
-  <figure id="org4fcba8c">
+  <figure id="org511d448">
   <img src="https://blog.tecosaur.net/tmio/figures/org-table-to-latex-example.png" alt="org-table-to-latex-example.png">
 
   <figcaption><span class="figure-number">Figure 23: </span>Look ma, I put the caption in the right place.</figcaption>
@@ -3206,7 +3206,7 @@
   </p>
 
 
-  <figure id="org02ea3b5">
+  <figure id="orgfaf8a29">
   <img src="https://blog.tecosaur.net/tmio/figures/screenshot-of-updates-orgmode-org.png" alt="screenshot-of-updates-orgmode-org.png">
 
   <figcaption><span class="figure-number">Figure 24: </span>A screenshot of <a href="https://updates.orgmode.org/">updates.orgmode.org</a></figcaption>
@@ -3240,7 +3240,7 @@
   </p>
 
 
-  <figure id="org511b8ff">
+  <figure id="orga69e34b">
   <img src="https://github.com/larsmagne/meme/raw/master/images/Grandma-Finds-The-Internet.jpg" alt="Grandma-Finds-The-Internet.jpg">
 
   <figcaption><span class="figure-number">Figure 25: </span>Org mode discovers the internet</figcaption>
@@ -3261,7 +3261,7 @@
   </p>
 
 
-  <figure id="org2b44cd9">
+  <figure id="org722f806">
   <img src="https://blog.tecosaur.net/tmio/figures/org-edit-special-latex-fragment.png" alt="org-edit-special-latex-fragment.png">
 
   <figcaption><span class="figure-number">Figure 26: </span>Running <code>org-edit-special</code> on an inline LaTeX fragment</figcaption>
@@ -3279,7 +3279,7 @@
   </p>
 
 
-  <figure id="org2674cb9">
+  <figure id="org0a930bd">
   <img src="https://blog.tecosaur.net/tmio/figures/org-startup-num-and-levels.png" alt="org-startup-num-and-levels.png">
 
   <figcaption><span class="figure-number">Figure 27: </span>Opening a buffer with the new <kbd>num</kbd> and <kbd>show2levels</kbd> startup options</figcaption>
