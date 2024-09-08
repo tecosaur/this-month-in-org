@@ -14,9 +14,9 @@
   <link>https://blog.tecosaur.net/tmio/</link>
   <description><![CDATA[]]></description>
   <language>en</language>
-  <pubDate>Fri, 12 Jan 2024 13:39:50 +0800</pubDate>
-  <lastBuildDate>Fri, 12 Jan 2024 13:39:50 +0800</lastBuildDate>
-  <generator>Emacs 29.1 Org-mode 9.6</generator>
+  <pubDate>Sun, 08 Sep 2024 15:20:11 +0800</pubDate>
+  <lastBuildDate>Sun, 08 Sep 2024 15:20:11 +0800</lastBuildDate>
+  <generator>Emacs 29.4 Org-mode 9.6</generator>
   <webMaster>contact.tmio@tecosaur.net (TEC)</webMaster>
   <image>
     <url>https://orgmode.org/img/org-mode-unicorn-logo.png</url>
@@ -48,7 +48,7 @@
     <p>
     This is no longer the case! We're finally confident enough to flip
     <code>org-element-use-cache</code>'s default from <code>nil</code> to <code>t</code>. I mentioned some of the
-    improvements in <a href="https://blog.tecosaur.net/tmio/2021-11-30-element.html#orgec8e566">November</a>, however Ihor has continued to make strides with the
+    improvements in <a href="https://blog.tecosaur.net/tmio/2021-11-30-element.html#org4799a7e">November</a>, however Ihor has continued to make strides with the
     cache.
     </p>
 
@@ -58,7 +58,7 @@
     only take one thing away from the post, I'd like it to be this:
     </p>
 
-    <div class="info" id="org39a57e1">
+    <div class="info" id="orgde8d4fd">
     <div style="text-align: left; margin-left: 1rem;">
     <p>
     The cache is actively being developed now, for the first time in years, so:
@@ -71,7 +71,7 @@
     <p>
     Cache warnings look something like this:
     </p>
-    <pre class="example" id="orgcafcbf2">
+    <pre class="example" id="orgea99e8d">
     Warning (org-element-cache): org-element--cache: Unregistered buffer modifications detected. Resetting.
     If this warning appears regularly, please report the warning text to Org mode mailing list (M-x org-submit-bug-report).
     The buffer is: config.org
@@ -143,7 +143,7 @@
     </p>
 
 
-    <figure id="org6f50599">
+    <figure id="orgce16ccf">
     <img src="https://blog.tecosaur.net/tmio/figures/ox-latex-image-link-localisation-demo.png" alt="ox-latex-image-link-localisation-demo.png">
 
     <figcaption><span class="figure-number">Figure 1: </span>A screenshot of a (compiled to PDF) LaTeX export, with an HTTPS and tramp images.</figcaption>
@@ -218,14 +218,14 @@
   </p>
 
 
-  <figure id="orgd99fc4f">
+  <figure id="org810cee3">
   <img src="https://blog.tecosaur.net/tmio/figures/org-fold-perf-shifttab-contents.svg" alt="org-fold-perf-shifttab-contents.svg" class="org-svg">
 
   <figcaption><span class="figure-number">Figure 2: </span>The scaling of <code>org-shifttab</code> showing file contents, as file size increases, with and without org-fold.</figcaption>
   </figure>
 
 
-  <figure id="org5b274b2">
+  <figure id="org84ce12f">
   <img src="https://blog.tecosaur.net/tmio/figures/org-fold-perf-shifttab-showall.svg" alt="org-fold-perf-shifttab-showall.svg" class="org-svg">
 
   <figcaption><span class="figure-number">Figure 3: </span>The scaling of <code>org-shifttab</code> showing the entire file, as file size increases, with and without org-fold.</figcaption>
@@ -310,7 +310,7 @@
   be a <i>fantastic</i> improvement. Once again, thanks Ihor!
   </p>
 
-  <div class="warning" id="org95471ce">
+  <div class="warning" id="org1fb519b">
   <p>
   The change to text properties instead of overlays breaks a number of third party
   packages like <kbd>evil-search</kbd> and <kbd>consult</kbd>'s <code>consult-line</code>.
@@ -354,7 +354,7 @@
   </p>
 
 
-  <figure id="org7b01426">
+  <figure id="org29b4c2a">
   <img src="https://blog.tecosaur.net/tmio/figures/org-markup-to-confluence.svg" alt="org-markup-to-confluence.svg" class="org-svg">
 
   <figcaption><span class="figure-number">Figure 4: </span>Translation between Org's syntax and our new Confluence overlords's equivalents</figcaption>
@@ -980,7 +980,7 @@
   <p>
   Now, if you have a line like:
   </p>
-  <pre class="example" id="org95c6892">
+  <pre class="example" id="orgd297429">
   #+cite_export: FORMAT ...
   </pre>
   <p>
@@ -1014,7 +1014,7 @@
   <p>
   This means the following forms are now all equivalent:
   </p>
-  <pre class="example" id="orgc264332">
+  <pre class="example" id="org9c2fbfc">
   :tangle-mode (identity #o755)
   :tangle-mode o755
   :tangle-mode a=rx,u+w
@@ -1074,7 +1074,7 @@
   </p>
 
 
-  <figure id="orgadbdd38">
+  <figure id="org6e054c5">
   <img src="https://blog.tecosaur.net/tmio/figures/inline-src-block-fontified-vs-code.png" alt="inline-src-block-fontified-vs-code.png">
 
   <figcaption><span class="figure-number">Figure 5: </span>Side-by-side comparison of a identical paragraphs using code (<code>~</code>) markup and inline source blocks (<code>src_</code>).</figcaption>
@@ -1089,7 +1089,7 @@
   </p>
 
 
-  <figure id="org87fd167">
+  <figure id="orge075ff9">
   <img src="https://blog.tecosaur.net/tmio/figures/inline-src-block-julia-demo.png" alt="inline-src-block-julia-demo.png">
 
   <figcaption><span class="figure-number">Figure 6: </span>A paragraph making use of <i>evaluated</i> inline source blocks. Note that the <kbd>⟨11⟩</kbd> is a prettified results macro (using a potential future org-mode patch).</figcaption>
@@ -1199,7 +1199,7 @@
   </p>
 
 
-  <figure id="org42118b3">
+  <figure id="org9840389">
   <img src="https://blog.tecosaur.net/tmio/figures/proportional-image-width.png" alt="proportional-image-width.png">
 
   <figcaption><span class="figure-number">Figure 7: </span>A containing with an image set to half of the accesible text width</figcaption>
@@ -1459,7 +1459,7 @@
   </div>
 
 
-  <figure id="org873eb33">
+  <figure id="org51dbd3d">
   <img src="https://blog.tecosaur.net/tmio/figures/org-verses-example-poem-dream-within-dream.png" alt="org-verses-example-poem-dream-within-dream.png">
 
   <figcaption><span class="figure-number">Figure 8: </span>A short Poe-em</figcaption>
@@ -1615,7 +1615,7 @@
   </p>
 
 
-  <figure id="org87c9955">
+  <figure id="org3b177e1">
   <img src="https://blog.tecosaur.net/tmio/figures/citation-structure-full.svg" alt="citation-structure-full.svg" class="org-svg">
 
   <figcaption><span class="figure-number">Figure 9: </span>The full citation syntax</figcaption>
@@ -1629,7 +1629,7 @@
   </p>
 
 
-  <figure id="orgf49e93a">
+  <figure id="orgdfc1bf1">
   <img src="https://blog.tecosaur.net/tmio/figures/org-citar-insertion.png" alt="org-citar-insertion.png">
 
   <figcaption><span class="figure-number">Figure 10: </span>Inserting a citation with the <i>citar</i> package</figcaption>
@@ -1671,7 +1671,7 @@
   </p>
 
 
-  <figure id="orge52da01">
+  <figure id="org68d50fb">
   <img src="https://blog.tecosaur.net/tmio/figures/ob-julia-latexify-rendered.png" alt="ob-julia-latexify-rendered.png">
 
   <figcaption><span class="figure-number">Figure 11: </span>Rendered LaTeX representations of some Julia values</figcaption>
@@ -1777,7 +1777,7 @@
   give it a shot!
   </p>
 
-  <div class="info" id="orgf6a899f">
+  <div class="info" id="org83272c8">
   <p>
   <b>Ways you can contribute to the project</b>
   </p>
@@ -1958,7 +1958,7 @@
   </p>
 
 
-  <figure id="orgf8aa190">
+  <figure id="org33f4f97">
   <img src="https://blog.tecosaur.net/tmio/figures/celebrate-citations.svg" alt="celebrate-citations.svg" class="org-svg">
 
   </figure>
@@ -2057,7 +2057,7 @@
   <kbd>.bib</kbd>, <kbd>.bibtex</kbd>, or <kbd>.json</kbd> extension), which we do either via the <kbd>#+bibliography</kbd>
   keyword, or the variable <code>org-cite-global-bibliography</code>.
   </p>
-  <pre class="example" id="org39f3c91">
+  <pre class="example" id="orgd95f2e9">
   #+bibliography: orgcite.bib
   </pre>
 
@@ -2067,14 +2067,14 @@
   </p>
 
 
-  <figure id="orgfe4afed">
+  <figure id="org9e17ebf">
   <img src="https://blog.tecosaur.net/tmio/figures/citation-structure-basic.svg" alt="citation-structure-basic.svg" class="org-svg">
 
   <figcaption><span class="figure-number">Figure 12: </span>The new citation syntax, for simple citations</figcaption>
   </figure>
 
   <p>
-  Using the default style <kbd>[cite:@OrgCitations]</kbd> produces . For
+  Using the default style <kbd>[cite:@OrgCitations]</kbd> produces (<a href="#citeproc_bib_item_1">org et al. 2021</a>). For
   more information on the styles currently available, see <a href="#cite-styles">2</a>.
   </p>
 
@@ -2083,12 +2083,13 @@
   <kbd>#+print_bibliography</kbd> keyword, like so:
   </p>
 
-  <pre class="example" id="org98e73ee">
+  <pre class="example" id="org7a4808a">
   #+print_bibliography:
   </pre>
 
-  <div class="info" id="org49c8994">
+  <div class="info" id="orgdcdd240">
   <style>.csl-entry{text-indent: -1.5em; margin-left: 1.5em;}</style><div class="csl-bib-body">
+  <div class="csl-entry"><a id="citeproc_bib_item_1"></a>org, mode, Citation Syntax, Mailing List, and Time Effort. 2021. “Elegant Citations with Org-Mode.” <i>Journal of Plain Text Formats</i> 42 (1): 2–3.</div>
   </div>
 
   </div>
@@ -2096,7 +2097,7 @@
   <p>
   So, to summarise, all one needs to get started is:
   </p>
-  <pre class="example" id="org3922a66">
+  <pre class="example" id="org3e34b7a">
   #+bibliography: references.bib
   [cite:@key]
   #+print_bibliography:
@@ -2116,7 +2117,7 @@
   </p>
 
 
-  <figure id="orgac2460e">
+  <figure id="org88420ea">
   <img src="https://blog.tecosaur.net/tmio/figures/citation-structure-full.svg" alt="citation-structure-full.svg" class="org-svg">
 
   <figcaption><span class="figure-number">Figure 13: </span>The new citations syntax, in full</figcaption>
@@ -2135,7 +2136,7 @@
 
   <p>
   Using the default CSL citation style (Chicago author-name) <kbd>[cite/l/b:see
-  @OrgCitations pp. 7 for fun]</kbd> becomes .
+  @OrgCitations pp. 7 for fun]</kbd> becomes see <a href="#citeproc_bib_item_1">7</a> for fun.
   </p>
 
   <p>
@@ -2171,7 +2172,7 @@
   <tr>
   <td class="org-left"><kbd>a</kbd> author</td>
   <td class="org-left"><kbd>cf</kbd> caps-full</td>
-  <td class="org-left">&#xa0;</td>
+  <td class="org-left">(<a href="#citeproc_bib_item_1">Org, Syntax, List, and Effort</a>)</td>
   <td class="org-left">Citeauthor</td>
   <td class="org-left">&#xa0;</td>
   </tr>
@@ -2179,7 +2180,7 @@
   <tr>
   <td class="org-left"><kbd>a</kbd> author</td>
   <td class="org-left"><kbd>f</kbd> full</td>
-  <td class="org-left">&#xa0;</td>
+  <td class="org-left">(<a href="#citeproc_bib_item_1">org, Syntax, List, and Effort</a>)</td>
   <td class="org-left">citeauthor</td>
   <td class="org-left">citeauthor*</td>
   </tr>
@@ -2187,7 +2188,7 @@
   <tr>
   <td class="org-left"><kbd>a</kbd> author</td>
   <td class="org-left"><kbd>c</kbd> caps</td>
-  <td class="org-left">&#xa0;</td>
+  <td class="org-left">(<a href="#citeproc_bib_item_1">Org et al.</a>)</td>
   <td class="org-left">Citeauthor*</td>
   <td class="org-left">Citeauthor</td>
   </tr>
@@ -2195,7 +2196,7 @@
   <tr>
   <td class="org-left"><kbd>a</kbd> author</td>
   <td class="org-left">&#xa0;</td>
-  <td class="org-left">&#xa0;</td>
+  <td class="org-left">(<a href="#citeproc_bib_item_1">org et al.</a>)</td>
   <td class="org-left">citeauthor*</td>
   <td class="org-left">citeauthor</td>
   </tr>
@@ -2204,7 +2205,7 @@
   <tr>
   <td class="org-left"><kbd>na</kbd> noauthor</td>
   <td class="org-left"><kbd>b</kbd> bare</td>
-  <td class="org-left">&#xa0;</td>
+  <td class="org-left"><a href="#citeproc_bib_item_1">2021</a></td>
   <td class="org-left">&#xa0;</td>
   <td class="org-left">citeyear</td>
   </tr>
@@ -2212,7 +2213,7 @@
   <tr>
   <td class="org-left"><kbd>na</kbd> noauthor</td>
   <td class="org-left">&#xa0;</td>
-  <td class="org-left">&#xa0;</td>
+  <td class="org-left">(<a href="#citeproc_bib_item_1">2021</a>)</td>
   <td class="org-left">autocite*</td>
   <td class="org-left">citeyearpar</td>
   </tr>
@@ -2221,7 +2222,7 @@
   <tr>
   <td class="org-left"><kbd>l</kbd> locators</td>
   <td class="org-left"><kbd>bc</kbd> bare-caps</td>
-  <td class="org-left">&#xa0;</td>
+  <td class="org-left">(<a href="#citeproc_bib_item_1">2</a>)</td>
   <td class="org-left">Notecite</td>
   <td class="org-left">&#xa0;</td>
   </tr>
@@ -2229,7 +2230,7 @@
   <tr>
   <td class="org-left"><kbd>l</kbd> locators</td>
   <td class="org-left"><kbd>b</kbd> bare</td>
-  <td class="org-left">&#xa0;</td>
+  <td class="org-left"><a href="#citeproc_bib_item_1">2</a></td>
   <td class="org-left">notecite</td>
   <td class="org-left">&#xa0;</td>
   </tr>
@@ -2237,7 +2238,7 @@
   <tr>
   <td class="org-left"><kbd>l</kbd> locators</td>
   <td class="org-left"><kbd>bc</kbd> caps</td>
-  <td class="org-left">&#xa0;</td>
+  <td class="org-left">(, <a href="#citeproc_bib_item_1">2</a>)</td>
   <td class="org-left">Pnotecite</td>
   <td class="org-left">&#xa0;</td>
   </tr>
@@ -2245,7 +2246,7 @@
   <tr>
   <td class="org-left"><kbd>l</kbd> locators</td>
   <td class="org-left">&#xa0;</td>
-  <td class="org-left">&#xa0;</td>
+  <td class="org-left">(, <a href="#citeproc_bib_item_1">2</a>)</td>
   <td class="org-left">pnotecite</td>
   <td class="org-left">&#xa0;</td>
   </tr>
@@ -2263,7 +2264,7 @@
   <tr>
   <td class="org-left"><kbd>t</kbd> text</td>
   <td class="org-left"><kbd>b</kbd> bare</td>
-  <td class="org-left">&#xa0;</td>
+  <td class="org-left">org et al. (<a href="#citeproc_bib_item_1">2021</a>)</td>
   <td class="org-left">&#xa0;</td>
   <td class="org-left">citealp</td>
   </tr>
@@ -2271,7 +2272,7 @@
   <tr>
   <td class="org-left"><kbd>t</kbd> text</td>
   <td class="org-left"><kbd>c</kbd> caps</td>
-  <td class="org-left">&#xa0;</td>
+  <td class="org-left">Org et al. (<a href="#citeproc_bib_item_1">2021</a>)</td>
   <td class="org-left">Textcite</td>
   <td class="org-left">Citep</td>
   </tr>
@@ -2279,7 +2280,7 @@
   <tr>
   <td class="org-left"><kbd>t</kbd> text</td>
   <td class="org-left"><kbd>f</kbd> full</td>
-  <td class="org-left">&#xa0;</td>
+  <td class="org-left">org, Syntax, List, and Effort (<a href="#citeproc_bib_item_1">2021</a>)</td>
   <td class="org-left">&#xa0;</td>
   <td class="org-left">citep*</td>
   </tr>
@@ -2287,7 +2288,7 @@
   <tr>
   <td class="org-left"><kbd>t</kbd> text</td>
   <td class="org-left"><kbd>bc</kbd> bare-caps</td>
-  <td class="org-left">&#xa0;</td>
+  <td class="org-left">org et al. (<a href="#citeproc_bib_item_1">2021</a>)</td>
   <td class="org-left">&#xa0;</td>
   <td class="org-left">Citealp</td>
   </tr>
@@ -2295,7 +2296,7 @@
   <tr>
   <td class="org-left"><kbd>t</kbd> text</td>
   <td class="org-left"><kbd>bf</kbd> bare-full</td>
-  <td class="org-left">&#xa0;</td>
+  <td class="org-left">org et al. (<a href="#citeproc_bib_item_1">2021</a>)</td>
   <td class="org-left">&#xa0;</td>
   <td class="org-left">citealp*</td>
   </tr>
@@ -2303,7 +2304,7 @@
   <tr>
   <td class="org-left"><kbd>t</kbd> text</td>
   <td class="org-left"><kbd>cf</kbd> caps-full</td>
-  <td class="org-left">&#xa0;</td>
+  <td class="org-left">Org, Syntax, List, and Effort (<a href="#citeproc_bib_item_1">2021</a>)</td>
   <td class="org-left">&#xa0;</td>
   <td class="org-left">Citep*</td>
   </tr>
@@ -2311,7 +2312,7 @@
   <tr>
   <td class="org-left"><kbd>t</kbd> text</td>
   <td class="org-left"><kbd>bcf</kbd> bare-caps-full</td>
-  <td class="org-left">&#xa0;</td>
+  <td class="org-left">org et al. (<a href="#citeproc_bib_item_1">2021</a>)</td>
   <td class="org-left">&#xa0;</td>
   <td class="org-left">Citealp*</td>
   </tr>
@@ -2319,7 +2320,7 @@
   <tr>
   <td class="org-left"><kbd>t</kbd> text</td>
   <td class="org-left">&#xa0;</td>
-  <td class="org-left">&#xa0;</td>
+  <td class="org-left">org et al. (<a href="#citeproc_bib_item_1">2021</a>)</td>
   <td class="org-left">textcite</td>
   <td class="org-left">&#xa0;</td>
   </tr>
@@ -2328,7 +2329,7 @@
   <tr>
   <td class="org-left">(default)</td>
   <td class="org-left"><kbd>b</kbd> bare</td>
-  <td class="org-left">&#xa0;</td>
+  <td class="org-left"><a href="#citeproc_bib_item_1">org et al. 2021</a></td>
   <td class="org-left">cite</td>
   <td class="org-left">citealp</td>
   </tr>
@@ -2336,7 +2337,7 @@
   <tr>
   <td class="org-left">(default)</td>
   <td class="org-left"><kbd>bc</kbd> bare-caps</td>
-  <td class="org-left">&#xa0;</td>
+  <td class="org-left"><a href="#citeproc_bib_item_1">Org et al. 2021</a></td>
   <td class="org-left">Cite</td>
   <td class="org-left">Citealp</td>
   </tr>
@@ -2344,7 +2345,7 @@
   <tr>
   <td class="org-left">(default)</td>
   <td class="org-left"><kbd>f</kbd> full</td>
-  <td class="org-left">&#xa0;</td>
+  <td class="org-left">(<a href="#citeproc_bib_item_1">org et al. 2021</a>)</td>
   <td class="org-left">&#xa0;</td>
   <td class="org-left">citep*</td>
   </tr>
@@ -2352,7 +2353,7 @@
   <tr>
   <td class="org-left">(default)</td>
   <td class="org-left"><kbd>bf</kbd> bare-full</td>
-  <td class="org-left">&#xa0;</td>
+  <td class="org-left">(<a href="#citeproc_bib_item_1">org et al. 2021</a>)</td>
   <td class="org-left">&#xa0;</td>
   <td class="org-left">citealp</td>
   </tr>
@@ -2360,7 +2361,7 @@
   <tr>
   <td class="org-left">(default)</td>
   <td class="org-left"><kbd>cf</kbd> caps-full</td>
-  <td class="org-left">&#xa0;</td>
+  <td class="org-left">(<a href="#citeproc_bib_item_1">org et al. 2021</a>)</td>
   <td class="org-left">&#xa0;</td>
   <td class="org-left">Citep*</td>
   </tr>
@@ -2368,7 +2369,7 @@
   <tr>
   <td class="org-left">(default)</td>
   <td class="org-left"><kbd>bcf</kbd> bare-caps-full</td>
-  <td class="org-left">&#xa0;</td>
+  <td class="org-left">(<a href="#citeproc_bib_item_1">org et al. 2021</a>)</td>
   <td class="org-left">&#xa0;</td>
   <td class="org-left">Citealp*</td>
   </tr>
@@ -2376,7 +2377,7 @@
   <tr>
   <td class="org-left">(default)</td>
   <td class="org-left">&#xa0;</td>
-  <td class="org-left">&#xa0;</td>
+  <td class="org-left">(<a href="#citeproc_bib_item_1">org et al. 2021</a>)</td>
   <td class="org-left">autocite</td>
   <td class="org-left">citep</td>
   </tr>
@@ -2420,7 +2421,7 @@
   on a per-document basis via the <kbd>#+cite_export</kbd> keyword. Here, I shall use the <kbd>csl</kbd>
   processor,
   </p>
-  <pre class="example" id="org1e994a8">
+  <pre class="example" id="org7faaeef">
   #+cite_export: csl
   </pre>
 
@@ -2429,7 +2430,7 @@
   style by giving a triplet of parameters <code class="src src-elisp">(PROCESSOR BIBLIOGRAPHY-STYLE CITATION-STYLE)</code> instead of just the processor. You can also use this triplet of
   values with the <kbd>#+cite_export</kbd> keyword
   </p>
-  <pre class="example" id="org8b6d689">
+  <pre class="example" id="org426e454">
   #+cite_export: processor bibliography-style citation-style
   </pre>
 
@@ -2440,7 +2441,7 @@
   options to a <code class="src src-LaTeX"><span class="org-keyword">\printbibliography</span></code> command, allowing for the
   following:
   </p>
-  <pre class="example" id="org3e8a3e6">
+  <pre class="example" id="org8271cfe">
   #+print_bibliography: :section 2 :heading subbibliography
   #+print_bibliography: :keyword abc,xyz :title "Primary Sources"
   </pre>
@@ -2486,7 +2487,7 @@
   either absolute or relative to <code>org-cite-csl-styles-dir</code>. For example, if I
   download <kbd>apa.csl</kbd> I can use it like so:
   </p>
-  <pre class="example" id="orgd167eac">
+  <pre class="example" id="org77364e3">
   #+cite_export: csl ~/Downloads/apa.csl
   </pre>
 
@@ -2515,14 +2516,14 @@
   </p>
 
 
-  <figure id="org3ac50b6">
+  <figure id="org17deeb7">
   <img src="https://blog.tecosaur.net/tmio/figures/zotero-export-library.png" alt="zotero-export-library.png">
 
   <figcaption><span class="figure-number">Figure 14: </span>Zotero library right click context menu, showing the export option</figcaption>
   </figure>
 
 
-  <figure id="org3ea0c81">
+  <figure id="orgde6761a">
   <img src="https://blog.tecosaur.net/tmio/figures/zotero-export-options-prompt.png" alt="zotero-export-options-prompt.png">
 
   <figcaption><span class="figure-number">Figure 15: </span>Zotero collection export dialog</figcaption>
@@ -2534,7 +2535,7 @@
   </p>
 
 
-  <figure id="orgd277016">
+  <figure id="orgeda696b">
   <img src="https://blog.tecosaur.net/tmio/figures/zotero-cite-styles-menu.png" alt="zotero-cite-styles-menu.png">
 
   <figcaption><span class="figure-number">Figure 16: </span>Zotero CSL style management within preferences</figcaption>
@@ -2554,7 +2555,7 @@
   To then use the citation style defined by <kbd>~/Zotero/styles/apa.csl</kbd> one can then
   simply refer to <kbd>apa.csl</kbd> when using the <kbd>#+cite_export</kbd> keyword.
   </p>
-  <pre class="example" id="org75c7bed">
+  <pre class="example" id="org54c095f">
   #+cite_export: csl apa.csl
   </pre>
   </div>
@@ -2643,7 +2644,7 @@
   </p>
 
 
-  <figure id="orgc91819d">
+  <figure id="org07826ad">
   <img src="https://blog.tecosaur.net/tmio/figures/org-roam-graph-2d-overview.png" alt="org-roam-graph-2d-overview.png">
 
   <figcaption><span class="figure-number">Figure 17: </span>org-roam-ui's 2D overview.</figcaption>
@@ -2664,7 +2665,7 @@
   </p>
 
 
-  <figure id="orgb578e31">
+  <figure id="orgc3b8839">
   <img src="https://blog.tecosaur.net/tmio/figures/org-roam-ui-in-emacs.png" alt="org-roam-ui-in-emacs.png">
 
   <figcaption><span class="figure-number">Figure 18: </span>Embed org-roam-ui in Emacs using xwidget-webkit.</figcaption>
@@ -2749,7 +2750,7 @@
   </p>
 
 
-  <figure id="org803cb9b">
+  <figure id="orgadc1e92">
   <img src="https://blog.tecosaur.net/tmio/figures/dilbert-zenos-paradox.jpg" alt="dilbert-zenos-paradox.jpg">
 
   <figcaption><span class="figure-number">Figure 19: </span>It's right around the corner, I swear!</figcaption>
@@ -2766,7 +2767,7 @@
   </p>
 
 
-  <figure id="orgfe56243">
+  <figure id="org7812fe0">
   <img src="https://blog.tecosaur.net/tmio/figures/org-latex-default-reference-to-sec.png" alt="org-latex-default-reference-to-sec.png">
 
   <figcaption><span class="figure-number">Figure 20: </span>A LaTeX export of a simple document with a reference to both the first and second section. "2" what? Section 2, Table 2, Figure 2, ...</figcaption>
@@ -2779,7 +2780,7 @@
   </p>
 
 
-  <figure id="orgd62de58">
+  <figure id="org1491615">
   <img src="https://blog.tecosaur.net/tmio/figures/org-latex-cref-reference-to-sec.png" alt="org-latex-cref-reference-to-sec.png">
 
   <figcaption><span class="figure-number">Figure 21: </span>A LaTeX export of the same document, but now using <code>cleveref</code>. Note the change from "1" and "2" to "Section 1" and "Section 2".</figcaption>
@@ -2861,7 +2862,7 @@
   keyword, this works nicely in HTML too 🙂.
   </p>
 
-  <figure id="org9868867">
+  <figure id="orga077efd">
   <img src="https://blog.tecosaur.net/tmio/figures/salvador-dali-persistence-of-memory.jpg" alt="salvador-dali-persistence-of-memory.jpg">
 
   <figcaption><span class="figure-number">Figure 22: </span>A famous surrealist painting</figcaption>
@@ -2923,7 +2924,7 @@
   Org is nice and does the right thing<sup>TM</sup> by including the caption at the top.
   </p>
 
-  <figure id="org4fcba8c">
+  <figure id="org72c3397">
   <img src="https://blog.tecosaur.net/tmio/figures/org-table-to-latex-example.png" alt="org-table-to-latex-example.png">
 
   <figcaption><span class="figure-number">Figure 23: </span>Look ma, I put the caption in the right place.</figcaption>
@@ -3029,7 +3030,7 @@
   </p>
   <div class="org-src-container">
   <pre class="src src-org"><span class="org-org-meta-line">#+latex_header: \newcommand{\RR}{\mathbb{R}}</span>
-  <span class="org-org-meta-line">#+latex_header: \usepackage{svg} % so that <a href="file:*.svg">file:*.svg</a> works nicely</span>
+  <span class="org-org-meta-line">#+latex_header: \usepackage{svg} % so that <a href="file:*.svg">[[file:*.svg]]</a> works nicely</span>
   </pre>
   </div>
   <p>
@@ -3206,7 +3207,7 @@
   </p>
 
 
-  <figure id="org02ea3b5">
+  <figure id="org1e7dbba">
   <img src="https://blog.tecosaur.net/tmio/figures/screenshot-of-updates-orgmode-org.png" alt="screenshot-of-updates-orgmode-org.png">
 
   <figcaption><span class="figure-number">Figure 24: </span>A screenshot of <a href="https://updates.orgmode.org/">updates.orgmode.org</a></figcaption>
@@ -3240,7 +3241,7 @@
   </p>
 
 
-  <figure id="org511b8ff">
+  <figure id="orgf06c8b8">
   <img src="https://github.com/larsmagne/meme/raw/master/images/Grandma-Finds-The-Internet.jpg" alt="Grandma-Finds-The-Internet.jpg">
 
   <figcaption><span class="figure-number">Figure 25: </span>Org mode discovers the internet</figcaption>
@@ -3261,7 +3262,7 @@
   </p>
 
 
-  <figure id="org2b44cd9">
+  <figure id="org6f545e4">
   <img src="https://blog.tecosaur.net/tmio/figures/org-edit-special-latex-fragment.png" alt="org-edit-special-latex-fragment.png">
 
   <figcaption><span class="figure-number">Figure 26: </span>Running <code>org-edit-special</code> on an inline LaTeX fragment</figcaption>
@@ -3279,7 +3280,7 @@
   </p>
 
 
-  <figure id="org2674cb9">
+  <figure id="orgdea3cc4">
   <img src="https://blog.tecosaur.net/tmio/figures/org-startup-num-and-levels.png" alt="org-startup-num-and-levels.png">
 
   <figcaption><span class="figure-number">Figure 27: </span>Opening a buffer with the new <kbd>num</kbd> and <kbd>show2levels</kbd> startup options</figcaption>

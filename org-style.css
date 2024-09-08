@@ -680,7 +680,7 @@ pre.src:empty {
 code {
   font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
   color: var(--code-foreground);
-  font-size: 14px;
+  font-size: 0.9em;
   padding: 0 2px; }
 
 kbd {

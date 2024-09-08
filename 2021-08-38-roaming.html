@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2024-01-12 Fri 13:39 -->
+<!-- 2024-09-08 Sun 15:20 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>August 2021</title>
@@ -25,24 +25,62 @@
 <link rel="stylesheet" type="text/css" href="blog.css">
 <script src="org-style.js"></script>
 <script>
-MathJax = {
-  chtml: {
-    scale: 1
-  },
-  svg: {
-    scale: 1,
-    fontCache: "global"
-  },
-  tex: {
-    tags: "%AUTONUMBER",
-    multlineWidth: "85%",
-    tagSide: "right",
-    tagIndent: ".8em"
-  }
-};
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools'],
+    },
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      packages: {'[+]': ['mathtools']},
+      macros: {
+        RR: ['\\ifstrempty{#1}{\\mathbb{R}}{\\mathbb{R}^{#1}}', 1, ''],
+        NN: ['\\ifstrempty{#1}{\\mathbb{N}}{\\mathbb{N}^{#1}}', 1, ''],
+        ZZ: ['\\ifstrempty{#1}{\\mathbb{Z}}{\\mathbb{Z}^{#1}}', 1, ''],
+        QQ: ['\\ifstrempty{#1}{\\mathbb{Q}}{\\mathbb{Q}^{#1}}', 1, ''],
+        CC: ['\\ifstrempty{#1}{\\mathbb{C}}{\\mathbb{C}^{#1}}', 1, ''],
+        EE: '\\mathbb{E}',
+        Lap: '\\operatorname{\\mathcal{L}}',
+        Var: '\\operatorname{Var}',
+        Cor: '\\operatorname{Cor}',
+        E: '\\operatorname{E}',
+      },
+      mathtools: {
+        pairedDelimiters: {
+          abs: ['\\lvert', '\\rvert'],
+          norm: ['\\lVert', '\\rVert'],
+          ceil: ['\\lceil', '\\rceil'],
+          floor: ['\\lfloor', '\\rfloor'],
+          round: ['\\lfloor', '\\rceil'],
+        }
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
 </script>
-<script id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
 </head>
 <body>
 <input type='checkbox' id='theme-switch'><div id='page'><label id='switch-label' for='theme-switch'></label><div id="preamble" class="status">
@@ -97,7 +135,7 @@ release of <a href="https://github.com/org-roam/org-roam-server">org-roam-server
 </p>
 
 
-<figure id="org178ef09">
+<figure id="orga2cbea4">
 <img src="figures/org-roam-graph-2d-overview.png" alt="org-roam-graph-2d-overview.png" class="doom-one" width="50%">
 
 <figcaption><span class="figure-number">Figure 1: </span>org-roam-ui&rsquo;s 2D overview.</figcaption>
@@ -128,7 +166,7 @@ graph view and the currently open roam file in Emacs. Furthermore, with
 </p>
 
 
-<figure id="orged74fed">
+<figure id="org5bc7cb0">
 <img src="figures/org-roam-ui-in-emacs.png" alt="org-roam-ui-in-emacs.png" class="invertible">
 
 <figcaption><span class="figure-number">Figure 2: </span>Embed org-roam-ui in Emacs using xwidget-webkit.</figcaption>
@@ -141,7 +179,7 @@ filtering and theme syncing, with more in the works. To see more, check out the
 </p>
 
 <p>
-<div class="link-preview"><a href="https://github.com/org-roam/org-roam-ui/"><img src="https://repository-images.githubusercontent.com/386398327/72086426-51c8-4b7b-86f1-950195373de7"/><small>github.com</small><p><b>GitHub - org-roam/org-roam-ui: A graphical frontend for exploring your org-roam Zettelkasten</b></br>A graphical frontend for exploring your org-roam Zettelkasten - GitHub - org-roam/org-roam-ui: A graphical frontend for exploring your org-roam Zettelkasten</p></a></div>
+<div class="link-preview"><a href="https://github.com/org-roam/org-roam-ui/"><img src="https://repository-images.githubusercontent.com/386398327/72086426-51c8-4b7b-86f1-950195373de7"/><small>github.com</small><p><b>GitHub - org-roam/org-roam-ui: A graphical frontend for exploring your org-roam Zettelkasten</b></br>A graphical frontend for exploring your org-roam Zettelkasten - org-roam/org-roam-ui</p></a></div>
 </p>
 </div>
 </div>

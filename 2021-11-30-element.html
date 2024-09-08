@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2024-01-12 Fri 13:39 -->
+<!-- 2024-09-08 Sun 15:20 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>November 2021</title>
@@ -46,9 +46,9 @@ With a 9.5 release highlight post last month, and the month before skipped, it&r
 now <i>three months</i> since the last regular instalment of <span class='acr'>TMIO</span>. Let&rsquo;s get back up
 to date on some of the latest happenings with Org.
 </p>
-<div id="outline-container-org-as-markup" class="outline-2">
-<h2 id="org-as-markup">Org as markup<a aria-hidden="true" href="#org-as-markup">#</a> </h2>
-<div class="outline-text-2" id="text-org-as-markup">
+<div id="outline-container-org-markup" class="outline-2">
+<h2 id="org-markup">Org as markup<a aria-hidden="true" href="#org-markup">#</a> </h2>
+<div class="outline-text-2" id="text-org-markup">
 <p>
 Looking at the wider ecosystem, it certainly appears that there is a growing
 appetite for Org markup outside org-mode. More projects like <a href="https://gohugo.io/">Hugo</a> and <a href="https://logseq.com/">Logseq</a>
@@ -123,11 +123,11 @@ recently before say using the <kbd>csl</kbd> backend, one needed to
 <p>
 Now, if you have a line like:
 </p>
-<details id='org3915936' class='code' open>
+<details id='orgd4eee30' class='code' open>
 <summary></summary>
-<div class='gutter'><a href='#org3915936'>#</a>
+<div class='gutter'><a href='#orgd4eee30'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
-<pre class="example" id="org3915936">
+<pre class="example" id="orgd4eee30">
 #+cite_export: FORMAT ...
 </pre>
 
@@ -165,11 +165,11 @@ the base/default mode set by <code>org-babel-tangle-default-file-mode</code>.</d
 <p>
 This means the following forms are now all equivalent:
 </p>
-<details id='org248fb38' class='code' open>
+<details id='orgd53a8c0' class='code' open>
 <summary></summary>
-<div class='gutter'><a href='#org248fb38'>#</a>
+<div class='gutter'><a href='#orgd53a8c0'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
-<pre class="example" id="org248fb38">
+<pre class="example" id="orgd53a8c0">
 :tangle-mode (identity #o755)
 :tangle-mode o755
 :tangle-mode a=rx,u+w
@@ -190,9 +190,9 @@ made yet though.
 </p>
 </div>
 </div>
-<div id="outline-container-113526722" class="outline-2">
-<h2 id="113526722">Org element parser cache<a aria-hidden="true" href="#113526722">#</a> </h2>
-<div class="outline-text-2" id="text-113526722">
+<div id="outline-container-org-element-parser" class="outline-2">
+<h2 id="org-element-parser">Org element parser cache<a aria-hidden="true" href="#org-element-parser">#</a> </h2>
+<div class="outline-text-2" id="text-org-element-parser">
 <p>
 Ihor Radchenko has done some fantastic work over the past few months by
 overhauling parts of <kbd>org-element.el</kbd> to introduce extensive caching. <kbd>org-element</kbd>
@@ -231,7 +231,7 @@ differently from plain text. Now though, they have a new dedicated face
 </p>
 
 
-<figure id="orgbac6797">
+<figure id="org90825cd">
 <img src="figures/inline-src-block-fontified-vs-code.png" alt="inline-src-block-fontified-vs-code.png" class="doom-one">
 
 <figcaption><span class="figure-number">Figure 1: </span>Side-by-side comparison of a identical paragraphs using code (<code>~</code>) markup and inline source blocks (<code>src_</code>).</figcaption>
@@ -246,16 +246,16 @@ show the code that produces them.
 </p>
 
 
-<figure id="org039e913">
+<figure id="org263cac5">
 <img src="figures/inline-src-block-julia-demo.png" alt="inline-src-block-julia-demo.png" class="doom-one">
 
 <figcaption><span class="figure-number">Figure 2: </span>A paragraph making use of <i>evaluated</i> inline source blocks. Note that the <kbd>⟨11⟩</kbd> is a prettified results macro (using a potential future org-mode patch).</figcaption>
 </figure>
 </div>
 </div>
-<div id="outline-container-functions-as-default" class="outline-2">
-<h2 id="functions-as-default">Functions as default heading arguments<a aria-hidden="true" href="#functions-as-default">#</a> </h2>
-<div class="outline-text-2" id="text-functions-as-default">
+<div id="outline-container-functions-default-heading" class="outline-2">
+<h2 id="functions-default-heading">Functions as default heading arguments<a aria-hidden="true" href="#functions-default-heading">#</a> </h2>
+<div class="outline-text-2" id="text-functions-default-heading">
 <p>
 Matt Huszagh has contributed a patch that allows functions to be used as values
 for default header arguments. This is great for arguments where a sensible
@@ -266,9 +266,9 @@ default can be provided by evaluating a function on-the-fly.
 Consider for example the arguments required to produce a simple image using R
 with Babel:
 </p>
-<details id='functions-as-default,code--1' class='code' open><summary><span class="lang">Org mode</span></summary>
+<details id='functions-default-heading,code--1' class='code' open><summary><span class="lang">Org mode</span></summary>
 <div class='gutter'>
-<a href='#functions-as-default,code--1'>#</a>
+<a href='#functions-default-heading,code--1'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
 <div class="org-src-container">
 <pre class="src src-org"><span class="org-org-block-begin-line">#+begin_src R :results graphics file :file myimage.svg</span>
@@ -290,9 +290,9 @@ First we must write a function that when run at the source block will give us a
 suitable file name, like so
 </p>
 
-<details id='functions-as-default,code--2' class='code' open><summary><span class="lang">Emacs Lisp</span></summary>
+<details id='functions-default-heading,code--2' class='code' open><summary><span class="lang">Emacs Lisp</span></summary>
 <div class='gutter'>
-<a href='#functions-as-default,code--2'>#</a>
+<a href='#functions-default-heading,code--2'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(<span class="org-keyword">defun</span> <span class="org-function-name">my/org-src-sha-to-image</span> ()
@@ -310,9 +310,9 @@ Let&rsquo;s also write a function to guess whether the source block produces a p
 checking if there&rsquo;s a plot command on the last line.
 </p>
 
-<details id='functions-as-default,code--3' class='code' open><summary><span class="lang">Emacs Lisp</span></summary>
+<details id='functions-default-heading,code--3' class='code' open><summary><span class="lang">Emacs Lisp</span></summary>
 <div class='gutter'>
-<a href='#functions-as-default,code--3'>#</a>
+<a href='#functions-default-heading,code--3'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(<span class="org-keyword">defun</span> <span class="org-function-name">my/org-src-guess-results-type</span> ()
@@ -328,9 +328,9 @@ Then we can just use these function in place of a static value in the default
 header arguments variable &#x2014; that&rsquo;s all it takes.
 </p>
 
-<details id='functions-as-default,code--4' class='code' open><summary><span class="lang">Emacs Lisp</span></summary>
+<details id='functions-default-heading,code--4' class='code' open><summary><span class="lang">Emacs Lisp</span></summary>
 <div class='gutter'>
-<a href='#functions-as-default,code--4'>#</a>
+<a href='#functions-default-heading,code--4'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(<span class="org-keyword">setq</span> org-babel-default-header-args:R
@@ -344,9 +344,9 @@ header arguments variable &#x2014; that&rsquo;s all it takes.
 This means for most cases we can now get away without any header arguments at all.
 </p>
 
-<details id='functions-as-default,code--5' class='code' open><summary><span class="lang">Org mode</span></summary>
+<details id='functions-default-heading,code--5' class='code' open><summary><span class="lang">Org mode</span></summary>
 <div class='gutter'>
-<a href='#functions-as-default,code--5'>#</a>
+<a href='#functions-default-heading,code--5'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
 <div class="org-src-container">
 <pre class="src src-org"><span class="org-org-block-begin-line">#+begin_src R</span>
@@ -381,7 +381,7 @@ accessible text width in the buffer.
 </p>
 
 
-<figure id="orgfb0a353">
+<figure id="org6cb5556">
 <img src="figures/proportional-image-width.png" alt="proportional-image-width.png" class="doom-one">
 
 <figcaption><span class="figure-number">Figure 3: </span>A containing with an image set to half of the accesible text width</figcaption>
