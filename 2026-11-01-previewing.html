@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2026-11-02 Mon 01:46 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>November 2026</title>
+<meta name="author" content="TEC">
+<meta name="generator" content="org mode">
+<meta name="theme-color" content="#77aa99">
+<meta property="og:type" content="article">
+<meta property="og:title" content="November 2026">
+<meta property="og:description" content="Fabulously Fancy Fragments">
+<meta property="og:image" content="https://blog.tecosaur.net/tmio/org-icon.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="464">
+<meta property="og:image:height" content="512">
+<meta property="og:image:alt" content="Org unicorn logo">
+<meta property="og:article:author:first_name" content="TEC">
+<meta property="og:article:published_time" content="2026-11-01T00:00:00+0800">
+<meta property="og:article:modified_time" content="2026-11-02T01:43:06+0800">
+<link rel="alternate" type="application/atom+xml" title="This Month in Org" href="rss.xml" />
+<link rel="icon" type="image/ico" href="favicon.ico?v=3">
+<link rel="stylesheet" type="text/css" href="org-style.css">
+<link rel="stylesheet" type="text/css" href="blog.css">
+<script src="org-style.js"></script>
+<link rel="stylesheet" href="img-slider.css">
+<script src="img-slider.js" defer></script>
+<script>
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools'],
+    },
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      packages: {'[+]': ['mathtools']},
+      macros: {
+        RR: ['\\ifstrempty{#1}{\\mathbb{R}}{\\mathbb{R}^{#1}}', 1, ''],
+        NN: ['\\ifstrempty{#1}{\\mathbb{N}}{\\mathbb{N}^{#1}}', 1, ''],
+        ZZ: ['\\ifstrempty{#1}{\\mathbb{Z}}{\\mathbb{Z}^{#1}}', 1, ''],
+        QQ: ['\\ifstrempty{#1}{\\mathbb{Q}}{\\mathbb{Q}^{#1}}', 1, ''],
+        CC: ['\\ifstrempty{#1}{\\mathbb{C}}{\\mathbb{C}^{#1}}', 1, ''],
+        EE: '\\mathbb{E}',
+        Lap: '\\operatorname{\\mathcal{L}}',
+        Var: '\\operatorname{Var}',
+        Cor: '\\operatorname{Cor}',
+        E: '\\operatorname{E}',
+      },
+      mathtools: {
+        pairedDelimiters: {
+          abs: ['\\lvert', '\\rvert'],
+          norm: ['\\lVert', '\\rVert'],
+          ceil: ['\\lceil', '\\rceil'],
+          floor: ['\\lfloor', '\\rfloor'],
+          round: ['\\lfloor', '\\rceil'],
+        }
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+</head>
+<body>
+<input type='checkbox' id='theme-switch'><div id='page'><label id='switch-label' for='theme-switch'></label><div id="preamble" class="status">
+<header>
+    <h4><a href="https://orgmode.org" class="orgicorn"><img src="org-icon-monochrome.svg" class="invertible"></a>
+        <a href="https://blog.tecosaur.net/tmio/" class="title">
+            This Month in Org</a>
+        <a href="rss.xml" title="RSS Feed" type="application/rss+xml" class="rss">
+            <img src="rss.svg" alt="RSS icon" />
+        </a></h4>
+</header>
+</div>
+<div id="content">
+<header class="page-header"><div class="page-meta">2026-11-01, <span class='acr'>tec</span></div>
+
+<h1 class="title">November 2026</h1>
+<p class="subtitle" role="doc-subtitle">Fabulously Fancy Fragments</p>
+</header><blockquote>
+<p>
+Previews that look like they belong, appear almost instantly, never block Emacs, and update as you type
+</p>
+</blockquote>
+
+<p>
+In <a href="2021-07-31-citations.html">July 2021</a> I was thrilled to announce the long-awaited feature of citation
+syntax. Today I get to announce a feature a bit closer to my heart, a dramatic
+improvement to (actually a complete overhaul of) Org&rsquo;s system for generating LaTeX
+previews!
+</p>
+
+<figure style="margin: 0; min-width: 100%">
+  <picture>
+    <source srcset="figures/latex-preview-hero.png" media="(prefers-reduced-motion: reduce)" />
+    <img src="figures/latex-preview-hero.avif" width="1920" height="1140" class="invertible"
+         alt="Four Org buffers whose LaTeX fragments preview as they are typed: Calc results, a chemfig structure, TikZ Lissajous curves, and 192 inline fragments." />
+  </picture>
+</figure>
+
+<p>
+In late 2021, Karthik and I discussed our mutual dissatisfaction with the status
+quo, and in 2022 we embarked on a project to improve the experience by ripping out the
+entire LaTeX preview implementation, and building something better in its place.
+What started as a &ldquo;brief&rdquo; collaborative project has turned into a multi-year
+slog with a long tail of annoying issues, but after exchanging a bit over ten
+thousand messages and working on it for a few hundred hours, I think it&rsquo;s fair
+to say we&rsquo;ve succeeded.
+</p>
+
+<p>
+Let me give you a tour of the new work; if you&rsquo;re interested in reading more of
+the details, see Karthik&rsquo;s companion post <a href="https://karthinks.com/software/understanding-org-latex-preview/">Understanding Org&rsquo;s LaTeX preview
+system</a>.
+</p>
+<div id="outline-container-status-quo" class="outline-2">
+<h2 id="status-quo">The Status Quo<a aria-hidden="true" href="#status-quo">#</a> </h2>
+<div class="outline-text-2" id="text-status-quo">
+<p>
+Many Org users are intimately familiar with LaTeX, and appreciate the close
+integration of LaTeX snippets in the Org syntax. I was one of the many
+mathematics students inspired by Gilles Castel&rsquo;s fantastic <a href="https://web.archive.org/web/20261020234323/https://castel.dev/post/lecture-notes-1/">blog post</a>
+demonstrating his system for quick LaTeX snippets, and my quest to replicate the
+experience in Emacs and produce detailed notes led to my intimate acquaintance
+with the particularities of Org&rsquo;s LaTeX preview system, namely:
+</p>
+
+<ul class="org-ul">
+<li>Every fragment is compiled individually in a fresh LaTeX process</li>
+<li>Fragments are compiled sequentially, and block until all are complete</li>
+<li>A file with <kbd>#+startup: latexpreview</kbd> will typically freeze Emacs for \(n(\text{fragments}) \times \frac{1}{4}\) seconds</li>
+<li>There is a very loose connection between in-buffer text size and preview size</li>
+<li>The baseline never matches</li>
+<li>Colours are fixed at generation time, and so a theme change requires
+clearing + regenerating all fragments</li>
+<li>LaTeX errors (like <kbd>\(1+1\foobar\)</kbd>) are silently hidden</li>
+</ul>
+
+<p>
+Over the years other people have tried to improve the experience with config
+band-aids and packages that try to work around aspects of the design (most
+notably <a href="https://github.com/io12/org-fragtog">org-fragtog</a> and <a href="https://github.com/dandavison/xenops">xenops</a>). All of these approaches made severe
+compromises. Karthik wasn&rsquo;t happy with the status quo, and started showing you
+could make better compromises; I didn&rsquo;t like making compromises. So, we ended up
+throwing out the old implementation and starting from scratch 💥.
+</p>
+</div>
+</div>
+<div id="outline-container-shiny-new-features" class="outline-2">
+<h2 id="shiny-new-features">Shiny new features<a aria-hidden="true" href="#shiny-new-features">#</a> </h2>
+<div class="outline-text-2" id="text-shiny-new-features">
+</div>
+<div id="outline-container-fragmented-async-generation" class="outline-3">
+<h3 id="fragmented-async-generation">Fragmented (async) generation<a aria-hidden="true" href="#fragmented-async-generation">#</a> </h3>
+<div class="outline-text-3" id="text-fragmented-async-generation">
+<p>
+For LaTeX fragments to feel like an <i>ambient</i> part of the Org buffer, there are a
+few crucial things we need to get right. One of the most important is making
+sure that they never interrupt your interaction with the buffer.
+</p>
+
+<p>
+It is not at all pleasant for Emacs to freeze when opening a buffer, or with a
+package like <kbd>org-fragtog</kbd>, while typing. To prevent this from happening we&rsquo;ve
+split the rendering pipeline up and execute every stage of it asynchronously,
+with bookkeeping to make sure we put the right overlay images in the right
+place, even when the buffer&rsquo;s changed during fragment generation.
+</p>
+
+
+<figure id="orgafa8dd8">
+<img src="figures/olp-rendering-pipeline.svg" alt="olp-rendering-pipeline.svg" class="invertible" width="90%">
+
+<figcaption><span class="figure-number">Figure 1: </span>The new fragment rendering pipeline</figcaption>
+</figure>
+
+<p>
+Karthik and I have done an extensive amount of profiling and tuning to minimise
+pauses during the pipeline to make sure you never feel Emacs hitch during
+preview generation.
+</p>
+</div>
+</div>
+<div id="outline-container-fast-fragments" class="outline-3">
+<h3 id="fast-fragments">Fast fragments<a aria-hidden="true" href="#fast-fragments">#</a> </h3>
+<div class="outline-text-3" id="text-fast-fragments">
+<p>
+Now, while it&rsquo;s nice for fragment previews to no longer hold up interacting with
+your Org buffer, it&rsquo;s also nice to see them quickly. We now go to great lengths
+to minimise the time it takes to see previews placed in the buffer. Details
+aside, a moderately mathematical document holding 660 fragments that used to
+take two and a half <i>minutes</i> to load now takes two <i>seconds</i>. In fact, the
+difference is even more pronounced as we order fragment generation based on the
+current buffer position, so you see nearby fragments stream in first.
+</p>
+
+<p>
+This new pipeline is built using <kbd>org-async</kbd>, a small declarative process-chaining
+library introduced as part of the patch set.
+</p>
+
+<figure style="margin: 1em 0; min-width: 100%">
+  <video width="100%" height="auto" muted class="invertible" controls>
+    <source src="figures/latex-preview-race.webm" type="video/webm" />
+  </video>
+  <figcaption>
+    <span class="figure-number">Figure 2:</span>
+    A race between the new and old preview systems with a short document.
+  </figcaption>
+</figure>
+
+<p>
+We also make use of <kbd>org-persist</kbd> to cache fragments, which means that this &sim;70&times;
+performance improvement is <i>the worst case</i>. The fragments in a re-opened buffer
+should appear near-instantly (see <code>org-latex-preview-cache</code> and adjust
+<code>org-latex-preview-persist-expiry</code> to change how long old previews are kept for).
+</p>
+</div>
+</div>
+<div id="outline-container-fitting-with-splash" class="outline-3">
+<h3 id="fitting-with-splash">Fitting in with a splash of colour<a aria-hidden="true" href="#fitting-with-splash">#</a> </h3>
+<div class="outline-text-3" id="text-fitting-with-splash">
+<p>
+A particular pet peeve of mine has been that previewed fragments never quite
+looked at home in the Org buffer. The sizing was always a bit off, the
+positioning not quite right. We now collect the sizing information needed to
+harmonise the size of fragments&rsquo; images with the buffer&rsquo;s text, producing
+perfect baseline alignment and matched sizing (depending on your LaTeX/Emacs
+font pairing, a minor correction may be needed; see
+<code>org-latex-preview-appearance-options</code>).
+</p>
+
+<figure style="margin: 1em 0">
+  <div class="image-slider invertible">
+    <div><img src="figures/v-alignment-new.png"/></div>
+    <img src="figures/v-alignment-old.png"/>
+  </div>
+  <figcaption>
+    <span class="figure-number">Figure 3:</span>
+    Inline fragments with the new preview system (left) and the old (right),
+    with guides at the text baseline and x-height. Drag across the image to compare.
+  </figcaption>
+</figure>
+
+<p>
+If you&rsquo;re wondering how much work this took to calibrate, just know that there&rsquo;s
+an unexplained 1.659393% correction factor needed to align the calculated and
+observed sizing.
+</p>
+
+<p>
+These fragments also follow the text scale and the current theme&rsquo;s foreground
+colour, helping them feel like part of the buffer&rsquo;s text.
+</p>
+
+<figure style="margin: 1em 0">
+  <picture>
+    <source srcset="figures/latex-preview-themes.png" media="(prefers-reduced-motion: reduce)" />
+    <img src="figures/latex-preview-themes.avif" width="1152" height="360" class="invertible"
+         alt="The same Org buffer of inline and display maths shown in several light themes, with the previews matching each theme's text colour." />
+  </picture>
+  <figcaption>
+    <span class="figure-number">Figure 4:</span>
+    The same document across a few light themes; previews follow along without being regenerated.
+  </figcaption>
+</figure>
+</div>
+</div>
+<div id="outline-container-live-updating-too" class="outline-3">
+<h3 id="live-updating-too">Live updating too!<a aria-hidden="true" href="#live-updating-too">#</a> </h3>
+<div class="outline-text-3" id="text-live-updating-too">
+<p>
+As part of the reworked preview engine, we wanted to subsume the functionality
+of <kbd>org-fragtog</kbd>, a package for intelligently toggling previews as you move into
+and out of them. This is provided with a new minor mode, <code>org-latex-preview-mode</code>.
+</p>
+
+<p>
+Thanks to the speed of the new pipeline, we realised that we could not just
+re-render an edited fragment rapidly, but re-render it <i>during</i> editing. When
+<code>org-latex-preview-mode-display-live</code> is non-nil, the preview mode also shows
+live-updating previews.
+</p>
+
+<figure style="margin: 0; min-width: 100%">
+  <picture>
+    <source srcset="figures/latex-preview-live.png" media="(prefers-reduced-motion: reduce)" />
+    <img src="figures/latex-preview-live.avif" width="1152" height="540" class="invertible"
+         alt="A matrix being extended in an Org buffer, with its rendered preview updating alongside the LaTeX source after each edit." />
+  </picture>
+  <figcaption>
+    <span class="figure-number">Figure 5:</span>
+    Extending a matrix, with the preview following every edit.
+  </figcaption>
+</figure>
+
+<p>
+This can be particularly helpful for catching mistakes early, since we now also
+indicate errors by applying the <kbd>error</kbd> face and putting the compilation log for
+the fragment in a tooltip.
+</p>
+
+<figure style="margin: 0; min-width: 100%">
+  <picture>
+    <source srcset="figures/latex-preview-errors.png" media="(prefers-reduced-motion: reduce)" />
+    <img src="figures/latex-preview-errors.avif" width="1152" height="150" class="invertible"
+         alt="A LaTeX fragment with a misspelt \sqrt command, whose preview is tinted red with the LaTeX error shown in a tooltip." />
+  </picture>
+  <figcaption>
+    <span class="figure-number">Figure 6:</span>
+    A typo in <code>\sqrt</code> tints the preview red, with LaTeX's error on hover.
+  </figcaption>
+</figure>
+</div>
+</div>
+<div id="outline-container-nicely-numbered" class="outline-3">
+<h3 id="nicely-numbered">Nicely numbered<a aria-hidden="true" href="#nicely-numbered">#</a> </h3>
+<div class="outline-text-3" id="text-nicely-numbered">
+<p>
+Previously, every numbered equation was compiled in isolation, and so rendered
+as (1). With the work we&rsquo;ve done on tracking fragments across the buffer, I
+couldn&rsquo;t resist the temptation to make equation numbering actually correspond
+to equation order.
+</p>
+
+<figure style="margin: 0; min-width: 100%">
+  <picture>
+    <source srcset="figures/latex-preview-numbering.png" media="(prefers-reduced-motion: reduce)" />
+    <img src="figures/latex-preview-numbering.avif" width="1152" height="340" class="invertible"
+         alt="A new numbered equation being inserted into an Org buffer, with the equation numbers after it updating to stay in order." />
+  </picture>
+  <figcaption>
+    <span class="figure-number">Figure 7:</span>
+    Adding an equation renumbers those after it.
+  </figcaption>
+</figure>
+</div>
+</div>
+<div id="outline-container-equitable-exports" class="outline-3">
+<h3 id="equitable-exports">Equitable exports<a aria-hidden="true" href="#equitable-exports">#</a> </h3>
+<div class="outline-text-3" id="text-equitable-exports">
+<p>
+The improvements in preview generation speed and sizing have been carried
+through to the export backends. In particular, <span class='acr'>html</span> and <span class='acr'>odt</span> (via a new <kbd>ox-mathml</kbd>
+library) exports get the same numbered, aligned, and coloured images.
+</p>
+</div>
+</div>
+<div id="outline-container-caveats" class="outline-3">
+<h3 id="caveats">Caveats<a aria-hidden="true" href="#caveats">#</a> </h3>
+<div class="outline-text-3" id="text-caveats">
+<p>
+While I said earlier that I didn&rsquo;t want to make any compromises in the preview
+experience, unfortunately it hasn&rsquo;t been possible to enable that experience in
+all configurations. In particular:
+</p>
+<ul class="org-ul">
+<li>Live previews need <kbd>\\(...\\)</kbd> / <kbd>\\[...\\]</kbd>, since <kbd>$</kbd> is ambiguous while typing</li>
+<li>XeLaTeX and LuaLaTeX can&rsquo;t use precompiled preambles, so they&rsquo;re noticeably slower than pdfLaTeX</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-getting-it-early" class="outline-2">
+<h2 id="getting-it-early">Getting it early<a aria-hidden="true" href="#getting-it-early">#</a> </h2>
+<div class="outline-text-2" id="text-getting-it-early">
+<p>
+This overhaul will be part of the Org 10.0 release. Until then, you can get the
+shiny new goodness from the <kbd>main</kbd> branch (and help iron out the long tail of
+bugs!). If you&rsquo;ve been enjoying <kbd>org-fragtog</kbd>, you can drop it in favour of the
+new <kbd>org-latex-preview-mode</kbd>.
+</p>
+
+<p>
+For the best experience, make sure you have <kbd>mylatexformat.sty</kbd> and <kbd>preview.sty</kbd>
+installed as part of your LaTeX distribution, along with <kbd>dvisvgm</kbd> 3.1+ or <kbd>dvipng</kbd>.
+</p>
+
+<p>
+In the future, you might even see this work be reused to bring previews to other
+modes like <code>calc</code> 😉
+</p>
+</div>
+</div>
+<div id="outline-container-thanks" class="outline-2">
+<h2 id="thanks">Thanks<a aria-hidden="true" href="#thanks">#</a> </h2>
+<div class="outline-text-2" id="text-thanks">
+<p>
+This has been one of the longest-running and most ambitious Org contributions
+I&rsquo;ve been part of, and seeing it finally land is enormously satisfying.
+</p>
+
+<p>
+A huge thank you to Karthik for going through this process with me, the
+pair-coding calls we&rsquo;ve shared, and the heroic last-mile push to solve the
+last few issues blocking the merge. Ihor has also been fantastically patient with
+the review and integration process, and helped fix bugs we discovered in other
+parts of Org (mostly <kbd>org-persist</kbd>) along the way.
+</p>
+
+<p>
+The community of beta testers has been exemplary, providing a steady stream of
+bug reports and encouragement. It&rsquo;s been a joy to read messages like <a href="https://list.orgmode.org/orgmode/m2r0qsrkde.fsf@me.com/">Rudolf&rsquo;s</a>:
+</p>
+
+<blockquote>
+<p>
+<span class='acr'>omg</span>! <span class='acr'>omg</span>! <span class='acr'>omg</span>!  So, this new system not only fixes the baseline problem,
+making LaTeX actually usable in <span class='acr'>html</span> exports, but it also makes TikZ
+work?!  No more fiddling with LaTeX Org Babel?  No more per-image
+scaling headaches?  Now, that is <span class='acr'>incredible</span>!
+</p>
+</blockquote>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<footer>
+    <p xmlns:dct="http://purl.org/dc/terms/" xmlns:vcard="http://www.w3.org/2001/vcard-rdf/3.0#">
+        <a rel="license" class="external" rel="nofollow" href="http://creativecommons.org/publicdomain/zero/1.0/">
+            <img src="cc0.svg" alt="CC0" class="invertible" style="position:relative;bottom:-0.2em"/>
+        </a>
+        To the extent possible under law,
+        <a rel="dct:publisher"
+           href="https://blog.tecosaur.net/">
+            <span property="dct:title">TEC</span></a>
+        has waived all copyright and related or neighboring rights to
+        <span property="dct:title" style="font-style:italic">This Month in Org</span>.
+    </p>
+</footer>
+
+<script src="theme-switcher.js"></script>
+</div>
+</div>
+</body>
+</html>

@@ -1,29 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2024-01-12 Fri 13:39 -->
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- 2026-11-01 Sun 19:13 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>July 2021</title>
-<meta name="author" content="TEC" />
-<meta name="generator" content="org mode" />
-<meta name="theme-color" content="#77aa99" />
-<meta property="og:type" content="article" />
-<meta property="og:title" content="July 2021" />
-<meta property="og:description" content="Introducing citations!" />
-<meta property="og:image" content="https://blog.tecosaur.net/tmio/org-icon.png" />
-<meta property="og:image:type" content="image/png" />
-<meta property="og:image:width" content="464" />
-<meta property="og:image:height" content="512" />
-<meta property="og:image:alt" content="Org unicorn logo" />
-<meta property="og:article:author:first_name" content="TEC" />
-<meta property="og:article:published_time" content="2021-07-31T00:00:00+0800" />
-<meta property="og:article:modified_time" content="2021-09-27T03:44:41+0800" />
+<meta name="author" content="TEC">
+<meta name="generator" content="org mode">
+<meta name="theme-color" content="#77aa99">
+<meta property="og:type" content="article">
+<meta property="og:title" content="July 2021">
+<meta property="og:description" content="Introducing citations!">
+<meta property="og:image" content="https://blog.tecosaur.net/tmio/org-icon.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="464">
+<meta property="og:image:height" content="512">
+<meta property="og:image:alt" content="Org unicorn logo">
+<meta property="og:article:author:first_name" content="TEC">
+<meta property="og:article:published_time" content="2021-07-31T00:00:00+0800">
+<meta property="og:article:modified_time" content="2021-09-27T03:44:41+0800">
 <link rel="alternate" type="application/atom+xml" title="This Month in Org" href="rss.xml" />
 <link rel="icon" type="image/ico" href="favicon.ico?v=3">
 <link rel="stylesheet" type="text/css" href="org-style.css">
 <link rel="stylesheet" type="text/css" href="blog.css">
 <script src="org-style.js"></script>
+<style>.csl-entry{text-indent: -1.5em; margin-left: 1.5em;}</style>
 </head>
 <body>
 <input type='checkbox' id='theme-switch'><div id='page'><label id='switch-label' for='theme-switch'></label><div id="preamble" class="status">
@@ -37,7 +38,7 @@
 </header>
 </div>
 <div id="content">
-<header class="page-header"><div class="page-meta">2021-07-31, <span class='acr'>TEC</span></div>
+<header class="page-header"><div class="page-meta">2021-07-31, <span class='acr'>tec</span></div>
 
 <h1 class="title">July 2021</h1>
 <p class="subtitle" role="doc-subtitle">Introducing citations!</p>
@@ -48,7 +49,7 @@ this post.
 </p>
 
 
-<figure id="org0b07091">
+<figure id="orgb9876a4">
 <img src="figures/celebrate-citations.svg" alt="celebrate-citations.svg" class="org-svg">
 
 </figure>
@@ -62,14 +63,14 @@ capable citation system. At last you can refer to Org for all your attribution
 needs. Special thanks must go to Nicolas Goaziou for leading the charge, John
 Kitchin for paving the way with the <kbd>org-ref</kbd> package, Bruce D&rsquo;Arcus for driving a
 lot of careful consideration of design decisions and starting to document some
-of the details &#x2014; and the many other denizens of the mailing list who have
+of the details &mdash; and the many other denizens of the mailing list who have
 contributed to the discussion over the years.
 </p>
 
 <p>
 András Simonyi&rsquo;s also deserves a special mention for his work creating the Elisp
-<span class='acr'>CSL</span> library <code>Citeproc.el</code>, which while not directly included in Org is crucial to
-providing robust <span class='acr'>CSL</span> support, and integrates with <kbd>oc-csl.el</kbd>.
+<span class='acr'>csl</span> library <code>Citeproc.el</code>, which while not directly included in Org is crucial to
+providing robust <span class='acr'>csl</span> support, and integrates with <kbd>oc-csl.el</kbd>.
 </p>
 </div>
 <div id="outline-container-outline" class="outline-3">
@@ -78,7 +79,7 @@ providing robust <span class='acr'>CSL</span> support, and integrates with <kbd>
 <p>
 Citations have been carefully designed in such a way that users and Elisp
 tinkerers will be able to easily adapt and extend it to fit their needs.
-To that end, Org Cite (or <span class='acr'>OC</span> for short) has been split into two halves:
+To that end, Org Cite (or <span class='acr'>oc</span> for short) has been split into two halves:
 </p>
 <ul class="org-ul">
 <li><kbd>oc.el</kbd> which defines the syntax and provides some machinery to interact with
@@ -112,8 +113,8 @@ to all formats, but only provides very simple citations.</li>
 <li><kbd>biblatex</kbd> and <kbd>natbib</kbd>, which provide the export capability to create citations
 via <a href="http://biblatex-biber.sourceforge.net/">Biber</a> and (to a lesser extent) <a href="https://ctan.org/pkg/natbib">natbib</a>, but only for LaTeX.</li>
 <li><kbd>csl</kbd>, which provides the export capability using the <a href="https://citationstyles.org/">Citation Style Language</a>,
-and exports to <span class='acr'>HTML</span>, LaTeX, Org, and plain text (with an <a href="https://github.com/andras-simonyi/citeproc-el/issues/23">open issue</a> for <span class='acr'>ODT</span>)
-&#x2014; but depends on <a href="https://github.com/andras-simonyi/citeproc-el">citeproc.el</a>.</li>
+and exports to <span class='acr'>html</span>, LaTeX, Org, and plain text (with an <a href="https://github.com/andras-simonyi/citeproc-el/issues/23">open issue</a> for <span class='acr'>odt</span>)
+&mdash; but depends on <a href="https://github.com/andras-simonyi/citeproc-el">citeproc.el</a>.</li>
 </ul>
 
 <p>
@@ -128,7 +129,7 @@ seeing the development of packages like <a href="https://github.com/jkitchin/org
 <div class="outline-text-3" id="text-basic-usage">
 <p>
 To get started with Org Cite, we must have some form of bibliography.
-This can either be a BibTeX file or a <span class='acr'>CSL</span>-<span class='acr'>JSON</span> file.
+This can either be a BibTeX file or a <span class='acr'>csl</span>-<span class='acr'>json</span> file.
 </p>
 
 <p>
@@ -139,7 +140,7 @@ As an example, say we have a file <kbd>orgcite.bib</kbd> containing the followin
 <a href='#basic-usage,code--1'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
 <div class="org-src-container">
-<pre class="src src-bibtex"><span class="org-function-name">@article</span>{<span class="org-constant">OrgCitations</span>,
+<pre class="src src-bibtex"><code><span class="org-function-name">@article</span>{<span class="org-constant">OrgCitations</span>,
          <span class="org-variable-name">author</span>={org, mode and Syntax, Citation and List, Mailing and Effort, Time},
          <span class="org-variable-name">journal</span>={Journal of Plain Text Formats},
          <span class="org-variable-name">title</span>={Elegant Citations with Org-Mode},
@@ -148,7 +149,7 @@ As an example, say we have a file <kbd>orgcite.bib</kbd> containing the followin
          <span class="org-variable-name">volume</span>={42},
          <span class="org-variable-name">number</span>={1},
          <span class="org-variable-name">pages</span>={2-3}}
-</pre>
+</code></pre>
 </div>
 </details>
 
@@ -157,11 +158,11 @@ First we need to let Org know about this bibliography file (which must have a
 <kbd>.bib</kbd>, <kbd>.bibtex</kbd>, or <kbd>.json</kbd> extension), which we do either via the <kbd>#+bibliography</kbd>
 keyword, or the variable <code>org-cite-global-bibliography</code>.
 </p>
-<details id='org4ae6a8f' class='code' open>
+<details id='org153f88d' class='code' open>
 <summary></summary>
-<div class='gutter'><a href='#org4ae6a8f'>#</a>
+<div class='gutter'><a href='#org153f88d'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
-<pre class="example" id="org4ae6a8f">
+<pre class="example" id="org153f88d">
 #+bibliography: orgcite.bib
 </pre>
 
@@ -173,7 +174,7 @@ content! The basic citation syntax is as follows:
 </p>
 
 
-<figure id="org721f3f8">
+<figure id="org38bbdb9">
 <img src="figures/citation-structure-basic.svg" alt="citation-structure-basic.svg" class="org-svg">
 
 <figcaption><span class="figure-number">Figure 1: </span>The new citation syntax, for simple citations</figcaption>
@@ -189,18 +190,18 @@ Finally, to insert a bibliography somewhere, we just need to insert the
 <kbd>#+print_bibliography</kbd> keyword, like so:
 </p>
 
-<details id='org9df92d6' class='code' open>
+<details id='org1d53be5' class='code' open>
 <summary></summary>
-<div class='gutter'><a href='#org9df92d6'>#</a>
+<div class='gutter'><a href='#org1d53be5'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
-<pre class="example" id="org9df92d6">
+<pre class="example" id="org1d53be5">
 #+print_bibliography:
 </pre>
 
 </details>
 
-<div class="info" id="org5a6bfbe">
-<style>.csl-entry{text-indent: -1.5em; margin-left: 1.5em;}</style><div class="csl-bib-body">
+<div class="info" id="org20c5acd">
+<div class="csl-bib-body">
   <div class="csl-entry"><a id="citeproc_bib_item_1"></a>org, mode, Citation Syntax, Mailing List, and Time Effort. 2021. “Elegant Citations with Org-Mode.” <i>Journal of Plain Text Formats</i> 42 (1): 2–3.</div>
 </div>
 
@@ -209,11 +210,11 @@ Finally, to insert a bibliography somewhere, we just need to insert the
 <p>
 So, to summarise, all one needs to get started is:
 </p>
-<details id='org125df34' class='code' open>
+<details id='org8a2394e' class='code' open>
 <summary></summary>
-<div class='gutter'><a href='#org125df34'>#</a>
+<div class='gutter'><a href='#org8a2394e'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
-<pre class="example" id="org125df34">
+<pre class="example" id="org8a2394e">
 #+bibliography: references.bib
 [cite:@key]
 #+print_bibliography:
@@ -235,7 +236,7 @@ cite syntax:
 </p>
 
 
-<figure id="org1074ca2">
+<figure id="org67d85ff">
 <img src="figures/citation-structure-full.svg" alt="citation-structure-full.svg" class="org-svg">
 
 <figcaption><span class="figure-number">Figure 2: </span>The new citations syntax, in full</figcaption>
@@ -245,7 +246,7 @@ cite syntax:
 <li>The <b>style</b> and <b>variant</b> determine what form the exported citation takes</li>
 <li>The <b>common prefix</b> and <b>suffix</b> and put at the start and end of the generated
 citation, respectively</li>
-<li>The citation <b>key</b> refers to a Bib(La)TeX or <span class='acr'>CSL</span>-<span class='acr'>JSON</span> key
+<li>The citation <b>key</b> refers to a Bib(La)TeX or <span class='acr'>csl</span>-<span class='acr'>json</span> key
 <ul class="org-ul">
 <li>The citation <b>prefix</b> and <b>suffix</b> are put before and after the reference to the
 key</li>
@@ -255,7 +256,7 @@ part of the work, for example: <kbd>p. 7</kbd> to refer to page 7.</li>
 </ul>
 
 <p>
-Using the default <span class='acr'>CSL</span> citation style (Chicago author-name) <kbd>[cite/l/b:see
+Using the default <span class='acr'>csl</span> citation style (Chicago author-name) <kbd>[cite/l/b:see
 @OrgCitations pp. 7 for fun]</kbd> becomes see <a href="#citeproc_bib_item_1">7</a> for fun.
 </p>
 
@@ -297,7 +298,7 @@ following citation styles.
 <td class="org-left"><kbd>cf</kbd> caps-full</td>
 <td class="org-left">(<a href="#citeproc_bib_item_1">Org, Syntax, List, and Effort</a>)</td>
 <td class="org-left">Citeauthor</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">&nbsp;</td>
 </tr>
 
 <tr>
@@ -318,7 +319,7 @@ following citation styles.
 
 <tr>
 <td class="org-left"><kbd>a</kbd> author</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">&nbsp;</td>
 <td class="org-left">(<a href="#citeproc_bib_item_1">org et al.</a>)</td>
 <td class="org-left">citeauthor*</td>
 <td class="org-left">citeauthor</td>
@@ -329,13 +330,13 @@ following citation styles.
 <td class="org-left"><kbd>na</kbd> noauthor</td>
 <td class="org-left"><kbd>b</kbd> bare</td>
 <td class="org-left"><a href="#citeproc_bib_item_1">2021</a></td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">&nbsp;</td>
 <td class="org-left">citeyear</td>
 </tr>
 
 <tr>
 <td class="org-left"><kbd>na</kbd> noauthor</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">&nbsp;</td>
 <td class="org-left">(<a href="#citeproc_bib_item_1">2021</a>)</td>
 <td class="org-left">autocite*</td>
 <td class="org-left">citeyearpar</td>
@@ -347,7 +348,7 @@ following citation styles.
 <td class="org-left"><kbd>bc</kbd> bare-caps</td>
 <td class="org-left">(<a href="#citeproc_bib_item_1">2</a>)</td>
 <td class="org-left">Notecite</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">&nbsp;</td>
 </tr>
 
 <tr>
@@ -355,7 +356,7 @@ following citation styles.
 <td class="org-left"><kbd>b</kbd> bare</td>
 <td class="org-left"><a href="#citeproc_bib_item_1">2</a></td>
 <td class="org-left">notecite</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">&nbsp;</td>
 </tr>
 
 <tr>
@@ -363,22 +364,22 @@ following citation styles.
 <td class="org-left"><kbd>bc</kbd> caps</td>
 <td class="org-left">(, <a href="#citeproc_bib_item_1">2</a>)</td>
 <td class="org-left">Pnotecite</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">&nbsp;</td>
 </tr>
 
 <tr>
 <td class="org-left"><kbd>l</kbd> locators</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">&nbsp;</td>
 <td class="org-left">(, <a href="#citeproc_bib_item_1">2</a>)</td>
 <td class="org-left">pnotecite</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">&nbsp;</td>
 </tr>
 </tbody>
 <tbody>
 <tr>
 <td class="org-left"><kbd>n</kbd> nocite</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">&nbsp;</td>
+<td class="org-left">&nbsp;</td>
 <td class="org-left">nocite</td>
 <td class="org-left">nocite</td>
 </tr>
@@ -388,7 +389,7 @@ following citation styles.
 <td class="org-left"><kbd>t</kbd> text</td>
 <td class="org-left"><kbd>b</kbd> bare</td>
 <td class="org-left">org et al. (<a href="#citeproc_bib_item_1">2021</a>)</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">&nbsp;</td>
 <td class="org-left">citealp</td>
 </tr>
 
@@ -404,7 +405,7 @@ following citation styles.
 <td class="org-left"><kbd>t</kbd> text</td>
 <td class="org-left"><kbd>f</kbd> full</td>
 <td class="org-left">org, Syntax, List, and Effort (<a href="#citeproc_bib_item_1">2021</a>)</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">&nbsp;</td>
 <td class="org-left">citep*</td>
 </tr>
 
@@ -412,7 +413,7 @@ following citation styles.
 <td class="org-left"><kbd>t</kbd> text</td>
 <td class="org-left"><kbd>bc</kbd> bare-caps</td>
 <td class="org-left">org et al. (<a href="#citeproc_bib_item_1">2021</a>)</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">&nbsp;</td>
 <td class="org-left">Citealp</td>
 </tr>
 
@@ -420,7 +421,7 @@ following citation styles.
 <td class="org-left"><kbd>t</kbd> text</td>
 <td class="org-left"><kbd>bf</kbd> bare-full</td>
 <td class="org-left">org et al. (<a href="#citeproc_bib_item_1">2021</a>)</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">&nbsp;</td>
 <td class="org-left">citealp*</td>
 </tr>
 
@@ -428,7 +429,7 @@ following citation styles.
 <td class="org-left"><kbd>t</kbd> text</td>
 <td class="org-left"><kbd>cf</kbd> caps-full</td>
 <td class="org-left">Org, Syntax, List, and Effort (<a href="#citeproc_bib_item_1">2021</a>)</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">&nbsp;</td>
 <td class="org-left">Citep*</td>
 </tr>
 
@@ -436,16 +437,16 @@ following citation styles.
 <td class="org-left"><kbd>t</kbd> text</td>
 <td class="org-left"><kbd>bcf</kbd> bare-caps-full</td>
 <td class="org-left">org et al. (<a href="#citeproc_bib_item_1">2021</a>)</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">&nbsp;</td>
 <td class="org-left">Citealp*</td>
 </tr>
 
 <tr>
 <td class="org-left"><kbd>t</kbd> text</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">&nbsp;</td>
 <td class="org-left">org et al. (<a href="#citeproc_bib_item_1">2021</a>)</td>
 <td class="org-left">textcite</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">&nbsp;</td>
 </tr>
 </tbody>
 <tbody>
@@ -469,7 +470,7 @@ following citation styles.
 <td class="org-left">(default)</td>
 <td class="org-left"><kbd>f</kbd> full</td>
 <td class="org-left">(<a href="#citeproc_bib_item_1">org et al. 2021</a>)</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">&nbsp;</td>
 <td class="org-left">citep*</td>
 </tr>
 
@@ -477,7 +478,7 @@ following citation styles.
 <td class="org-left">(default)</td>
 <td class="org-left"><kbd>bf</kbd> bare-full</td>
 <td class="org-left">(<a href="#citeproc_bib_item_1">org et al. 2021</a>)</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">&nbsp;</td>
 <td class="org-left">citealp</td>
 </tr>
 
@@ -485,7 +486,7 @@ following citation styles.
 <td class="org-left">(default)</td>
 <td class="org-left"><kbd>cf</kbd> caps-full</td>
 <td class="org-left">(<a href="#citeproc_bib_item_1">org et al. 2021</a>)</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">&nbsp;</td>
 <td class="org-left">Citep*</td>
 </tr>
 
@@ -493,13 +494,13 @@ following citation styles.
 <td class="org-left">(default)</td>
 <td class="org-left"><kbd>bcf</kbd> bare-caps-full</td>
 <td class="org-left">(<a href="#citeproc_bib_item_1">org et al. 2021</a>)</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">&nbsp;</td>
 <td class="org-left">Citealp*</td>
 </tr>
 
 <tr>
 <td class="org-left">(default)</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">&nbsp;</td>
 <td class="org-left">(<a href="#citeproc_bib_item_1">org et al. 2021</a>)</td>
 <td class="org-left">autocite</td>
 <td class="org-left">citep</td>
@@ -509,7 +510,7 @@ following citation styles.
 </div></div>
 
 <p>
-The <span class='acr'>CSL</span> processor supports the following locators:
+The <span class='acr'>csl</span> processor supports the following locators:
 </p>
 <ul class="org-ul">
 <li><b><kbd>book</kbd></b>, <kbd>bk.</kbd>, <kbd>bks.</kbd></li>
@@ -549,11 +550,11 @@ The citation processor is automatically selected based on
 on a per-document basis via the <kbd>#+cite_export</kbd> keyword. Here, I shall use the <kbd>csl</kbd>
 processor,
 </p>
-<details id='org60a54b9' class='code' open>
+<details id='org1904166' class='code' open>
 <summary></summary>
-<div class='gutter'><a href='#org60a54b9'>#</a>
+<div class='gutter'><a href='#org1904166'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
-<pre class="example" id="org60a54b9">
+<pre class="example" id="org1904166">
 #+cite_export: csl
 </pre>
 
@@ -564,11 +565,11 @@ With <code>org-cite-export-processors</code>, you can also set the bibliography 
 style by giving a triplet of parameters <code class="src src-elisp">(PROCESSOR BIBLIOGRAPHY-STYLE CITATION-STYLE)</code> instead of just the processor. You can also use this triplet of
 values with the <kbd>#+cite_export</kbd> keyword
 </p>
-<details id='org65a9b55' class='code' open>
+<details id='orgf29f89f' class='code' open>
 <summary></summary>
-<div class='gutter'><a href='#org65a9b55'>#</a>
+<div class='gutter'><a href='#orgf29f89f'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
-<pre class="example" id="org65a9b55">
+<pre class="example" id="orgf29f89f">
 #+cite_export: processor bibliography-style citation-style
 </pre>
 
@@ -576,16 +577,16 @@ values with the <kbd>#+cite_export</kbd> keyword
 
 <p>
 There are also some more options about how the bibliography is produced. These
-options are handled by the active citation processor. For example, while the <span class='acr'>CSL</span>
+options are handled by the active citation processor. For example, while the <span class='acr'>csl</span>
 processor does not currently support any options, the BibLaTeX processor passes
-options to a <code class="src src-LaTeX"><span class="org-keyword">\printbibliography</span></code> command, allowing for the
+options to a <code class="src src-LaTeX"><span class="org-font-latex-sedate"><span class="org-keyword">\printbibliography</span></span></code> command, allowing for the
 following:
 </p>
-<details id='org62f4f7e' class='code' open>
+<details id='org41929c3' class='code' open>
 <summary></summary>
-<div class='gutter'><a href='#org62f4f7e'>#</a>
+<div class='gutter'><a href='#org41929c3'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
-<pre class="example" id="org62f4f7e">
+<pre class="example" id="org41929c3">
 #+print_bibliography: :section 2 :heading subbibliography
 #+print_bibliography: :keyword abc,xyz :title "Primary Sources"
 </pre>
@@ -594,11 +595,11 @@ following:
 </div>
 </div>
 <div id="outline-container-using-csl" class="outline-3">
-<h3 id="using-csl">Using <span class='acr'><span class='acr'>CSL</span></span><a aria-hidden="true" href="#using-csl">#</a> </h3>
+<h3 id="using-csl">Using <span class='acr'>csl</span><a aria-hidden="true" href="#using-csl">#</a> </h3>
 <div class="outline-text-3" id="text-using-csl">
 <p>
-<a href="https://github.com/andras-simonyi/citeproc-el">Citeproc</a> is currently available on <a href="https://melpa.org/#/citeproc"><span class='acr'>MELPA</span></a>, and so can be installed via your
-package manager of choice so long as <span class='acr'>MELPA</span> is included in your
+<a href="https://github.com/andras-simonyi/citeproc-el">Citeproc</a> is currently available on <a href="https://melpa.org/#/citeproc"><span class='acr'>melpa</span></a>, and so can be installed via your
+package manager of choice so long as <span class='acr'>melpa</span> is included in your
 <code>package-archives</code>. When available, it will be automatically loaded by
 <kbd>oc-csl.el</kbd>.
 </p>
@@ -607,7 +608,7 @@ package manager of choice so long as <span class='acr'>MELPA</span> is included 
 It currently supports exporting to:
 </p>
 <ul class="org-ul">
-<li><span class='acr'>HTML</span></li>
+<li><span class='acr'>html</span></li>
 <li>LaTeX</li>
 <li>Org</li>
 <li>Plain text</li>
@@ -623,25 +624,25 @@ Citeproc can currently retrieve bibliographic information from the following
 formats:
 </p>
 <ul class="org-ul">
-<li><span class='acr'>CSL</span>-<span class='acr'>JSON</span></li>
+<li><span class='acr'>csl</span>-<span class='acr'>json</span></li>
 <li>Bib(La)TeX</li>
 <li>org-bibtex</li>
 </ul>
 
 <p>
-Though support for Bib(La)TeX and <a href="https://gewhere.github.io/org-bibtex">org-bibtex</a> is rudimentary compared to <span class='acr'>CSL</span>-<span class='acr'>JSON</span>.
+Though support for Bib(La)TeX and <a href="https://gewhere.github.io/org-bibtex">org-bibtex</a> is rudimentary compared to <span class='acr'>csl</span>-<span class='acr'>json</span>.
 </p>
 
 <p>
-When exporting, you can set the style by providing a path to <span class='acr'>CSL</span> style files,
+When exporting, you can set the style by providing a path to <span class='acr'>csl</span> style files,
 either absolute or relative to <code>org-cite-csl-styles-dir</code>. For example, if I
 download <kbd>apa.csl</kbd> I can use it like so:
 </p>
-<details id='org4d92789' class='code' open>
+<details id='org1622fe9' class='code' open>
 <summary></summary>
-<div class='gutter'><a href='#org4d92789'>#</a>
+<div class='gutter'><a href='#org1622fe9'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
-<pre class="example" id="org4d92789">
+<pre class="example" id="org1622fe9">
 #+cite_export: csl ~/Downloads/apa.csl
 </pre>
 
@@ -674,29 +675,29 @@ to a <kbd>.bib</kbd> file and automatically keep it in sync. I&rsquo;d recommend
 </p>
 
 
-<figure id="org3421fca">
+<figure id="org1034a6e">
 <img src="figures/zotero-export-library.png" alt="zotero-export-library.png" class="invertible">
 
 <figcaption><span class="figure-number">Figure 3: </span>Zotero library right click context menu, showing the export option</figcaption>
 </figure>
 
 
-<figure id="org36de69f">
+<figure id="org7466c35">
 <img src="figures/zotero-export-options-prompt.png" alt="zotero-export-options-prompt.png" class="invertible">
 
 <figcaption><span class="figure-number">Figure 4: </span>Zotero collection export dialog</figcaption>
 </figure>
 
 <p>
-Zotero also works well with <span class='acr'>CSL</span>. In addition to supporting <span class='acr'>CSL</span>-<span class='acr'>JSON</span> exports,
-Zotero also features an easy way to install <span class='acr'>CSL</span> styles within the preferences.
+Zotero also works well with <span class='acr'>csl</span>. In addition to supporting <span class='acr'>csl</span>-<span class='acr'>json</span> exports,
+Zotero also features an easy way to install <span class='acr'>csl</span> styles within the preferences.
 </p>
 
 
-<figure id="orgb936c75">
+<figure id="org0c637da">
 <img src="figures/zotero-cite-styles-menu.png" alt="zotero-cite-styles-menu.png" class="invertible">
 
-<figcaption><span class="figure-number">Figure 5: </span>Zotero <span class='acr'>CSL</span> style management within preferences</figcaption>
+<figcaption><span class="figure-number">Figure 5: </span>Zotero <span class='acr'>csl</span> style management within preferences</figcaption>
 </figure>
 
 <p>
@@ -709,8 +710,8 @@ directory.
 <a href='#working-with-zotero,code--1'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(<span class="org-keyword">setq</span> org-cite-csl-styles-dir <span class="org-string">"~/Zotero/styles"</span>)
-</pre>
+<pre class="src src-emacs-lisp"><code>(<span class="org-keyword">setq</span> org-cite-csl-styles-dir <span class="org-string">"~/Zotero/styles"</span>)
+</code></pre>
 </div>
 </details>
 
@@ -718,11 +719,11 @@ directory.
 To then use the citation style defined by <kbd>~/Zotero/styles/apa.csl</kbd> one can then
 simply refer to <kbd>apa.csl</kbd> when using the <kbd>#+cite_export</kbd> keyword.
 </p>
-<details id='org00c3ad4' class='code' open>
+<details id='orgb69adc8' class='code' open>
 <summary></summary>
-<div class='gutter'><a href='#org00c3ad4'>#</a>
+<div class='gutter'><a href='#orgb69adc8'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
-<pre class="example" id="org00c3ad4">
+<pre class="example" id="orgb69adc8">
 #+cite_export: csl apa.csl
 </pre>
 
@@ -763,7 +764,7 @@ prompted <a href="http://thecostofknowledge.com/">19,000 researchers</a> to boyc
 vigorously <a href="https://web.archive.org/web/20200129202353/http://legacy.earlham.edu/~peters/fos/2007/08/publishers-launch-anti-oa-lobbying.html">lobbys against Open Access</a>, <a href="https://rossmounce.co.uk/2017/02/14/elsevier-selling-access-to-open-access-again/">charged for Open Acess articles</a>
 (repeatedly), made <a href="https://www.michaeleisen.org/blog/?p=807">financial contributions to politicians who then tried to
 prevent publicly accesible reaserch</a>, and whose reference manager <a href="https://www.zotero.org/support/kb/mendeley_import#mendeley_database_encryption">encrypted
-reaserchers&rsquo; <i>own</i> databases</a> &ldquo;to comply with <span class='acr'>GDPR</span>&rdquo;.
+reaserchers&rsquo; <i>own</i> databases</a> &ldquo;to comply with <span class='acr'>gdpr</span>&rdquo;.
 </p></div></div>
 
 

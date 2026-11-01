@@ -1,9 +1,10 @@
-# Created 2024-01-12 Fri 13:39
+# Created 2026-11-01 Sun 22:16
 #+title: April 2021
 #+date: 2021-04-30
 #+author: TEC
 #+subtitle: Export /&/ plot in style
 #+html_head: <link rel="stylesheet" href="img-slider.css">
+#+html_head: <script src="img-slider.js" defer></script>
 * A discussion on contributor support
 
 Concerns [[https://lists.gnu.org/archive/html/emacs-orgmode/2021-04/msg00291.html][were raised]][fn:1] about some contributors' patches languishing, and it not

@@ -1,4 +1,4 @@
-# Created 2024-01-12 Fri 13:39
+# Created 2026-11-01 Sun 19:13
 #+title: June 2021
 #+date: 2021-06-34
 #+author: TEC
@@ -12,6 +12,11 @@ You'll just have to stick around to hear about those in a future edition of TMIO
 
 #+caption: It's right around the corner, I swear!
 [[file:figures/dilbert-zenos-paradox.jpg]]
+
+[fn:1] As has been the writing of this blog post 😜
+
+[fn:2] First-class support for citations is coming to Org! With support for [[https://citationstyles.org/][CSL]]
+and [[https://en.wikipedia.org/wiki/BibTeX][BibTeX]], with a number of citation processors 🙌. Soon^{TM}
 * Customise the reference command used in LaTeX
 
 Previously, whenever you linked to another part of your document (with or

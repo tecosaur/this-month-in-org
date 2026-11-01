@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>2026-11-01-previewing.org.html</title>
+    <style>
+      body { background: #fafafa; color: #2a2a2a; }
+      pre {
+        font-size: 1rem;
+        max-width: min(100rem, 100%);
+        width: max-content;
+        white-space: pre-wrap;
+        margin: auto; }
+      .ef-D {
+  color: #2a2a2a; background-color: #fafafa; font-weight: 400; }
+      .ef-b {
+  font-weight: 700; }
+      .ef-i {
+  text-decoration: italic; }
+      .ef-vp {
+   }
+      .ef-h {
+  color: #9e9e9e; }
+      .ef-sc {
+  color: #4f894c; }
+      .ef-w {
+  color: #9a7500; }
+      .ef-e {
+  color: #99324b; }
+      .ef-l {
+  color: #3b6ea8; font-weight: 700; }
+      .ef-lv {
+  color: #8b008b; font-weight: 700; }
+      .ef-hi {
+  color: #fafafa; background-color: #3b6ea8; }
+      .ef-c {
+  color: #b1b1b1; }
+      .ef-cd {
+  color: #b1b1b1; }
+      .ef-s {
+  color: #4f894c; }
+      .ef-d {
+  color: #b6b6b6; }
+      .ef-m {
+  color: #97365b; }
+      .ef-k {
+  color: #3b6ea8; }
+      .ef-bi {
+  color: #29838d; }
+      .ef-f {
+  color: #29838d; }
+      .ef-v {
+  color: #cb9aad; }
+      .ef-t {
+  color: #9a7500; }
+      .ef-o {
+  color: #97365b; }
+      .ef-wr {
+  color: #9a7500; }
+      .ef-nc {
+  color: #3b6ea8; font-weight: 700; }
+      .ef-pp {
+  color: #3b6ea8; font-weight: 700; }
+      .ef-rc {
+  color: #3b6ea8; font-weight: 700; }
+      .ef-rb {
+  color: #3b6ea8; font-weight: 700; }
+      .ef-ob {
+  background-color: #e0e0e0; }
+      .ef-obb {
+  color: #b1b1b1; background-color: #e0e0e0; }
+      .ef-obe {
+  color: #b1b1b1; background-color: #e0e0e0; }
+      .ef-Oa {
+  color: #3b6ea8; font-weight: nil; font-size: 1.25em }
+      .ef-Ob {
+  color: #97365b; font-weight: 700; font-size: 1.15em }
+      .ef-Oc {
+  color: #842879; font-weight: 700; font-size: 1.12em }
+      .ef-Od {
+  color: #6c92bd; font-weight: 600; font-size: 1.09em }
+      .ef-Oe {
+  color: #b16883; font-weight: 600; font-size: 1.06em }
+      .ef-Of {
+  color: #9db6d3; font-weight: 600; font-size: 1.03em }
+      .ef-Og {
+  color: #cb9aad; font-weight: 700; }
+      .ef-Oh {
+  color: #d7e2ed; font-weight: 600; }
+      .ef-hn {
+  color: #97365b; font-weight: 700; }
+      .ef-hq {
+  color: #3b6ea8; }
+      .ef-hs {
+  color: #9a7500; }
+      .ef-rda {
+  color: #3b6ea8; }
+      .ef-rdb {
+  color: #97365b; }
+      .ef-rdc {
+  color: #4f894c; }
+      .ef-rdd {
+  color: #842879; }
+      .ef-rde {
+  color: #29838d; }
+      .ef-rdf {
+  color: #3b6ea8; }
+      .ef-rdg {
+  color: #97365b; }
+      .ef-rdh {
+  color: #4f894c; }
+      .ef-rdi {
+  color: #842879; }
+    </style>
+  </head>
+  <body>
+<pre>
+<span style="color: #9e9e9e;">#+title:</span> <span style="font-weight: 700;">November 2026
+</span><span style="color: #9e9e9e;">#+subtitle:</span> Fabulously Fancy Fragments
+<span style="color: #9e9e9e;">#+author:</span> TEC
+<span style="color: #9e9e9e;">#+date:</span> 2026-11-01
+<span style="color: #b1b1b1;">#+html_head: &lt;link rel="stylesheet" href="img-slider.css"&gt;</span>
+<span style="color: #b1b1b1;">#+html_head: &lt;script src="img-slider.js" defer&gt;&lt;/script&gt;</span>
+
+<span class="ef-c"># Current planned structure:</span>
+<span class="ef-c"># - bang! impressive pretty stuff all going on at once</span>
+<span class="ef-c"># - hey, look it's a bit faster</span>
+<span class="ef-c"># - and a bit prettier</span>
+<span class="ef-c"># - and zoom/theme matching</span>
+<span class="ef-c"># - faster? lots faster</span>
+<span class="ef-c"># - so fast we can do live previews</span>
+<span class="ef-c"># - implemented in a way that other modes can re-use</span>
+<span class="ef-c"># - taster of implementation details + link to your post</span>
+
+<span class="ef-c"># Shape: hype → what was wrong → what's new (crescendo) → how to use it →</span>
+<span class="ef-c"># how it works → why it was hard → what's next → thanks.</span>
+<span class="ef-c"># Karthik's post covers internals; repeat only the key points here and link.</span>
+
+<span class="ef-obb">#+begin_quote
+</span>Previews that look like they belong, appear almost instantly, never block Emacs, and update as you type
+<span class="ef-obe">#+end_quote
+</span>
+In <span style="color: #3b6ea8; font-weight: 700;">[[file:2021-07-31-citations.org][July 2021]]</span> I was thrilled to announce the long-awaited feature of citation
+syntax. Today I get to announce a feature a bit closer to my heart, a dramatic
+improvement to (actually a complete overhaul of) Org's system for generating LaTeX
+previews!
+
+<span class="ef-obb">#+begin_export html
+</span><span class="ef-ob">&lt;</span><span style="color: #29838d; background-color: #e0e0e0;">figure</span> <span style="color: #cb9aad; background-color: #e0e0e0;">style</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"margin: 0; min-width: 100%"</span><span class="ef-ob">&gt;
+  &lt;</span><span style="color: #29838d; background-color: #e0e0e0;">picture</span><span class="ef-ob">&gt;
+    &lt;</span><span style="color: #29838d; background-color: #e0e0e0;">source</span> <span style="color: #cb9aad; background-color: #e0e0e0;">srcset</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"figures/latex-preview-hero.png"</span> <span style="color: #cb9aad; background-color: #e0e0e0;">media</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"(prefers-reduced-motion: reduce)"</span><span class="ef-ob"> /&gt;
+    &lt;</span><span style="color: #29838d; background-color: #e0e0e0;">img</span> <span style="color: #cb9aad; background-color: #e0e0e0;">src</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"figures/latex-preview-hero.avif"</span> <span style="color: #cb9aad; background-color: #e0e0e0;">width</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"1920"</span> <span style="color: #cb9aad; background-color: #e0e0e0;">height</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"1140"</span> <span style="color: #cb9aad; background-color: #e0e0e0;">class</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"invertible"</span>
+         <span style="color: #cb9aad; background-color: #e0e0e0;">alt</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"Four Org buffers whose LaTeX fragments preview as they are typed: Calc results, a chemfig structure, TikZ Lissajous curves, and 192 inline fragments."</span><span class="ef-ob"> /&gt;
+  &lt;/</span><span style="color: #29838d; background-color: #e0e0e0;">picture</span><span class="ef-ob">&gt;
+&lt;/</span><span style="color: #29838d; background-color: #e0e0e0;">figure</span><span class="ef-ob">&gt;
+</span><span class="ef-obe">#+end_export
+</span>
+In late 2021, Karthik and I discussed our mutual dissatisfaction with the status
+quo, and in 2022 we embarked on a project to improve the experience by ripping out the
+entire LaTeX preview implementation, and building something better in its place.
+What started as a "brief" collaborative project has turned into a multi-year
+slog with a long tail of annoying issues, but after exchanging a bit over ten
+thousand messages and working on it for a few hundred hours, I think it's fair
+to say we've succeeded.
+
+Let me give you a tour of the new work; if you're interested in reading more of
+the details, see Karthik's companion post <span style="color: #3b6ea8; font-weight: 700;">[[https://karthinks.com/software/understanding-org-latex-preview/][Understanding Org's LaTeX preview
+system]]</span>.
+
+<span style="color: #3b6ea8; font-weight: nil; font-size: 1.25em">* The Status Quo</span>
+
+Many Org users are intimately familiar with LaTeX, and appreciate the close
+integration of LaTeX snippets in the Org syntax. I was one of the many
+mathematics students inspired by Gilles Castel's fantastic <span style="color: #3b6ea8; font-weight: 700;">[[https://web.archive.org/web/20261020234323/https://castel.dev/post/lecture-notes-1/][blog post]]</span>
+demonstrating his system for quick LaTeX snippets, and my quest to replicate the
+experience in Emacs and produce detailed notes led to my intimate acquaintance
+with the particularities of Org's LaTeX preview system, namely:
+
++ Every fragment is compiled individually in a fresh LaTeX process
++ Fragments are compiled sequentially, and block until all are complete
++ A file with <span style="color: #9e9e9e;">=#+startup: latexpreview=</span> will typically freeze Emacs for \(n(\text{fragments}) \times \frac{1}{4}\) seconds
++ There is a very loose connection between in-buffer text size and preview size
++ The baseline never matches
++ Colours are fixed at generation time, and so a theme change requires
+  clearing + regenerating all fragments
++ LaTeX errors (like <span style="color: #9e9e9e;">=\(1+1\foobar\)=</span>) are silently hidden
+
+Over the years other people have tried to improve the experience with config
+band-aids and packages that try to work around aspects of the design (most
+notably <span style="color: #3b6ea8; font-weight: 700;">[[https://github.com/io12/org-fragtog][org-fragtog]]</span> and <span style="color: #3b6ea8; font-weight: 700;">[[https://github.com/dandavison/xenops][xenops]]</span>). All of these approaches made severe
+compromises. Karthik wasn't happy with the status quo, and started showing you
+could make better compromises; I didn't like making compromises. So, we ended up
+throwing out the old implementation and starting from scratch 💥.
+
+<span style="color: #3b6ea8; font-weight: nil; font-size: 1.25em">* Shiny new features</span>
+<span style="color: #97365b; font-weight: 700; font-size: 1.15em">** Fragmented (async) generation</span>
+
+For LaTeX fragments to feel like an <span class="ef-i">/ambient/</span> part of the Org buffer, there are a
+few crucial things we need to get right. One of the most important is making
+sure that they never interrupt your interaction with the buffer.
+
+It is not at all pleasant for Emacs to freeze when opening a buffer, or with a
+package like <span style="color: #9e9e9e;">=org-fragtog=</span>, while typing. To prevent this from happening we've
+split the rendering pipeline up and execute every stage of it asynchronously,
+with bookkeeping to make sure we put the right overlay images in the right
+place, even when the buffer's changed during fragment generation.
+
+<span style="color: #b1b1b1;">#+caption:</span> <span class="ef-ob">The new fragment rendering pipeline</span>
+<span style="color: #b1b1b1;">#+attr_html: :class invertible :width 90%</span>
+<span style="color: #3b6ea8; font-weight: 700;">[[file:figures/olp-rendering-pipeline.svg]]</span>
+
+Karthik and I have done an extensive amount of profiling and tuning to minimise
+pauses during the pipeline to make sure you never feel Emacs hitch during
+preview generation.
+
+<span style="color: #97365b; font-weight: 700; font-size: 1.15em">** Fast fragments</span>
+
+Now, while it's nice for fragment previews to no longer hold up interacting with
+your Org buffer, it's also nice to see them quickly. We now go to great lengths
+to minimise the time it takes to see previews placed in the buffer. Details
+aside, a moderately mathematical document holding 660 fragments that used to
+take two and a half <span class="ef-i">/minutes/</span> to load now takes two <span class="ef-i">/seconds/</span>. In fact, the
+difference is even more pronounced as we order fragment generation based on the
+current buffer position, so you see nearby fragments stream in first.
+
+This new pipeline is built using <span style="color: #9e9e9e;">=org-async=</span>, a small declarative process-chaining
+library introduced as part of the patch set.
+
+<span class="ef-obb">#+begin_export html
+</span><span class="ef-ob">&lt;</span><span style="color: #29838d; background-color: #e0e0e0;">figure</span> <span style="color: #cb9aad; background-color: #e0e0e0;">style</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"margin: 1em 0; min-width: 100%"</span><span class="ef-ob">&gt;
+  &lt;</span><span style="color: #29838d; background-color: #e0e0e0;">video</span> <span style="color: #cb9aad; background-color: #e0e0e0;">width</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"100%"</span> <span style="color: #cb9aad; background-color: #e0e0e0;">height</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"auto"</span><span class="ef-ob"> muted </span><span style="color: #cb9aad; background-color: #e0e0e0;">class</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"invertible"</span><span class="ef-ob"> controls&gt;
+    &lt;</span><span style="color: #29838d; background-color: #e0e0e0;">source</span> <span style="color: #cb9aad; background-color: #e0e0e0;">src</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"figures/latex-preview-race.webm"</span> <span style="color: #cb9aad; background-color: #e0e0e0;">type</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"video/webm"</span><span class="ef-ob"> /&gt;
+  &lt;/</span><span style="color: #29838d; background-color: #e0e0e0;">video</span><span class="ef-ob">&gt;
+  &lt;</span><span style="color: #29838d; background-color: #e0e0e0;">figcaption</span><span class="ef-ob">&gt;
+    &lt;</span><span style="color: #29838d; background-color: #e0e0e0;">span</span> <span style="color: #cb9aad; background-color: #e0e0e0;">class</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"figure-number"</span><span class="ef-ob">&gt;Figure 2:&lt;/</span><span style="color: #29838d; background-color: #e0e0e0;">span</span><span class="ef-ob">&gt;
+    A race between the new and old preview systems with a short document.
+  &lt;/</span><span style="color: #29838d; background-color: #e0e0e0;">figcaption</span><span class="ef-ob">&gt;
+&lt;/</span><span style="color: #29838d; background-color: #e0e0e0;">figure</span><span class="ef-ob">&gt;
+</span><span class="ef-obe">#+end_export
+</span>
+We also make use of <span style="color: #9e9e9e;">=org-persist=</span> to cache fragments, which means that this \sim{}70\times
+performance improvement is <span class="ef-i">/the worst case/</span>. The fragments in a re-opened buffer
+should appear near-instantly (see <span style="color: #9e9e9e;">~org-latex-preview-cache~</span> and adjust
+<span style="color: #9e9e9e;">~org-latex-preview-persist-expiry~</span> to change how long old previews are kept for).
+
+<span style="color: #97365b; font-weight: 700; font-size: 1.15em">** Fitting in with a splash of colour</span>
+
+A particular pet peeve of mine has been that previewed fragments never quite
+looked at home in the Org buffer. The sizing was always a bit off, the
+positioning not quite right. We now collect the sizing information needed to
+harmonise the size of fragments' images with the buffer's text, producing
+perfect baseline alignment and matched sizing (depending on your LaTeX/Emacs
+font pairing, a minor correction may be needed; see
+<span style="color: #9e9e9e;">~org-latex-preview-appearance-options~</span>).
+
+<span class="ef-obb">#+begin_export html
+</span><span class="ef-ob">&lt;</span><span style="color: #29838d; background-color: #e0e0e0;">figure</span> <span style="color: #cb9aad; background-color: #e0e0e0;">style</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"margin: 1em 0"</span><span class="ef-ob">&gt;
+  &lt;</span><span style="color: #29838d; background-color: #e0e0e0;">div</span> <span style="color: #cb9aad; background-color: #e0e0e0;">class</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"image-slider invertible"</span><span class="ef-ob">&gt;
+    &lt;</span><span style="color: #29838d; background-color: #e0e0e0;">div</span><span class="ef-ob">&gt;&lt;</span><span style="color: #29838d; background-color: #e0e0e0;">img</span> <span style="color: #cb9aad; background-color: #e0e0e0;">src</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"figures/v-alignment-new.png"</span><span class="ef-ob">/&gt;&lt;/</span><span style="color: #29838d; background-color: #e0e0e0;">div</span><span class="ef-ob">&gt;
+    &lt;</span><span style="color: #29838d; background-color: #e0e0e0;">img</span> <span style="color: #cb9aad; background-color: #e0e0e0;">src</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"figures/v-alignment-old.png"</span><span class="ef-ob">/&gt;
+  &lt;/</span><span style="color: #29838d; background-color: #e0e0e0;">div</span><span class="ef-ob">&gt;
+  &lt;</span><span style="color: #29838d; background-color: #e0e0e0;">figcaption</span><span class="ef-ob">&gt;
+    &lt;</span><span style="color: #29838d; background-color: #e0e0e0;">span</span> <span style="color: #cb9aad; background-color: #e0e0e0;">class</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"figure-number"</span><span class="ef-ob">&gt;Figure 3:&lt;/</span><span style="color: #29838d; background-color: #e0e0e0;">span</span><span class="ef-ob">&gt;
+    Inline fragments with the new preview system (left) and the old (right),
+    with guides at the text baseline and x-height. Drag across the image to compare.
+  &lt;/</span><span style="color: #29838d; background-color: #e0e0e0;">figcaption</span><span class="ef-ob">&gt;
+&lt;/</span><span style="color: #29838d; background-color: #e0e0e0;">figure</span><span class="ef-ob">&gt;
+</span><span class="ef-obe">#+end_export
+</span>
+If you're wondering how much work this took to calibrate, just know that there's
+an unexplained 1.659393% correction factor needed to align the calculated and
+observed sizing.
+
+These fragments also follow the text scale and the current theme's foreground
+colour, helping them feel like part of the buffer's text.
+
+<span class="ef-obb">#+begin_export html
+</span><span class="ef-ob">&lt;</span><span style="color: #29838d; background-color: #e0e0e0;">figure</span> <span style="color: #cb9aad; background-color: #e0e0e0;">style</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"margin: 1em 0"</span><span class="ef-ob">&gt;
+  &lt;</span><span style="color: #29838d; background-color: #e0e0e0;">picture</span><span class="ef-ob">&gt;
+    &lt;</span><span style="color: #29838d; background-color: #e0e0e0;">source</span> <span style="color: #cb9aad; background-color: #e0e0e0;">srcset</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"figures/latex-preview-themes.png"</span> <span style="color: #cb9aad; background-color: #e0e0e0;">media</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"(prefers-reduced-motion: reduce)"</span><span class="ef-ob"> /&gt;
+    &lt;</span><span style="color: #29838d; background-color: #e0e0e0;">img</span> <span style="color: #cb9aad; background-color: #e0e0e0;">src</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"figures/latex-preview-themes.avif"</span> <span style="color: #cb9aad; background-color: #e0e0e0;">width</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"1152"</span> <span style="color: #cb9aad; background-color: #e0e0e0;">height</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"360"</span> <span style="color: #cb9aad; background-color: #e0e0e0;">class</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"invertible"</span>
+         <span style="color: #cb9aad; background-color: #e0e0e0;">alt</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"The same Org buffer of inline and display maths shown in several light themes, with the previews matching each theme's text colour."</span><span class="ef-ob"> /&gt;
+  &lt;/</span><span style="color: #29838d; background-color: #e0e0e0;">picture</span><span class="ef-ob">&gt;
+  &lt;</span><span style="color: #29838d; background-color: #e0e0e0;">figcaption</span><span class="ef-ob">&gt;
+    &lt;</span><span style="color: #29838d; background-color: #e0e0e0;">span</span> <span style="color: #cb9aad; background-color: #e0e0e0;">class</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"figure-number"</span><span class="ef-ob">&gt;Figure 4:&lt;/</span><span style="color: #29838d; background-color: #e0e0e0;">span</span><span class="ef-ob">&gt;
+    The same document across a few light themes; previews follow along without being regenerated.
+  &lt;/</span><span style="color: #29838d; background-color: #e0e0e0;">figcaption</span><span class="ef-ob">&gt;
+&lt;/</span><span style="color: #29838d; background-color: #e0e0e0;">figure</span><span class="ef-ob">&gt;
+</span><span class="ef-obe">#+end_export
+</span>
+<span style="color: #97365b; font-weight: 700; font-size: 1.15em">** Live updating too!</span>
+
+As part of the reworked preview engine, we wanted to subsume the functionality
+of <span style="color: #9e9e9e;">=org-fragtog=</span>, a package for intelligently toggling previews as you move into
+and out of them. This is provided with a new minor mode, <span style="color: #9e9e9e;">~org-latex-preview-mode~</span>.
+
+Thanks to the speed of the new pipeline, we realised that we could not just
+re-render an edited fragment rapidly, but re-render it <span class="ef-i">/during/</span> editing. When
+<span style="color: #9e9e9e;">~org-latex-preview-mode-display-live~</span> is non-nil, the preview mode also shows
+live-updating previews.
+
+<span class="ef-obb">#+begin_export html
+</span><span class="ef-ob">&lt;</span><span style="color: #29838d; background-color: #e0e0e0;">figure</span> <span style="color: #cb9aad; background-color: #e0e0e0;">style</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"margin: 0; min-width: 100%"</span><span class="ef-ob">&gt;
+  &lt;</span><span style="color: #29838d; background-color: #e0e0e0;">picture</span><span class="ef-ob">&gt;
+    &lt;</span><span style="color: #29838d; background-color: #e0e0e0;">source</span> <span style="color: #cb9aad; background-color: #e0e0e0;">srcset</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"figures/latex-preview-live.png"</span> <span style="color: #cb9aad; background-color: #e0e0e0;">media</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"(prefers-reduced-motion: reduce)"</span><span class="ef-ob"> /&gt;
+    &lt;</span><span style="color: #29838d; background-color: #e0e0e0;">img</span> <span style="color: #cb9aad; background-color: #e0e0e0;">src</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"figures/latex-preview-live.avif"</span> <span style="color: #cb9aad; background-color: #e0e0e0;">width</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"1152"</span> <span style="color: #cb9aad; background-color: #e0e0e0;">height</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"540"</span> <span style="color: #cb9aad; background-color: #e0e0e0;">class</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"invertible"</span>
+         <span style="color: #cb9aad; background-color: #e0e0e0;">alt</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"A matrix being extended in an Org buffer, with its rendered preview updating alongside the LaTeX source after each edit."</span><span class="ef-ob"> /&gt;
+  &lt;/</span><span style="color: #29838d; background-color: #e0e0e0;">picture</span><span class="ef-ob">&gt;
+  &lt;</span><span style="color: #29838d; background-color: #e0e0e0;">figcaption</span><span class="ef-ob">&gt;
+    &lt;</span><span style="color: #29838d; background-color: #e0e0e0;">span</span> <span style="color: #cb9aad; background-color: #e0e0e0;">class</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"figure-number"</span><span class="ef-ob">&gt;Figure 5:&lt;/</span><span style="color: #29838d; background-color: #e0e0e0;">span</span><span class="ef-ob">&gt;
+    Extending a matrix, with the preview following every edit.
+  &lt;/</span><span style="color: #29838d; background-color: #e0e0e0;">figcaption</span><span class="ef-ob">&gt;
+&lt;/</span><span style="color: #29838d; background-color: #e0e0e0;">figure</span><span class="ef-ob">&gt;
+</span><span class="ef-obe">#+end_export
+</span>
+This can be particularly helpful for catching mistakes early, since we now also
+indicate errors by applying the <span style="color: #9e9e9e;">=error=</span> face and putting the compilation log for
+the fragment in a tooltip.
+
+<span class="ef-obb">#+begin_export html
+</span><span class="ef-ob">&lt;</span><span style="color: #29838d; background-color: #e0e0e0;">figure</span> <span style="color: #cb9aad; background-color: #e0e0e0;">style</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"margin: 0; min-width: 100%"</span><span class="ef-ob">&gt;
+  &lt;</span><span style="color: #29838d; background-color: #e0e0e0;">picture</span><span class="ef-ob">&gt;
+    &lt;</span><span style="color: #29838d; background-color: #e0e0e0;">source</span> <span style="color: #cb9aad; background-color: #e0e0e0;">srcset</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"figures/latex-preview-errors.png"</span> <span style="color: #cb9aad; background-color: #e0e0e0;">media</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"(prefers-reduced-motion: reduce)"</span><span class="ef-ob"> /&gt;
+    &lt;</span><span style="color: #29838d; background-color: #e0e0e0;">img</span> <span style="color: #cb9aad; background-color: #e0e0e0;">src</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"figures/latex-preview-errors.avif"</span> <span style="color: #cb9aad; background-color: #e0e0e0;">width</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"1152"</span> <span style="color: #cb9aad; background-color: #e0e0e0;">height</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"150"</span> <span style="color: #cb9aad; background-color: #e0e0e0;">class</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"invertible"</span>
+         <span style="color: #cb9aad; background-color: #e0e0e0;">alt</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"A LaTeX fragment with a misspelt \sqrt command, whose preview is tinted red with the LaTeX error shown in a tooltip."</span><span class="ef-ob"> /&gt;
+  &lt;/</span><span style="color: #29838d; background-color: #e0e0e0;">picture</span><span class="ef-ob">&gt;
+  &lt;</span><span style="color: #29838d; background-color: #e0e0e0;">figcaption</span><span class="ef-ob">&gt;
+    &lt;</span><span style="color: #29838d; background-color: #e0e0e0;">span</span> <span style="color: #cb9aad; background-color: #e0e0e0;">class</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"figure-number"</span><span class="ef-ob">&gt;Figure 6:&lt;/</span><span style="color: #29838d; background-color: #e0e0e0;">span</span><span class="ef-ob">&gt;
+    A typo in &lt;</span><span style="color: #29838d; background-color: #e0e0e0;">code</span><span class="ef-ob">&gt;\sqrt&lt;/</span><span style="color: #29838d; background-color: #e0e0e0;">code</span><span class="ef-ob">&gt; tints the preview red, with LaTeX's error on hover.
+  &lt;/</span><span style="color: #29838d; background-color: #e0e0e0;">figcaption</span><span class="ef-ob">&gt;
+&lt;/</span><span style="color: #29838d; background-color: #e0e0e0;">figure</span><span class="ef-ob">&gt;
+</span><span class="ef-obe">#+end_export
+</span>
+<span style="color: #97365b; font-weight: 700; font-size: 1.15em">** Nicely numbered</span>
+
+Previously, every numbered equation was compiled in isolation, and so rendered
+as (1). With the work we've done on tracking fragments across the buffer, I
+couldn't resist the temptation to make equation numbering actually correspond
+to equation order.
+
+<span class="ef-obb">#+begin_export html
+</span><span class="ef-ob">&lt;</span><span style="color: #29838d; background-color: #e0e0e0;">figure</span> <span style="color: #cb9aad; background-color: #e0e0e0;">style</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"margin: 0; min-width: 100%"</span><span class="ef-ob">&gt;
+  &lt;</span><span style="color: #29838d; background-color: #e0e0e0;">picture</span><span class="ef-ob">&gt;
+    &lt;</span><span style="color: #29838d; background-color: #e0e0e0;">source</span> <span style="color: #cb9aad; background-color: #e0e0e0;">srcset</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"figures/latex-preview-numbering.png"</span> <span style="color: #cb9aad; background-color: #e0e0e0;">media</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"(prefers-reduced-motion: reduce)"</span><span class="ef-ob"> /&gt;
+    &lt;</span><span style="color: #29838d; background-color: #e0e0e0;">img</span> <span style="color: #cb9aad; background-color: #e0e0e0;">src</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"figures/latex-preview-numbering.avif"</span> <span style="color: #cb9aad; background-color: #e0e0e0;">width</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"1152"</span> <span style="color: #cb9aad; background-color: #e0e0e0;">height</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"340"</span> <span style="color: #cb9aad; background-color: #e0e0e0;">class</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"invertible"</span>
+         <span style="color: #cb9aad; background-color: #e0e0e0;">alt</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"A new numbered equation being inserted into an Org buffer, with the equation numbers after it updating to stay in order."</span><span class="ef-ob"> /&gt;
+  &lt;/</span><span style="color: #29838d; background-color: #e0e0e0;">picture</span><span class="ef-ob">&gt;
+  &lt;</span><span style="color: #29838d; background-color: #e0e0e0;">figcaption</span><span class="ef-ob">&gt;
+    &lt;</span><span style="color: #29838d; background-color: #e0e0e0;">span</span> <span style="color: #cb9aad; background-color: #e0e0e0;">class</span><span class="ef-ob">=</span><span style="color: #4f894c; background-color: #e0e0e0;">"figure-number"</span><span class="ef-ob">&gt;Figure 7:&lt;/</span><span style="color: #29838d; background-color: #e0e0e0;">span</span><span class="ef-ob">&gt;
+    Adding an equation renumbers those after it.
+  &lt;/</span><span style="color: #29838d; background-color: #e0e0e0;">figcaption</span><span class="ef-ob">&gt;
+&lt;/</span><span style="color: #29838d; background-color: #e0e0e0;">figure</span><span class="ef-ob">&gt;
+</span><span class="ef-obe">#+end_export
+</span>
+<span style="color: #97365b; font-weight: 700; font-size: 1.15em">** Equitable exports</span>
+
+The improvements in preview generation speed and sizing have been carried
+through to the export backends. In particular, HTML and ODT (via a new <span style="color: #9e9e9e;">=ox-mathml=</span>
+library) exports get the same numbered, aligned, and coloured images.
+
+<span style="color: #97365b; font-weight: 700; font-size: 1.15em">** Caveats</span>
+
+While I said earlier that I didn't want to make any compromises in the preview
+experience, unfortunately it hasn't been possible to enable that experience in
+all configurations. In particular:
++ Live previews need <span style="color: #9e9e9e;">=\\(...\\)=</span> / <span style="color: #9e9e9e;">=\\[...\\]=</span>, since <span style="color: #9e9e9e;">=$=</span> is ambiguous while typing
++ XeLaTeX and LuaLaTeX can't use precompiled preambles, so they're noticeably slower than pdfLaTeX
+
+<span style="color: #3b6ea8; font-weight: nil; font-size: 1.25em">* Getting it early</span>
+
+This overhaul will be part of the Org 10.0 release. Until then, you can get the
+shiny new goodness from the <span style="color: #9e9e9e;">=main=</span> branch (and help iron out the long tail of
+bugs!). If you've been enjoying <span style="color: #9e9e9e;">=org-fragtog=</span>, you can drop it in favour of the
+new <span style="color: #9e9e9e;">=org-latex-preview-mode=</span>.
+
+For the best experience, make sure you have <span style="color: #9e9e9e;">=mylatexformat.sty=</span> and <span style="color: #9e9e9e;">=preview.sty=</span>
+installed as part of your LaTeX distribution, along with <span style="color: #9e9e9e;">=dvisvgm=</span> 3.1+ or <span style="color: #9e9e9e;">=dvipng=</span>.
+
+In the future, you might even see this work be reused to bring previews to other
+modes like <span style="color: #9e9e9e;">~calc~</span> 😉
+
+<span style="color: #3b6ea8; font-weight: nil; font-size: 1.25em">* Thanks</span>
+
+This has been one of the longest-running and most ambitious Org contributions
+I've been part of, and seeing it finally land is enormously satisfying.
+
+A huge thank you to Karthik for going through this process with me, the
+pair-coding calls we've shared, and the heroic last-mile push to solve the
+last few issues blocking the merge. Ihor has also been fantastically patient with
+the review and integration process, and helped fix bugs we discovered in other
+parts of Org (mostly <span style="color: #9e9e9e;">=org-persist=</span>) along the way.
+
+The community of beta testers has been exemplary, providing a steady stream of
+bug reports and encouragement. It's been a joy to read messages like <span style="color: #3b6ea8; font-weight: 700;">[[https://list.orgmode.org/orgmode/m2r0qsrkde.fsf@me.com/][Rudolf's]]</span>:
+
+<span class="ef-obb">#+begin_quote
+</span>OMG! OMG! OMG!  So, this new system not only fixes the baseline problem,
+making LaTeX actually usable in HTML exports, but it also makes TikZ
+work?!  No more fiddling with LaTeX Org Babel?  No more per-image
+scaling headaches?  Now, that is INCREDIBLE!
+<span class="ef-obe">#+end_quote
+</span>
+</pre>
+  <body>
+</html>

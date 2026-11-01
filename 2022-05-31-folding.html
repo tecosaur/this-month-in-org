@@ -1,48 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2024-01-12 Fri 13:39 -->
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- 2026-11-01 Sun 19:13 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>May 2022</title>
-<meta name="author" content="TEC" />
-<meta name="generator" content="org mode" />
-<meta name="theme-color" content="#77aa99" />
-<meta property="og:type" content="article" />
-<meta property="og:title" content="May 2022" />
-<meta property="og:description" content="Folding more improvement into Org" />
-<meta property="og:image" content="https://blog.tecosaur.net/tmio/org-icon.png" />
-<meta property="og:image:type" content="image/png" />
-<meta property="og:image:width" content="464" />
-<meta property="og:image:height" content="512" />
-<meta property="og:image:alt" content="Org unicorn logo" />
-<meta property="og:article:author:first_name" content="TEC" />
-<meta property="og:article:published_time" content="2022-05-31T00:00:00+0800" />
-<meta property="og:article:modified_time" content="2022-06-02T00:52:03+0800" />
+<meta name="author" content="TEC">
+<meta name="generator" content="org mode">
+<meta name="theme-color" content="#77aa99">
+<meta property="og:type" content="article">
+<meta property="og:title" content="May 2022">
+<meta property="og:description" content="Folding more improvement into Org">
+<meta property="og:image" content="https://blog.tecosaur.net/tmio/org-icon.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="464">
+<meta property="og:image:height" content="512">
+<meta property="og:image:alt" content="Org unicorn logo">
+<meta property="og:article:author:first_name" content="TEC">
+<meta property="og:article:published_time" content="2022-05-31T00:00:00+0800">
+<meta property="og:article:modified_time" content="2022-06-02T00:52:03+0800">
 <link rel="alternate" type="application/atom+xml" title="This Month in Org" href="rss.xml" />
 <link rel="icon" type="image/ico" href="favicon.ico?v=3">
 <link rel="stylesheet" type="text/css" href="org-style.css">
 <link rel="stylesheet" type="text/css" href="blog.css">
 <script src="org-style.js"></script>
 <script>
-MathJax = {
-  chtml: {
-    scale: 1
-  },
-  svg: {
-    scale: 1,
-    fontCache: "global"
-  },
-  tex: {
-    tags: "%AUTONUMBER",
-    multlineWidth: "85%",
-    tagSide: "right",
-    tagIndent: ".8em"
-  }
-};
+  window.MathJax = {
+    loader: {
+      load: ['[tex]/mathtools'],
+    },
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em',
+      packages: {'[+]': ['mathtools']},
+      macros: {
+        RR: ['\\ifstrempty{#1}{\\mathbb{R}}{\\mathbb{R}^{#1}}', 1, ''],
+        NN: ['\\ifstrempty{#1}{\\mathbb{N}}{\\mathbb{N}^{#1}}', 1, ''],
+        ZZ: ['\\ifstrempty{#1}{\\mathbb{Z}}{\\mathbb{Z}^{#1}}', 1, ''],
+        QQ: ['\\ifstrempty{#1}{\\mathbb{Q}}{\\mathbb{Q}^{#1}}', 1, ''],
+        CC: ['\\ifstrempty{#1}{\\mathbb{C}}{\\mathbb{C}^{#1}}', 1, ''],
+        EE: '\\mathbb{E}',
+        Lap: '\\operatorname{\\mathcal{L}}',
+        Var: '\\operatorname{Var}',
+        Cor: '\\operatorname{Cor}',
+        E: '\\operatorname{E}',
+      },
+      mathtools: {
+        pairedDelimiters: {
+          abs: ['\\lvert', '\\rvert'],
+          norm: ['\\lVert', '\\rVert'],
+          ceil: ['\\lceil', '\\rceil'],
+          floor: ['\\lfloor', '\\rfloor'],
+          round: ['\\lfloor', '\\rceil'],
+        }
+      }
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
 </script>
-<script id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
 </head>
 <body>
 <input type='checkbox' id='theme-switch'><div id='page'><label id='switch-label' for='theme-switch'></label><div id="preamble" class="status">
@@ -56,7 +94,7 @@ MathJax = {
 </header>
 </div>
 <div id="content">
-<header class="page-header"><div class="page-meta">2022-05-31, <span class='acr'>TEC</span></div>
+<header class="page-header"><div class="page-meta">2022-05-31, <span class='acr'>tec</span></div>
 
 <h1 class="title">May 2022</h1>
 <p class="subtitle" role="doc-subtitle">Folding more improvement into Org</p>
@@ -70,7 +108,7 @@ this post will make up the absense of the last one 🙂.
 
 <p>
 Since it&rsquo;s been longer than I thought since the last standard post, we&rsquo;ve got a
-fair few commits to catch up on &#x2014; about 200. Most of these are miscellaneous
+fair few commits to catch up on &mdash; about 200. Most of these are miscellaneous
 minor improvements and bugfixes, but a few notable changes have arrived too.
 </p>
 <div id="outline-container-folding" class="outline-2">
@@ -94,14 +132,14 @@ kind enough to whip up some benchmarks.
 </p>
 
 
-<figure id="org7c32a15">
+<figure id="org6f9836f">
 <img src="figures/org-fold-perf-shifttab-contents.svg" alt="org-fold-perf-shifttab-contents.svg" class="invertible">
 
 <figcaption><span class="figure-number">Figure 1: </span>The scaling of <code>org-shifttab</code> showing file contents, as file size increases, with and without org-fold.</figcaption>
 </figure>
 
 
-<figure id="orgcaf3374">
+<figure id="org10cd8cb">
 <img src="figures/org-fold-perf-shifttab-showall.svg" alt="org-fold-perf-shifttab-showall.svg" class="invertible">
 
 <figcaption><span class="figure-number">Figure 2: </span>The scaling of <code>org-shifttab</code> showing the entire file, as file size increases, with and without org-fold.</figcaption>
@@ -182,13 +220,13 @@ Well this looks very promising<sup><a id="fnr.1" class="footref" href="#fn.1" ro
 </div></div>
 
 <p>
-To be clear, even the smallest file in this data &#x2014; a 1.1 Mb Org file with around
+To be clear, even the smallest file in this data &mdash; a 1.1 Mb Org file with around
 a thousand headings, is fairly large. So, it&rsquo;s unlikely you&rsquo;ll notice much of a
-difference with small&#x2013;medium files, but if you a few large+ files this should
+difference with small&ndash;medium files, but if you a few large+ files this should
 be a <i>fantastic</i> improvement. Once again, thanks Ihor!
 </p>
 
-<div class="warning" id="orgab1bff5">
+<div class="warning" id="org5e7bed7">
 <p>
 The change to text properties instead of overlays breaks a number of third party
 packages like <kbd>evil-search</kbd> and <kbd>consult</kbd>&rsquo;s <code>consult-line</code>.
@@ -225,10 +263,10 @@ exports in LaTeX.
 </p>
 
 
-<figure id="orgf152c8a">
+<figure id="org0bfe970">
 <img src="figures/engraved-faces-sample.png" alt="engraved-faces-sample.png" class="invertible">
 
-<figcaption><span class="figure-number">Figure 3: </span>A screenshot of an Org code block, exported to a <span class='acr'>PDF</span>, using <kbd>engrave-faces</kbd> and the <kbd>doom-one-light</kbd> theme.</figcaption>
+<figcaption><span class="figure-number">Figure 3: </span>A screenshot of an Org code block, exported to a <span class='acr'>pdf</span>, using <kbd>engrave-faces</kbd> and the <kbd>doom-one-light</kbd> theme.</figcaption>
 </figure>
 
 <p>
@@ -250,7 +288,7 @@ The theme can also be set on a per-block level using the LaTeX attribute
 </p>
 
 
-<figure id="orgeceade1">
+<figure id="orgfba9c57">
 <img src="figures/engraved-faces-multitheme.png" alt="engraved-faces-multitheme.png">
 
 <figcaption><span class="figure-number">Figure 4: </span>Seven code blocks exported to LaTeX, each with a different engrave-faces theme.</figcaption>
@@ -265,7 +303,7 @@ Here&rsquo;s what using these new capabilities looks like in practice.
 <a href='#-engraved-source,code--1'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
 <div class="org-src-container">
-<pre class="src src-org"><span class="org-org-document-info-keyword">#+title:</span> <span class="org-org-document-title">Engraving source blocks</span>
+<pre class="src src-org"><code><span class="org-org-document-info-keyword">#+title:</span> <span class="org-org-document-title">Engraving source blocks</span>
 <span class="org-org-meta-line">#+latex_engraved_theme: modus-operandi</span>
 
 <span class="org-org-block-begin-line">#+begin_src emacs-lisp</span>
@@ -276,12 +314,12 @@ Here&rsquo;s what using these new capabilities looks like in practice.
 <span class="org-org-block-begin-line">#+begin_src shell</span>
 <span class="org-org-block"><span class="org-builtin">echo</span></span><span class="org-org-block"> </span><span class="org-org-block"><span class="org-string">"This is shell code"</span></span>
 <span class="org-org-block-end-line">#+end_src</span>
-</pre>
+</code></pre>
 </div>
 </details>
 
 <p>
-This may well be the best syntax-highlighting solution available for <span class='acr'>PDF</span><small>s</small>/LaTeX
+This may well be the best syntax-highlighting solution available for <span class='acr'>pdf</span><small>s</small>/LaTeX
 currently available, but I am a tad biased 😛.
 </p>
 </div>
@@ -319,7 +357,7 @@ by setting the new header argument <kbd>:noweb-prefix no</kbd>.
 <a href='#toggle-noweb-prefix,code--1'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
 <div class="org-src-container">
-<pre class="src src-org"><span class="org-org-block-begin-line">#+begin_src emacs-lisp :noweb yes :noweb-prefix no</span>
+<pre class="src src-org"><code><span class="org-org-block-begin-line">#+begin_src emacs-lisp :noweb yes :noweb-prefix no</span>
 <span class="org-org-block">(</span><span class="org-org-block"><span class="org-keyword">setq</span></span><span class="org-org-block"> example-data </span><span class="org-org-block"><span class="org-string">"&lt;&lt;example&gt;&gt;"</span></span><span class="org-org-block">)</span>
 <span class="org-org-block-end-line">#+end_src</span>
 
@@ -338,7 +376,7 @@ Instead of
 <span class="org-org-block"><span class="org-string">(setq example-data "</span></span><span class="org-org-block">multiline</span>
 <span class="org-org-block">(</span><span class="org-org-block"><span class="org-keyword">setq</span></span><span class="org-org-block"> example-data </span><span class="org-org-block"><span class="org-string">"content"</span></span><span class="org-org-block">)</span>
 <span class="org-org-block-end-line">#+end_src</span>
-</pre>
+</code></pre>
 </div>
 </details>
 </div>
@@ -358,10 +396,10 @@ giving it a shot.
 </p>
 
 
-<figure id="org7ef011c">
+<figure id="org5da2093">
 <img src="figures/org-modern-readme-demo.gif" alt="org-modern-readme-demo.gif" class="invertible">
 
-<figcaption><span class="figure-number">Figure 5: </span>A demonstration of org-modern taken from the project <span class='acr'>README</span>.</figcaption>
+<figcaption><span class="figure-number">Figure 5: </span>A demonstration of org-modern taken from the project <span class='acr'>readme</span>.</figcaption>
 </figure>
 </div>
 </div>
@@ -373,10 +411,10 @@ giving it a shot.
 <li>Allow <i>any</i> command form in <code>org-attach-commands</code> (including keyboard macros)
 <span class="underline">Marco Wahl</span></li>
 <li>Allow <kbd>dest</kbd> in <code>org-list-send-item</code> to be a buffer position <span class="underline">Sacha Chua</span></li>
-<li>Improve <span class='acr'>CSL</span>-<span class='acr'>JSON</span> date handling in <kbd>oc-basic</kbd> <span class="underline">David Lukes</span></li>
-<li>Add <kbd>TOML</kbd> and <kbd>desktop</kbd> language aliases <span class="underline"><span class='acr'>TEC</span></span></li>
+<li>Improve <span class='acr'>csl</span>-<span class='acr'>json</span> date handling in <kbd>oc-basic</kbd> <span class="underline">David Lukes</span></li>
+<li>Add <kbd>TOML</kbd> and <kbd>desktop</kbd> language aliases <span class="underline"><span class='acr'>tec</span></span></li>
 <li>Speed up cached bibliography retrieval in <kbd>oc-basic</kbd> <span class="underline">Ihor Radchenko</span></li>
-<li>Allow setting PlantUML jar arguments <span class="underline">Ihor Radchenko</span></li>
+<li>Allow setting Plant<span style='margin-left:0.07em'></span><span class='acr'>uml</span> jar arguments <span class="underline">Ihor Radchenko</span></li>
 <li>Allow for customisation of property separators with <code>org-property-separators</code>
 <span class="underline">Tyler Grinn</span></li>
 <li>New <kbd>ox-latex</kbd> maintainer, Daniel Fleischer</li>

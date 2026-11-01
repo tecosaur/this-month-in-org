@@ -29,8 +29,8 @@ Folding
   improve Org’s performance with large files. It contains a number of
   key optimisations to improve speed, namely:
   ⁃ Deferring fontification of folded regions
-  ⁃ Using text properties (𝒪(n log n)) instead of overlays (𝒪(n^2)) for
-    folded regions
+  ⁃ Using text properties (\(\mathcal{O}(n \log n)\)) instead of
+    overlays (\(\mathcal{O}(n^2)\)) for folded regions
   ⁃ A collection of aggressive optimisations available under
     `org-fold-core--optimise-for-huge-buffers'
   ⁃ Convert text properties to overlays for `isearch' (which currently

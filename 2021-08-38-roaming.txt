@@ -122,8 +122,9 @@ Bugfixes
     are matched _DMG, Nicolas Goaziou_
   ⁃ Make `q' in `org-agenda' work even when `debug-on-error' is set
     _Lars Ingebrigtsen_
-  ⁃ Make `org-attach' work again for Emacs < 28 _Kyle Meyer, Marco Wahl_
-  ⁃ Make `rx' usage in `org-cite' files compatible with Emacs < 27.1
+  ⁃ Make `org-attach' work again for Emacs \(< 28\) _Kyle Meyer, Marco
+    Wahl_
+  ⁃ Make `rx' usage in `org-cite' files compatible with Emacs \(< 27.1\)
     _Max Nikulin_
   ⁃ Prevent `'' from becoming a LaTeX active char in exports using
     `oc-csl' _TEC_

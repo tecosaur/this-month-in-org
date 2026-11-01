@@ -112,7 +112,7 @@ summary {
     --switch-icon: "🌝";
     --switch-shadow-color: #fce477;
     --switch-text: "light mode?"; }
-    #theme-switch:checked ~ #page img.invertible, #theme-switch:checked ~ #page object[type="image/svg+xml"].invertible, #theme-switch:checked ~ #page img.org-latex {
+    #theme-switch:checked ~ #page img.invertible, #theme-switch:checked ~ #page video.invertible, #theme-switch:checked ~ #page object[type="image/svg+xml"].invertible, #theme-switch:checked ~ #page img.org-latex {
       filter: invert(90.5%) hue-rotate(180deg) sepia(1%); } }
 
 @media (prefers-color-scheme: dark) {
@@ -134,7 +134,7 @@ summary {
     --switch-icon: "🌚";
     --switch-shadow-color: #373d4e;
     --switch-text: "dark mode?"; }
-    #theme-switch:checked ~ #page img.invertible, #theme-switch:checked ~ #page object[type="image/svg+xml"].invertible, #theme-switch:checked ~ #page img.org-latex {
+    #theme-switch:checked ~ #page img.invertible, #theme-switch:checked ~ #page video.invertible, #theme-switch:checked ~ #page object[type="image/svg+xml"].invertible, #theme-switch:checked ~ #page img.org-latex {
       filter: invert(7%) sepia(4%); }
   #page {
     --accent: #002642;
@@ -154,7 +154,7 @@ summary {
     --switch-icon: "🌝";
     --switch-shadow-color: #fce477;
     --switch-text: "light mode?"; }
-    #page img.invertible, #page object[type="image/svg+xml"].invertible, #page img.org-latex {
+    #page img.invertible, #page video.invertible, #page object[type="image/svg+xml"].invertible, #page img.org-latex {
       filter: invert(90.5%) hue-rotate(180deg) sepia(1%); } }
 
 #theme-switch {
@@ -680,7 +680,7 @@ pre.src:empty {
 code {
   font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
   color: var(--code-foreground);
-  font-size: 14px;
+  font-size: 0.9em;
   padding: 0 2px; }
 
 kbd {
@@ -743,6 +743,21 @@ p + details.code {
 li p + details.code {
   margin-top: -5px; }
 
+.org-src-name {
+  text-align: center;
+  font-family: "Open Sans", sans;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-gray); }
+  .org-src-name .listing-number {
+    font-family: "Open Sans", sans;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 12px;
+    line-height: 1.9;
+    color: var(--text-light); }
+
 .example,
 .src {
   color: var(--code-foreground); }
@@ -771,6 +786,9 @@ li p + details.code {
   .src .org-rainbow-delimiters-depth-8,
   .src .org-rainbow-delimiters-depth-9 {
     color: #555555; }
+  .example .org-bold,
+  .src .org-bold {
+    font-weight: bold; }
   .example .org-string,
   .src .org-string {
     color: #2d9574; }
@@ -1107,7 +1125,7 @@ figure {
 img.zoomTarget:hover {
   cursor: default !important; }
 
-img, object[type="image/svg+xml"] {
+img, video, object[type="image/svg+xml"] {
   filter: invert(7%) sepia(4%);
   max-width: 100%; }
 

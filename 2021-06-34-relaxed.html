@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2024-01-12 Fri 13:39 -->
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- 2026-11-01 Sun 19:13 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>June 2021</title>
-<meta name="author" content="TEC" />
-<meta name="generator" content="org mode" />
-<meta name="theme-color" content="#77aa99" />
-<meta property="og:type" content="article" />
-<meta property="og:title" content="June 2021" />
-<meta property="og:description" content="A relaxed month" />
-<meta property="og:image" content="https://blog.tecosaur.net/tmio/org-icon.png" />
-<meta property="og:image:type" content="image/png" />
-<meta property="og:image:width" content="464" />
-<meta property="og:image:height" content="512" />
-<meta property="og:image:alt" content="Org unicorn logo" />
-<meta property="og:article:author:first_name" content="TEC" />
-<meta property="og:article:published_time" content="2021-07-04T00:00:00+0800" />
-<meta property="og:article:modified_time" content="2021-08-02T13:36:45+0800" />
+<meta name="author" content="TEC">
+<meta name="generator" content="org mode">
+<meta name="theme-color" content="#77aa99">
+<meta property="og:type" content="article">
+<meta property="og:title" content="June 2021">
+<meta property="og:description" content="A relaxed month">
+<meta property="og:image" content="https://blog.tecosaur.net/tmio/org-icon.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="464">
+<meta property="og:image:height" content="512">
+<meta property="og:image:alt" content="Org unicorn logo">
+<meta property="og:article:author:first_name" content="TEC">
+<meta property="og:article:published_time" content="2021-07-04T00:00:00+0800">
+<meta property="og:article:modified_time" content="2021-08-02T13:36:45+0800">
 <link rel="alternate" type="application/atom+xml" title="This Month in Org" href="rss.xml" />
 <link rel="icon" type="image/ico" href="favicon.ico?v=3">
 <link rel="stylesheet" type="text/css" href="org-style.css">
@@ -37,21 +37,21 @@
 </header>
 </div>
 <div id="content">
-<header class="page-header"><div class="page-meta">2021-06-34, <span class='acr'>TEC</span></div>
+<header class="page-header"><div class="page-meta">2021-06-34, <span class='acr'>tec</span></div>
 
 <h1 class="title">June 2021</h1>
 <p class="subtitle" role="doc-subtitle">A relaxed month</p>
 </header><p>
-The previous two months have been pretty good for Org development &#x2014; with many
+The previous two months have been pretty good for Org development &mdash; with many
 bug fixes and feature improvements. This month has been substantially slower
 than the last<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>, but that&rsquo;s not to say not much is happening: in fact, there are
 some rather nifty contributions lined up for the not-too-distant future and a
 certain long-awaited feature branch<sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup> is getting very close to merging 😀.
-You&rsquo;ll just have to stick around to hear about those in a future edition of <span class='acr'>TMIO</span> 😉.
+You&rsquo;ll just have to stick around to hear about those in a future edition of <span class='acr'>tmio</span> 😉.
 </p>
 
 
-<figure id="orgb975711">
+<figure id="orgac74887">
 <img src="figures/dilbert-zenos-paradox.jpg" alt="dilbert-zenos-paradox.jpg" class="invertible">
 
 <figcaption><span class="figure-number">Figure 1: </span>It&rsquo;s right around the corner, I swear!</figcaption>
@@ -61,15 +61,15 @@ You&rsquo;ll just have to stick around to hear about those in a future edition o
 <div class="outline-text-2" id="text-customise-reference-command">
 <p>
 Previously, whenever you linked to another part of your document (with or
-without giving it a name) &#x2014; for example with <kbd>[[Profound section]]</kbd> or similar
-&#x2014; when exporting to LaTeX Org would <i>always</i> use the <kbd>\ref</kbd> command.
+without giving it a name) &mdash; for example with <kbd>[[Profound section]]</kbd> or similar
+&mdash; when exporting to LaTeX Org would <i>always</i> use the <kbd>\ref</kbd> command.
 </p>
 
 
-<figure id="orgd059838">
+<figure id="org7f5b2ae">
 <img src="figures/org-latex-default-reference-to-sec.png" alt="org-latex-default-reference-to-sec.png" class="invertible">
 
-<figcaption><span class="figure-number">Figure 2: </span>A LaTeX export of a simple document with a reference to both the first and second section. &ldquo;2&rdquo; what? Section 2, Table 2, Figure 2, &#x2026;</figcaption>
+<figcaption><span class="figure-number">Figure 2: </span>A LaTeX export of a simple document with a reference to both the first and second section. &ldquo;2&rdquo; what? Section 2, Table 2, Figure 2, &hellip;</figcaption>
 </figure>
 
 <p>
@@ -79,7 +79,7 @@ I can set this to <kbd>\\cref{%s}</kbd> and then add <code class="src src-elisp"
 </p>
 
 
-<figure id="orgcfb6619">
+<figure id="orgc59c5db">
 <img src="figures/org-latex-cref-reference-to-sec.png" alt="org-latex-cref-reference-to-sec.png" class="invertible">
 
 <figcaption><span class="figure-number">Figure 3: </span>A LaTeX export of the same document, but now using <code>cleveref</code>. Note the change from &ldquo;1&rdquo; and &ldquo;2&rdquo; to &ldquo;Section 1&rdquo; and &ldquo;Section 2&rdquo;.</figcaption>
@@ -132,8 +132,8 @@ sufficient.
 <a href='#figures-tables,code--1'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
 <div class="org-src-container">
-<pre class="src src-org"><span class="org-org-link"><a href="file:figures/salvador-dali-persistence-of-memory.jpg">file:figures/salvador-dali-persistence-of-memory.jpg</a></span>
-</pre>
+<pre class="src src-org"><code><span class="org-org-link"><a href="file:figures/salvador-dali-persistence-of-memory.jpg">file:figures/salvador-dali-persistence-of-memory.jpg</a></span>
+</code></pre>
 </div>
 </details>
 <p>
@@ -144,8 +144,8 @@ When exported to LaTeX this will be expanded to
 <a href='#figures-tables,code--2'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
 <div class="org-src-container">
-<pre class="src src-LaTeX"><span class="org-keyword">\includegraphics</span>[width=.9<span class="org-keyword">\linewidth</span>]{<span class="org-builtin">figures/salvador-dali-persistence-of-memory.jpg</span>}
-</pre>
+<pre class="src src-LaTeX"><code><span class="org-font-latex-sedate">\includegraphics</span>[width=.9<span class="org-font-latex-sedate">\linewidth</span>]{figures/salvador-dali-persistence-of-memory.jpg}
+</code></pre>
 </div>
 </details>
 
@@ -158,9 +158,9 @@ generates a <i>proper</i> figure.
 <a href='#figures-tables,code--3'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
 <div class="org-src-container">
-<pre class="src src-org"><span class="org-org-meta-line">#+caption:</span> <span class="org-org-block">A famous surrealist painting</span>
+<pre class="src src-org"><code><span class="org-org-meta-line">#+caption:</span> <span class="org-org-block">A famous surrealist painting</span>
 <span class="org-org-link"><a href="file:figures/salvador-dali-persistence-of-memory.jpg">file:figures/salvador-dali-persistence-of-memory.jpg</a></span>
-</pre>
+</code></pre>
 </div>
 </details>
 <details id='figures-tables,code--4' class='code' open><summary><span class="lang">LaTeX</span></summary>
@@ -168,21 +168,21 @@ generates a <i>proper</i> figure.
 <a href='#figures-tables,code--4'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
 <div class="org-src-container">
-<pre class="src src-LaTeX"><span class="org-keyword">\begin</span>{<span class="org-function-name">figure</span>}[htbp]
-<span class="org-keyword">\centering</span>
-<span class="org-keyword">\includegraphics</span>[width=.9<span class="org-keyword">\linewidth</span>]{<span class="org-builtin">figures/salvador-dali-persistence-of-memory.jpg</span>}
-<span class="org-keyword">\caption</span>{A famous surrealist painting}
-<span class="org-keyword">\end</span>{<span class="org-function-name">figure</span>}
-</pre>
+<pre class="src src-LaTeX"><code><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">figure</span>}[htbp]
+<span class="org-font-latex-sedate"><span class="org-keyword">\centering</span></span>
+<span class="org-font-latex-sedate">\includegraphics</span>[width=.9<span class="org-font-latex-sedate">\linewidth</span>]{figures/salvador-dali-persistence-of-memory.jpg}
+<span class="org-font-latex-sedate"><span class="org-keyword">\caption</span></span>{<span class="org-type">A famous surrealist painting</span>}
+<span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">figure</span>}
+</code></pre>
 </div>
 </details>
 
 <p>
 As you may have guessed from the fact this works without a LaTeX-specific
-keyword, this works nicely in <span class='acr'>HTML</span> too 🙂.
+keyword, this works nicely in <span class='acr'>html</span> too 🙂.
 </p>
 
-<figure id="orgaebbf1c">
+<figure id="org067d143">
 <img src="figures/salvador-dali-persistence-of-memory.jpg" alt="salvador-dali-persistence-of-memory.jpg">
 
 <figcaption><span class="figure-number">Figure 4: </span>A famous surrealist painting</figcaption>
@@ -197,8 +197,8 @@ example, to set the image width I can simply add
 <a href='#figures-tables,code--5'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
 <div class="org-src-container">
-<pre class="src src-org"><span class="org-org-meta-line">#+attr_latex: :width 0.4\linewidth</span>
-</pre>
+<pre class="src src-org"><code><span class="org-org-meta-line">#+attr_latex: :width 0.4\linewidth</span>
+</code></pre>
 </div>
 </details>
 <p>
@@ -213,7 +213,7 @@ You can do the same with tables:
 <a href='#figures-tables,code--6'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
 <div class="org-src-container">
-<pre class="src src-org"><span class="org-org-meta-line">#+caption:</span> <span class="org-org-block">A selection of famous paintings by Salvador Dal&#237;</span>
+<pre class="src src-org"><code><span class="org-org-meta-line">#+caption:</span> <span class="org-org-block">A selection of famous paintings by Salvador Dal&#237;</span>
 <span class="org-org-table">| Year | Painting                   |</span>
 <span class="org-org-table">|------+----------------------------|</span>
 <span class="org-org-table">| 1931 | The persistence of memory  |</span>
@@ -221,7 +221,7 @@ You can do the same with tables:
 <span class="org-org-table">| 1837 | Metamorphosis of narcissus |</span>
 <span class="org-org-table">| 1952 | Galatea of the spheres     |</span>
 <span class="org-org-table">| 1966 | Tuna fishing               |</span>
-</pre>
+</code></pre>
 </div>
 </details>
 
@@ -236,30 +236,30 @@ package is loaded.
 <a href='#figures-tables,code--7'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
 <div class="org-src-container">
-<pre class="src src-LaTeX"><span class="org-keyword">\begin</span>{<span class="org-function-name">table</span>}[htbp]
-<span class="org-keyword">\caption</span>{A selection of famous paintings by Salvador Dal&#237;}
-<span class="org-keyword">\centering</span>
-<span class="org-keyword">\begin</span>{<span class="org-function-name">tabular</span>}{rl}
-<span class="org-keyword">\toprule</span>
-Year &amp; Painting<span class="org-warning">\\</span>
-<span class="org-keyword">\midrule</span>
-1931 &amp; The persistence of memory<span class="org-warning">\\</span>
-1937 &amp; Swans reflecting elephants<span class="org-warning">\\</span>
-1837 &amp; Metamorphosis of narcissus<span class="org-warning">\\</span>
-1952 &amp; Galatea of the spheres<span class="org-warning">\\</span>
-1966 &amp; Tuna fishing<span class="org-warning">\\</span>
-<span class="org-keyword">\bottomrule</span>
-<span class="org-keyword">\end</span>{<span class="org-function-name">tabular</span>}
-<span class="org-keyword">\end</span>{<span class="org-function-name">table</span>}
-</pre>
+<pre class="src src-LaTeX"><code><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">table</span>}[htbp]
+<span class="org-font-latex-sedate"><span class="org-keyword">\caption</span></span>{<span class="org-type">A selection of famous paintings by Salvador Dal&#237;</span>}
+<span class="org-font-latex-sedate"><span class="org-keyword">\centering</span></span>
+<span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tabular</span>}{rl}
+<span class="org-font-latex-sedate">\toprule</span>
+Year <span class="org-font-latex-warning">&amp;</span> Painting<span class="org-font-latex-warning">\\</span>
+<span class="org-font-latex-sedate">\midrule</span>
+1931 <span class="org-font-latex-warning">&amp;</span> The persistence of memory<span class="org-font-latex-warning">\\</span>
+1937 <span class="org-font-latex-warning">&amp;</span> Swans reflecting elephants<span class="org-font-latex-warning">\\</span>
+1837 <span class="org-font-latex-warning">&amp;</span> Metamorphosis of narcissus<span class="org-font-latex-warning">\\</span>
+1952 <span class="org-font-latex-warning">&amp;</span> Galatea of the spheres<span class="org-font-latex-warning">\\</span>
+1966 <span class="org-font-latex-warning">&amp;</span> Tuna fishing<span class="org-font-latex-warning">\\</span>
+<span class="org-font-latex-sedate">\bottomrule</span>
+<span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">tabular</span>}
+<span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">table</span>}
+</code></pre>
 </div>
 </details>
 
 <p>
-Org is nice and does the right thing<sup><span class='acr'>TM</span></sup> by including the caption at the top.
+Org is nice and does the right thing<sup><span class='acr'>tm</span></sup> by including the caption at the top.
 </p>
 
-<figure id="orgf70273a">
+<figure id="org1dce758">
 <img src="figures/org-table-to-latex-example.png" alt="org-table-to-latex-example.png" class="invertible">
 
 <figcaption><span class="figure-number">Figure 5: </span>Look ma, I put the caption in the right place.</figcaption>
@@ -294,12 +294,12 @@ This can easily be accomplished via the following snippet:
 <a href='#code-blocks,code--1'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(<span class="org-keyword">setq</span> org-latex-listings 'minted
+<pre class="src src-emacs-lisp"><code>(<span class="org-keyword">setq</span> org-latex-listings 'minted
       <span class="org-comment-delimiter">;; </span><span class="org-comment">as long as you have latexmk installed</span>
       org-latex-pdf-process
       '(<span class="org-string">"latexmk -f -pdf -%latex -shell-escape -interaction=nonstopmode -output-directory=%o %f"</span>))
 (add-to-list 'org-latex-packages-alist '(<span class="org-string">""</span> <span class="org-string">"minted"</span>))
-</pre>
+</code></pre>
 </div>
 </details>
 
@@ -329,10 +329,10 @@ text, to wrap some Org content in it one simply needs to write:
 <a href='#custom-environments,code--1'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
 <div class="org-src-container">
-<pre class="src src-org"><span class="org-org-block-begin-line">#+begin_warning</span>
+<pre class="src src-org"><code><span class="org-org-block-begin-line">#+begin_warning</span>
 Pay close attention! This is very important.
 <span class="org-org-block-end-line">#+end_warning</span>
-</pre>
+</code></pre>
 </div>
 </details>
 <p>
@@ -353,8 +353,8 @@ transferred to the generated LaTeX (this works with other formats too).
 <a href='#latex-escape-hatches,code--1'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
 <div class="org-src-container">
-<pre class="src src-org"><span class="org-org-meta-line">#+latex: \newpage</span>
-</pre>
+<pre class="src src-org"><code><span class="org-org-meta-line">#+latex: \newpage</span>
+</code></pre>
 </div>
 </details>
 
@@ -366,14 +366,14 @@ For larger snippets of LaTeX, there&rsquo;s always the export block.
 <a href='#latex-escape-hatches,code--2'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
 <div class="org-src-container">
-<pre class="src src-org"><span class="org-org-block-begin-line">#+begin_export latex</span>
-<span class="custom">\cleardoublepage</span>
-<span class="custom">\vfil</span>
-<span class="custom">\hfil This page is intentionally left blank \hfil</span>
-<span class="custom">\vfil</span>
-<span class="custom">\newpage</span>
+<pre class="src src-org"><code><span class="org-org-block-begin-line">#+begin_export latex</span>
+<span class="org-org-block"><span class="org-font-latex-sedate"><span class="org-font-latex-warning">\cleardoublepage</span></span></span>
+<span class="org-org-block"><span class="org-font-latex-sedate">\vfil</span></span>
+<span class="org-org-block"><span class="org-font-latex-sedate">\hfil</span></span><span class="org-org-block"> This page is intentionally left blank </span><span class="org-org-block"><span class="org-font-latex-sedate">\hfil</span></span>
+<span class="org-org-block"><span class="org-font-latex-sedate">\vfil</span></span>
+<span class="org-org-block"><span class="org-font-latex-sedate"><span class="org-font-latex-warning">\newpage</span></span></span>
 <span class="org-org-block-end-line">#+end_export</span>
-</pre>
+</code></pre>
 </div>
 </details>
 </div>
@@ -390,9 +390,9 @@ then all you need to do is use <kbd>#+latex_header:</kbd>.
 <a href='#preamble-content,code--1'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
 <div class="org-src-container">
-<pre class="src src-org"><span class="org-org-meta-line">#+latex_header: \newcommand{\RR}{\mathbb{R}}</span>
-<span class="org-org-meta-line">#+latex_header: \usepackage{svg} % so that <a href="file:*.svg">file:*.svg</a> works nicely</span>
-</pre>
+<pre class="src src-org"><code><span class="org-org-meta-line">#+latex_header: \newcommand{\RR}{\mathbb{R}}</span>
+<span class="org-org-meta-line">#+latex_header: \usepackage{svg} % so that <a href="file:*.svg">[[file:*.svg]]</a> works nicely</span>
+</code></pre>
 </div>
 </details>
 <p>
@@ -432,7 +432,7 @@ templates. Each template simply takes three components:
 </ol>
 
 <p>
-For example, I&rsquo;m quite a fan of the <a href="https://ctan.org/pkg/koma-script"><span class='acr'>KOMA</span>-script</a> family. Should I want to add a
+For example, I&rsquo;m quite a fan of the <a href="https://ctan.org/pkg/koma-script"><span class='acr'>koma</span>-script</a> family. Should I want to add a
 <kbd>kart</kbd> class (for: <b>k</b>oma <b>art</b>icle), I simply need to do something like the
 following:
 </p>
@@ -441,7 +441,7 @@ following:
 <a href='#preamble-content,code--2'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(add-to-list 'org-latex-classes
+<pre class="src src-emacs-lisp"><code>(add-to-list 'org-latex-classes
              '(<span class="org-string">"kart"</span> <span class="org-comment-delimiter">; </span><span class="org-comment">class name</span>
                <span class="org-string">"\\documentclass{scrartcl}"</span> <span class="org-comment-delimiter">; </span><span class="org-comment">preamble template</span>
                (<span class="org-string">"\\section{%s}"</span> . <span class="org-string">"\\section*{%s}"</span>) <span class="org-comment-delimiter">; </span><span class="org-comment">H1 translation</span>
@@ -449,7 +449,7 @@ following:
                (<span class="org-string">"\\subsubsection{%s}"</span> . <span class="org-string">"\\subsubsection*{%s}"</span>) <span class="org-comment-delimiter">; </span><span class="org-comment">H3...</span>
                (<span class="org-string">"\\paragraph{%s}"</span> . <span class="org-string">"\\paragraph*{%s}"</span>)
                (<span class="org-string">"\\subparagraph{%s}"</span> . <span class="org-string">"\\subparagraph*{%s}"</span>)))
-</pre>
+</code></pre>
 </div>
 </details>
 
@@ -467,8 +467,8 @@ preamble template in handled.
 <li><kbd>ox-koma-letter.el</kbd> has been brought into Org&rsquo;s main directory from the ) <kbd>contrib/</kbd> repo <span class="underline">Bastien Guerry</span></li>
 <li>Speed up publishing by using delayed hooks and temp buffers instead of finding
 files <span class="underline">Gustav Wikström</span></li>
-<li>Improve generated <span class='acr'>HTML</span> quality: prevent W3C warning and add some accessibility
-labels <span class="underline"><span class='acr'>TEC</span></span></li>
+<li>Improve generated <span class='acr'>html</span> quality: prevent W3C warning and add some accessibility
+labels <span class="underline"><span class='acr'>tec</span></span></li>
 <li>Make the behaviour of the &ldquo;goto variant&rdquo; of <code>org-refile</code> (<code>org-speed-commands</code>)
 less confusing <span class="underline">Marco Wahl</span></li>
 <li>Backport an update to the OpenDocument schema <span class="underline">Kyle Meyer</span></li>
@@ -500,8 +500,8 @@ As has been the writing of this blog post 😜
 </p></div></div>
 
 <div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
-First-class support for citations is coming to Org! With support for <a href="https://citationstyles.org/"><span class='acr'>CSL</span></a>
-and <a href="https://en.wikipedia.org/wiki/BibTeX">BibTeX</a>, with a number of citation processors 🙌. Soon<sup><span class='acr'>TM</span></sup>
+First-class support for citations is coming to Org! With support for <a href="https://citationstyles.org/"><span class='acr'>csl</span></a>
+and <a href="https://en.wikipedia.org/wiki/BibTeX">BibTeX</a>, with a number of citation processors 🙌. Soon<sup><span class='acr'>tm</span></sup>
 </p></div></div>
 
 <div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3" role="doc-backlink">3</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">

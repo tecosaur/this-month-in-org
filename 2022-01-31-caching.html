@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2024-01-12 Fri 13:39 -->
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- 2026-11-01 Sun 19:13 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>January 2022</title>
-<meta name="author" content="TEC" />
-<meta name="generator" content="org mode" />
-<meta name="theme-color" content="#77aa99" />
-<meta property="og:type" content="article" />
-<meta property="og:title" content="January 2022" />
-<meta property="og:description" content="Caching" />
-<meta property="og:image" content="https://blog.tecosaur.net/tmio/org-icon.png" />
-<meta property="og:image:type" content="image/png" />
-<meta property="og:image:width" content="464" />
-<meta property="og:image:height" content="512" />
-<meta property="og:image:alt" content="Org unicorn logo" />
-<meta property="og:article:author:first_name" content="TEC" />
-<meta property="og:article:published_time" content="2022-01-31T00:00:00+0800" />
-<meta property="og:article:modified_time" content="2024-01-11T15:57:56+0800" />
+<meta name="author" content="TEC">
+<meta name="generator" content="org mode">
+<meta name="theme-color" content="#77aa99">
+<meta property="og:type" content="article">
+<meta property="og:title" content="January 2022">
+<meta property="og:description" content="Caching">
+<meta property="og:image" content="https://blog.tecosaur.net/tmio/org-icon.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="464">
+<meta property="og:image:height" content="512">
+<meta property="og:image:alt" content="Org unicorn logo">
+<meta property="og:article:author:first_name" content="TEC">
+<meta property="og:article:published_time" content="2022-01-31T00:00:00+0800">
+<meta property="og:article:modified_time" content="2024-01-11T15:57:56+0800">
 <link rel="alternate" type="application/atom+xml" title="This Month in Org" href="rss.xml" />
 <link rel="icon" type="image/ico" href="favicon.ico?v=3">
 <link rel="stylesheet" type="text/css" href="org-style.css">
@@ -37,7 +37,7 @@
 </header>
 </div>
 <div id="content">
-<header class="page-header"><div class="page-meta">2022-01-31, <span class='acr'>TEC</span></div>
+<header class="page-header"><div class="page-meta">2022-01-31, <span class='acr'>tec</span></div>
 
 <h1 class="title">January 2022</h1>
 <p class="subtitle" role="doc-subtitle">Caching</p>
@@ -56,7 +56,7 @@ existed for a while now, but it used to be too buggy to be useful.
 <p>
 This is no longer the case! We&rsquo;re finally confident enough to flip
 <code>org-element-use-cache</code>&rsquo;s default from <code>nil</code> to <code>t</code>. I mentioned some of the
-improvements in <a href="2021-11-30-element.html#orgff73293">November</a>, however Ihor has continued to make strides with the
+improvements in <a href="2021-11-30-element.html#org62374b9">November</a>, however Ihor has continued to make strides with the
 cache.
 </p>
 
@@ -66,7 +66,7 @@ improved there are still lingering bugs which need to be chased down. If you
 only take one thing away from the post, I&rsquo;d like it to be this:
 </p>
 
-<div class="info" id="orgb17f9b2">
+<div class="info" id="org927df78">
 <div style="text-align: left; margin-left: 1rem;">
 <p>
 The cache is actively being developed now, for the first time in years, so:
@@ -76,18 +76,18 @@ The cache is actively being developed now, for the first time in years, so:
 <ul class="org-ul">
 <li>Note that the cache will <i>not</i> stuff anything up, at worst it will emit a warning</li>
 </ul></li>
-<li>If you see an org-cache warning <i>please</i> report it to the Org mailing list &#x2014;
+<li>If you see an org-cache warning <i>please</i> report it to the Org mailing list &mdash;
 <kbd>emacs-orgmode@gnu.org</kbd>.</li>
 </ol>
 
 <p>
 Cache warnings look something like this:
 </p>
-<details id='org8ad0fdd' class='code' open>
+<details id='orge860c80' class='code' open>
 <summary></summary>
-<div class='gutter'><a href='#org8ad0fdd'>#</a>
+<div class='gutter'><a href='#orge860c80'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
-<pre class="example" id="org8ad0fdd">
+<pre class="example" id="orge860c80">
 Warning (org-element-cache): org-element--cache: Unregistered buffer modifications detected. Resetting.
 If this warning appears regularly, please report the warning text to Org mode mailing list (M-x org-submit-bug-report).
 The buffer is: config.org
@@ -127,10 +127,10 @@ archiving headings.
 <h2 id="persisting-data">Persisting data<a aria-hidden="true" href="#persisting-data">#</a> </h2>
 <div class="outline-text-2" id="text-persisting-data">
 <p>
-In October, Ihor started work on <kbd>org-persist.el</kbd> &#x2014; a way to <i>persist</i> data across
+In October, Ihor started work on <kbd>org-persist.el</kbd> &mdash; a way to <i>persist</i> data across
 Emacs sessions. You may wonder what sort of data is being persisted. Well,
 initially org-persist was written to record variable values associated with
-particular files or buffers &#x2014; such as the org-element cache. This allows
+particular files or buffers &mdash; such as the org-element cache. This allows
 org-mode to load the cache for an Org file and avoid re-parsing much of the
 content.
 </p>
@@ -149,7 +149,7 @@ we can begin to see what this will allow for in the next highlight.
 <p>
 Ever linked to an online image like
 <kbd>https://orgmode.org/resources/img/org-mode-unicorn.svg</kbd> in an Org document, seen
-it look nice in the <span class='acr'>HTML</span> export and then be disappointed to just see a link in
+it look nice in the <span class='acr'>html</span> export and then be disappointed to just see a link in
 LaTeX? Well I have. Thankfully this is no longer the case though, thanks to a
 helper function <code>org-export-link-localise</code> that&rsquo;s just been added to <kbd>ox.el</kbd>.
 </p>
@@ -157,14 +157,14 @@ helper function <code>org-export-link-localise</code> that&rsquo;s just been add
 <p>
 Using <kbd>org-persist.el</kbd> this acquires a local copy of the remote resource and
 substitutes it in for the remote link. This is currently utilised in <kbd>ox-latex.el</kbd>
-to provide support for not just <span class='acr'>HTTPS</span> links but also tramp files!
+to provide support for not just <span class='acr'>https</span> links but also tramp files!
 </p>
 
 
-<figure id="org75c72b5">
+<figure id="org57d9f37">
 <img src="figures/ox-latex-image-link-localisation-demo.png" alt="ox-latex-image-link-localisation-demo.png" class="invertible">
 
-<figcaption><span class="figure-number">Figure 1: </span>A screenshot of a (compiled to <span class='acr'>PDF</span>) LaTeX export, with an <span class='acr'>HTTPS</span> and tramp images.</figcaption>
+<figcaption><span class="figure-number">Figure 1: </span>A screenshot of a (compiled to <span class='acr'>pdf</span>) LaTeX export, with an <span class='acr'>https</span> and tramp images.</figcaption>
 </figure>
 
 <p>
@@ -196,10 +196,10 @@ custom link types).
 <h2 id="bugfixes">Bugfixes<a aria-hidden="true" href="#bugfixes">#</a> </h2>
 <div class="outline-text-2" id="text-bugfixes">
 <ul class="org-ul">
-<li>Fix formatting in elisp-link prompt <span class="underline"><span class='acr'>TEC</span></span></li>
+<li>Fix formatting in elisp-link prompt <span class="underline"><span class='acr'>tec</span></span></li>
 <li>Correct some checkdoc and compiler warnings <span class="underline">Ihor Radchenko</span></li>
 <li>Correct signature for <code>org-element-at-point</code> <span class="underline">Mark A. Hershberger</span></li>
-<li>Fix the LaTeX macron accent in org-entities <span class="underline"><span class='acr'>TEC</span></span></li>
+<li>Fix the LaTeX macron accent in org-entities <span class="underline"><span class='acr'>tec</span></span></li>
 <li>Ignore narrowing when tangling a file <span class="underline">Nicolas Goaziou</span></li>
 </ul>
 </div>

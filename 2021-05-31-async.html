@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2024-01-12 Fri 13:39 -->
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- 2026-11-01 Sun 19:13 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>May 2021</title>
-<meta name="author" content="TEC" />
-<meta name="generator" content="org mode" />
-<meta name="theme-color" content="#77aa99" />
-<meta property="og:type" content="article" />
-<meta property="og:title" content="May 2021" />
-<meta property="og:description" content="Asynchronous code execution" />
-<meta property="og:image" content="https://blog.tecosaur.net/tmio/org-icon.png" />
-<meta property="og:image:type" content="image/png" />
-<meta property="og:image:width" content="464" />
-<meta property="og:image:height" content="512" />
-<meta property="og:image:alt" content="Org unicorn logo" />
-<meta property="og:article:author:first_name" content="TEC" />
-<meta property="og:article:published_time" content="2021-05-31T00:00:00+0800" />
-<meta property="og:article:modified_time" content="2021-12-01T17:35:20+0800" />
+<meta name="author" content="TEC">
+<meta name="generator" content="org mode">
+<meta name="theme-color" content="#77aa99">
+<meta property="og:type" content="article">
+<meta property="og:title" content="May 2021">
+<meta property="og:description" content="Asynchronous code execution">
+<meta property="og:image" content="https://blog.tecosaur.net/tmio/org-icon.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="464">
+<meta property="og:image:height" content="512">
+<meta property="og:image:alt" content="Org unicorn logo">
+<meta property="og:article:author:first_name" content="TEC">
+<meta property="og:article:published_time" content="2021-05-31T00:00:00+0800">
+<meta property="og:article:modified_time" content="2021-12-01T17:35:20+0800">
 <link rel="alternate" type="application/atom+xml" title="This Month in Org" href="rss.xml" />
 <link rel="icon" type="image/ico" href="favicon.ico?v=3">
 <link rel="stylesheet" type="text/css" href="org-style.css">
@@ -37,7 +37,7 @@
 </header>
 </div>
 <div id="content">
-<header class="page-header"><div class="page-meta">2021-05-31, <span class='acr'>TEC</span></div>
+<header class="page-header"><div class="page-meta">2021-05-31, <span class='acr'>tec</span></div>
 
 <h1 class="title">May 2021</h1>
 <p class="subtitle" role="doc-subtitle">Asynchronous code execution</p>
@@ -61,8 +61,8 @@ property, i.e.
 <a href='#async-babel-sessions,code--1'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
 <div class="org-src-container">
-<pre class="src src-org"><span class="org-org-meta-line">#+property: header-args:lang :session foo</span>
-</pre>
+<pre class="src src-org"><code><span class="org-org-meta-line">#+property: header-args:lang :session foo</span>
+</code></pre>
 </div>
 </details>
 
@@ -104,10 +104,10 @@ know about this feature so I&rsquo;ll take the opportunity to go over it 🙂.
 </p>
 
 <p>
-If you want to include a snippet of <span class='acr'>HTML</span>/LaTeX etc. when exporting to that
+If you want to include a snippet of <span class='acr'>html</span>/LaTeX etc. when exporting to that
 format, you can use a <kbd>#+begin_export html</kbd> block which simply includes the
 enclosed content verbatim. This doesn&rsquo;t really work for small inline snippets
-though &#x2014; but never fear, Org has <i>inline</i> export snippets which simply follow the
+though &mdash; but never fear, Org has <i>inline</i> export snippets which simply follow the
 form <code class="src src-org"><span class="org-comment">@@</span><span class="org-org-tag">format:</span>content<span class="org-comment">@@</span></code>. For example:
 </p>
 
@@ -116,20 +116,20 @@ form <code class="src src-org"><span class="org-comment">@@</span><span class="o
 <a href='#font-lock-inline,code--1'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
 <div class="org-src-container">
-<pre class="src src-org">I love using Org to export to <span class="org-comment">@@</span><span class="org-org-tag">html:</span>&lt;abbr title="Hyper Text Markup Language"&gt;HTML&lt;/abbr&gt;<span class="org-comment">@@</span> <span class="org-comment">@@</span><span class="org-org-tag">latex:</span>\LaTeX{}<span class="org-comment">@@</span> documents.
-</pre>
+<pre class="src src-org"><code>I love using Org to export to <span class="org-comment">@@</span><span class="org-org-tag">html:</span>&lt;abbr title="Hyper Text Markup Language"&gt;HTML&lt;/abbr&gt;<span class="org-comment">@@</span> <span class="org-comment">@@</span><span class="org-org-tag">latex:</span>\LaTeX{}<span class="org-comment">@@</span> documents.
+</code></pre>
 </div>
 </details>
 <p>
-which will export to <span class='acr'>HTML</span> as,
+which will export to <span class='acr'>html</span> as,
 </p>
 <details id='font-lock-inline,code--2' class='code' open><summary><span class="lang">HTML</span></summary>
 <div class='gutter'>
 <a href='#font-lock-inline,code--2'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
 <div class="org-src-container">
-<pre class="src src-html">I love using Org to export to &lt;<span class="org-function-name">abbr</span> <span class="org-variable-name">title</span>=<span class="org-string">"Hyper Text Markup Language"</span>&gt;HTML&lt;/<span class="org-function-name">abbr</span>&gt; documents.
-</pre>
+<pre class="src src-html"><code>I love using Org to export to &lt;<span class="org-function-name">abbr</span> <span class="org-variable-name">title</span>=<span class="org-string">"Hyper Text Markup Language"</span>&gt;HTML&lt;/<span class="org-function-name">abbr</span>&gt; documents.
+</code></pre>
 </div>
 </details>
 <p>
@@ -140,8 +140,8 @@ and then in LaTeX will be,
 <a href='#font-lock-inline,code--3'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
 <div class="org-src-container">
-<pre class="src src-LaTeX">I love using Org to export to <span class="org-keyword">\LaTeX</span>{} documents.
-</pre>
+<pre class="src src-LaTeX"><code>I love using Org to export to <span class="org-font-latex-sedate"><span class="org-keyword">\LaTeX</span></span>{} documents.
+</code></pre>
 </div>
 </details>
 <p>
@@ -174,7 +174,7 @@ results!
 <a href='#plot-your-results,code--1'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
 <div class="org-src-container">
-<pre class="src src-org"><span class="org-org-block-begin-line">#+begin_src python</span>
+<pre class="src src-org"><code><span class="org-org-block-begin-line">#+begin_src python</span>
 <span class="org-org-block"><span class="org-comment-delimiter"># </span></span><span class="org-org-block"><span class="org-comment">pretend this is some profound source of information</span></span>
 <span class="org-org-block"><span class="org-keyword">return</span></span><span class="org-org-block"> [[i, i</span><span class="org-org-block"><span class="org-operator">^</span></span><span class="org-org-block">3 </span><span class="org-org-block"><span class="org-operator">-</span></span><span class="org-org-block"> 4</span><span class="org-org-block"><span class="org-operator">*</span></span><span class="org-org-block">i</span><span class="org-org-block"><span class="org-operator">^</span></span><span class="org-org-block">2 </span><span class="org-org-block"><span class="org-operator">-</span></span><span class="org-org-block"> 2</span><span class="org-org-block"><span class="org-operator">*</span></span><span class="org-org-block">i] </span><span class="org-org-block"><span class="org-keyword">for</span></span><span class="org-org-block"> i </span><span class="org-org-block"><span class="org-keyword">in</span></span><span class="org-org-block"> </span><span class="org-org-block"><span class="org-builtin">range</span></span><span class="org-org-block">(5)]</span>
 <span class="org-org-block-end-line">#+end_src</span>
@@ -186,7 +186,7 @@ results!
 <span class="org-org-table">| 2 |  7 |</span>
 <span class="org-org-table">| 3 |  8 |</span>
 <span class="org-org-table">| 4 | 13 |</span>
-</pre>
+</code></pre>
 </div>
 </details>
 
@@ -217,7 +217,7 @@ blocks now support four new attributes:
 <a href='#fancier-latex-verses,code--1'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
 <div class="org-src-container">
-<pre class="src src-org"><span class="org-org-meta-line">#+latex_header: \usepackage{verse}</span>
+<pre class="src src-org"><code><span class="org-org-meta-line">#+latex_header: \usepackage{verse}</span>
 
 <span class="org-org-meta-line">#+latex: \poemtitle{A Dream Within a Dream}</span>
 <span class="org-org-meta-line">#+attr_latex: :lines 3 :center t</span>
@@ -249,12 +249,12 @@ O God! can I not save
 Is <span class="org-italic">/all/</span> that we see or seem
 But a dream within a dream?
 <span class="org-org-block-end-line">#+end_verse</span>
-</pre>
+</code></pre>
 </div>
 </details>
 
 
-<figure id="org4ac285e">
+<figure id="org06b4358">
 <img src="figures/org-verses-example-poem-dream-within-dream.png" alt="org-verses-example-poem-dream-within-dream.png" class="invertible">
 
 <figcaption><span class="figure-number">Figure 1: </span>A short Poe-em</figcaption>
@@ -266,7 +266,7 @@ But a dream within a dream?
 <div class="outline-text-2" id="text-easy-zero-width">
 <p>
 Occasionally you may run into annoyances when you wish to have two different Org
-elements right next to each other (no space) &#x2014; for example, <b>emph</b>asising part of
+elements right next to each other (no space) &mdash; for example, <b>emph</b>asising part of
 a word or putting a currency symbol immediately before an inline source block.
 </p>
 
@@ -281,9 +281,9 @@ config. Perhaps some of you might find this solution useful too 🙂.
 <a href='#easy-zero-width,code--1'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(define-key org-mode-map (kbd <span class="org-string">"M-SPC M-SPC"</span>)
+<pre class="src src-emacs-lisp"><code>(define-key org-mode-map (kbd <span class="org-string">"M-SPC M-SPC"</span>)
   (<span class="org-keyword">lambda</span> () (<span class="org-keyword">interactive</span>) (insert <span class="org-string">"\u200b"</span>)))
-</pre>
+</code></pre>
 </div>
 </details>
 
@@ -297,13 +297,13 @@ accomplish with an <a href="https://orgmode.org/manual/Advanced-Export-Configura
 <a href='#easy-zero-width,code--2'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(<span class="org-keyword">defun</span> <span class="org-function-name">+org-export-remove-zero-width-space</span> (text _backend _info)
+<pre class="src src-emacs-lisp"><code>(<span class="org-keyword">defun</span> <span class="org-function-name">+org-export-remove-zero-width-space</span> (text _backend _info)
   <span class="org-doc">"Remove zero width spaces from TEXT."</span>
   (<span class="org-keyword">unless</span> (org-export-derived-backend-p 'org)
     (replace-regexp-in-string <span class="org-string">"\u200b"</span> <span class="org-string">""</span> text)))
 
 (add-to-list 'org-export-filter-final-output-functions #'+org-export-remove-zero-width-space t)
-</pre>
+</code></pre>
 </div>
 </details>
 </div>
@@ -313,7 +313,7 @@ accomplish with an <a href="https://orgmode.org/manual/Advanced-Export-Configura
 <div class="outline-text-2" id="text-orgs-repos-have">
 <ul class="org-ul">
 <li><kbd>contrib/</kbd> is now at <a href="https://git.sr.ht/~bzg/org-contrib">https://git.sr.ht/~bzg/org-contrib</a> for Org 9.5, and it will
-be available on Non-<span class='acr'>GNU</span> <span class='acr'>ELPA</span>.</li>
+be available on Non-<span class='acr'>gnu</span> <span class='acr'>elpa</span>.</li>
 <li>Worg is now at <a href="https://git.sr.ht/~bzg/worg">https://git.sr.ht/~bzg/worg</a></li>
 <li>Org itself is moving to Savannah</li>
 </ul>
@@ -327,16 +327,16 @@ be available on Non-<span class='acr'>GNU</span> <span class='acr'>ELPA</span>.<
 <li>Make tangling faster <i>and</i> more robust <span class="underline">Sébastien Miquel</span></li>
 <li>Allow importing tables from files that <i>don&rsquo;t</i> end in <kbd>.txt</kbd>, <kbd>.tsv</kbd>, or <kbd>.csv</kbd>
 <span class="underline">Utkarsh Singh</span></li>
-<li>Add an <span class='acr'>SVG</span>-specific post-export <kbd>ob-plantuml</kbd> step:
+<li>Add an <span class='acr'>svg</span>-specific post-export <kbd>ob-plantuml</kbd> step:
 <code>org-babel-plantuml-svg-text-to-path</code> for running Inkscape text-to-path
 replacement <span class="underline">Nick Daly</span></li>
 <li>Refactor JavaScript in <kbd>ox-html</kbd> <span class="underline">Anthony Carrico</span></li>
 <li>Set <code>org-html-head-include-scripts</code> to <code>nil</code> by default (was <code>t</code>) <span class="underline">Bastien Guerry</span></li>
-<li>Remove LaTeX-environment type <kbd>#+results</kbd> <span class="underline"><span class='acr'>TEC</span></span></li>
+<li>Remove LaTeX-environment type <kbd>#+results</kbd> <span class="underline"><span class='acr'>tec</span></span></li>
 <li>New capture templates parameter, <kbd>:refile-targets</kbd> <span class="underline">Richard Garner</span></li>
 <li>Merge <code>org-speed-commands-default</code> and <code>org-speed-commands-user</code> into a new
 variable, <code>org-speed-commands</code> <span class="underline">Bastien Guerry</span></li>
-<li><span class='acr'>URL</span> recognition regex now handles up to two levels of nested brackets, and is
+<li><span class='acr'>url</span> recognition regex now handles up to two levels of nested brackets, and is
 tested <span class="underline">Ihor Radchenko</span></li>
 <li>Cache parent heading positions for faster movement up buffers. Significantly
 improves Org queries involving inheritance (~15-50x improvement) <span class="underline">Ihor Radchenko</span></li>
@@ -349,16 +349,16 @@ git repository <span class="underline">Juan Manuel Macías</span></li>
 <li>Add the <kbd>:environment</kbd> and <kbd>:options</kbd> LaTeX attributes to Quote blocks <span class="underline">Juan Manuel Macias</span></li>
 <li>Surround LaTeX <kbd>:options</kbd> attribute with curly braces when it contains square
 braces <span class="underline">Markus Huber</span></li>
-<li>Recognise the specific contributions of Kyle Meyer, Ihor Radchenko, and <span class='acr'>TEC</span> in
+<li>Recognise the specific contributions of Kyle Meyer, Ihor Radchenko, and <span class='acr'>tec</span> in
 the manual <span class="underline">Bastien Guerry</span></li>
 <li>Improve test coverage <span class="underline">Ihor Radchenko, Kévin Le Gouguec</span></li>
 <li>A bikeshed of new maintainers
 <ul class="org-ul">
-<li>New maintainer for <kbd>ox-html</kbd> &#x2014; <span class='acr'>TEC</span></li>
-<li>New <kbd>ob-ledger</kbd> maintainer &#x2014; Eric S Fraga</li>
-<li>New <kbd>ob-awk</kbd> maintainer &#x2014; Tyler Smith</li>
-<li>New <kbd>ob-calc</kbd> maintainer &#x2014; Tom Gillespie</li>
-<li>New <kbd>ob-asymptote</kbd> and <kbd>ob-coq</kbd> maintainer &#x2014; Luc Pellissier</li>
+<li>New maintainer for <kbd>ox-html</kbd> &mdash; <span class='acr'>tec</span></li>
+<li>New <kbd>ob-ledger</kbd> maintainer &mdash; Eric S Fraga</li>
+<li>New <kbd>ob-awk</kbd> maintainer &mdash; Tyler Smith</li>
+<li>New <kbd>ob-calc</kbd> maintainer &mdash; Tom Gillespie</li>
+<li>New <kbd>ob-asymptote</kbd> and <kbd>ob-coq</kbd> maintainer &mdash; Luc Pellissier</li>
 </ul></li>
 <li>General code cleanup <span class="underline">Bastien Guerry</span></li>
 <li>Documentation improvements <span class="underline">Bastien Guerry, Eric S Fraga, Samim Pezeshki,
@@ -383,14 +383,14 @@ Nicolar Goaziou</span></li>
 <li>Make tags filtering case-sensitive <span class="underline">Bastien Guerry</span></li>
 <li><kbd>C-c C-c</kbd> on a <kbd>#+plot</kbd> line can no longer cause an error <span class="underline">Bastien Guerry</span></li>
 <li>Ensure consistent position-translation in <kbd>org-src</kbd> by using point for position
-instead of column <span class="underline"><span class='acr'>TEC</span></span></li>
+instead of column <span class="underline"><span class='acr'>tec</span></span></li>
 <li>Prevent <kbd>ob-sql</kbd> from getting stuck on an error <span class="underline">Ivan Sokolov</span></li>
 <li>Make <kbd>org-columns</kbd> respect <code>global-visual-line-mode</code>, and simplify tag scanning
 <span class="underline">Nick Savage</span></li>
 <li>Don&rsquo;t fontify <kbd>::</kbd> in headlines as description item <span class="underline">Ihor Radchenko</span></li>
 <li>Handle a few corner-cases in <kbd>ob-R</kbd> <span class="underline">Jeremie Juste</span></li>
 <li>Many fixes to <code>org-indent-line</code> <span class="underline">Bastien Guerry</span></li>
-<li>Make headline numbering consistent with <span class='acr'>TOC</span> <span class="underline">Mingkai Dong</span></li>
+<li>Make headline numbering consistent with <span class='acr'>toc</span> <span class="underline">Mingkai Dong</span></li>
 <li>Allow read-only tangling again, and ensure the correct filename is used <span class="underline">Sébastien Miquel</span></li>
 <li>Fix edge case when converting durations to minutes <span class="underline">Nicolas Goaziou</span></li>
 <li>Make org-refile work in non-file-visiting buffers <span class="underline">Bastien Guerry</span></li>

@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2024-01-12 Fri 13:39 -->
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- 2026-11-01 Sun 19:13 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>November 2021</title>
-<meta name="author" content="TEC" />
-<meta name="generator" content="org mode" />
-<meta name="theme-color" content="#77aa99" />
-<meta property="og:type" content="article" />
-<meta property="og:title" content="November 2021" />
-<meta property="og:description" content="Elementary improvements" />
-<meta property="og:image" content="https://blog.tecosaur.net/tmio/org-icon.png" />
-<meta property="og:image:type" content="image/png" />
-<meta property="og:image:width" content="464" />
-<meta property="og:image:height" content="512" />
-<meta property="og:image:alt" content="Org unicorn logo" />
-<meta property="og:article:author:first_name" content="TEC" />
-<meta property="og:article:published_time" content="2021-11-30T00:00:00+0800" />
-<meta property="og:article:modified_time" content="2021-12-02T03:51:15+0800" />
+<meta name="author" content="TEC">
+<meta name="generator" content="org mode">
+<meta name="theme-color" content="#77aa99">
+<meta property="og:type" content="article">
+<meta property="og:title" content="November 2021">
+<meta property="og:description" content="Elementary improvements">
+<meta property="og:image" content="https://blog.tecosaur.net/tmio/org-icon.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="464">
+<meta property="og:image:height" content="512">
+<meta property="og:image:alt" content="Org unicorn logo">
+<meta property="og:article:author:first_name" content="TEC">
+<meta property="og:article:published_time" content="2021-11-30T00:00:00+0800">
+<meta property="og:article:modified_time" content="2021-12-02T03:51:15+0800">
 <link rel="alternate" type="application/atom+xml" title="This Month in Org" href="rss.xml" />
 <link rel="icon" type="image/ico" href="favicon.ico?v=3">
 <link rel="stylesheet" type="text/css" href="org-style.css">
@@ -37,18 +37,18 @@
 </header>
 </div>
 <div id="content">
-<header class="page-header"><div class="page-meta">2021-11-30, <span class='acr'>TEC</span></div>
+<header class="page-header"><div class="page-meta">2021-11-30, <span class='acr'>tec</span></div>
 
 <h1 class="title">November 2021</h1>
 <p class="subtitle" role="doc-subtitle">Elementary improvements</p>
 </header><p>
 With a 9.5 release highlight post last month, and the month before skipped, it&rsquo;s
-now <i>three months</i> since the last regular instalment of <span class='acr'>TMIO</span>. Let&rsquo;s get back up
+now <i>three months</i> since the last regular instalment of <span class='acr'>tmio</span>. Let&rsquo;s get back up
 to date on some of the latest happenings with Org.
 </p>
-<div id="outline-container-org-as-markup" class="outline-2">
-<h2 id="org-as-markup">Org as markup<a aria-hidden="true" href="#org-as-markup">#</a> </h2>
-<div class="outline-text-2" id="text-org-as-markup">
+<div id="outline-container-org-markup" class="outline-2">
+<h2 id="org-markup">Org as markup<a aria-hidden="true" href="#org-markup">#</a> </h2>
+<div class="outline-text-2" id="text-org-markup">
 <p>
 Looking at the wider ecosystem, it certainly appears that there is a growing
 appetite for Org markup outside org-mode. More projects like <a href="https://gohugo.io/">Hugo</a> and <a href="https://logseq.com/">Logseq</a>
@@ -63,7 +63,7 @@ project. Primarily lead by Nicolas Goaziou, there is an ongoing attempt to
 codify the Org syntax in a formal specification in the Worg document <a href="https://orgmode.org/worg/dev/org-syntax.html">Org Syntax
 (draft)</a>. Other members of the Org mailing list have directed their effort to
 creating non-elisp parsers for Org, both to help Org tools be created in other
-languages, and as put in the <span class='acr'>README</span> for Tom Gillespie&rsquo;s <a href="https://github.com/tgbugs/laundry">laundry</a> parser
+languages, and as put in the <span class='acr'>readme</span> for Tom Gillespie&rsquo;s <a href="https://github.com/tgbugs/laundry">laundry</a> parser
 </p>
 <blockquote>
 <p>
@@ -106,7 +106,7 @@ parser for <a href="https://julialang.org/">Julia</a> now exists 🎉.
 OrgMode.jl is a parser, but also intended as a general-purpose Org library for
 Julia. It&rsquo;s only been a week since development started, but it currently
 supports most of the <a href="https://orgmode.org/worg/dev/org-syntax.html">Org Syntax</a> draft specification, along with the rendering of
-a parsed Org <span class='acr'>AST</span> to a <span class='acr'>TTY</span> or back to Org text. A few utility functions are also
+a parsed Org <span class='acr'>ast</span> to a <span class='acr'>tty</span> or back to Org text. A few utility functions are also
 included, such as <code>filtermap</code> which operates similarly to <code>org-element-map</code>.
 </p>
 </div>
@@ -123,11 +123,11 @@ recently before say using the <kbd>csl</kbd> backend, one needed to
 <p>
 Now, if you have a line like:
 </p>
-<details id='org3915936' class='code' open>
+<details id='org6993aa0' class='code' open>
 <summary></summary>
-<div class='gutter'><a href='#org3915936'>#</a>
+<div class='gutter'><a href='#org6993aa0'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
-<pre class="example" id="org3915936">
+<pre class="example" id="org6993aa0">
 #+cite_export: FORMAT ...
 </pre>
 
@@ -165,11 +165,11 @@ the base/default mode set by <code>org-babel-tangle-default-file-mode</code>.</d
 <p>
 This means the following forms are now all equivalent:
 </p>
-<details id='org248fb38' class='code' open>
+<details id='orgb9622b9' class='code' open>
 <summary></summary>
-<div class='gutter'><a href='#org248fb38'>#</a>
+<div class='gutter'><a href='#orgb9622b9'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
-<pre class="example" id="org248fb38">
+<pre class="example" id="orgb9622b9">
 :tangle-mode (identity #o755)
 :tangle-mode o755
 :tangle-mode a=rx,u+w
@@ -190,20 +190,20 @@ made yet though.
 </p>
 </div>
 </div>
-<div id="outline-container-113526722" class="outline-2">
-<h2 id="113526722">Org element parser cache<a aria-hidden="true" href="#113526722">#</a> </h2>
-<div class="outline-text-2" id="text-113526722">
+<div id="outline-container-org-element-parser" class="outline-2">
+<h2 id="org-element-parser">Org element parser cache<a aria-hidden="true" href="#org-element-parser">#</a> </h2>
+<div class="outline-text-2" id="text-org-element-parser">
 <p>
 Ihor Radchenko has done some fantastic work over the past few months by
 overhauling parts of <kbd>org-element.el</kbd> to introduce extensive caching. <kbd>org-element</kbd>
 is <i>the</i> Org markup parser inside org-mode. This allows for a huge jump in speed,
 and also provides a few functions which fetch information without updating the
-cache &#x2014; allowing for particularly speedy lookups with a small sacrifice to
+cache &mdash; allowing for particularly speedy lookups with a small sacrifice to
 correctness guarantees on one or two properties in particular cases.
 </p>
 
 <p>
-Several org-mode <span class='acr'>API</span><small>s</small> now make use of the cache to dramatically improve speed.
+Several org-mode <span class='acr'>api</span><small>s</small> now make use of the cache to dramatically improve speed.
 Aside from improvements to typically slow operations, this is ideal for
 situations involving frequent buffer edits.
 It&rsquo;s no understatement to say that this work is transformative.
@@ -231,7 +231,7 @@ differently from plain text. Now though, they have a new dedicated face
 </p>
 
 
-<figure id="orgbac6797">
+<figure id="orgee13c10">
 <img src="figures/inline-src-block-fontified-vs-code.png" alt="inline-src-block-fontified-vs-code.png" class="doom-one">
 
 <figcaption><span class="figure-number">Figure 1: </span>Side-by-side comparison of a identical paragraphs using code (<code>~</code>) markup and inline source blocks (<code>src_</code>).</figcaption>
@@ -246,16 +246,16 @@ show the code that produces them.
 </p>
 
 
-<figure id="org039e913">
+<figure id="org79f316d">
 <img src="figures/inline-src-block-julia-demo.png" alt="inline-src-block-julia-demo.png" class="doom-one">
 
 <figcaption><span class="figure-number">Figure 2: </span>A paragraph making use of <i>evaluated</i> inline source blocks. Note that the <kbd>⟨11⟩</kbd> is a prettified results macro (using a potential future org-mode patch).</figcaption>
 </figure>
 </div>
 </div>
-<div id="outline-container-functions-as-default" class="outline-2">
-<h2 id="functions-as-default">Functions as default heading arguments<a aria-hidden="true" href="#functions-as-default">#</a> </h2>
-<div class="outline-text-2" id="text-functions-as-default">
+<div id="outline-container-functions-default-heading" class="outline-2">
+<h2 id="functions-default-heading">Functions as default heading arguments<a aria-hidden="true" href="#functions-default-heading">#</a> </h2>
+<div class="outline-text-2" id="text-functions-default-heading">
 <p>
 Matt Huszagh has contributed a patch that allows functions to be used as values
 for default header arguments. This is great for arguments where a sensible
@@ -266,16 +266,16 @@ default can be provided by evaluating a function on-the-fly.
 Consider for example the arguments required to produce a simple image using R
 with Babel:
 </p>
-<details id='functions-as-default,code--1' class='code' open><summary><span class="lang">Org mode</span></summary>
+<details id='functions-default-heading,code--1' class='code' open><summary><span class="lang">Org mode</span></summary>
 <div class='gutter'>
-<a href='#functions-as-default,code--1'>#</a>
+<a href='#functions-default-heading,code--1'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
 <div class="org-src-container">
-<pre class="src src-org"><span class="org-org-block-begin-line">#+begin_src R :results graphics file :file myimage.svg</span>
-<span class="org-org-block">library(ggplot2)</span>
+<pre class="src src-org"><code><span class="org-org-block-begin-line">#+begin_src R :results graphics file :file myimage.svg</span>
+<span class="org-org-block"><span class="org-ess-modifiers">library</span></span><span class="org-org-block">(ggplot2)</span>
 <span class="org-org-block">ggplot(mpg, aes(displ, hwy, colour = class)) + geom_point()</span>
 <span class="org-org-block-end-line">#+end_src</span>
-</pre>
+</code></pre>
 </div>
 </details>
 
@@ -290,18 +290,18 @@ First we must write a function that when run at the source block will give us a
 suitable file name, like so
 </p>
 
-<details id='functions-as-default,code--2' class='code' open><summary><span class="lang">Emacs Lisp</span></summary>
+<details id='functions-default-heading,code--2' class='code' open><summary><span class="lang">Emacs Lisp</span></summary>
 <div class='gutter'>
-<a href='#functions-as-default,code--2'>#</a>
+<a href='#functions-default-heading,code--2'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(<span class="org-keyword">defun</span> <span class="org-function-name">my/org-src-sha-to-image</span> ()
+<pre class="src src-emacs-lisp"><code>(<span class="org-keyword">defun</span> <span class="org-function-name">my/org-src-sha-to-image</span> ()
   (concat <span class="org-string">"generated-"</span>
           (substring
            (sha1 (org-element-property <span class="org-builtin">:value</span> (org-element-at-point)))
            0 8)
           <span class="org-string">".svg"</span>))
-</pre>
+</code></pre>
 </div>
 </details>
 
@@ -310,33 +310,33 @@ Let&rsquo;s also write a function to guess whether the source block produces a p
 checking if there&rsquo;s a plot command on the last line.
 </p>
 
-<details id='functions-as-default,code--3' class='code' open><summary><span class="lang">Emacs Lisp</span></summary>
+<details id='functions-default-heading,code--3' class='code' open><summary><span class="lang">Emacs Lisp</span></summary>
 <div class='gutter'>
-<a href='#functions-as-default,code--3'>#</a>
+<a href='#functions-default-heading,code--3'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(<span class="org-keyword">defun</span> <span class="org-function-name">my/org-src-guess-results-type</span> ()
+<pre class="src src-emacs-lisp"><code>(<span class="org-keyword">defun</span> <span class="org-function-name">my/org-src-guess-results-type</span> ()
   (<span class="org-keyword">if</span> (string-match-p <span class="org-string">"^ *</span><span class="org-string"><span class="org-regexp-grouping-backslash">\\</span></span><span class="org-string"><span class="org-regexp-grouping-construct">(?:</span></span><span class="org-string">plot</span><span class="org-string"><span class="org-regexp-grouping-backslash">\\</span></span><span class="org-string"><span class="org-regexp-grouping-construct">|</span></span><span class="org-string">ggplot</span><span class="org-string"><span class="org-regexp-grouping-backslash">\\</span></span><span class="org-string"><span class="org-regexp-grouping-construct">)</span></span><span class="org-string">([</span><span class="org-string"><span class="org-negation-char">^</span></span><span class="org-string">\n]+\n?\\'"</span>
                       (org-element-property <span class="org-builtin">:value</span> (org-element-at-point)))
       <span class="org-string">"graphics file"</span> <span class="org-string">"replace"</span>))
-</pre>
+</code></pre>
 </div>
 </details>
 
 <p>
 Then we can just use these function in place of a static value in the default
-header arguments variable &#x2014; that&rsquo;s all it takes.
+header arguments variable &mdash; that&rsquo;s all it takes.
 </p>
 
-<details id='functions-as-default,code--4' class='code' open><summary><span class="lang">Emacs Lisp</span></summary>
+<details id='functions-default-heading,code--4' class='code' open><summary><span class="lang">Emacs Lisp</span></summary>
 <div class='gutter'>
-<a href='#functions-as-default,code--4'>#</a>
+<a href='#functions-default-heading,code--4'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(<span class="org-keyword">setq</span> org-babel-default-header-args:R
+<pre class="src src-emacs-lisp"><code>(<span class="org-keyword">setq</span> org-babel-default-header-args:R
       '((<span class="org-builtin">:results</span> . my/org-src-guess-results-type)
         (<span class="org-builtin">:file</span> . my/org-src-sha-to-image)))
-</pre>
+</code></pre>
 </div>
 </details>
 
@@ -344,16 +344,16 @@ header arguments variable &#x2014; that&rsquo;s all it takes.
 This means for most cases we can now get away without any header arguments at all.
 </p>
 
-<details id='functions-as-default,code--5' class='code' open><summary><span class="lang">Org mode</span></summary>
+<details id='functions-default-heading,code--5' class='code' open><summary><span class="lang">Org mode</span></summary>
 <div class='gutter'>
-<a href='#functions-as-default,code--5'>#</a>
+<a href='#functions-default-heading,code--5'>#</a>
 <button title='Copy to clipboard' onclick='copyPreToClipbord(this)'>⎘</button></div>
 <div class="org-src-container">
-<pre class="src src-org"><span class="org-org-block-begin-line">#+begin_src R</span>
-<span class="org-org-block">library(ggplot2)</span>
+<pre class="src src-org"><code><span class="org-org-block-begin-line">#+begin_src R</span>
+<span class="org-org-block"><span class="org-ess-modifiers">library</span></span><span class="org-org-block">(ggplot2)</span>
 <span class="org-org-block">ggplot(mpg, aes(displ, hwy, colour = class)) + geom_point()</span>
 <span class="org-org-block-end-line">#+end_src</span>
-</pre>
+</code></pre>
 </div>
 </details>
 
@@ -381,7 +381,7 @@ accessible text width in the buffer.
 </p>
 
 
-<figure id="orgfb0a353">
+<figure id="org51f979f">
 <img src="figures/proportional-image-width.png" alt="proportional-image-width.png" class="doom-one">
 
 <figcaption><span class="figure-number">Figure 3: </span>A containing with an image set to half of the accesible text width</figcaption>
@@ -417,7 +417,7 @@ in. I do like having one less thing to remember 🙂.
 <h2 id="other-improvements">Other improvements<a aria-hidden="true" href="#other-improvements">#</a> </h2>
 <div class="outline-text-2" id="text-other-improvements">
 <ul class="org-ul">
-<li>Allow citations immediately following an item bullet <span class="underline"><span class='acr'>TEC</span></span></li>
+<li>Allow citations immediately following an item bullet <span class="underline"><span class='acr'>tec</span></span></li>
 <li>Allow citations immediately following a footnote definition <span class="underline">Nicolas Goaziou</span></li>
 <li>Update some obsolete function references <span class="underline">Marco Wahl</span></li>
 <li><kbd>ob-gnuplot</kbd> is now maintained by Ihor Radchenko</li>
@@ -434,13 +434,13 @@ in. I do like having one less thing to remember 🙂.
 the maintainer burden <span class="underline">Bastien</span></li>
 <li>Allow use of a function for <code>org-agenda-overriding-header</code> for dynamic headers
 <span class="underline">Christopher League</span></li>
-<li>Improve <kbd>org-protocol</kbd> <span class='acr'>URI</span> decoding <span class="underline">Max Nikulin</span></li>
-<li>Remove some obsolete LaTeX packages from the default packages list <span class="underline"><span class='acr'>TEC</span></span></li>
+<li>Improve <kbd>org-protocol</kbd> <span class='acr'>uri</span> decoding <span class="underline">Max Nikulin</span></li>
+<li>Remove some obsolete LaTeX packages from the default packages list <span class="underline"><span class='acr'>tec</span></span></li>
 <li>Add support for text and year citation styles to <kbd>oc-csl</kbd> <span class="underline">András Simonyi</span></li>
-<li>Produce lower-case keywords in <kbd>ox-org</kbd> <span class="underline"><span class='acr'>TEC</span></span></li>
+<li>Produce lower-case keywords in <kbd>ox-org</kbd> <span class="underline"><span class='acr'>tec</span></span></li>
 <li>Improve <kbd>ob-gnuplot</kbd> argument processing <span class="underline">Ihor Radchenko</span></li>
 <li>A collection of <kbd>oc-*</kbd> improvements <span class="underline">Nicholas Goaziou</span></li>
-<li>Support bare author citations in <kbd>oc-csl</kbd> <span class="underline"><span class='acr'>TEC</span></span></li>
+<li>Support bare author citations in <kbd>oc-csl</kbd> <span class="underline"><span class='acr'>tec</span></span></li>
 <li>Add <kbd>:options</kbd> LaTeX attribute to tables <span class="underline">Juan Manuel Macías</span></li>
 <li>Fix display error with <kbd>ob-plantuml</kbd> and html export <span class="underline">Su Lin</span></li>
 <li>More tests! <span class="underline">Ihor Radchenko</span></li>
@@ -455,7 +455,7 @@ Denton</span> <span class="underline">Thomas Dye</span> <span class="underline">
 <ul class="org-ul">
 <li>Fix heading insertion in a case where point is before any heading <span class="underline">Marco Wahl</span></li>
 <li>Prevent stringp error when tangling Org from an org-src edit buffer <span class="underline">Mark Dawson</span></li>
-<li>Prevent <code>indent-tabs-mode</code> from messing with justification in <span class='acr'>ASCII</span> exports
+<li>Prevent <code>indent-tabs-mode</code> from messing with justification in <span class='acr'>ascii</span> exports
 <span class="underline">Morgan Willcock</span></li>
 <li>Fix form of default Babel haskell header args <span class="underline">Ihor Radchenko</span></li>
 <li>No more duplicated logbook entries for repeated tasks <span class="underline">Ihor Radchenko</span></li>
